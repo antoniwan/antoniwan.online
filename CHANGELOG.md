@@ -2,6 +2,19 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-10-07
+
+### Added
+
+- About: an "At work" section on the job at Stanley Black & Decker: product architecture, the platform, design systems, AI prototypes, and people and practice. The areas live in `src/data/work.ts`, and `/llms.txt` lists them too.
+- The Writing list on Home refreshes itself. The page fetches `https://notes.antoniwan.online/latest.json` (about 4 KB, Notes 6.31.0) and redraws the list when Notes has published since the last build. The built list stays as the version without JavaScript.
+
+### Changed
+
+- Profiles on Home are icon buttons, not text pills. Each keeps its name for screen readers and as a tooltip. The marks are from Simple Icons (CC0).
+- Home: the hero says the job in one line. The Work section comes right after Writing and lists the day job and the company. The separate Consulting link is gone; the hero callout still points there.
+- The build reads Notes' small `latest.json`, not the full `feed.json` (over 1 MB).
+
 ## [1.1.1] - 2026-10-07
 
 ### Changed

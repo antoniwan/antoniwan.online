@@ -3,6 +3,7 @@ import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { principles } from '../data/principles';
 import { projects } from '../data/projects';
+import { workAreas } from '../data/work';
 
 /** `/llms.txt` (https://llmstxt.org): this site for AI agents, built from the same data as the pages. */
 export const GET: APIRoute = () => {
@@ -17,7 +18,7 @@ export const GET: APIRoute = () => {
 
 > ${SITE.tagline}
 
-${SITE.name} (${SITE.handle}) is a technical program manager at Stanley Black & Decker, where he does product architecture for SBD Digital. He is a former CTO who still writes code, writes essays at Notes, builds small web things, and makes music. Born in Puerto Rico, based in Florida, a father.
+${SITE.name} (${SITE.handle}) is a technical program manager at Stanley Black & Decker and a founding member of SBD Digital, the team behind its websites and apps. He is a former CTO who still writes code, writes essays at Notes, builds small web things, and makes music. Born in Puerto Rico, based in Florida, a father.
 
 This is his personal site: who he is, how he works, what he builds, and where else he is. It has no contact form. For consulting or any business matter, go to ${SITE.company.name}, his company. His personal email is ${SITE.email}.
 
@@ -26,7 +27,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 ## Site
 
 - [Home](${url('/')}): who he is, the latest essays, and every link
-- [About](${url('/about')}): background, how he works, principles, and the company
+- [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works, principles, and the company
 - [Code](${url('/code')}): ${projects.map((p) => p.title).join(', ')}
 
 ## Writing
@@ -36,6 +37,12 @@ ${list('writing')
   .split('\n')
   .filter((line) => !line.startsWith('- [Notes]'))
   .join('\n')}
+
+## Work at Stanley Black & Decker
+
+In his words:
+
+${workAreas.map((area) => `- ${area.title}: ${area.body}`).join('\n')}
 
 ## Company
 

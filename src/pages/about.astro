@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { SITE } from '../config/site';
 import { principles } from '../data/principles';
+import { workAreas } from '../data/work';
 ---
 
 <Base
@@ -13,12 +14,28 @@ import { principles } from '../data/principles';
       <span class="eyebrow">About</span>
       <h1>Who I am</h1>
       <p class="hero__intro">
-        I'm Antonio Rodríguez Martínez. Technical Program Manager at Stanley Black &amp; Decker, and a
-        former CTO. In practice I do product architecture for SBD Digital: specs, user journeys,
-        acceptance criteria, and holding the shape of a product across services while a lot of teams
-        build pieces of it. I still write code.
+        I'm Antonio Rodríguez Martínez. Technical program manager at Stanley Black &amp; Decker, and a
+        former CTO. I still write code.
       </p>
     </div>
+  </section>
+
+  <section class="section prose" id="work">
+    <h2>At work</h2>
+    <p>
+      I'm a founding member of SBD Digital, the team behind Stanley Black &amp; Decker's websites and
+      apps. I joined in 2021. The title has changed a few times; the work goes where the most important
+      problem is.
+    </p>
+    <ul class="areas">
+      {
+        workAreas.map((area) => (
+          <li>
+            <strong>{area.title}.</strong> {area.body}
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="section prose" id="background">

@@ -8,7 +8,8 @@ import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { latestNotes } from '../utils/notes';
 
-const notes = await latestNotes(5);
+const NOTE_COUNT = 5;
+const notes = await latestNotes(NOTE_COUNT);
 const writing = sections.find((section) => section.id === 'writing');
 const medium = writing?.items.find((item) => item.label === 'Medium');
 const rest = sections.filter((section) => section.id !== 'writing');
@@ -29,10 +30,10 @@ const rest = sections.filter((section) => section.id !== 'writing');
       <h1>{SITE.name}</h1>
       <p class="hero__tagline">{SITE.tagline}</p>
       <p class="hero__intro">
-        I'm Antonio, <strong>{SITE.handle}</strong> on most of the internet. I'm a technical program
-        manager at Stanley Black &amp; Decker, where I do product architecture for SBD Digital. I write
-        essays at <a href={SITE.notesUrl}>Notes</a>, build small web things, and make music. Boricua in
-        Florida, and a father, which is where most of the writing comes from.
+        I'm Antonio, <strong>{SITE.handle}</strong> on most of the internet. By day I'm a technical
+        program manager at Stanley Black &amp; Decker. I write essays at <a href={SITE.notesUrl}>Notes</a>,
+        build small web things, and make music. Boricua in Florida, and a father, which is where most of
+        the writing comes from.
       </p>
       <div class="callout">
         <p>
@@ -55,16 +56,7 @@ const rest = sections.filter((section) => section.id !== 'writing');
         </>
       )}
     </p>
-    {
-      notes.length > 0 ? (
-        <NoteList notes={notes} />
-      ) : (
-        <p>
-          The latest list could not be loaded when this page was built. Read the essays at{' '}
-          <a href={SITE.notesUrl}>notes.antoniwan.online</a>.
-        </p>
-      )
-    }
+    <NoteList notes={notes} count={NOTE_COUNT} />
     <p style="margin-top:1.25rem"><a href={`${SITE.notesUrl}/everything`}>Every post</a></p>
   </section>
 

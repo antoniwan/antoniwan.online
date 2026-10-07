@@ -1,22 +1,75 @@
 ---
 import type { Note } from '../utils/notes';
 import { formatDate } from '../utils/notes';
+import { SITE } from '../config/site';
 
 interface Props {
   notes: Note[];
+  count: number;
 }
 
-const { notes } = Astro.props;
+const { notes, count } = Astro.props;
 ---
 
-<ul class="essays">
+<div data-notes>
   {
-    notes.map((note) => (
-      <li>
-        <time datetime={note.date.toISOString()}>{formatDate(note.date)}</time>
-        <a href={note.url}>{note.title}</a>
-        {note.summary && <p>{note.summary}</p>}
-      </li>
-    ))
+    notes.length > 0 ? (
+      <ul class="essays">
+        {notes.map((note) => (
+          <li>
+            <time datetime={note.date.toISOString()}>{formatDate(note.date)}</time>
+            <a href={note.url}>{note.title}</a>
+            {note.summary && <p>{note.summary}</p>}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>
+        The latest list could not be loaded when this page was built. Read the essays at{' '}
+        <a href={SITE.notesUrl}>notes.antoniwan.online</a>.
+      </p>
+    )
   }
-</ul>
+</div>
+
+<script is:inline define:vars={{ feedUrl: SITE.notesLatest, count }}>
+  // The list above is from the last build. Fetch the newest posts and redraw it
+  // only if Notes has published since, so the list never needs a rebuild.
+  (() => {
+    const box = document.querySelector('[data-notes]');
+    if (!box || !window.fetch) return;
+    const shown = [...box.querySelectorAll('.essays a')].map((a) => a.href).join(' ');
+    fetch(feedUrl)
+      .then((response) => (response.ok ? response.json() : null))
+      .then((feed) => {
+        const items = (feed?.items ?? []).slice(0, count);
+        if (!items.length || items.map((item) => item.url).join(' ') === shown) return;
+        const list = document.createElement('ul');
+        list.className = 'essays';
+        for (const item of items) {
+          const li = document.createElement('li');
+          const date = new Date(item.date_published);
+          const time = document.createElement('time');
+          time.dateTime = date.toISOString();
+          time.textContent = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            timeZone: 'UTC',
+          });
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.textContent = item.title;
+          li.append(time, link);
+          if (item.summary) {
+            const summary = document.createElement('p');
+            summary.textContent = item.summary;
+            li.append(summary);
+          }
+          list.append(li);
+        }
+        box.replaceChildren(list);
+      })
+      .catch(() => {});
+  })();
+</script>

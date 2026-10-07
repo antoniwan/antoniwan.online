@@ -1,5 +1,6 @@
 ---
 import type { LinkSection } from '../data/links';
+import { icons } from '../data/icons';
 
 interface Props {
   section: LinkSection;
@@ -12,12 +13,17 @@ const rel = (me?: boolean) => (me ? 'me' : undefined);
 <section class="section" id={section.id} aria-labelledby={`${section.id}-title`}>
   <h2 id={`${section.id}-title`}>{section.title}</h2>
   {
-    section.layout === 'chips' ? (
-      <ul class="chips">
+    section.layout === 'icons' ? (
+      <ul class="icons">
         {section.items.map((item) => (
           <li>
-            <a href={item.href} rel={rel(item.me)}>
-              {item.label}
+            <a href={item.href} rel={rel(item.me)} title={item.label}>
+              {item.icon && (
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d={icons[item.icon]} />
+                </svg>
+              )}
+              <span class="visually-hidden">{item.label}</span>
             </a>
           </li>
         ))}
