@@ -38,11 +38,23 @@ const person = {
   birthPlace: { '@type': 'Place', name: 'Puerto Rico', sameAs: 'https://www.wikidata.org/wiki/Q1183' },
   sameAs,
 };
+// On Home only: the site's name, which Google can show above its results.
+const website = {
+  '@type': 'WebSite',
+  '@id': `${SITE.url}/#website`,
+  name: SITE.name,
+  alternateName: [SITE.handle, SITE.plainName],
+  url: `${SITE.url}/`,
+  inLanguage: 'en',
+  publisher: { '@id': SITE.personId },
+};
 const structuredData = {
   '@context': 'https://schema.org',
-  '@graph': profile
-    ? [{ '@type': 'ProfilePage', '@id': canonical, url: canonical, mainEntity: { '@id': SITE.personId } }, person]
-    : [person],
+  '@graph': [
+    ...(cleanPath === '/' ? [website] : []),
+    ...(profile ? [{ '@type': 'ProfilePage', '@id': canonical, url: canonical, mainEntity: { '@id': SITE.personId } }] : []),
+    person,
+  ],
 };
 ---
 

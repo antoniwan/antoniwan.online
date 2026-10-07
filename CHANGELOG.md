@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.6.0] - 2026-10-07
+
+### Added
+
+- Home carries a `WebSite` node (`/#website`): the site's name, "Antonio Rodríguez Martínez", with antoniwan and the unaccented name as alternates. Google can show it above the site's results instead of the bare domain. Its publisher is the Person ID.
+
 ## [1.5.0] - 2026-10-07
 
 ### Added
