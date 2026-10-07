@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../config/site';
@@ -78,5 +79,6 @@ const person = {
       <slot />
     </main>
     <Footer />
+    <Analytics />
   </body>
 </html>
