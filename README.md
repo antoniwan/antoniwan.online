@@ -2,7 +2,8 @@
 
 The personal site of Antonio Rodríguez Martínez: who he is, how he works, what he builds, and where else he is. It replaced the LinksForest link page and builds.software on October 7, 2026.
 
-- Astro and plain CSS. The client uses no UI framework. One local Chivo font supplies headings and body text. Monospace details use system fonts.
+- Astro and plain CSS. The client uses no UI framework. Local Chivo headings pair with IBM Plex Sans body text. Monospace details use system fonts.
+- Quasicrystal shaders appear behind the header and footer. They pause offscreen, respect reduced motion, and have a footer pause control.
 - The layout starts with one column on phones. Wider screens use two columns. The circular portrait uses responsive AVIF images.
 - Vercel Web Analytics (`@vercel/analytics`) counts page views without cookies. It sends data only while Web Analytics is enabled on the `antoniwan-online` Vercel project.
 - `src/config/site.ts` holds the facts about the site. `src/data/` holds the links, projects, and principles. Edit those, not the pages.

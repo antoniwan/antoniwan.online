@@ -6,19 +6,26 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 
 ### Changed
 
-- Refresh the site with Chivo typography, monospace details, and electric blue accents on warm cream.
+- Pair Chivo headings with IBM Plex Sans body text, monospace details, and electric blue accents on warm cream.
+- Add quasicrystal WebGL backgrounds to the header and footer. Limit animation to visible areas and 24 frames per second.
+- Add a small amber comet that follows the moving quasicrystal contours and leaves a fading trail.
+- Respect reduced motion and data-saving preferences. Provide a static fallback and a persistent animation pause control.
 - Keep charcoal dark mode through the device color preference.
 - Use one header wordmark and a circular portrait. Remove decorative captions, numbering, and repeated dividers.
 - Use consistent essay spacing and typography. Make each essay and resource row a complete link.
 - Show arrow indicators on outbound text links only.
 - Add CSS illustrations for the picture books and a responsive project grid.
 - Keep navigation and social targets at least 44 pixels tall.
-- Replace three font downloads with one local Chivo subset. Generate responsive AVIF portraits at four widths.
+- Use two local variable font subsets. Generate responsive AVIF portraits at four widths.
+- Add a native Back to top link to every footer.
+- Add page descriptions and site references to the structured data.
+- Complete social preview metadata and allow large image previews in search results.
 
 ### Fixed
 
 - Mark the current navigation link correctly in static builds that use `.html` paths.
 - Preserve the refreshed essay layout when the browser loads newer posts.
+- Use the correct Open Graph type on each page. Exclude the error page from indexing and structured data.
 
 ## [1.6.0] - 2026-10-07
 

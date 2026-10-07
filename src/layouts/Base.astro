@@ -11,14 +11,16 @@ interface Props {
   description?: string;
   /** True on pages about Antonio himself (Home, About): marks them as his profile page. */
   profile?: boolean;
+  noindex?: boolean;
 }
 
-const { title, description = SITE.description, profile = false } = Astro.props;
+const { title, description = SITE.description, profile = false, noindex = false } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} (${SITE.handle})`;
 // build.format is 'file', so pathnames end in .html at build time; Vercel serves them without it.
 const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
 const canonical = new URL(cleanPath, SITE.url).href;
 const ogImage = new URL('/og.png', SITE.url).href;
+const ogImageAlt = `${SITE.name}. Builder. Father. Boricua.`;
 const sameAs = sections
   .flatMap((section) => section.items)
   .filter((item) => item.me)
@@ -52,7 +54,17 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     ...(cleanPath === '/' ? [website] : []),
-    ...(profile ? [{ '@type': 'ProfilePage', '@id': canonical, url: canonical, mainEntity: { '@id': SITE.personId } }] : []),
+    {
+      '@type': profile ? 'ProfilePage' : 'WebPage',
+      '@id': canonical,
+      url: canonical,
+      name: fullTitle,
+      description,
+      inLanguage: 'en',
+      isPartOf: { '@id': website['@id'] },
+      about: { '@id': SITE.personId },
+      ...(profile ? { mainEntity: { '@id': SITE.personId } } : {}),
+    },
     person,
   ],
 };
@@ -65,7 +77,8 @@ const structuredData = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex' : 'max-image-preview:large'} />
+    {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -74,20 +87,28 @@ const structuredData = {
     <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)" />
     <link rel="preload" href="/fonts/Chivo-Latin-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/IBMPlexSans-Latin-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
-    <meta property="og:type" content="profile" />
+    <meta property="og:type" content={profile ? 'profile' : 'website'} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="profile:username" content={SITE.handle} />
+    {profile && <meta property="profile:username" content={SITE.handle} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@antoniwan" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     <script is:inline>
       // The previous site on this domain registered a service worker. Remove it and its caches.
       if ('serviceWorker' in navigator) {
@@ -96,7 +117,7 @@ const structuredData = {
       }
     </script>
   </head>
-  <body>
+  <body id="top">
     <a class="skip" href="#main">Skip to content</a>
     <Header />
     <main id="main" class="wrap">

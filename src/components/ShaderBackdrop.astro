@@ -1,0 +1,294 @@
+---
+interface Props { edge: 'top' | 'bottom' }
+const { edge } = Astro.props;
+---
+
+<div class:list={['shader-backdrop', `shader-backdrop--${edge}`]} aria-hidden="true">
+  <canvas data-quasicrystal></canvas>
+</div>
+
+<style>
+  .shader-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 85% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%),
+      radial-gradient(ellipse at 45% 90%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 60%);
+  }
+  .shader-backdrop--bottom { mask-image: linear-gradient(to bottom, #000 65%, transparent); }
+  .shader-backdrop--top { mask-image: linear-gradient(to top, #000 65%, transparent); }
+  canvas { display: block; width: 100%; height: 100%; opacity: 0; }
+  canvas[data-ready] { opacity: 1; }
+</style>
+
+<script>
+  // TypeScript keeps the WebGL lifecycle checked by the site's existing Astro tooling.
+  const vertexSource = `attribute vec2 position; void main(){gl_Position=vec4(position,0.0,1.0);}`;
+  const fragmentSource = `
+    precision mediump float;
+    uniform vec2 resolution;
+    uniform vec2 surface;
+    uniform float time;
+    uniform vec3 paper;
+    uniform vec3 blue;
+    uniform vec3 comet;
+    uniform vec2 trail[9];
+    void main(){
+      vec2 uv=gl_FragCoord.xy/resolution;
+      vec2 p=(uv-0.5)*vec2(resolution.x/resolution.y,1.0);
+      float t=time*0.14;
+      float wave=0.0;
+      for(int i=0;i<5;i++){
+        float angle=float(i)*0.62831853+t*0.07;
+        wave+=cos(dot(p,vec2(cos(angle),sin(angle)))*16.0+t*(float(i)*0.10+0.3));
+      }
+      float pattern=0.08+0.8*pow(0.5+0.5*cos(wave*2.0),8.0);
+      float strength=pattern*0.34*(0.34+0.66*smoothstep(0.05,0.88,uv.x));
+      vec3 color=mix(paper,blue,strength);
+      vec2 pixel=abs((uv-trail[0])*surface);
+      float point=1.0-smoothstep(0.45,0.95,max(pixel.x,pixel.y));
+      float tail=0.0;
+      for(int i=0;i<8;i++){
+        vec2 a=(uv-trail[i])*surface;
+        vec2 b=(trail[i+1]-trail[i])*surface;
+        float along=clamp(dot(a,b)/max(dot(b,b),0.001),0.0,1.0);
+        float distance=length(a-b*along);
+        float fade=pow(1.0-(float(i)+along)/8.0,2.0);
+        tail=max(tail,exp(-distance*distance)*fade*0.7);
+      }
+      gl_FragColor=vec4(mix(color,comet,max(point,tail)),1.0);
+    }`;
+
+  type Point = [number, number];
+  type Renderer = {
+    canvas: HTMLCanvasElement;
+    gl: WebGLRenderingContext;
+    resolution: WebGLUniformLocation | null;
+    surface: WebGLUniformLocation | null;
+    time: WebGLUniformLocation | null;
+    paper: WebGLUniformLocation | null;
+    blue: WebGLUniformLocation | null;
+    comet: WebGLUniformLocation | null;
+    trail: WebGLUniformLocation | null;
+    points: Point[];
+    direction: number;
+    travelled: number;
+    width: number;
+    height: number;
+    coordinates: Float32Array;
+  };
+
+  // The bright curves occur where the shader's wave sum is zero (or another multiple of pi).
+  function contour(point: Point, seconds: number) {
+    let value = 0, x = 0, y = 0;
+    const t = seconds * 0.14;
+    for (let i = 0; i < 5; i++) {
+      const angle = i * 0.62831853 + t * 0.07;
+      const dx = Math.cos(angle), dy = Math.sin(angle);
+      const phase = (point[0] * dx + point[1] * dy) * 16 + t * (i * 0.1 + 0.3);
+      value += Math.cos(phase);
+      const gradient = -16 * Math.sin(phase);
+      x += gradient * dx; y += gradient * dy;
+    }
+    return { value, x, y };
+  }
+
+  function project(point: Point, seconds: number, iterations = 3): Point {
+    let result: Point = [...point];
+    for (let i = 0; i < iterations; i++) {
+      const f = contour(result, seconds);
+      const length = Math.hypot(f.x, f.y);
+      if (length < 0.001 || Math.abs(f.value) < 0.0001) break;
+      const step = Math.max(-0.04, Math.min(0.04, f.value / length));
+      result = [result[0] - step * f.x / length, result[1] - step * f.y / length];
+    }
+    return result;
+  }
+
+  function moveComet(renderer: Renderer, seconds: number, delta: number) {
+    // Reproject the trail so it stays on the same curve while the pattern itself changes.
+    renderer.points = renderer.points.map(point => project(point, seconds));
+    const previous = renderer.points[0];
+    let head: Point = [...previous];
+    for (let i = 0; i < 2; i++) {
+      const gradient = contour(head, seconds);
+      const length = Math.hypot(gradient.x, gradient.y) || 1;
+      const step = 28 * delta / renderer.height / 2 * renderer.direction;
+      head = project([head[0] - gradient.y / length * step, head[1] + gradient.x / length * step], seconds);
+    }
+    const aspect = renderer.width / renderer.height;
+    if (Math.abs(head[0]) > aspect / 2 - 0.025 || Math.abs(head[1]) > 0.4) {
+      renderer.direction *= -1;
+      head = previous;
+    }
+    renderer.travelled += Math.hypot(head[0] - previous[0], head[1] - previous[1]) * renderer.height;
+    if (renderer.travelled >= 3) {
+      renderer.points = [head, ...renderer.points.slice(0, 8)];
+      renderer.travelled = 0;
+    } else renderer.points[0] = head;
+  }
+
+  function startBackdrops() {
+    const canvases = [...document.querySelectorAll<HTMLCanvasElement>('[data-quasicrystal]')];
+    const control = document.querySelector<HTMLElement>('[data-motion-control]');
+    const button = control?.querySelector('button');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const dark = matchMedia('(prefers-color-scheme: dark)');
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (connection?.saveData || !canvases.length) return;
+
+    const renderers = new Map<HTMLCanvasElement, Renderer>();
+    const unavailable = new Set<HTMLCanvasElement>();
+    const visible = new Set<HTMLCanvasElement>();
+    let paused = false;
+    try { paused = localStorage.getItem('antoniwan-motion') === 'paused'; } catch { /* Storage is optional. */ }
+    let frame = 0;
+    let last = 0;
+    let seconds = 9;
+    let paper = [0, 0, 0];
+    let blue = [0, 0, 0];
+    let comet = [0, 0, 0];
+
+    function updateColors() {
+      const style = getComputedStyle(document.documentElement);
+      const rgb = (name: string) => {
+        const hex = style.getPropertyValue(name).trim().slice(1);
+        return [0, 2, 4].map(offset => parseInt(hex.slice(offset, offset + 2), 16) / 255);
+      };
+      paper = rgb('--paper'); blue = rgb('--accent'); comet = rgb('--comet');
+    }
+
+    function prepare(canvas: HTMLCanvasElement): Renderer | undefined {
+      if (renderers.has(canvas)) return renderers.get(canvas);
+      if (unavailable.has(canvas) || reduced.matches) return;
+      const gl = canvas.getContext('webgl', { antialias: false, depth: false, stencil: false, powerPreference: 'low-power' });
+      if (!gl) { unavailable.add(canvas); return; }
+      const program = gl.createProgram();
+      if (!program) { unavailable.add(canvas); return; }
+      const shaders: WebGLShader[] = [];
+      for (const [type, source] of [[gl.VERTEX_SHADER, vertexSource], [gl.FRAGMENT_SHADER, fragmentSource]] as const) {
+        const shader = gl.createShader(type);
+        if (!shader) continue;
+        gl.shaderSource(shader, source); gl.compileShader(shader); gl.attachShader(program, shader); shaders.push(shader);
+      }
+      gl.linkProgram(program);
+      shaders.forEach(shader => gl.deleteShader(shader));
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        gl.deleteProgram(program); unavailable.add(canvas); return;
+      }
+      gl.useProgram(program);
+      const buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+      const position = gl.getAttribLocation(program, 'position');
+      gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+      const renderer: Renderer = {
+        canvas, gl,
+        resolution: gl.getUniformLocation(program, 'resolution'),
+        surface: gl.getUniformLocation(program, 'surface'),
+        time: gl.getUniformLocation(program, 'time'),
+        paper: gl.getUniformLocation(program, 'paper'),
+        blue: gl.getUniformLocation(program, 'blue'),
+        comet: gl.getUniformLocation(program, 'comet'),
+        trail: gl.getUniformLocation(program, 'trail[0]'),
+        points: [], direction: 1, travelled: 0, width: 0, height: 0, coordinates: new Float32Array(18),
+      };
+      renderers.set(canvas, renderer);
+      if (control) control.hidden = false;
+      canvas.dataset.ready = '';
+      return renderer;
+    }
+
+    function resize(renderer: Renderer) {
+      const { canvas, gl } = renderer;
+      if (renderer.width !== canvas.clientWidth || renderer.height !== canvas.clientHeight) {
+        renderer.width = canvas.clientWidth; renderer.height = canvas.clientHeight;
+        const start = project([-0.22 * renderer.width / renderer.height, 0.12], seconds, 16);
+        renderer.points = Array.from({ length: 9 }, () => [...start]);
+        renderer.travelled = 0;
+      }
+      // Keep the drawing buffer small, even on high-density phones and wide monitors.
+      const scale = Math.min(1, 1200 / canvas.clientWidth, 240 / canvas.clientHeight);
+      const width = Math.max(1, Math.round(canvas.clientWidth * scale));
+      const height = Math.max(1, Math.round(canvas.clientHeight * scale));
+      if (canvas.width !== width || canvas.height !== height) { canvas.width = width; canvas.height = height; }
+      gl.viewport(0, 0, width, height);
+      gl.uniform2f(renderer.resolution, width, height);
+      gl.uniform2f(renderer.surface, canvas.clientWidth, canvas.clientHeight);
+    }
+
+    function draw(renderer: Renderer) {
+      const { gl } = renderer;
+      gl.uniform1f(renderer.time, seconds);
+      gl.uniform3fv(renderer.paper, paper); gl.uniform3fv(renderer.blue, blue);
+      gl.uniform3fv(renderer.comet, comet);
+      renderer.points.forEach((point, index) => {
+        renderer.coordinates[index * 2] = point[0] * renderer.height / renderer.width + 0.5;
+        renderer.coordinates[index * 2 + 1] = point[1] + 0.5;
+      });
+      gl.uniform2fv(renderer.trail, renderer.coordinates);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+
+    function tick(now: number) {
+      frame = 0;
+      if (document.hidden || reduced.matches || paused || !visible.size) return;
+      if (now - last >= 1000 / 24) {
+        const delta = Math.min((now - last) / 1000, 0.1);
+        seconds += delta;
+        last = now;
+        visible.forEach(canvas => {
+          const renderer = renderers.get(canvas);
+          if (renderer) { moveComet(renderer, seconds, delta); draw(renderer); }
+        });
+      }
+      frame = requestAnimationFrame(tick);
+    }
+
+    function refresh() {
+      cancelAnimationFrame(frame); frame = 0;
+      if (button) { button.textContent = paused ? 'Resume animation' : 'Pause animation'; button.setAttribute('aria-pressed', String(paused)); }
+      if (control) control.hidden = reduced.matches || !renderers.size;
+      if (document.hidden) return;
+      updateColors();
+      let active = false;
+      visible.forEach(canvas => {
+        if (reduced.matches) { delete canvas.dataset.ready; return; }
+        const renderer = prepare(canvas);
+        if (renderer) { resize(renderer); draw(renderer); canvas.dataset.ready = ''; active = true; }
+      });
+      if (active && !paused && !reduced.matches) { last = performance.now(); frame = requestAnimationFrame(tick); }
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const canvas = entry.target as HTMLCanvasElement;
+        if (entry.isIntersecting) visible.add(canvas); else visible.delete(canvas);
+      });
+      refresh();
+    });
+    const sizeObserver = new ResizeObserver(refresh);
+    canvases.forEach(canvas => {
+      observer.observe(canvas); sizeObserver.observe(canvas);
+      canvas.addEventListener('webglcontextlost', event => {
+        event.preventDefault(); delete canvas.dataset.ready; renderers.delete(canvas); unavailable.add(canvas); refresh();
+      });
+      canvas.addEventListener('webglcontextrestored', () => { unavailable.delete(canvas); refresh(); });
+    });
+    button?.addEventListener('click', () => {
+      paused = !paused;
+      try { localStorage.setItem('antoniwan-motion', paused ? 'paused' : 'playing'); } catch { /* Storage is optional. */ }
+      refresh();
+    });
+    reduced.addEventListener('change', refresh);
+    dark.addEventListener('change', refresh);
+    document.addEventListener('visibilitychange', refresh);
+    new MutationObserver(refresh).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    refresh();
+  }
+
+  // Give page content and fonts priority over decorative graphics.
+  if ('requestIdleCallback' in window) window.requestIdleCallback(startBackdrops, { timeout: 1500 });
+  else setTimeout(startBackdrops, 100);
+</script>
