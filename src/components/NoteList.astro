@@ -59,6 +59,8 @@ const { notes, count } = Astro.props;
           });
           const link = document.createElement('a');
           link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener';
           link.textContent = item.title;
           li.append(time, link);
           if (item.summary) {

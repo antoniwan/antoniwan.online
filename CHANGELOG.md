@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-10-07
+
+### Changed
+
+- Outbound links open in a new tab. `src/middleware.ts` adds `target="_blank"` and `rel="noopener"` to every link to another site when Astro renders a page, and keeps any `rel` the link already has (such as `me`). The Writing list's browser script does the same for the links it draws. Links within the site and mailto links are unchanged.
+
 ## [1.2.0] - 2026-10-07
 
 ### Added
