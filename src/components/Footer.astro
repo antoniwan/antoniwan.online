@@ -2,6 +2,7 @@
 import { SITE } from '../config/site';
 import ShaderBackdrop from './ShaderBackdrop.astro';
 
+const tld = SITE.domain.slice(SITE.handle.length);
 const year = new Date().getFullYear();
 ---
 
@@ -9,7 +10,7 @@ const year = new Date().getFullYear();
   <ShaderBackdrop edge="top" />
   <div class="wrap">
     <div class="footer__identity">
-      <a class="footer__brand" href="/">{SITE.handle}<span aria-hidden="true">.</span></a>
+      <a class="footer__brand" href="/">{SITE.handle}<span>{tld}</span></a>
       <p>From Puerto Rico, in Florida.</p>
       <p class="footer__copyright">© {year} {SITE.name}</p>
     </div>

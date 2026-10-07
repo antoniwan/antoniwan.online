@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.7.1] - 2026-10-07
+
+### Changed
+
+- Show the address antoniwan.online as the header and footer wordmark, so visitors see the domain they typed. On screens narrower than 24rem, the header shows antoniwan only.
+
 ## [1.7.0] - 2026-10-07
 
 ### Changed

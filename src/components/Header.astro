@@ -3,13 +3,14 @@ import { NAV, SITE } from '../config/site';
 import ShaderBackdrop from './ShaderBackdrop.astro';
 
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
+const tld = SITE.domain.slice(SITE.handle.length);
 const isCurrent = (href: string) => href.startsWith('/') && path === href;
 ---
 
 <header class="header">
   <ShaderBackdrop edge="bottom" />
   <div class="wrap">
-    <a class="brand" href="/" aria-label={`${SITE.name}, home`}>{SITE.handle}</a>
+    <a class="brand" href="/" aria-label={`${SITE.name}, home`}>{SITE.handle}<span>{tld}</span></a>
     <nav class="nav" aria-label="Main">
       {
         NAV.map((item) => (

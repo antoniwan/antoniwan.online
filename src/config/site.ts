@@ -8,6 +8,8 @@ export const SITE = {
   personId: 'https://antoniwan.online/#person',
   tagline: 'Builder. Father. Boricua 🇵🇷',
   url: 'https://antoniwan.online',
+  /** The wordmark in the header and footer, so a visitor always sees the address. */
+  domain: 'antoniwan.online',
   email: 'antonio@builds.software',
   description:
     'Antonio Rodríguez Martínez (antoniwan): technical program manager, builder of small web things, essayist at Notes, and father. From Puerto Rico, in Florida.',
