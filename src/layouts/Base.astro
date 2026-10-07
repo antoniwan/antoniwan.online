@@ -9,9 +9,11 @@ import { sections } from '../data/links';
 interface Props {
   title?: string;
   description?: string;
+  /** True on pages about Antonio himself (Home, About): marks them as his profile page. */
+  profile?: boolean;
 }
 
-const { title, description = SITE.description } = Astro.props;
+const { title, description = SITE.description, profile = false } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} (${SITE.handle})`;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', SITE.url).href;
 const ogImage = new URL('/og.png', SITE.url).href;
@@ -21,16 +23,24 @@ const sameAs = sections
   .map((item) => item.href);
 
 const person = {
-  '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': SITE.personId,
   name: SITE.name,
-  alternateName: SITE.handle,
+  alternateName: [SITE.handle, SITE.plainName],
   url: SITE.url,
   email: SITE.email,
   image: new URL('/og.png', SITE.url).href,
   jobTitle: 'Technical Program Manager',
-  worksFor: { '@type': 'Organization', name: 'Stanley Black & Decker' },
+  worksFor: { '@type': 'Organization', name: 'Stanley Black & Decker', url: 'https://www.stanleyblackanddecker.com' },
+  homeLocation: { '@type': 'State', name: 'Florida', sameAs: 'https://www.wikidata.org/wiki/Q812' },
+  birthPlace: { '@type': 'Place', name: 'Puerto Rico', sameAs: 'https://www.wikidata.org/wiki/Q1183' },
   sameAs,
+};
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': profile
+    ? [{ '@type': 'ProfilePage', '@id': canonical, url: canonical, mainEntity: { '@id': SITE.personId } }, person]
+    : [person],
 };
 ---
 
@@ -63,7 +73,7 @@ const person = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@antoniwan" />
 
-    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <script is:inline>
       // The previous site on this domain registered a service worker. Remove it and its caches.
       if ('serviceWorker' in navigator) {

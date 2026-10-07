@@ -2,6 +2,10 @@
 export const SITE = {
   name: 'Antonio Rodríguez Martínez',
   handle: 'antoniwan',
+  /** The name as most people type it, without accents. Notes spells it this way. */
+  plainName: 'Antonio Rodriguez Martinez',
+  /** The one ID for Antonio in structured data. Notes, the company site and the books point here. */
+  personId: 'https://antoniwan.online/#person',
   tagline: 'Builder. Father. Boricua 🇵🇷',
   url: 'https://antoniwan.online',
   email: 'antonio@builds.software',

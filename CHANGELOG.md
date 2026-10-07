@@ -2,6 +2,14 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.4.0] - 2026-10-07
+
+### Added
+
+- Structured data names Antonio as one entity that the other sites can point at: the Person has the ID `https://antoniwan.online/#person` (`SITE.personId`).
+- The Person lists both spellings of the name (`alternateName`: antoniwan, Antonio Rodriguez Martinez), his home state (Florida) and his birthplace (Puerto Rico). Each place links to its Wikidata entry, so a search engine cannot mistake which Florida or Puerto Rico is meant.
+- Home and About are marked as his `ProfilePage`, with the Person as the main entity. Code is not a profile page and carries only the Person.
+
 ## [1.3.0] - 2026-10-07
 
 ### Changed
