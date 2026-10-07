@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.5.0] - 2026-10-07
+
+### Added
+
+- IndexNow: each Vercel production build sends every sitemap URL to IndexNow (Bing and the other IndexNow engines), as Notes does. `src/utils/indexNow.ts` runs after the sitemap is written, only when `VERCEL_ENV` is `production` (or `INDEXNOW_FORCE=1`), and only when the live site already serves the key file `public/ec54ed1f-b3ac-4040-9fe4-0176a9def32b.txt`. It tries `api.indexnow.org`, then `www.bing.com` on a 403. It never fails the build.
+
 ## [1.4.1] - 2026-10-07
 
 ### Fixed
