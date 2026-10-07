@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.1.1] - 2026-10-07
+
+### Changed
+
+- The picture books' source links on the Code page point at Strong-Hands-Soft-Heart, the company's GitHub organization, where their repos moved.
+
 ## [1.1.0] - 2026-10-07
 
 ### Added

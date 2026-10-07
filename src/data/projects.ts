@@ -25,14 +25,14 @@ export const projects: Project[] = [
   {
     title: 'Mia, the Sun, and the Moon',
     href: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
-    repo: 'https://github.com/antoniwan/book-sun-and-moon',
+    repo: 'https://github.com/Strong-Hands-Soft-Heart/book-sun-and-moon',
     body: 'A bilingual picture book as a web app, written for my daughter and my nephew. Published by Strong Hands, Soft Heart.',
     stack: 'React, Vite',
   },
   {
     title: 'The Bent One',
     href: 'https://the-bent-one-book.stronghandssoftheart.com',
-    repo: 'https://github.com/antoniwan/the-bent-one',
+    repo: 'https://github.com/Strong-Hands-Soft-Heart/the-bent-one',
     body: 'A bilingual picture book with animated spreads. Published by Strong Hands, Soft Heart.',
     stack: 'Vite',
   },
