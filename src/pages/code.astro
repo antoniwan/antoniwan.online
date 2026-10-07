@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site';
+import { projects, smallThings } from '../data/projects';
+---
+
+<Base
+  title="Code"
+  description="The web things Antonio Rodríguez Martínez built and keeps: Notes, LinksForest, two bilingual picture books, and this site."
+>
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Code</span>
+      <h1>Things I built and keep</h1>
+      <p class="hero__intro">
+        Small web things, mostly for my family and myself, and the sites I run. The code is on
+        <a href="https://github.com/antoniwan" rel="me">GitHub</a>. Client work and consulting live with
+        <a href={SITE.company.consultingUrl}>my company</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <ul class="projects">
+      {
+        projects.map((project) => (
+          <li class="project">
+            <h3>
+              <a href={project.href}>{project.title}</a>
+            </h3>
+            <p>{project.body}</p>
+            <p class="project__meta">
+              {project.stack}
+              {project.repo && (
+                <>
+                  {' · '}
+                  <a href={project.repo}>Source</a>
+                </>
+              )}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section" id="small-things">
+    <h2>Small things</h2>
+    <ul class="projects">
+      {
+        smallThings.map((thing) => (
+          <li class="project">
+            <h3>
+              <a href={thing.href}>{thing.title}</a>
+            </h3>
+            <p>{thing.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>

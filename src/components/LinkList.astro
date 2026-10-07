@@ -1,0 +1,38 @@
+---
+import type { LinkSection } from '../data/links';
+
+interface Props {
+  section: LinkSection;
+}
+
+const { section } = Astro.props;
+const rel = (me?: boolean) => (me ? 'me' : undefined);
+---
+
+<section class="section" id={section.id} aria-labelledby={`${section.id}-title`}>
+  <h2 id={`${section.id}-title`}>{section.title}</h2>
+  {
+    section.layout === 'chips' ? (
+      <ul class="chips">
+        {section.items.map((item) => (
+          <li>
+            <a href={item.href} rel={rel(item.me)}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <ul class="links">
+        {section.items.map((item) => (
+          <li>
+            <a href={item.href} rel={rel(item.me)}>
+              {item.label}
+            </a>
+            {item.note && <p class="note">{item.note}</p>}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>

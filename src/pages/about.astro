@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site';
+import { principles } from '../data/principles';
+---
+
+<Base
+  title="About"
+  description="Who Antonio Rodríguez Martínez is, how he works, and the principles behind the work: a technical program manager and former CTO who still writes code."
+>
+  <section class="hero">
+    <div>
+      <span class="eyebrow">About</span>
+      <h1>Who I am</h1>
+      <p class="hero__intro">
+        I'm Antonio Rodríguez Martínez. Technical Program Manager at Stanley Black &amp; Decker, and a
+        former CTO. In practice I do product architecture for SBD Digital: specs, user journeys,
+        acceptance criteria, and holding the shape of a product across services while a lot of teams
+        build pieces of it. I still write code.
+      </p>
+    </div>
+  </section>
+
+  <section class="section prose" id="background">
+    <h2>Background</h2>
+    <p>
+      My work started with a bootstrapped web agency in college, with a friend. We learned to write clean
+      code and to manage client projects. A marketing firm acquired us, and I built custom solutions
+      under tight deadlines. Since then I have worked as a full-stack developer, architect, CTO, and
+      engineering manager, and now as a technical program manager at a global hardware company.
+    </p>
+    <p>
+      Along the way I came to one belief: technical excellence works best with strong team dynamics and
+      psychological safety.
+    </p>
+  </section>
+
+  <section class="section prose" id="how-i-work">
+    <h2>How I work</h2>
+    <p>
+      Systems over shortcuts. Humans over hype. I listen and map your reality first, design the smallest
+      honest plan, then build, ship, and teach so your team can maintain the work. AI and LLM
+      orchestration when it reduces load, not when it adds noise.
+    </p>
+  </section>
+
+  <section class="section" id="principles">
+    <h2>Principles</h2>
+    <ul class="principles">
+      {
+        principles.map((principle) => (
+          <li>
+            <h3>{principle.title}</h3>
+            <p>{principle.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section prose" id="daily">
+    <h2>Daily</h2>
+    <p>
+      I write almost daily: essays, ideas, documentation. I train: basketball, weights, and martial
+      arts. I cook whole foods and parent two kids. I've rebuilt my life post-divorce and learned that
+      presence and execution matter more than perfection.
+    </p>
+  </section>
+
+  <section class="section prose" id="company">
+    <h2>The company</h2>
+    <p>
+      <a href={SITE.company.url}>{SITE.company.name} LLC</a> is my company. It is the door for
+      <a href={SITE.company.consultingUrl}>consulting</a> now and soap later, and it publishes the picture
+      books I wrote for my kids. <a href={SITE.notesUrl}>Notes</a> is mine, not the company's.
+    </p>
+    <p>
+      Reach me at <a href={`mailto:${SITE.email}`}>{SITE.email}</a>, or on
+      <a href="https://www.linkedin.com/in/antoniwan" rel="me">LinkedIn</a> and
+      <a href="https://github.com/antoniwan" rel="me">GitHub</a>.
+    </p>
+  </section>
+</Base>

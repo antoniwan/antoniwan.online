@@ -1,0 +1,17 @@
+---
+import { SITE } from '../config/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <p style="margin:0">© {year} {SITE.name}. From Puerto Rico, in Florida.</p>
+    <ul>
+      <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+      <li><a href={SITE.company.url}>{SITE.company.name}</a></li>
+      <li><a href="/llms.txt">llms.txt</a></li>
+      <li><a href={SITE.repo}>Source</a></li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,22 @@
+---
+import type { Note } from '../utils/notes';
+import { formatDate } from '../utils/notes';
+
+interface Props {
+  notes: Note[];
+}
+
+const { notes } = Astro.props;
+---
+
+<ul class="essays">
+  {
+    notes.map((note) => (
+      <li>
+        <time datetime={note.date.toISOString()}>{formatDate(note.date)}</time>
+        <a href={note.url}>{note.title}</a>
+        {note.summary && <p>{note.summary}</p>}
+      </li>
+    ))
+  }
+</ul>

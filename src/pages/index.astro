@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import LinkList from '../components/LinkList.astro';
+import NoteList from '../components/NoteList.astro';
+import profile from '../profile.avif';
+import { SITE } from '../config/site';
+import { sections } from '../data/links';
+import { latestNotes } from '../utils/notes';
+
+const notes = await latestNotes(5);
+const writing = sections.find((section) => section.id === 'writing');
+const medium = writing?.items.find((item) => item.label === 'Medium');
+const rest = sections.filter((section) => section.id !== 'writing');
+---
+
+<Base>
+  <section class="hero">
+    <Image
+      class="hero__photo"
+      src={profile}
+      alt="Antonio Rodríguez Martínez"
+      width={224}
+      height={224}
+      densities={[1, 2]}
+      loading="eager"
+    />
+    <div>
+      <h1>{SITE.name}</h1>
+      <p class="hero__tagline">{SITE.tagline}</p>
+      <p class="hero__intro">
+        I'm Antonio, <strong>{SITE.handle}</strong> on most of the internet. I'm a technical program
+        manager at Stanley Black &amp; Decker, where I do product architecture for SBD Digital. I write
+        essays at <a href={SITE.notesUrl}>Notes</a>, build small web things, and make music. Boricua in
+        Florida, and a father, which is where most of the writing comes from.
+      </p>
+      <div class="callout">
+        <p>
+          For consulting or anything business, go to
+          <a href={SITE.company.consultingUrl}>{SITE.company.name}</a>, my company. This site has no
+          contact form on purpose.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="writing" aria-labelledby="writing-title">
+    <h2 id="writing-title">Writing</h2>
+    <p class="section__lead">
+      I write at <a href={SITE.notesUrl}>Notes</a>: essays on fatherhood, philosophy, culture and work,
+      and the recipes we cook at home. Every post is also served as markdown.
+      {medium && (
+        <>
+          {' '}Older essays are on <a href={medium.href}>Medium</a>.
+        </>
+      )}
+    </p>
+    {
+      notes.length > 0 ? (
+        <NoteList notes={notes} />
+      ) : (
+        <p>
+          The latest list could not be loaded when this page was built. Read the essays at{' '}
+          <a href={SITE.notesUrl}>notes.antoniwan.online</a>.
+        </p>
+      )
+    }
+    <p style="margin-top:1.25rem"><a href={`${SITE.notesUrl}/everything`}>Every post</a></p>
+  </section>
+
+  {rest.map((section) => <LinkList section={section} />)}
+</Base>

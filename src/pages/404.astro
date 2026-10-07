@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site';
+---
+
+<Base title="Not found" description="This page does not exist.">
+  <section class="hero">
+    <div>
+      <h1>Not here.</h1>
+      <p class="hero__intro">
+        That page does not exist. Try the <a href="/">home page</a>, <a href="/about">about</a>,
+        <a href="/code">code</a>, or <a href={SITE.notesUrl}>Notes</a>.
+      </p>
+    </div>
+  </section>
+</Base>
