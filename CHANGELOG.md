@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.4.1] - 2026-10-07
+
+### Fixed
+
+- Every page's canonical link, `og:url` and `ProfilePage` ID ended in `.html` (`/index.html`, `/about.html`, `/code.html`), an address Vercel redirects. They now match the served URLs (`/`, `/about`, `/code`). The layout strips `.html` and `/index`, because `build.format` is `file`. Found by `~/AI/Work/llms-txt/structured-data.mjs`.
+
 ## [1.4.0] - 2026-10-07
 
 ### Added

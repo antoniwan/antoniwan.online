@@ -15,7 +15,9 @@ interface Props {
 
 const { title, description = SITE.description, profile = false } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} (${SITE.handle})`;
-const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', SITE.url).href;
+// build.format is 'file', so pathnames end in .html at build time; Vercel serves them without it.
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
+const canonical = new URL(cleanPath, SITE.url).href;
 const ogImage = new URL('/og.png', SITE.url).href;
 const sameAs = sections
   .flatMap((section) => section.items)
