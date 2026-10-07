@@ -1,5 +1,5 @@
 // Builds public/og.png (1200×630) from the profile picture, and public/apple-touch-icon.png
-// (180×180) from public/favicon.svg. Run with `pnpm og` and commit the results; the deploy
+// (180×180, square corners) from public/favicon.svg. Run with `pnpm og` and commit the results; the deploy
 // does not run this.
 
 import { readFileSync } from 'node:fs';
@@ -32,7 +32,10 @@ await sharp(Buffer.from(background))
   .png()
   .toFile(file('public/og.png'));
 
-await sharp(Buffer.from(readFileSync(file('public/favicon.svg'))))
+// iOS rounds the corners itself, so the touch icon fills the square. The density draws the
+// 64-unit SVG at 180 pixels instead of enlarging a 64-pixel image.
+const touchIcon = readFileSync(file('public/favicon.svg'), 'utf8').replace(/ rx="\d+"/, '');
+await sharp(Buffer.from(touchIcon), { density: (72 * 180) / 64 })
   .resize(180, 180)
   .png()
   .toFile(file('public/apple-touch-icon.png'));

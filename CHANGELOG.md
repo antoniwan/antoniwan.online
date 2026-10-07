@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.7.2] - 2026-10-07
+
+### Changed
+
+- Replace the favicon with a cream "a" on an electric blue tile, to match the refreshed design. The letter is drawn as shapes, so it does not depend on a font.
+- Make the Apple touch icon a full square at 180 pixels. iOS rounds the corners itself.
+
 ## [1.7.1] - 2026-10-07
 
 ### Changed
