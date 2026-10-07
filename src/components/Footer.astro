@@ -6,7 +6,11 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="wrap">
-    <p style="margin:0">© {year} {SITE.name}. From Puerto Rico, in Florida.</p>
+    <div class="footer__identity">
+      <a class="footer__brand" href="/">{SITE.handle}<span aria-hidden="true">.</span></a>
+      <p>From Puerto Rico, in Florida.</p>
+      <p class="footer__copyright">© {year} {SITE.name}</p>
+    </div>
     <ul>
       <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
       <li><a href={SITE.company.url}>{SITE.company.name}</a></li>

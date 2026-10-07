@@ -10,8 +10,11 @@ const { section } = Astro.props;
 const rel = (me?: boolean) => (me ? 'me' : undefined);
 ---
 
-<section class="section" id={section.id} aria-labelledby={`${section.id}-title`}>
-  <h2 id={`${section.id}-title`}>{section.title}</h2>
+<section class:list={['section', 'section--split', `section--${section.id}`]} id={section.id} aria-labelledby={`${section.id}-title`}>
+  <div class="section__heading">
+    <h2 id={`${section.id}-title`}>{section.title}</h2>
+  </div>
+  <div class="section__body">
   {
     section.layout === 'icons' ? (
       <ul class="icons">
@@ -29,16 +32,25 @@ const rel = (me?: boolean) => (me ? 'me' : undefined);
         ))}
       </ul>
     ) : (
-      <ul class="links">
-        {section.items.map((item) => (
+      <ul class:list={['links', { 'links--books': section.id === 'books' }]}>
+        {section.items.map((item, index) => (
           <li>
-            <a href={item.href} rel={rel(item.me)}>
-              {item.label}
+            <a class="link-card" href={item.href} rel={rel(item.me)}>
+              {section.id === 'books' && (
+                <span class:list={['book-art', index === 0 ? 'book-art--sky' : 'book-art--line']} aria-hidden="true">
+                  <span class="book-art__shape" />
+                </span>
+              )}
+              <span class="link-card__body">
+                <span class="link-card__title">{item.label}</span>
+                {item.note && <span class="note">{item.note}</span>}
+                {section.id === 'books' && <span class="book-link">Read the story</span>}
+              </span>
             </a>
-            {item.note && <p class="note">{item.note}</p>}
           </li>
         ))}
       </ul>
     )
   }
+  </div>
 </section>

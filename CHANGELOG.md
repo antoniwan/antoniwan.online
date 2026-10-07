@@ -2,6 +2,24 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.7.0] - 2026-10-07
+
+### Changed
+
+- Refresh the site with Chivo typography, monospace details, and electric blue accents on warm cream.
+- Keep charcoal dark mode through the device color preference.
+- Use one header wordmark and a circular portrait. Remove decorative captions, numbering, and repeated dividers.
+- Use consistent essay spacing and typography. Make each essay and resource row a complete link.
+- Show arrow indicators on outbound text links only.
+- Add CSS illustrations for the picture books and a responsive project grid.
+- Keep navigation and social targets at least 44 pixels tall.
+- Replace three font downloads with one local Chivo subset. Generate responsive AVIF portraits at four widths.
+
+### Fixed
+
+- Mark the current navigation link correctly in static builds that use `.html` paths.
+- Preserve the refreshed essay layout when the browser loads newer posts.
+
 ## [1.6.0] - 2026-10-07
 
 ### Added

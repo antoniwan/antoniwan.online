@@ -2,7 +2,8 @@
 
 The personal site of Antonio Rodríguez Martínez: who he is, how he works, what he builds, and where else he is. It replaced the LinksForest link page and builds.software on October 7, 2026.
 
-- Astro, plain CSS, no framework on the client. One font file family (Fraunces) for headings; the system stack for text.
+- Astro and plain CSS. The client uses no UI framework. One local Chivo font supplies headings and body text. Monospace details use system fonts.
+- The layout starts with one column on phones. Wider screens use two columns. The circular portrait uses responsive AVIF images.
 - Vercel Web Analytics (`@vercel/analytics`) counts page views without cookies. It sends data only while Web Analytics is enabled on the `antoniwan-online` Vercel project.
 - `src/config/site.ts` holds the facts about the site. `src/data/` holds the links, projects, and principles. Edit those, not the pages.
 - The latest essays come from `https://notes.antoniwan.online/latest.json` at build time. The home page fetches the same file in the browser and redraws the list if Notes has published since, so the list needs no rebuild.

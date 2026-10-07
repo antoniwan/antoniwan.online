@@ -15,11 +15,16 @@ const { notes, count } = Astro.props;
   {
     notes.length > 0 ? (
       <ul class="essays">
-        {notes.map((note) => (
+        {notes.map((note, index) => (
           <li>
-            <time datetime={note.date.toISOString()}>{formatDate(note.date)}</time>
-            <a href={note.url}>{note.title}</a>
-            {note.summary && <p>{note.summary}</p>}
+            <a class="essay" href={note.url}>
+              <span class="essay__meta">
+                {index === 0 && <span class="essay__label">Latest essay</span>}
+                <time datetime={note.date.toISOString()}>{formatDate(note.date)}</time>
+              </span>
+              <h3 class="essay__title">{note.title}</h3>
+              {note.summary && <p>{note.summary}</p>}
+            </a>
           </li>
         ))}
       </ul>
@@ -48,6 +53,14 @@ const { notes, count } = Astro.props;
         list.className = 'essays';
         for (const item of items) {
           const li = document.createElement('li');
+          const meta = document.createElement('span');
+          meta.className = 'essay__meta';
+          if (!list.children.length) {
+            const label = document.createElement('span');
+            label.className = 'essay__label';
+            label.textContent = 'Latest essay';
+            meta.append(label);
+          }
           const date = new Date(item.date_published);
           const time = document.createElement('time');
           time.dateTime = date.toISOString();
@@ -58,16 +71,21 @@ const { notes, count } = Astro.props;
             timeZone: 'UTC',
           });
           const link = document.createElement('a');
+          link.className = 'essay';
           link.href = item.url;
           link.target = '_blank';
           link.rel = 'noopener';
-          link.textContent = item.title;
-          li.append(time, link);
+          const title = document.createElement('h3');
+          title.className = 'essay__title';
+          title.textContent = item.title;
+          meta.append(time);
+          link.append(meta, title);
           if (item.summary) {
             const summary = document.createElement('p');
             summary.textContent = item.summary;
-            li.append(summary);
+            link.append(summary);
           }
+          li.append(link);
           list.append(li);
         }
         box.replaceChildren(list);
