@@ -2,6 +2,22 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.23.0] - 2026-10-08
+
+### Added
+
+- "Nerd projects" on Projects, after "For others": my own side projects by honest status, Running, Paused, and Stopped, from Panda's notes and my GitHub. Private ones are described, not linked.
+- A round "back to top" button that appears a screen down every page. It works by keyboard, skips smooth scrolling under reduced motion, and stays visible without JavaScript.
+
+### Changed
+
+- The footer's text sits on paper panels over the moving pattern, like the header's pills.
+- "For others" and "Nerd projects" share one `Ledger` component.
+
+### Removed
+
+- The "Back to top" link in the footer; the button replaces it.
+
 ## [1.22.0] - 2026-10-08
 
 ### Changed

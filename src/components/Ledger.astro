@@ -1,0 +1,38 @@
+---
+import type { WorkGroup } from '../data/projects';
+
+interface Props {
+  groups: WorkGroup[];
+}
+
+const { groups } = Astro.props;
+---
+
+{
+  groups.map((group) => (
+    <div class="ledger">
+      <h3 class="ledger__group">{group.name}</h3>
+      <ul class="ledger__entries">
+        {group.entries.map((entry) => (
+          <li class="ledger__entry">
+            <p class="ledger__head">
+              <span class="ledger__title">{entry.title}</span>
+              {entry.when && <span class="ledger__when">{entry.when}</span>}
+            </p>
+            <p class="ledger__body">{entry.body}</p>
+            {entry.parts && (
+              <ul class="ledger__parts">
+                {entry.parts.map((part) => (
+                  <li>
+                    <strong lang={part.lang}>{part.name}.</strong> {part.text}
+                    {part.unfinished && <span class="ledger__tag">Unfinished</span>}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))
+}

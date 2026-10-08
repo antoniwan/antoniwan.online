@@ -143,3 +143,66 @@ export const workForOthers: WorkGroup[] = [
     ],
   },
 ];
+
+/**
+ * My own side projects, by honest status. Sources: Panda's Digital Work notes and the GitHub inventory.
+ * Private ones are described, never linked. Never name my kids or show private data.
+ */
+export const nerdProjects: WorkGroup[] = [
+  {
+    name: 'Running',
+    entries: [
+      {
+        title: "Panda's nightly digestion",
+        when: '2026',
+        body: 'Every night at 10, an agent reads what I said that day and files it into my notes, with a receipt for each filing.',
+      },
+      { title: 'Home hub', when: '2026', body: 'A start page and music tools that run on my own Mac.' },
+      { title: 'Prototypes', when: 'Always', body: 'Lots of small, mostly private prototypes, each built in a day or two to test an idea.' },
+    ],
+  },
+  {
+    name: 'Paused',
+    entries: [
+      {
+        title: 'Nido',
+        when: '2026',
+        body: 'A private app for my daughter and me to share messages, voice notes, drawings, games, and memories. Paused after the first build: the app shell and the parent login.',
+      },
+      {
+        title: 'ChatGPT Autopsy',
+        when: '2025',
+        body: 'A private tool that turned my ChatGPT history into a database I could search and read. I used it for a while, then paused it.',
+      },
+      {
+        title: 'SoundCraft',
+        when: '2025',
+        body: 'A self-hosted system to archive and publish my music: guitar riffs, beats, short songs, and videos. Quiet since June 2025.',
+      },
+    ],
+  },
+  {
+    name: 'Stopped',
+    entries: [
+      {
+        title: 'The Turnip Content Factory',
+        when: '2026',
+        body: 'A network of small, absurd niche sites on shared code. It stalled on tooling and never published a site.',
+      },
+      { title: 'My Prompt Library', when: '2025 to 2026', body: 'My AI prompts in one place. Retired when prompts moved into agent skills.' },
+      { title: 'my-react-hooks', when: '2026', body: 'A lab for custom React hooks. Abandoned.' },
+      { title: 'Work Clock', when: '2025', body: 'A small web app that counts down to the end of the workday. Retired.' },
+      { title: 'Bluesky follower', when: '2025', body: 'A small tool that follows top Bluesky accounts by topic, at a polite pace.' },
+      { title: 'CloseNet', when: '2025', body: 'A family messaging app that stopped at the design stage.' },
+      { title: 'FlexProfiles', when: '2024', body: 'Profile pages you could lay out and export as Markdown or HTML. Stopped early.' },
+      { title: 'HOOPCHAMP', when: '2023', body: 'A basketball web experiment that never got past its first pages.' },
+      { title: 'TattooDex', when: '2023', body: 'An index of tattoos, their meanings, and the artists behind them. Stopped early.' },
+      { title: 'Frontend template', when: '2022', body: 'A starter for new apps on Next.js and KeystoneJS, with light and dark mode. Login never got built.' },
+      { title: 'arod.us', when: '2022', body: 'An earlier personal site, on Gatsby.' },
+      {
+        title: 'Protest web app',
+        body: 'An open-source idea for organizing online protests in rooms, with no ads or trackers. Concept only.',
+      },
+    ],
+  },
+];

@@ -2,7 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Seam from '../components/Seam.astro';
 import { SITE } from '../config/site';
-import { projects, workForOthers } from '../data/projects';
+import Ledger from '../components/Ledger.astro';
+import { nerdProjects, projects, workForOthers } from '../data/projects';
 ---
 
 <Base
@@ -55,34 +56,18 @@ import { projects, workForOthers } from '../data/projects';
       <h2 id="work-for-others-title">For others</h2>
     </div>
     <div class="section__body">
-      {
-        workForOthers.map((group) => (
-          <div class="ledger">
-            <h3 class="ledger__group">{group.name}</h3>
-            <ul class="ledger__entries">
-              {group.entries.map((entry) => (
-                <li class="ledger__entry">
-                  <p class="ledger__head">
-                    <span class="ledger__title">{entry.title}</span>
-                    {entry.when && <span class="ledger__when">{entry.when}</span>}
-                  </p>
-                  <p class="ledger__body">{entry.body}</p>
-                  {entry.parts && (
-                    <ul class="ledger__parts">
-                      {entry.parts.map((part) => (
-                        <li>
-                          <strong lang={part.lang}>{part.name}.</strong> {part.text}
-                          {part.unfinished && <span class="ledger__tag">Unfinished</span>}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
+      <Ledger groups={workForOthers} />
+    </div>
+  </section>
+
+  <Seam />
+
+  <section class="section section--split" id="nerd-projects" aria-labelledby="nerd-projects-title">
+    <div class="section__heading">
+      <h2 id="nerd-projects-title">Nerd projects</h2>
+    </div>
+    <div class="section__body">
+      <Ledger groups={nerdProjects} />
     </div>
   </section>
 </Base>

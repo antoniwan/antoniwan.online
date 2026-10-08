@@ -261,6 +261,9 @@ figure { margin: 0; }
 .footer__identity .footer__copyright { margin-top: 0.5rem; font-size: 0.6875rem; }
 .footer ul { display: grid; grid-template-columns: auto auto; gap: 0 1.5rem; }
 .footer a:not(.footer__brand) { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-2); }
+/* Paper panels keep the footer text readable over the moving pattern, like the header pills. */
+.footer__identity, .footer ul { padding: 0.75rem 1rem; border-radius: 14px; background: color-mix(in srgb, var(--paper) 90%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.footer ul { padding-block: 0.25rem; }
 .motion-toggle { padding: 0; border: 0; background: none; color: var(--ink-2); font: inherit; min-height: 44px; text-decoration: underline; text-underline-offset: 0.22em; cursor: pointer; }
 
 /* The full address fits beside the navigation from 24rem; smaller phones show the handle. */
@@ -312,4 +315,15 @@ figure { margin: 0; }
   .section--split { gap: 5rem; }
   .book-art { height: 210px; }
   .project { padding: 2rem; }
+}
+
+/* Back to top: a round button that appears a screen down the page. */
+.to-top { position: fixed; right: calc(1rem + env(safe-area-inset-right, 0px)); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 20; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--cta); color: var(--on-cta); box-shadow: 0 0 0 3px var(--paper); text-decoration: none; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+.to-top:hover { background: var(--accent); }
+.to-top[data-ready]:not([data-visible]) { opacity: 0; visibility: hidden; transform: translateY(0.5rem); }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .to-top { transition: none; }
 }
