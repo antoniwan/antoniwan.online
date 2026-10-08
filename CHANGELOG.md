@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.12.1] - 2026-10-08
+
+### Changed
+
+- Put the principles inside "How I work" on About, under its paragraph, without their own heading or section. `#principles` still points at the list.
+
 ## [1.12.0] - 2026-10-08
 
 ### Added
