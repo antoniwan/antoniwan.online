@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.14.1] - 2026-10-08
+
+### Fixed
+
+- Separate project titles with semicolons in llms.txt, because some titles contain commas.
+
 ## [1.14.0] - 2026-10-08
 
 ### Added
