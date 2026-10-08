@@ -101,7 +101,7 @@ export const workForOthers: WorkGroup[] = [
         parts: [
           {
             name: 'Web platform',
-            text: "I built the brands' original PHP sites, back when PHP was the right tool. Later I shepherded their move to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. Now we're looking into what comes next: modern patterns, microservices, and better product management.",
+            text: "I built the brands' original PHP sites, back when PHP was the right tool. Later I shepherded their move to the platform we run today: Next.js on a headless setup, where the content lives apart from the sites, pages are built ahead of time, and incremental static regeneration (ISR) refreshes them without a full rebuild. Every brand shares its services: product search, product registration, and user profiles. Now we're looking into what comes next: modern patterns, microservices, and better product management.",
           },
           {
             name: 'AI innovation',

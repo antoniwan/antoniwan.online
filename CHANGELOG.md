@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.17.1] - 2026-10-08
+
+### Changed
+
+- The SBD web platform entry describes what runs today: Next.js on a headless setup, pages built ahead of time, and incremental static regeneration, in plain words.
+
 ## [1.17.0] - 2026-10-08
 
 ### Changed
