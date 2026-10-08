@@ -97,7 +97,7 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Stanley Black & Decker',
         when: '2021 to now',
-        body: "On SBD Digital, the team behind the brands' websites and apps and the services behind them. I built the brands' original PHP sites, back when PHP was the right tool, then shepherded their move to a modern Next.js platform with services every brand shares, like product search, product registration, and product identification. Today I'm also the product owner for our AI innovation group, where the work is automation, and one of the technical people in our product design group.",
+        body: "On SBD Digital, the team behind the brands' websites and apps and the services behind them. I've been part of the brands' web platform since the original PHP sites, back when PHP was the right tool, through the move to a modern Next.js platform with services every brand shares, like product search, product registration, and product identification. Today I'm also the product owner for our AI innovation group, where the work is automation, and one of the technical people in our product design group.",
       },
       {
         title: 'Agencies and startups',

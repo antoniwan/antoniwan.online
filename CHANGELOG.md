@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.20.1] - 2026-10-08
+
+### Changed
+
+- Platform, on About and Projects: I've been part of the brands' web platform since the original PHP sites, through the move to Next.js and the shared services. It no longer says I built or shepherded them.
+
 ## [1.20.0] - 2026-10-08
 
 ### Changed
