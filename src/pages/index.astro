@@ -4,7 +4,9 @@ import Base from '../layouts/Base.astro';
 import LinkList from '../components/LinkList.astro';
 import NoteList from '../components/NoteList.astro';
 import Seam from '../components/Seam.astro';
-import profile from '../profile.avif';
+// Image URLs are hashed from the file's path and size, not its content, and browsers keep them a year.
+// Give a new portrait a new file name, or visitors keep seeing the old one.
+import profile from '../portrait-2026-10.avif';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { latestNotes } from '../utils/notes';

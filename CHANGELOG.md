@@ -2,6 +2,17 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.11.1] - 2026-10-08
+
+### Fixed
+
+- Show the new portrait to visitors who had the old one cached. Astro names image files from the source's path and size, not its content, so the new photo kept the old URLs, which browsers keep for a year. The source is now `src/portrait-2026-10.avif`; a new portrait gets a new name.
+- Add a short hash of `og.png` to its URL in the social and structured-data tags, so link previews fetch the redrawn card.
+
+### Removed
+
+- Remove the photo from About. The portrait stays on Home.
+
 ## [1.11.0] - 2026-10-08
 
 ### Changed

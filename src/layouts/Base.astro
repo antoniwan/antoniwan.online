@@ -1,4 +1,6 @@
 ---
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
@@ -19,7 +21,9 @@ const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} (${SITE.hand
 // build.format is 'file', so pathnames end in .html at build time; Vercel serves them without it.
 const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
 const canonical = new URL(cleanPath, SITE.url).href;
-const ogImage = new URL('/og.png', SITE.url).href;
+// A short hash of og.png in its URL makes link previews fetch the new card after a redraw.
+const ogVersion = createHash('sha256').update(readFileSync('public/og.png')).digest('hex').slice(0, 8);
+const ogImage = new URL(`/og.png?v=${ogVersion}`, SITE.url).href;
 const ogImageAlt = `${SITE.domain}: ${SITE.name}, with his portrait. Builder. Father. Boricua.`;
 const sameAs = sections
   .flatMap((section) => section.items)
@@ -33,7 +37,7 @@ const person = {
   alternateName: [SITE.handle, SITE.plainName],
   url: SITE.url,
   email: SITE.email,
-  image: new URL('/og.png', SITE.url).href,
+  image: ogImage,
   jobTitle: 'Technical Program Manager',
   worksFor: { '@type': 'Organization', name: 'Stanley Black & Decker', url: 'https://www.stanleyblackanddecker.com' },
   homeLocation: { '@type': 'State', name: 'Florida', sameAs: 'https://www.wikidata.org/wiki/Q812' },

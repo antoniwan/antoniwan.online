@@ -36,7 +36,7 @@ const card = `<!doctype html>
 </style>
 <div class="domain">antoniwan<span>.online</span></div>
 <div><h1>Antonio <span>Rodríguez Martínez</span></h1><p>Builder. Father. Boricua.</p></div>
-<img src="${dataUri('src/profile.avif', 'image/avif')}" alt="">`;
+<img src="${dataUri('src/portrait-2026-10.avif', 'image/avif')}" alt="">`;
 
 // Headless Chrome writes the screenshot but does not always exit on macOS, so stop it as soon as it
 // reports the file.
