@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.2] - 2026-10-08
+
+### Changed
+
+- The UPR Río Piedras entry says I built all of it as a work-study student in DTAA, while I was still figuring out how to be a college student.
+
 ## [1.16.1] - 2026-10-08
 
 ### Changed
