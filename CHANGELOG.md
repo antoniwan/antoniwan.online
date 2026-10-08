@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.18.0] - 2026-10-08
+
+### Added
+
+- "Companies I helped build" in "For others", between Employers and Clients: CarBuckets (CTO), M8 (Director of Technology), Nobox (partner), and Kolapse Interactive (co-founder and CTO), from my LinkedIn profile, in plain words.
+- UPR Río Piedras gets its years (2004 to 2010) and the Crime Log.
+
 ## [1.17.2] - 2026-10-08
 
 ### Changed
