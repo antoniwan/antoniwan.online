@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.3] - 2026-10-08
+
+### Fixed
+
+- Product design at Stanley Black & Decker: I'm the main technical voice in that group, not its product owner.
+
 ## [1.16.2] - 2026-10-08
 
 ### Changed
