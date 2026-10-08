@@ -97,27 +97,12 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Stanley Black & Decker',
         when: '2021 to now',
-        body: "With SBD Digital, the team behind the brands' websites and apps, and the backend services and data behind them. All of it sits under one leader, and I'm effectively his deputy.",
-        parts: [
-          {
-            name: 'Web platform',
-            text: "I built the brands' original PHP sites, back when PHP was the right tool. Later I shepherded their move to the platform we run today: Next.js on a headless setup, where the content lives apart from the sites, pages are built ahead of time, and incremental static regeneration (ISR) refreshes them without a full rebuild. Every brand shares its services: product search, product registration, and user profiles. Now we're looking into what comes next: modern patterns, microservices, and better product management.",
-          },
-          {
-            name: 'AI innovation',
-            text: "I'm the product owner for our AI innovation group. The work is automation: everyday workflows, and testing across the front end and the back end, end to end.",
-          },
-          { name: 'Product design', text: "I'm the main technical voice in our product design group." },
-          {
-            name: 'Plans and boards',
-            text: "For all of these, I'm a lead contributor to our Confluence wiki and Jira boards, where the plans, specs, and work live.",
-          },
-        ],
+        body: "On SBD Digital, the team behind the brands' websites and apps and the services behind them. I built the brands' original PHP sites, back when PHP was the right tool, then shepherded their move to a modern Next.js platform with services every brand shares, like product search and product registration. Today I'm also the product owner for our AI innovation group, where the work is automation, and the main technical voice in our product design group.",
       },
       {
         title: 'Agencies and startups',
         when: '2008 to 2021',
-        body: "I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). Nobox bought ads for companies at scale, and we built the tech around it: apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines. I also pitched, sold add-ons, taught our sales staff how everything worked so they could sell it better, and once went to F8, Facebook's developer conference; working with all those vendors and companies was a lot of fun. At M8, our move to static sites cut operating costs by about 80%.",
+        body: "I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). The agencies bought ads for companies at scale, and we built the tech around it: apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines. Both Nobox and M8 were bought while I was there, and guiding the technology side of each through the sale was very cool. I also pitched, sold add-ons, taught our sales staff how everything worked so they could sell it better, and once went to F8, Facebook's developer conference; working with all those vendors and companies was a lot of fun. At M8, our move to static sites cut operating costs by about 80%.",
       },
       {
         title: 'University of Puerto Rico, Río Piedras',

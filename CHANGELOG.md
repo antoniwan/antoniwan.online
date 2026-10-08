@@ -2,6 +2,18 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.19.0] - 2026-10-08
+
+### Changed
+
+- Stanley Black & Decker on Projects is one short paragraph: the original PHP sites, the move to Next.js with shared services like product search, and my roles in AI innovation and product design.
+
+- Agencies and startups: the agencies (not Nobox alone) bought ads at scale, and both Nobox and M8 were bought while I was there; I guided the technology side of each through the sale.
+
+### Removed
+
+- Internal detail about SBD that is not mine to publish: how the platform is built inside, what the team is planning next, and how the team is organized. Removed from Projects, About, Home and llms.txt, and from the matching changelog entries above.
+
 ## [1.18.4] - 2026-10-08
 
 ### Fixed
@@ -44,13 +56,13 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 
 ### Changed
 
-- The SBD web platform entry describes what runs today: Next.js on a headless setup, pages built ahead of time, and incremental static regeneration, in plain words.
+- More detail on the SBD web platform entry (removed again in 1.19.0).
 
 ## [1.17.0] - 2026-10-08
 
 ### Changed
 
-- Make Home, About, Projects and llms.txt tell the same SBD story. About's "At work" names the roles: effectively the deputy to the leader who owns the sites, services and data; product owner for the AI innovation group; main technical voice in the product design group. Home's Work line summarizes the same areas. llms.txt says the same.
+- Make Home, About, Projects and llms.txt tell the same SBD story. About's "At work" names the roles: product owner for the AI innovation group and main technical voice in the product design group. Home's Work line summarizes the same areas. llms.txt says the same.
 
 ### Added
 
@@ -66,14 +78,14 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 
 ### Changed
 
-- The SBD web platform entry says what we are looking into now: modern patterns, microservices, and better product management.
+- More detail on the SBD web platform entry (removed again in 1.19.0).
 
 ## [1.16.4] - 2026-10-08
 
 ### Changed
 
 - Stanley Black & Decker: I built the brands' original PHP sites, back when PHP was the right tool, before shepherding the move to Next.js. The same line changes on About, in llms.txt, and in the LinkedIn copy.
-- The SBD entry on Projects says the team also owns the backend services and the data behind the sites, under one leader whose deputy I effectively am.
+- More detail on the SBD team on Projects (removed again in 1.19.0).
 
 ## [1.16.3] - 2026-10-08
 
@@ -91,7 +103,7 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 
 ### Changed
 
-- Stanley Black & Decker under "For others" now lists its parts: the web platform, product owner for the AI innovation group and for the product design group, and lead contributor to the Confluence wiki and Jira boards for all of them. The row shows the years only; one tool undersold it.
+- Stanley Black & Decker under "For others" lists its parts (condensed again in 1.19.0).
 
 ## [1.16.0] - 2026-10-08
 
