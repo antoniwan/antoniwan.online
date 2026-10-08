@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.26.0] - 2026-10-08
+
+### Changed
+
+- The tongue-out surprise moves from the back-to-top button to the portrait, on Home and About: hover the photo and the same shot from the same sitting sticks its tongue out, with a smooth crossfade and a small springy wobble. Only where the device can hover; under reduced motion it fades without the wobble. The photo is full-frame, like the portrait, so the face changes in place.
+- The back-to-top button is the arrow and its circling neuron again.
+
 ## [1.25.0] - 2026-10-08
 
 ### Added

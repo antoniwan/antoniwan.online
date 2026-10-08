@@ -7,6 +7,7 @@ import Seam from '../components/Seam.astro';
 // Image URLs are hashed from the file's path and size, not its content, and browsers keep them a year.
 // Give a new portrait a new file name, or visitors keep seeing the old one.
 import profile from '../portrait-2026-10.avif';
+import tongue from '../portrait-tongue-2026-10.avif';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { latestNotes } from '../utils/notes';
@@ -35,6 +36,20 @@ const [firstName, ...familyName] = SITE.name.split(' ');
         fit="cover"
         loading="eager"
         fetchpriority="high"
+      />
+      <Image
+        class="portrait-tongue"
+        src={tongue}
+        alt=""
+        aria-hidden="true"
+        width={640}
+        height={640}
+        widths={[160, 320, 400, 640]}
+        sizes="(min-width: 72rem) 340px, (min-width: 48rem) 30vw, 80px"
+        format="avif"
+        quality={50}
+        fit="cover"
+        loading="lazy"
       />
     </figure>
     <h1 id="intro-title" class="hero__name">

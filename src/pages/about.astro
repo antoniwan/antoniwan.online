@@ -6,6 +6,7 @@ import { SITE } from '../config/site';
 import { principles } from '../data/principles';
 import { workAreas } from '../data/work';
 import profile from '../portrait-2026-10.avif';
+import tongue from '../portrait-tongue-2026-10.avif';
 ---
 
 <Base
@@ -31,6 +32,20 @@ import profile from '../portrait-2026-10.avif';
         quality={50}
         fit="cover"
         loading="eager"
+      />
+      <Image
+        class="portrait-tongue"
+        src={tongue}
+        alt=""
+        aria-hidden="true"
+        width={224}
+        height={224}
+        widths={[80, 112, 160, 224]}
+        sizes="(min-width: 48rem) 112px, 80px"
+        format="avif"
+        quality={50}
+        fit="cover"
+        loading="lazy"
       />
     </figure>
     <p class="hero__intro">
