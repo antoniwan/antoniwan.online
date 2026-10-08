@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { principles } from '../data/principles';
-import { nerdProjects, projects, workForOthers } from '../data/projects';
+import { projects, workForOthers } from '../data/projects';
 import { workAreas } from '../data/work';
 
 /** `/llms.txt` (https://llmstxt.org): this site for AI agents, built from the same data as the pages. */
@@ -28,7 +28,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 - [Home](${url('/')}): who he is, the latest essays, and every link
 - [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works and his principles, and the company
-- [Projects](${url('/projects')}): his own (${projects.map((p) => p.title).join('; ')}), work for others (${workForOthers.flatMap((g) => g.entries).map((e) => e.title).join('; ')}), and nerd projects: ${nerdProjects.length} experiments and demos, most of them stopped or replaced
+- [Projects](${url('/projects')}): his own (${projects.map((p) => p.title).join('; ')}), work for others (${workForOthers.flatMap((g) => g.entries).map((e) => e.title).join('; ')}), and side projects for fun, most of them stopped or replaced
 
 ## Writing
 

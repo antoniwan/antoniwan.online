@@ -66,7 +66,8 @@ export const projects: Project[] = [
 ];
 
 export interface WorkPart {
-  name: string;
+  /** Left out for side projects, which are described, never named. */
+  name?: string;
   text: string;
   /** Set for a name in Spanish, so screen readers pronounce it right. */
   lang?: 'es';
@@ -87,8 +88,8 @@ export interface WorkGroup {
 }
 
 /**
- * Work I built for other people and handed over: text only, no links, at a high level.
- * Never name a client, a friend or their business without their permission.
+ * Work I built for other people and handed over, then my own side projects ("Nerd projects", described, never named).
+ * Text only, no links, at a high level. Never name a client, a friend or their business without their permission.
  */
 export const workForOthers: WorkGroup[] = [
   {
@@ -142,29 +143,35 @@ export const workForOthers: WorkGroup[] = [
       },
     ],
   },
+  {
+    name: 'Nerd projects',
+    entries: [
+      {
+        title: 'Experiments and demos',
+        when: '2022 to now',
+        body: 'Built for fun or to learn. Most I stopped, or replaced with the next one.',
+        parts: [
+          { text: 'An agent that files my day into my notes every night.' },
+          { text: 'A start page and music tools that run on my own Mac (Python).' },
+          { text: 'A private app for my daughter and me to share messages and drawings (React Native).' },
+          { text: 'A network of absurd niche sites on shared code (Astro).' },
+          { text: 'A library of AI prompts, replaced by agent skills.' },
+          { text: 'A lab for custom React hooks.' },
+          { text: 'A tool that turned my ChatGPT history into a searchable database (Go).' },
+          { text: 'A countdown to the end of the workday.' },
+          { text: 'A self-hosted archive for my guitar riffs and beats (Python).' },
+          { text: 'A Bluesky tool that follows top accounts by topic (Go).' },
+          { text: 'A family messaging app (Next.js).' },
+          { text: 'Profile pages you could export as Markdown or HTML.' },
+          { text: 'A basketball site.' },
+          { text: 'An index of tattoos and what they mean.' },
+          { text: 'A starter template for new apps (Next.js, KeystoneJS).' },
+          { text: 'An earlier personal site (Gatsby).' },
+          { text: 'An app for organizing online protests, concept only.' },
+          { text: 'And many quick prototypes to test ideas.' },
+        ],
+      },
+    ],
+  },
 ];
 
-/**
- * Side projects, one sentence each, unnamed. Experiments and demos: some still run, most stopped or were replaced.
- * Sources: Panda's Digital Work notes and the GitHub inventory. Never name my kids or show private data.
- */
-export const nerdProjects: { text: string; when: string }[] = [
-  { text: 'An agent that files my day into my notes every night.', when: '2026' },
-  { text: 'A start page and music tools that run on my own Mac.', when: '2026 · Python' },
-  { text: 'A private app for my daughter and me to share messages and drawings.', when: '2026 · React Native' },
-  { text: 'A network of absurd niche sites on shared code.', when: '2026 · Astro' },
-  { text: 'A library of AI prompts, replaced by agent skills.', when: '2025 to 2026' },
-  { text: 'A lab for custom React hooks.', when: '2026 · React' },
-  { text: 'A tool that turned my ChatGPT history into a searchable database.', when: '2025 · Go' },
-  { text: 'A countdown to the end of the workday.', when: '2025' },
-  { text: 'A self-hosted archive for my guitar riffs and beats.', when: '2025 · Python' },
-  { text: 'A Bluesky tool that follows top accounts by topic.', when: '2025 · Go' },
-  { text: 'A family messaging app.', when: '2025 · Next.js' },
-  { text: 'Profile pages you could export as Markdown or HTML.', when: '2024' },
-  { text: 'A basketball site.', when: '2023' },
-  { text: 'An index of tattoos and what they mean.', when: '2023' },
-  { text: 'A starter template for new apps.', when: '2022 · Next.js, KeystoneJS' },
-  { text: 'An earlier personal site.', when: '2022 · Gatsby' },
-  { text: 'An app for organizing online protests.', when: 'Concept' },
-  { text: 'And many quick prototypes to test ideas.', when: 'Always' },
-];

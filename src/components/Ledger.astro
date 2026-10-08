@@ -24,7 +24,7 @@ const { groups } = Astro.props;
               <ul class="ledger__parts">
                 {entry.parts.map((part) => (
                   <li>
-                    <strong lang={part.lang}>{part.name}.</strong> {part.text}
+                    {part.name && <strong lang={part.lang}>{part.name}.</strong>} {part.text}
                     {part.unfinished && <span class="ledger__tag">Unfinished</span>}
                   </li>
                 ))}

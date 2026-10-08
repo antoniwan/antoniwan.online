@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.23.3] - 2026-10-08
+
+### Changed
+
+- Nerd projects is a group under Favors in the same column, built like the other entries: one entry, "Experiments and demos, 2022 to now", with the projects as unnamed parts. The section heading is now "For others, and for fun". The separate section and its seam are gone.
+
 ## [1.23.2] - 2026-10-08
 
 ### Changed
