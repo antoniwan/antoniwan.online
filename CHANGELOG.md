@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.1] - 2026-10-08
+
+### Changed
+
+- Stanley Black & Decker under "For others" now lists its parts: the web platform, product owner for the AI innovation group and for the product design group, and lead contributor to the Confluence wiki and Jira boards for all of them. The row shows the years only; one tool undersold it.
+
 ## [1.16.0] - 2026-10-08
 
 ### Changed

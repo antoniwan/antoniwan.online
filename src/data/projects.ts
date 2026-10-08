@@ -96,8 +96,23 @@ export const workForOthers: WorkGroup[] = [
     entries: [
       {
         title: 'Stanley Black & Decker',
-        when: '2021 to now · Next.js',
-        body: "With SBD Digital, the brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move.",
+        when: '2021 to now',
+        body: "With SBD Digital, the team behind the brands' websites and apps.",
+        parts: [
+          {
+            name: 'Web platform',
+            text: "The brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move.",
+          },
+          {
+            name: 'AI innovation',
+            text: "I'm the product owner for our AI innovation group: prototypes, many of them AI-powered, that test an idea before a team commits to building it.",
+          },
+          { name: 'Product design', text: "I'm the product owner for our product design group." },
+          {
+            name: 'Plans and boards',
+            text: "For all of these, I'm a lead contributor to our Confluence wiki and Jira boards, where the plans, specs, and work live.",
+          },
+        ],
       },
       {
         title: 'University of Puerto Rico, Río Piedras',
