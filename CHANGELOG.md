@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.7.3] - 2026-10-07
+
+### Removed
+
+- Remove the tagline from the home hero. The introduction below it already says builder, father and Boricua. The tagline stays in llms.txt.
+
 ## [1.7.2] - 2026-10-07
 
 ### Changed
