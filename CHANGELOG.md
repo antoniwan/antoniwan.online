@@ -2,6 +2,20 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.0] - 2026-10-08
+
+### Changed
+
+- Rebuild "For others" on Projects as plain rows grouped by who the work was for: Employers, Clients, and Friends, family and neighbors. Each row has its years and main tool when known; the UPR Río Piedras work sits under one entry, with the unfinished transcript checker tagged. No cards and no links, so it reads apart from "My own".
+- The lawyer's website is dated 2024.
+- The Notes card mentions its writing charts; the antoniwan.online card tells how the site got here.
+
+### Added
+
+- My neighbors' gift shop (2022): Shopify SEO, done for fun.
+- Favors for friends and family (2018 to 2020).
+- About's Background starts with my first HTML, around age nine, on a WebTV.
+
 ## [1.15.1] - 2026-10-08
 
 ### Fixed

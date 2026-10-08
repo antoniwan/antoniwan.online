@@ -12,7 +12,7 @@ export const projects: Project[] = [
     title: 'Notes',
     href: 'https://notes.antoniwan.online',
     repo: 'https://github.com/antoniwan/notes',
-    body: 'My writing site. Essays in English and Spanish, household recipes, and a markdown copy of every post for people and agents.',
+    body: 'My writing site. Essays in English and Spanish, household recipes, and a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
     stack: 'Astro, TypeScript',
   },
   {
@@ -60,51 +60,84 @@ export const projects: Project[] = [
     title: 'antoniwan.online',
     href: '/',
     repo: 'https://github.com/antoniwan/antoniwan.online',
-    body: 'This site. It replaced a link page and a separate portfolio on October 7, 2026.',
+    body: 'This site, since October 7, 2026. Before it came arod.us in 2022, builds.software in 2025, and a link page on this domain: many names and ideas. This is the one I enjoy, and it keeps changing.',
     stack: 'Astro, plain CSS',
   },
 ];
 
-export interface WorkEntry {
-  title: string;
-  body: string;
-  /** Who it was for, and the main tool when it is known. */
-  context: string;
-  /** Set for a title in Spanish, so screen readers pronounce it right. */
+export interface WorkPart {
+  name: string;
+  text: string;
+  /** Set for a name in Spanish, so screen readers pronounce it right. */
   lang?: 'es';
+  unfinished?: boolean;
 }
 
-/** Work I did for other people: text only, no links, at a high level. Never name a client without their permission. */
-export const workForOthers: WorkEntry[] = [
+export interface WorkEntry {
+  title: string;
+  /** Years, then the main tool, when known. */
+  when?: string;
+  body: string;
+  parts?: WorkPart[];
+}
+
+export interface WorkGroup {
+  name: string;
+  entries: WorkEntry[];
+}
+
+/**
+ * Work I built for other people and handed over: text only, no links, at a high level.
+ * Never name a client, a friend or their business without their permission.
+ */
+export const workForOthers: WorkGroup[] = [
   {
-    title: "Stanley Black & Decker's web platform",
-    body: "The brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move with SBD Digital.",
-    context: 'Day job · Next.js',
+    name: 'Employers',
+    entries: [
+      {
+        title: 'Stanley Black & Decker',
+        when: '2021 to now · Next.js',
+        body: "With SBD Digital, the brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move.",
+      },
+      {
+        title: 'University of Puerto Rico, Río Piedras',
+        body: 'I worked in DTAA, the campus IT division, and built a lot for the campus.',
+        parts: [
+          { name: 'The campus website', text: 'The website of the Río Piedras campus.' },
+          { name: 'MiUPI', text: "The original version of the campus's online portal." },
+          { name: 'Consulta al Estudiante', lang: 'es', text: 'The online student consultation from the big strike.' },
+          {
+            name: 'Transcript checker',
+            text: 'It would read your transcript and recommend a path to finish your degree. I was building it when I left DTAA and never finished it; it was hard.',
+            unfinished: true,
+          },
+        ],
+      },
+    ],
   },
   {
-    title: 'The UPR Río Piedras website',
-    body: "The website of the University of Puerto Rico's Río Piedras campus.",
-    context: 'UPR Río Piedras',
+    name: 'Clients',
+    entries: [
+      {
+        title: "A lawyer's website",
+        when: '2024 · WordPress',
+        body: 'A freelance website for a lawyer. I built it on WordPress and learned a lot about WordPress doing it.',
+      },
+    ],
   },
   {
-    title: 'MiUPI',
-    body: "The original version of MiUPI, the campus's online portal.",
-    context: 'UPR Río Piedras',
-  },
-  {
-    title: 'Consulta al Estudiante',
-    lang: 'es',
-    body: 'The online student consultation from the big strike.',
-    context: 'UPR Río Piedras',
-  },
-  {
-    title: 'Transcript checker',
-    body: 'A program that would read your transcript and recommend a path to finish your degree. I was building it when I left DTAA, the campus IT division. I never finished it; it was hard.',
-    context: 'UPR Río Piedras · Unfinished',
-  },
-  {
-    title: "A lawyer's website",
-    body: 'A freelance website for a lawyer. I built it on WordPress and learned a lot about WordPress doing it.',
-    context: 'Freelance · WordPress',
+    name: 'Friends, family and neighbors',
+    entries: [
+      {
+        title: "My neighbors' gift shop",
+        when: '2022 · Shopify',
+        body: 'SEO for their Shopify store, for fun, to help out. I set up the sitemap and Search Console and planned the rest.',
+      },
+      {
+        title: 'Favors',
+        when: '2018 to 2020',
+        body: 'Small sites for friends and family. One was for the first hire at my first agency, a designer and real estate developer.',
+      },
+    ],
   },
 ];

@@ -236,8 +236,19 @@ figure { margin: 0; }
 .project h3 { font-size: 1.5rem; }
 .project h3 a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; }
 .project h3 a:hover { text-decoration: underline; }
-/* A text entry has no link, so its title keeps the same 44px row as a linked one. */
-.project--text h3 { display: flex; align-items: center; min-height: 44px; }
+/* For others: work handed over, as plain rows grouped by who it was for. No links, so no cards. */
+.ledger + .ledger { margin-top: 2.5rem; }
+.ledger__group { margin: 0 0 0.25rem; font: 500 0.6875rem/1.6 var(--font-mono); letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
+.ledger__entry { padding: 1.1rem 0; }
+.ledger__entry + .ledger__entry { border-top: 1px solid var(--line); }
+.ledger__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; max-width: none; margin: 0 0 0.4rem; }
+.ledger__title { font: 650 1.125rem/1.4 var(--font-display); letter-spacing: -0.02em; color: var(--ink); }
+.ledger__when { font: 0.6875rem/1.6 var(--font-mono); color: var(--muted); }
+.ledger__body { margin: 0; color: var(--ink-2); font-size: 0.875rem; line-height: 1.75; }
+.ledger__parts { display: grid; gap: 0.5rem; margin-top: 0.75rem; padding-left: 1rem; border-left: 2px solid var(--accent-soft); }
+.ledger__parts li { color: var(--ink-2); font-size: 0.875rem; line-height: 1.75; }
+.ledger__parts strong { color: var(--ink); font-weight: 600; }
+.ledger__tag { display: inline-block; margin-left: 0.5rem; padding: 0 0.4rem; border-radius: 4px; background: var(--paper-2); color: var(--muted); font: 0.6875rem/1.6 var(--font-mono); vertical-align: 0.1em; }
 .project > p { margin: 0 0 1rem; color: var(--ink-2); font-size: 0.9375rem; }
 .project .project__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; margin: auto 0 0; padding-top: 1rem; color: var(--muted); font: 0.6875rem/1.6 var(--font-mono); }
 .project__meta a { display: inline-flex; align-items: center; min-height: 44px; }

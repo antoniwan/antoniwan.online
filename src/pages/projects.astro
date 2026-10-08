@@ -50,18 +50,39 @@ import { projects, workForOthers } from '../data/projects';
 
   <Seam />
 
-  <section class="section" id="work-for-others" aria-labelledby="work-for-others-title">
-    <h2 id="work-for-others-title">For others</h2>
-    <ul class="projects">
+  <section class="section section--split" id="work-for-others" aria-labelledby="work-for-others-title">
+    <div class="section__heading">
+      <h2 id="work-for-others-title">For others</h2>
+    </div>
+    <div class="section__body">
       {
-        workForOthers.map((entry) => (
-          <li class="project project--text">
-            <h3 lang={entry.lang}>{entry.title}</h3>
-            <p>{entry.body}</p>
-            <p class="project__meta">{entry.context}</p>
-          </li>
+        workForOthers.map((group) => (
+          <div class="ledger">
+            <h3 class="ledger__group">{group.name}</h3>
+            <ul class="ledger__entries">
+              {group.entries.map((entry) => (
+                <li class="ledger__entry">
+                  <p class="ledger__head">
+                    <span class="ledger__title">{entry.title}</span>
+                    {entry.when && <span class="ledger__when">{entry.when}</span>}
+                  </p>
+                  <p class="ledger__body">{entry.body}</p>
+                  {entry.parts && (
+                    <ul class="ledger__parts">
+                      {entry.parts.map((part) => (
+                        <li>
+                          <strong lang={part.lang}>{part.name}.</strong> {part.text}
+                          {part.unfinished && <span class="ledger__tag">Unfinished</span>}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         ))
       }
-    </ul>
+    </div>
   </section>
 </Base>
