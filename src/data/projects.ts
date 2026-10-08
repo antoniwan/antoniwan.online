@@ -128,8 +128,7 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Selling my brain',
         when: 'On the side',
-        body: 'Freelance work for extra income and to learn new things. I called it selling my brain: websites, applications, wired networks (I ran the Cat5e cable and set up the routers), and even a digital signage project. Whatever landed, for fun or for learning.',
-        parts: [{ name: "A lawyer's website", text: 'A WordPress site, in 2024. I learned a lot about WordPress doing it.' }],
+        body: 'Freelance work for extra income and to learn new things. I called it selling my brain: websites (WordPress among them), applications, wired networks (I ran the Cat5e cable and set up the routers), and even a digital signage project. Whatever landed, for fun or for learning.',
       },
     ],
   },
@@ -137,14 +136,9 @@ export const workForOthers: WorkGroup[] = [
     name: 'Friends, family and neighbors',
     entries: [
       {
-        title: "My neighbors' gift shop",
-        when: '2022 · Shopify',
-        body: 'SEO for their Shopify store, for fun, to help out. I set up the sitemap and Search Console and planned the rest.',
-      },
-      {
         title: 'Favors',
-        when: '2018 to 2020',
-        body: 'Small sites for friends and family. One was for the first hire at my first agency, a designer and real estate developer.',
+        when: 'Over the years',
+        body: 'Small sites, front ends, and SEO help for friends, family, neighbors, and their small businesses, for fun or to help out. One site was for the first hire at my first agency, a designer and real estate developer.',
       },
     ],
   },

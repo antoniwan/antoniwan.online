@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.21.2] - 2026-10-08
+
+### Changed
+
+- Favors covers small sites, front ends, and SEO help for friends, family, neighbors, and their small businesses. The neighbors' shop is no longer its own entry.
+- Selling my brain no longer singles out the lawyer's website; "websites (WordPress among them)" keeps the learning without pointing at a client.
+
 ## [1.21.1] - 2026-10-08
 
 ### Removed
