@@ -13,8 +13,8 @@ const { edge } = Astro.props;
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse at 85% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%),
-      radial-gradient(ellipse at 45% 90%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 60%);
+      radial-gradient(ellipse at 85% 20%, color-mix(in srgb, var(--strawberry) 12%, transparent), transparent 60%),
+      radial-gradient(ellipse at 45% 90%, color-mix(in srgb, var(--strawberry) 7%, transparent), transparent 60%);
   }
   .shader-backdrop--bottom { mask-image: linear-gradient(to bottom, #000 65%, transparent); }
   .shader-backdrop--top { mask-image: linear-gradient(to top, #000 65%, transparent); }
@@ -252,7 +252,7 @@ const { edge } = Astro.props;
         const hex = style.getPropertyValue(name).trim().slice(1);
         return [0, 2, 4].map(offset => parseInt(hex.slice(offset, offset + 2), 16) / 255);
       };
-      paper = rgb('--paper'); blue = rgb('--accent');
+      paper = rgb('--paper'); blue = rgb('--strawberry');
       colors = ['--comet', '--comet-teal', '--comet-violet'].map(rgb);
     }
 

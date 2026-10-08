@@ -2,6 +2,14 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.11.0] - 2026-10-08
+
+### Changed
+
+- Make strawberry the site's color: the macOS crayon #ff2f92. It fills the buttons, the shader pattern, the greeting, text selection and the favicon. Links and labels use a deeper strawberry (#c7006f light, #ff5ca8 dark) that keeps 4.5:1 contrast on the paper.
+- Raise contrast: near-white paper (#fdfcfa) and near-black ink (#101216) in light mode; a darker paper (#0f1013) and brighter text in dark mode.
+- Redraw `og.png` and the Apple touch icon in the new colors.
+
 ## [1.10.0] - 2026-10-08
 
 ### Added

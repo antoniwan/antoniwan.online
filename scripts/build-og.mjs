@@ -25,13 +25,13 @@ const card = `<!doctype html>
   html, body { width: 1200px; height: 630px; overflow: hidden; }
   body {
     position: relative; display: grid; grid-template-columns: 1fr 340px; align-items: center; gap: 64px; padding: 40px 96px 0;
-    background: radial-gradient(circle at 92% -20%, #e9efff 0, #f7f6f2 60%); color: #1d232b; font-family: 'IBM Plex Sans', sans-serif;
+    background: radial-gradient(circle at 92% -20%, #ffe8f2 0, #fdfcfa 60%); color: #101216; font-family: 'IBM Plex Sans', sans-serif;
   }
-  .domain { position: absolute; top: 56px; left: 96px; font: 600 30px 'IBM Plex Sans', sans-serif; color: #2456d8; }
-  .domain span { color: #4e5661; }
+  .domain { position: absolute; top: 56px; left: 96px; font: 600 30px 'IBM Plex Sans', sans-serif; color: #c7006f; }
+  .domain span { color: #353a42; }
   h1 { font: 750 132px/1.02 Chivo, sans-serif; letter-spacing: -0.055em; }
   h1 span { display: block; margin-top: 8px; font-size: 0.5em; font-weight: 650; letter-spacing: -0.035em; }
-  p { margin-top: 32px; font-size: 32px; color: #4e5661; }
+  p { margin-top: 32px; font-size: 32px; color: #353a42; }
   img { width: 340px; height: 340px; border-radius: 50%; object-fit: cover; }
 </style>
 <div class="domain">antoniwan<span>.online</span></div>

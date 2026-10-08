@@ -14,20 +14,24 @@
   font-display: swap;
 }
 
+/* Strawberry is the macOS crayon (#ff2f92). It fills buttons, the pattern and highlights.
+   Text in that hue uses --accent, a deeper strawberry that keeps 4.5:1 on the paper. */
 :root {
-  --paper: #f7f6f2;
-  --paper-2: #eeeee9;
-  --ink: #1d232b;
-  --ink-2: #4e5661;
-  --muted: #626b77;
-  --line: #d9dde3;
-  --accent: #2456d8;
+  --paper: #fdfcfa;
+  --paper-2: #f2f0ec;
+  --ink: #101216;
+  --ink-2: #353a42;
+  --muted: #5a606a;
+  --line: #dcdcdf;
+  --strawberry: #ff2f92;
+  --on-strawberry: #101216;
+  --accent: #c7006f;
   --comet: #b75a12;
   --comet-teal: #007b73;
   --comet-violet: #853bc3;
-  --accent-soft: #e9efff;
-  --detail: #2456d8;
-  --focus: #2456d8;
+  --accent-soft: #ffe8f2;
+  --detail: #c7006f;
+  --focus: #c7006f;
   --measure: 72rem;
   --font-display: 'Chivo', ui-sans-serif, system-ui, sans-serif;
   --font-text: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -37,36 +41,40 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper: #171a1f;
-    --paper-2: #20252c;
-    --ink: #eef1f6;
-    --ink-2: #c0c7d2;
-    --muted: #9faabb;
-    --line: #36404e;
-    --accent: #91b2ff;
+    --paper: #0f1013;
+    --paper-2: #191b20;
+    --ink: #f6f7f9;
+    --ink-2: #cdd2da;
+    --muted: #9ea5b1;
+    --line: #30343c;
+    --strawberry: #ff2f92;
+    --on-strawberry: #0f1013;
+    --accent: #ff5ca8;
     --comet: #ffbc74;
     --comet-teal: #58e0c8;
     --comet-violet: #c6a0ff;
-    --accent-soft: #232e44;
-    --detail: #91b2ff;
-    --focus: #91b2ff;
+    --accent-soft: #3a0f24;
+    --detail: #ff5ca8;
+    --focus: #ff5ca8;
     color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
-  --paper: #171a1f;
-  --paper-2: #20252c;
-  --ink: #eef1f6;
-  --ink-2: #c0c7d2;
-  --muted: #9faabb;
-  --line: #36404e;
-  --accent: #91b2ff;
+  --paper: #0f1013;
+  --paper-2: #191b20;
+  --ink: #f6f7f9;
+  --ink-2: #cdd2da;
+  --muted: #9ea5b1;
+  --line: #30343c;
+  --strawberry: #ff2f92;
+  --on-strawberry: #0f1013;
+  --accent: #ff5ca8;
   --comet: #ffbc74;
   --comet-teal: #58e0c8;
   --comet-violet: #c6a0ff;
-  --accent-soft: #232e44;
-  --detail: #91b2ff;
-  --focus: #91b2ff;
+  --accent-soft: #3a0f24;
+  --detail: #ff5ca8;
+  --focus: #ff5ca8;
   color-scheme: dark;
 }
 
@@ -79,7 +87,7 @@ body {
   font: 1rem/1.7 var(--font-text);
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: var(--accent); color: var(--paper); }
+::selection { background: var(--strawberry); color: var(--on-strawberry); }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
 a:hover { text-decoration-thickness: 2px; }
 /* The build marks outbound links with target="_blank". Keep one indicator per text link. */
@@ -146,14 +154,14 @@ figure { margin: 0; }
 .hero__portrait { grid-area: portrait; align-self: start; }
 .hero__photo { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; background: var(--paper-2); }
 .hero__name { grid-area: name; margin: 0; font-size: clamp(2.125rem, 11vw, 3.5rem); line-height: 1.02; letter-spacing: -0.055em; }
-.hero__hello { display: block; margin-bottom: 0.45rem; color: var(--accent); font-size: 0.42em; font-weight: 650; line-height: 1.1; letter-spacing: -0.02em; }
+.hero__hello { display: block; margin-bottom: 0.45rem; color: var(--strawberry); font-size: 0.46em; font-weight: 650; line-height: 1.1; letter-spacing: -0.02em; }
 .hero__family { display: block; margin-top: 0.3rem; font-size: 0.59em; line-height: 1.12; letter-spacing: -0.035em; }
 .hero__intro { grid-area: intro; margin-block: 1.25rem; color: var(--ink-2); font-size: 1rem; line-height: 1.8; }
 .hero > div > .hero__intro { margin-top: 1.5rem; max-width: 58ch; font-size: 1.125rem; }
 .hero:not(.hero--home) h1 { max-width: 14ch; }
 .hero__actions { grid-area: actions; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
-.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 48px; padding: 0.7rem 1.1rem; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: var(--paper); font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
-.button:hover { background: var(--accent); border-color: var(--accent); filter: brightness(1.1); }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 48px; padding: 0.7rem 1.1rem; border: 1px solid var(--strawberry); border-radius: 6px; background: var(--strawberry); color: var(--on-strawberry); font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
+.button:hover { background: var(--strawberry); border-color: var(--strawberry); filter: brightness(1.08); }
 .text-link { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
 .text-link:hover { text-decoration: underline; }
 .business-note { margin-bottom: 2.5rem; padding: 0; }
