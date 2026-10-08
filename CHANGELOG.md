@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.8.1] - 2026-10-08
+
+### Fixed
+
+- Restart the seed on a visible contour when its moving curve carries it toward the edge. Fade between seed positions.
+- Add a small glow and stronger trails. Start the first burst sooner and keep pulses visible longer.
+
 ## [1.8.0] - 2026-10-08
 
 ### Added
