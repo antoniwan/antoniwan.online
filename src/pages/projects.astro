@@ -68,8 +68,17 @@ import { nerdProjects, projects, workForOthers } from '../data/projects';
       <p class="section__lead">Experiments and demos, built for fun or to learn. Most I stopped, or replaced with the next one.</p>
     </div>
     <div class="section__body">
-      <ul class="nerd-list">
-        {nerdProjects.map((line) => <li>{line}</li>)}
+      <ul class="ledger__entries">
+        {
+          nerdProjects.map((item) => (
+            <li class="ledger__entry">
+              <p class="ledger__head">
+                <span class="ledger__line">{item.text}</span>
+                <span class="ledger__when">{item.when}</span>
+              </p>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>

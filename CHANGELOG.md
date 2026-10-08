@@ -2,11 +2,17 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.23.2] - 2026-10-08
+
+### Changed
+
+- Nerd projects takes the row style of "For others": hairline rows, the sentence as the row, and the year and tech in the right-hand column.
+
 ## [1.23.1] - 2026-10-08
 
 ### Changed
 
-- Nerd projects is one plain list: one sentence per project, no product names, the tech only where it matters, under one line that says these are experiments and demos, most stopped or replaced. No per-item status.
+- Nerd projects uses the same rows as "For others": one sentence per project as the row, no product names, and the year with the tech (where it matters) on the right, under one line that says these are experiments and demos, most stopped or replaced. No per-item status.
 
 ## [1.23.0] - 2026-10-08
 
