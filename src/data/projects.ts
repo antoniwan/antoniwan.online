@@ -117,7 +117,7 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Agencies and startups',
         when: '2008 to 2021',
-        body: 'I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). My teams built apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines, and our move to static sites cut operating costs by about 80%.',
+        body: 'I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). Nobox bought ads for companies at scale, and we built the tech around it: apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines. I also pitched, sold add-ons, taught our sales staff how everything worked so they could sell it better, and once went to F8, Facebook's developer conference; working with all those vendors and companies was a lot of fun. At M8, our move to static sites cut operating costs by about 80%.',
       },
       {
         title: 'University of Puerto Rico, Río Piedras',

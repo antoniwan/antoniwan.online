@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.18.3] - 2026-10-08
+
+### Changed
+
+- Agencies and startups: Nobox bought ads for companies at scale and we built the tech around it; I pitched, sold add-ons, taught our sales staff how everything worked, and once went to F8.
+
 ## [1.18.2] - 2026-10-08
 
 ### Changed
