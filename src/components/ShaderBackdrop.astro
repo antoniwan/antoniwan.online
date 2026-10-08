@@ -35,6 +35,7 @@ const { edge } = Astro.props;
     uniform vec3 paper;
     uniform vec3 blue;
     uniform vec3 comet;
+    uniform vec3 nucleus;
     uniform vec2 trail[9];
     uniform vec2 emission;
     void main(){
@@ -52,10 +53,10 @@ const { edge } = Astro.props;
         gl_FragColor=vec4(mix(paper,blue,strength),1.0);
         return;
       }
-      vec2 pixel=abs((uv-trail[0])*surface);
-      float point=1.0-smoothstep(0.45,0.95,max(pixel.x,pixel.y));
-      point=max(point,exp(-dot(pixel,pixel)/5.0)*0.28);
-      float tail=0.0;
+      // A solid round head in the nucleus color, over a glow and a fading tail in the trail color.
+      vec2 pixel=(uv-trail[0])*surface;
+      float head=1.0-smoothstep(1.1,1.9,length(pixel));
+      float tail=exp(-dot(pixel,pixel)/5.0)*0.28;
       for(int i=0;i<8;i++){
         vec2 a=(uv-trail[i])*surface;
         vec2 b=(trail[i+1]-trail[i])*surface;
@@ -64,8 +65,9 @@ const { edge } = Astro.props;
         float fade=pow(1.0-(float(i)+along)/8.0,2.0);
         tail=max(tail,exp(-distance*distance)*fade*0.85);
       }
-      float light=max(point,tail)*emission.y;
-      gl_FragColor=vec4(comet*light,light);
+      float core=head*emission.y;
+      float glow=tail*emission.y*(1.0-core);
+      gl_FragColor=vec4(nucleus*core+comet*glow,core+glow);
     }`;
 
   type Point = [number, number];
@@ -89,6 +91,7 @@ const { edge } = Astro.props;
     paper: WebGLUniformLocation | null;
     blue: WebGLUniformLocation | null;
     comet: WebGLUniformLocation | null;
+    nucleus: WebGLUniformLocation | null;
     trail: WebGLUniformLocation | null;
     emission: WebGLUniformLocation | null;
     neurons: Neuron[];
@@ -194,7 +197,7 @@ const { edge } = Astro.props;
   function createNeurons(seam: number | null): Neuron[] {
     const neuron = (zone: number, bounds: Point, direction: number, seedIndex: number): Neuron =>
       ({ zone, bounds, points: [], level: 0, direction, travelled: 0, pulses: [], nextBurst: 0, seedBorn: 0, seedIndex });
-    // A seam has one neuron across its width. Consecutive seams take turns with the three colors.
+    // A seam has one neuron across its width. Its zone only staggers speed and timing.
     if (seam !== null) return [neuron(seam % 3, [0.12, 0.88], seam % 2 ? -1 : 1, seam * 5)];
     return [0, 1, 2].map(zone => neuron(zone, [0.06 + zone * 0.3, 0.34 + zone * 0.3], zone === 1 ? -1 : 1, zone * 7));
   }
@@ -244,7 +247,8 @@ const { edge } = Astro.props;
     let last = 0;
     let paper = [0, 0, 0];
     let blue = [0, 0, 0];
-    let colors: number[][] = [];
+    let nucleus = [0, 0, 0];
+    let tail = [0, 0, 0];
 
     function updateColors() {
       const style = getComputedStyle(document.documentElement);
@@ -253,7 +257,7 @@ const { edge } = Astro.props;
         return [0, 2, 4].map(offset => parseInt(hex.slice(offset, offset + 2), 16) / 255);
       };
       paper = rgb('--paper'); blue = rgb('--strawberry');
-      colors = ['--comet', '--comet-teal', '--comet-violet'].map(rgb);
+      nucleus = rgb('--neuron'); tail = rgb('--neuron-trail');
     }
 
     function prepare(canvas: HTMLCanvasElement): Renderer | undefined {
@@ -292,6 +296,7 @@ const { edge } = Astro.props;
         paper: gl.getUniformLocation(program, 'paper'),
         blue: gl.getUniformLocation(program, 'blue'),
         comet: gl.getUniformLocation(program, 'comet'),
+        nucleus: gl.getUniformLocation(program, 'nucleus'),
         trail: gl.getUniformLocation(program, 'trail[0]'),
         emission: gl.getUniformLocation(program, 'emission'),
         // Different start times keep two seams on one screen from showing the same pattern.
@@ -358,8 +363,8 @@ const { edge } = Astro.props;
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       // The neurons of one canvas share it. Limit every signal draw to its small trail rectangle.
       gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.enable(gl.SCISSOR_TEST);
+      gl.uniform3fv(renderer.comet, tail); gl.uniform3fv(renderer.nucleus, nucleus);
       for (const neuron of renderer.neurons) {
-        gl.uniform3fv(renderer.comet, colors[neuron.zone]);
         drawSignal(renderer, neuron.points, seedOpacity(renderer, neuron));
         for (const pulse of neuron.pulses) {
           const age = renderer.clock - pulse.born;

@@ -14,8 +14,9 @@
   font-display: swap;
 }
 
-/* Strawberry is the macOS crayon (#ff2f92). It fills buttons, the pattern and highlights.
-   Text in that hue uses --accent, a deeper strawberry that keeps 4.5:1 on the paper. */
+/* Strawberry is the macOS crayon (#ff2f92). It colors the pattern, highlights and the favicon.
+   --cta is the brightest strawberry of the same hue that keeps 4.5:1 with white text.
+   --accent colors links and small text; it keeps 4.5:1 on both papers. */
 :root {
   --paper: #fdfcfa;
   --paper-2: #f2f0ec;
@@ -25,10 +26,12 @@
   --line: #dcdcdf;
   --strawberry: #ff2f92;
   --on-strawberry: #101216;
+  --cta: #df047b;
+  --on-cta: #ffffff;
+  --greeting: #df047b;
   --accent: #c7006f;
-  --comet: #b75a12;
-  --comet-teal: #007b73;
-  --comet-violet: #853bc3;
+  --neuron: #000000;
+  --neuron-trail: #e9ad1c;
   --accent-soft: #ffe8f2;
   --detail: #c7006f;
   --focus: #c7006f;
@@ -49,10 +52,10 @@
     --line: #30343c;
     --strawberry: #ff2f92;
     --on-strawberry: #0f1013;
+    --greeting: #ff5ca8;
     --accent: #ff5ca8;
-    --comet: #ffbc74;
-    --comet-teal: #58e0c8;
-    --comet-violet: #c6a0ff;
+    --neuron: #ffffff;
+    --neuron-trail: #ffe7a6;
     --accent-soft: #3a0f24;
     --detail: #ff5ca8;
     --focus: #ff5ca8;
@@ -68,10 +71,10 @@
   --line: #30343c;
   --strawberry: #ff2f92;
   --on-strawberry: #0f1013;
+  --greeting: #ff5ca8;
   --accent: #ff5ca8;
-  --comet: #ffbc74;
-  --comet-teal: #58e0c8;
-  --comet-violet: #c6a0ff;
+  --neuron: #ffffff;
+  --neuron-trail: #ffe7a6;
   --accent-soft: #3a0f24;
   --detail: #ff5ca8;
   --focus: #ff5ca8;
@@ -134,6 +137,9 @@ figure { margin: 0; }
 .header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; min-height: 5rem; }
 .header .wrap { position: relative; }
 .brand { display: inline-block; min-height: 44px; font: 650 1rem/44px var(--font-mono); color: var(--accent); text-decoration: none; }
+/* Paper pills keep the wordmark and links readable over the moving pattern. */
+.brand, .nav { margin-inline: -0.25rem; padding-inline: 0.75rem; border-radius: 999px; background: color-mix(in srgb, var(--paper) 90%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.nav { padding-inline: 0.2rem; }
 .brand span { display: none; color: var(--ink-2); }
 .nav { display: flex; gap: 0.2rem; }
 .nav a { display: inline-flex; align-items: center; gap: 0.3rem; min-height: 44px; padding: 0.5rem 0.55rem; color: var(--ink-2); font-size: 0.8125rem; text-decoration: none; }
@@ -154,14 +160,14 @@ figure { margin: 0; }
 .hero__portrait { grid-area: portrait; align-self: start; }
 .hero__photo { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; background: var(--paper-2); }
 .hero__name { grid-area: name; margin: 0; font-size: clamp(2.125rem, 11vw, 3.5rem); line-height: 1.02; letter-spacing: -0.055em; }
-.hero__hello { display: block; margin-bottom: 0.45rem; color: var(--strawberry); font-size: 0.46em; font-weight: 650; line-height: 1.1; letter-spacing: -0.02em; }
+.hero__hello { display: block; margin-bottom: 0.45rem; color: var(--greeting); font-size: 0.46em; font-weight: 650; line-height: 1.1; letter-spacing: -0.02em; }
 .hero__family { display: block; margin-top: 0.3rem; font-size: 0.59em; line-height: 1.12; letter-spacing: -0.035em; }
 .hero__intro { grid-area: intro; margin-block: 1.25rem; color: var(--ink-2); font-size: 1rem; line-height: 1.8; }
 .hero > div > .hero__intro { margin-top: 1.5rem; max-width: 58ch; font-size: 1.125rem; }
 .hero:not(.hero--home) h1 { max-width: 14ch; }
 .hero__actions { grid-area: actions; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
-.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 48px; padding: 0.7rem 1.1rem; border: 1px solid var(--strawberry); border-radius: 6px; background: var(--strawberry); color: var(--on-strawberry); font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
-.button:hover { background: var(--strawberry); border-color: var(--strawberry); filter: brightness(1.08); }
+.button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 48px; padding: 0.7rem 1.1rem; border: 1px solid var(--cta); border-radius: 6px; background: var(--cta); color: var(--on-cta); font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
+.button:hover { background: var(--accent); border-color: var(--accent); color: var(--on-cta); }
 .text-link { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 44px; font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
 .text-link:hover { text-decoration: underline; }
 .business-note { margin-bottom: 2.5rem; padding: 0; }

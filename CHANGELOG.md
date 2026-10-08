@@ -6,7 +6,10 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 
 ### Changed
 
-- Make strawberry the site's color: the macOS crayon #ff2f92. It fills the buttons, the shader pattern, the greeting, text selection and the favicon. Links and labels use a deeper strawberry (#c7006f light, #ff5ca8 dark) that keeps 4.5:1 contrast on the paper.
+- Make strawberry the site's color: the macOS crayon #ff2f92. It colors the shader pattern, text selection and the favicon.
+- Give the main button white text on #df047b, the brightest strawberry of the same hue that keeps 4.5:1 with white. The greeting uses the same color in light mode. Links and labels use a deeper strawberry (#c7006f light, #ff5ca8 dark) that keeps 4.5:1 on the paper.
+- Put the header wordmark and links on paper-colored pills, so the moving pattern never sits directly behind them.
+- Draw every neuron with a solid black head and a golden trail. In dark mode the head is white and the trail golden-white.
 - Raise contrast: near-white paper (#fdfcfa) and near-black ink (#101216) in light mode; a darker paper (#0f1013) and brighter text in dark mode.
 - Redraw `og.png` and the Apple touch icon in the new colors.
 
