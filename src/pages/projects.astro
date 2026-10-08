@@ -65,9 +65,12 @@ import { nerdProjects, projects, workForOthers } from '../data/projects';
   <section class="section section--split" id="nerd-projects" aria-labelledby="nerd-projects-title">
     <div class="section__heading">
       <h2 id="nerd-projects-title">Nerd projects</h2>
+      <p class="section__lead">Experiments and demos, built for fun or to learn. Most I stopped, or replaced with the next one.</p>
     </div>
     <div class="section__body">
-      <Ledger groups={nerdProjects} />
+      <ul class="nerd-list">
+        {nerdProjects.map((line) => <li>{line}</li>)}
+      </ul>
     </div>
   </section>
 </Base>
