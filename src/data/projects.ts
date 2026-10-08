@@ -97,11 +97,11 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Stanley Black & Decker',
         when: '2021 to now',
-        body: "With SBD Digital, the team behind the brands' websites and apps.",
+        body: "With SBD Digital, the team behind the brands' websites and apps, and the backend services and data behind them. All of it sits under one leader, and I'm effectively his deputy.",
         parts: [
           {
             name: 'Web platform',
-            text: "The brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move.",
+            text: "I built the brands' original PHP sites, back when PHP was the right tool. Later I shepherded their move to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles.",
           },
           {
             name: 'AI innovation',

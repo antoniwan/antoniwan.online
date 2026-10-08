@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.4] - 2026-10-08
+
+### Changed
+
+- Stanley Black & Decker: I built the brands' original PHP sites, back when PHP was the right tool, before shepherding the move to Next.js. The same line changes on About, in llms.txt, and in the LinkedIn copy.
+- The SBD entry on Projects says the team also owns the backend services and the data behind the sites, under one leader whose deputy I effectively am.
+
 ## [1.16.3] - 2026-10-08
 
 ### Fixed
