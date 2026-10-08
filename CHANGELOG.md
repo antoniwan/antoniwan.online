@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.19.1] - 2026-10-08
+
+### Changed
+
+- Agencies and startups: Nobox bought Kolapse to bring our whole team on board, and we all moved to Miami and lived together for months. The paragraph is tightened around it.
+
 ## [1.19.0] - 2026-10-08
 
 ### Changed
