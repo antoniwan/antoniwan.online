@@ -392,6 +392,8 @@ const { edge } = Astro.props;
     function refresh() {
       cancelAnimationFrame(frame); frame = 0;
       if (button) { button.textContent = paused ? 'Resume animation' : 'Pause animation'; button.setAttribute('aria-pressed', String(paused)); }
+      // CSS motion elsewhere (the back-to-top orbit) follows the same pause switch.
+      document.documentElement.dataset.motion = paused ? 'paused' : 'on';
       if (control) control.hidden = reduced.matches || !renderers.size;
       if (document.hidden) return;
       updateColors();

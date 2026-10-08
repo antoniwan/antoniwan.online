@@ -320,10 +320,16 @@ figure { margin: 0; }
 /* Back to top: a round button that appears a screen down the page. */
 .to-top { position: fixed; right: calc(1rem + env(safe-area-inset-right, 0px)); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 20; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--cta); color: var(--on-cta); box-shadow: 0 0 0 3px var(--paper); text-decoration: none; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
 .to-top:hover { background: var(--accent); }
+.to-top__orbit { position: absolute; inset: -8px; border-radius: 50%; pointer-events: none; animation: to-top-orbit 3.2s linear infinite; }
+.to-top__orbit::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0deg 220deg, var(--neuron-trail) 358deg, transparent 360deg); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px)); mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px)); }
+.to-top__head { position: absolute; top: -1.5px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--neuron); }
+.to-top[data-ready]:not([data-visible]) .to-top__orbit, [data-motion='paused'] .to-top__orbit { animation-play-state: paused; }
+@keyframes to-top-orbit { to { transform: rotate(360deg); } }
 .to-top[data-ready]:not([data-visible]) { opacity: 0; visibility: hidden; transform: translateY(0.5rem); }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
 @media (prefers-reduced-motion: reduce) {
   .to-top { transition: none; }
+  .to-top__orbit { display: none; }
 }

@@ -1,9 +1,11 @@
 ---
 // A round "back to top" button that appears once the reader is a screen down the page.
+// A neuron circles it: a head in --neuron with a fading tail in --neuron-trail, like the backdrops.
 // Without JavaScript it stays visible, so it always works.
 ---
 
 <a class="to-top" href="#top" data-to-top>
+  <span class="to-top__orbit" aria-hidden="true"><span class="to-top__head"></span></span>
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
     <path fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7" />
   </svg>
@@ -11,6 +13,10 @@
 </a>
 
 <script>
+  // Honor a saved "Pause animation" before the shader script starts.
+  try {
+    if (localStorage.getItem('antoniwan-motion') === 'paused') document.documentElement.dataset.motion = 'paused';
+  } catch { /* Storage is optional. */ }
   const button = document.querySelector<HTMLElement>('[data-to-top]');
   if (button) {
     button.dataset.ready = '';

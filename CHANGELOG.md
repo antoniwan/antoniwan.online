@@ -2,6 +2,16 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.24.0] - 2026-10-08
+
+### Added
+
+- A neuron circles the back-to-top button, like the ones in the backdrops: a black head with a gold trail by day, white and golden-white at night. CSS only. It stops while the button is hidden, follows the footer's "Pause animation", and is not shown under reduced motion.
+
+### Changed
+
+- The shader script marks the page with `data-motion="paused"` or `"on"`, so CSS motion follows the same pause switch.
+
 ## [1.23.3] - 2026-10-08
 
 ### Changed
