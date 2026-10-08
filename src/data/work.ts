@@ -17,6 +17,10 @@ export const workAreas = [
     body: 'I support a big team as the product owner for our AI innovation group, with ideas, user stories, and sometimes code. The work is automation: everyday workflows, and testing across the front end and the back end, end to end.',
   },
   {
+    title: 'Prototyping',
+    body: 'What I love most at work. I help our teams use AI tools to prototype ideas quickly, so we can test them before anyone commits to building them.',
+  },
+  {
     title: 'People and practice',
     body: 'Code reviews, documentation, mentoring, some interviewing, lunch-and-learn talks, and posts on our internal blog.',
   },

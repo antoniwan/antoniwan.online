@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.21.0] - 2026-10-08
+
+### Added
+
+- Prototyping in About's "At work": what I love most at work; I help our teams use AI tools to prototype ideas quickly. No tool names. Home's Work line mentions it too.
+
 ## [1.20.1] - 2026-10-08
 
 ### Changed
