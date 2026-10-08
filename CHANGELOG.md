@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.18.4] - 2026-10-08
+
+### Fixed
+
+- 1.18.3 did not build: an apostrophe ended a string in `projects.ts`. The entry is now double-quoted, and production stayed on 1.18.2 until this fix.
+- Selling my brain: the networking work reads as one job, "wired networks (I ran the Cat5e cable and set up the routers)", not as a list of items.
+
 ## [1.18.3] - 2026-10-08
 
 ### Changed

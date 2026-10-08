@@ -117,7 +117,7 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Agencies and startups',
         when: '2008 to 2021',
-        body: 'I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). Nobox bought ads for companies at scale, and we built the tech around it: apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines. I also pitched, sold add-ons, taught our sales staff how everything worked so they could sell it better, and once went to F8, Facebook's developer conference; working with all those vendors and companies was a lot of fun. At M8, our move to static sites cut operating costs by about 80%.',
+        body: "I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). Nobox bought ads for companies at scale, and we built the tech around it: apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines. I also pitched, sold add-ons, taught our sales staff how everything worked so they could sell it better, and once went to F8, Facebook's developer conference; working with all those vendors and companies was a lot of fun. At M8, our move to static sites cut operating costs by about 80%.",
       },
       {
         title: 'University of Puerto Rico, Río Piedras',
@@ -143,7 +143,7 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Selling my brain',
         when: 'On the side',
-        body: 'Freelance work for extra income and to learn new things. I called it selling my brain: websites, applications, physical networks with routers, Cat5e cable and router configs, even a digital signage project. Whatever landed, for fun or for learning.',
+        body: 'Freelance work for extra income and to learn new things. I called it selling my brain: websites, applications, wired networks (I ran the Cat5e cable and set up the routers), and even a digital signage project. Whatever landed, for fun or for learning.',
         parts: [{ name: "A lawyer's website", text: 'A WordPress site, in 2024. I learned a lot about WordPress doing it.' }],
       },
     ],
