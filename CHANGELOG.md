@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.5] - 2026-10-08
+
+### Changed
+
+- The SBD web platform entry says what we are looking into now: modern patterns, microservices, and better product management.
+
 ## [1.16.4] - 2026-10-08
 
 ### Changed
