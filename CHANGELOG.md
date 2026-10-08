@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.25.0] - 2026-10-08
+
+### Added
+
+- A surprise on the back-to-top button: on hover, or on keyboard focus, my face pops in with my tongue out, with a quick springy scale and twist, and the arrow shrinks away. Only on devices that can hover, so it never sticks on phones. Under reduced motion it swaps without the spring. The photo is a tight crop only, 48 and 96 pixels, loaded with the page.
+
 ## [1.24.0] - 2026-10-08
 
 ### Added

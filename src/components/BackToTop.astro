@@ -1,12 +1,29 @@
 ---
+import { Image } from 'astro:assets';
+// Give a new photo a new file name: image URLs do not change with the content.
+import tongue from '../tongue-2026-10.avif';
 // A round "back to top" button that appears once the reader is a screen down the page.
 // A neuron circles it: a head in --neuron with a fading tail in --neuron-trail, like the backdrops.
+// On hover or keyboard focus, my face pops in with my tongue out. A tiny image, loaded with the page so the swap is instant.
 // Without JavaScript it stays visible, so it always works.
 ---
 
 <a class="to-top" href="#top" data-to-top>
   <span class="to-top__orbit" aria-hidden="true"><span class="to-top__head"></span></span>
-  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+  <Image
+    class="to-top__face"
+    src={tongue}
+    alt=""
+    width={96}
+    height={96}
+    widths={[48, 96]}
+    sizes="48px"
+    format="avif"
+    quality={55}
+    loading="eager"
+    decoding="async"
+  />
+  <svg class="to-top__arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
     <path fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7" />
   </svg>
   <span class="visually-hidden">Back to top</span>
