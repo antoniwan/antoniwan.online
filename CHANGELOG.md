@@ -2,6 +2,14 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.7.4] - 2026-10-07
+
+### Changed
+
+- Redraw the social preview image (`og.png`) in the refreshed design: the antoniwan.online wordmark, the name in Chivo, the tagline in IBM Plex Sans, and the circular portrait on warm cream.
+- `pnpm og` draws the card with headless Chrome, because sharp cannot load the site's WOFF2 fonts. The script stops Chrome after the screenshot is written, because Chrome does not always exit on macOS. Set `CHROME` if the browser is not at the usual macOS path.
+- Describe the portrait and the address in the preview image's alt text.
+
 ## [1.7.3] - 2026-10-07
 
 ### Removed
