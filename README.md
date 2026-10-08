@@ -4,7 +4,7 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 - Astro and plain CSS. The client uses no UI framework. Local Chivo headings pair with IBM Plex Sans body text. Monospace details use system fonts.
 - Quasicrystal shaders appear behind the header and footer. A thin slice of the same pattern, with one neuron in it, divides the sections (`src/components/Seam.astro`). They pause offscreen, respect reduced motion, and have a footer pause control.
-- The layout starts with one column on phones. Wider screens use two columns. The circular portrait uses responsive AVIF images.
+- The layout starts with one column on phones. Wider screens use two columns. The portrait is a circle on Home and the whole square photo on About, both as responsive AVIF images.
 - Vercel Web Analytics (`@vercel/analytics`) counts page views without cookies. It sends data only while Web Analytics is enabled on the `antoniwan-online` Vercel project.
 - `src/config/site.ts` holds the facts about the site. `src/data/` holds the links, projects, and principles. Edit those, not the pages.
 - The latest essays come from `https://notes.antoniwan.online/latest.json` at build time. The home page fetches the same file in the browser and redraws the list if Notes has published since, so the list needs no rebuild.

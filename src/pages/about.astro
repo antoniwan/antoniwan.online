@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Seam from '../components/Seam.astro';
 import { SITE } from '../config/site';
 import { principles } from '../data/principles';
 import { workAreas } from '../data/work';
+import profile from '../profile.avif';
 ---
 
 <Base
@@ -11,7 +13,7 @@ import { workAreas } from '../data/work';
   title="About"
   description="Who Antonio Rodríguez Martínez is, how he works, and the principles behind the work: a technical program manager and former CTO who still writes code."
 >
-  <section class="hero">
+  <section class="hero hero--about">
     <div>
       <span class="eyebrow">About</span>
       <h1>Who I am</h1>
@@ -20,6 +22,20 @@ import { workAreas } from '../data/work';
         former CTO. I still write code.
       </p>
     </div>
+    <figure class="hero__figure">
+      <Image
+        class="hero__picture"
+        src={profile}
+        alt={SITE.portraitAlt}
+        width={1200}
+        height={1200}
+        widths={[320, 480, 640, 960]}
+        sizes="(min-width: 48rem) 26rem, calc(100vw - 2.5rem)"
+        format="avif"
+        quality={60}
+        loading="eager"
+      />
+    </figure>
   </section>
 
   <Seam />

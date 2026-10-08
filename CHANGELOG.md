@@ -12,6 +12,12 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 - Draw every neuron with a solid black head and a golden trail. In dark mode the head is white and the trail golden-white.
 - Raise contrast: near-white paper (#fdfcfa) and near-black ink (#101216) in light mode; a darker paper (#0f1013) and brighter text in dark mode.
 - Redraw `og.png` and the Apple touch icon in the new colors.
+- New portrait, unedited apart from crop and format. The AVIF source carries no camera or location data.
+- Describe the portrait in its alt text on Home and About (`SITE.portraitAlt`).
+
+### Added
+
+- Show the whole photo on About: square with soft corners beside "Who I am", and under the introduction on phones.
 
 ## [1.10.0] - 2026-10-08
 
