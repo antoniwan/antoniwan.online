@@ -18,7 +18,7 @@ export const GET: APIRoute = () => {
 
 > ${SITE.tagline}
 
-${SITE.name} (${SITE.handle}) is a technical program manager at Stanley Black & Decker and a member of SBD Digital, the team behind its websites and apps. He is a former CTO who still writes code, writes essays at Notes, builds small web things, and makes music. Born in Puerto Rico, based in Florida, a father.
+${SITE.name} (${SITE.handle}) is a technical program manager at Stanley Black & Decker and a member of SBD Digital, the team behind its websites and apps and the services and data behind them. There he is the product owner for the AI innovation group and the main technical voice in the product design group. He is a former CTO who still writes code, writes essays at Notes, builds small web things, and makes music. Born in Puerto Rico, based in Florida, a father.
 
 This is his personal site: who he is, how he works, what he builds, and where else he is. It has no contact form. For consulting or any business matter, go to ${SITE.company.name}, his company. His personal email is ${SITE.email}.
 

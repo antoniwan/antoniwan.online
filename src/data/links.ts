@@ -44,7 +44,7 @@ export const sections: LinkSection[] = [
       {
         label: 'Stanley Black & Decker',
         href: '/about#work',
-        note: 'My day job since 2021, on SBD Digital: product architecture, the web platform behind the brands, design systems, AI prototypes, and mentoring.',
+        note: "My day job since 2021, on SBD Digital: the brands' web platform and the services and data behind it, AI innovation, product design, and mentoring.",
       },
       {
         label: 'Strong Hands, Soft Heart',

@@ -2,6 +2,16 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.17.0] - 2026-10-08
+
+### Changed
+
+- Make Home, About, Projects and llms.txt tell the same SBD story. About's "At work" names the roles: effectively the deputy to the leader who owns the sites, services and data; product owner for the AI innovation group; main technical voice in the product design group. Home's Work line summarizes the same areas. llms.txt says the same.
+
+### Added
+
+- A "What I built there" link from About's "At work" to "For others" on Projects.
+
 ## [1.16.6] - 2026-10-08
 
 ### Fixed
