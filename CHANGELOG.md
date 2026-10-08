@@ -2,6 +2,13 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.15.0] - 2026-10-08
+
+### Added
+
+- Add my work for the University of Puerto Rico, Río Piedras, to "For others": the campus website, the original MiUPI, Consulta al Estudiante from the big strike, and the transcript checker I never finished.
+- Mark Spanish titles with `lang="es"`.
+
 ## [1.14.1] - 2026-10-08
 
 ### Fixed

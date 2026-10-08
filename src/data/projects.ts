@@ -68,8 +68,10 @@ export const projects: Project[] = [
 export interface WorkEntry {
   title: string;
   body: string;
-  /** Who it was for, and the main tool. */
+  /** Who it was for, and the main tool when it is known. */
   context: string;
+  /** Set for a title in Spanish, so screen readers pronounce it right. */
+  lang?: 'es';
 }
 
 /** Work I did for other people: text only, no links, at a high level. Never name a client without their permission. */
@@ -78,6 +80,27 @@ export const workForOthers: WorkEntry[] = [
     title: "Stanley Black & Decker's web platform",
     body: "The brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move with SBD Digital.",
     context: 'Day job · Next.js',
+  },
+  {
+    title: 'The UPR Río Piedras website',
+    body: "The website of the University of Puerto Rico's Río Piedras campus.",
+    context: 'UPR Río Piedras',
+  },
+  {
+    title: 'MiUPI',
+    body: "The original version of MiUPI, the campus's online portal.",
+    context: 'UPR Río Piedras',
+  },
+  {
+    title: 'Consulta al Estudiante',
+    lang: 'es',
+    body: 'The online student consultation from the big strike.',
+    context: 'UPR Río Piedras',
+  },
+  {
+    title: 'Transcript checker',
+    body: 'A program that would read your transcript and recommend a path to finish your degree. I was building it when I left DTAA, the campus IT division. I never finished it; it was hard.',
+    context: 'UPR Río Piedras · Unfinished',
   },
   {
     title: "A lawyer's website",
