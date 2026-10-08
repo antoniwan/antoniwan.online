@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.18.2] - 2026-10-08
+
+### Changed
+
+- Condense "Companies I helped build" into one paragraph entry, "Agencies and startups, 2008 to 2021", under the first group between SBD and UPR. The group is now "Jobs", since it includes companies I co-founded.
+
 ## [1.18.1] - 2026-10-08
 
 ### Changed

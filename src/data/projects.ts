@@ -92,7 +92,7 @@ export interface WorkGroup {
  */
 export const workForOthers: WorkGroup[] = [
   {
-    name: 'Employers',
+    name: 'Jobs',
     entries: [
       {
         title: 'Stanley Black & Decker',
@@ -115,6 +115,11 @@ export const workForOthers: WorkGroup[] = [
         ],
       },
       {
+        title: 'Agencies and startups',
+        when: '2008 to 2021',
+        body: 'I co-founded a web shop in college (Kolapse Interactive), became a partner at a South Florida marketing agency (Nobox), was director of technology at M8, and was CTO of a startup (CarBuckets). My teams built apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines, and our move to static sites cut operating costs by about 80%.',
+      },
+      {
         title: 'University of Puerto Rico, Río Piedras',
         when: '2004 to 2010',
         body: 'I did all of this as a work-study student in DTAA, the campus IT division, while I was still figuring out how to be a college student.',
@@ -129,31 +134,6 @@ export const workForOthers: WorkGroup[] = [
             unfinished: true,
           },
         ],
-      },
-    ],
-  },
-  {
-    name: 'Companies I helped build',
-    entries: [
-      {
-        title: 'CarBuckets',
-        when: '2020 to 2021 · CTO',
-        body: 'An early-stage startup in Miami. I set its technical direction and architecture and built prototypes to test how the engineering work would run. I left when our views on culture and the long term no longer matched.',
-      },
-      {
-        title: 'M8',
-        when: '2016 to 2020 · Director of Technology',
-        body: 'I set the technology direction and roadmap, mentored engineers on site and remote, and still built on the critical projects myself. Building the sites ahead of time (static generation) cut operating costs by about 80%.',
-      },
-      {
-        title: 'Nobox',
-        when: '2011 to 2016 · Partner',
-        body: 'A marketing agency in South Florida, where I was director of software engineering. My team built web apps used by millions of people, for clients including Sony and PlayStation, Mozilla and Firefox, Marriott, and Copa Airlines. I hired and mentored the engineers, built internal tools for media trafficking, social listening and asset automation, and joined the pitches.',
-      },
-      {
-        title: 'Kolapse Interactive',
-        when: '2008 to 2011 · Co-founder and CTO',
-        body: 'My first company: a web shop I started in college with a friend, in San Juan. We built web apps and gave technical advice to nonprofits like SER de Puerto Rico and the Ricky Martin Foundation, to the University of Puerto Rico, the Department of Education and the Chamber of Commerce, and to businesses like Banco Popular. I hired and mentored our engineers, most of them fresh graduates.',
       },
     ],
   },
