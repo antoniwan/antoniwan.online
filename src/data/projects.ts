@@ -105,7 +105,7 @@ export const workForOthers: WorkGroup[] = [
           },
           {
             name: 'AI innovation',
-            text: "I'm the product owner for our AI innovation group: prototypes, many of them AI-powered, that test an idea before a team commits to building it.",
+            text: "I'm the product owner for our AI innovation group. The work is automation: everyday workflows, and testing across the front end and the back end, end to end.",
           },
           { name: 'Product design', text: "I'm the main technical voice in our product design group." },
           {

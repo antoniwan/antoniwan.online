@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.17.2] - 2026-10-08
+
+### Changed
+
+- AI at SBD is about automation: everyday workflows, and testing across the front end and the back end, end to end. On Projects, on About ("AI and automation", formerly "AI and prototypes"), in llms.txt, and in the LinkedIn copy.
+
 ## [1.17.1] - 2026-10-08
 
 ### Changed

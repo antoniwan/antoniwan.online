@@ -13,8 +13,8 @@ export const workAreas = [
     body: 'Front-end systems, Figma libraries, and the path from design to code.',
   },
   {
-    title: 'AI and prototypes',
-    body: 'Prototypes, many of them AI-powered, that test an idea before a team commits to building it.',
+    title: 'AI and automation',
+    body: 'AI that automates the work: everyday workflows, and testing across the front end and the back end, end to end.',
   },
   {
     title: 'People and practice',
