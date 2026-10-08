@@ -2,6 +2,17 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.20.0] - 2026-10-08
+
+### Changed
+
+- About's "At work" says how I support the teams: the design systems team (front-end systems, Figma libraries, design to code) and a big AI team as the AI innovation product owner (ideas, user stories, sometimes code). People and practice adds interviewing, lunch-and-learn talks, and internal blog posts.
+- Product identification joins the shared services on About and Projects.
+
+### Added
+
+- A line on About: I enjoy this work; our team is truly diverse and respectful, toward each other and the work, and I'm proud of what we do.
+
 ## [1.19.2] - 2026-10-08
 
 ### Changed
