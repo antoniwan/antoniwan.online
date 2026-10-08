@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.26.2] - 2026-10-08
+
+### Changed
+
+- Projects: Skincare for You is retired. It leaves my own projects and joins the experiments as one line, with no link. ChatGPT does the job now.
+
 ## [1.26.1] - 2026-10-08
 
 ### Fixed

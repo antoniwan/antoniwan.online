@@ -23,13 +23,6 @@ export const projects: Project[] = [
     stack: 'Astro, WebGL',
   },
   {
-    title: 'Skincare for You',
-    href: 'https://skincare.builds.software',
-    repo: 'https://github.com/antoniwan/skin-care-for-me-webapp',
-    body: "A phone-first app for a skincare routine: your products, morning and evening steps, and a warning when two ingredients don't mix. Spanish first, English too. Your shelf stays in your browser. Early: version 0.1.",
-    stack: 'Next.js, React',
-  },
-  {
     title: 'Panda and Wolf',
     href: 'https://notes.antoniwan.online/p/panda-and-wolf',
     body: 'Two Obsidian vaults kept by agent skills I write from scratch. One rule sits under both: honesty. The vaults are private; the essay explains the system.',
@@ -154,6 +147,7 @@ export const workForOthers: WorkGroup[] = [
           { text: 'An agent that files my day into my notes every night.' },
           { text: 'A start page and music tools that run on my own Mac (Python).' },
           { text: 'A private app for my daughter and me to share messages and drawings (React Native).' },
+          { text: 'A skincare routine app, Spanish first, until ChatGPT did the job (Next.js).' },
           { text: 'A network of absurd niche sites on shared code (Astro).' },
           { text: 'A library of AI prompts, replaced by agent skills.' },
           { text: 'A lab for custom React hooks.' },
