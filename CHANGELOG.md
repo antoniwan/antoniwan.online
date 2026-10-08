@@ -2,6 +2,17 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.9.0] - 2026-10-08
+
+### Added
+
+- Add amber, teal, and violet neuron bursts in three separate areas of each backdrop.
+- Stagger the bursts and vary their speeds. Adapt each color to light and dark mode.
+
+### Changed
+
+- Draw all signal trails in small areas. Keep one canvas per backdrop and the existing motion controls.
+
 ## [1.8.1] - 2026-10-08
 
 ### Fixed

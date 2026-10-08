@@ -37,7 +37,6 @@ const { edge } = Astro.props;
     uniform vec2 emission;
     void main(){
       vec2 uv=gl_FragCoord.xy/resolution;
-      vec3 color=paper;
       if(emission.x<0.5){
         vec2 p=(uv-0.5)*vec2(surface.x/surface.y,1.0);
         float t=time*0.14;
@@ -48,7 +47,8 @@ const { edge } = Astro.props;
         }
         float pattern=0.08+0.8*pow(0.5+0.5*cos(wave*2.0),8.0);
         float strength=pattern*0.34*(0.34+0.66*smoothstep(0.05,0.88,uv.x));
-        color=mix(paper,blue,strength);
+        gl_FragColor=vec4(mix(paper,blue,strength),1.0);
+        return;
       }
       vec2 pixel=abs((uv-trail[0])*surface);
       float point=1.0-smoothstep(0.45,0.95,max(pixel.x,pixel.y));
@@ -63,13 +63,20 @@ const { edge } = Astro.props;
         tail=max(tail,exp(-distance*distance)*fade*0.85);
       }
       float light=max(point,tail)*emission.y;
-      gl_FragColor=emission.x<0.5 ? vec4(mix(color,comet,light),1.0) : vec4(comet*light,light);
+      gl_FragColor=vec4(comet*light,light);
     }`;
 
   type Point = [number, number];
-  type Path = { points: Point[]; direction: number; travelled: number };
+  type Path = { points: Point[]; direction: number; travelled: number; level: number };
   type Pulse = Path & { born: number };
-  type Renderer = Path & {
+  type Neuron = Path & {
+    zone: number;
+    nextBurst: number;
+    seedBorn: number;
+    seedIndex: number;
+    pulses: Pulse[];
+  };
+  type Renderer = {
     canvas: HTMLCanvasElement;
     gl: WebGLRenderingContext;
     resolution: WebGLUniformLocation | null;
@@ -80,11 +87,8 @@ const { edge } = Astro.props;
     comet: WebGLUniformLocation | null;
     trail: WebGLUniformLocation | null;
     emission: WebGLUniformLocation | null;
-    pulses: Pulse[];
+    neurons: Neuron[];
     clock: number;
-    nextBurst: number;
-    seedBorn: number;
-    seedIndex: number;
     width: number;
     height: number;
     coordinates: Float32Array;
@@ -105,10 +109,11 @@ const { edge } = Astro.props;
     return { value, x, y };
   }
 
-  function project(point: Point, seconds: number, iterations = 3): Point {
+  function project(point: Point, seconds: number, iterations = 3, level = 0): Point {
     let result: Point = [...point];
     for (let i = 0; i < iterations; i++) {
       const f = contour(result, seconds);
+      f.value -= level;
       const length = Math.hypot(f.x, f.y);
       if (length < 0.001 || Math.abs(f.value) < 0.0001) break;
       const step = Math.max(-0.04, Math.min(0.04, f.value / length));
@@ -119,7 +124,7 @@ const { edge } = Astro.props;
 
   function movePath(path: Path, height: number, seconds: number, delta: number, speed: number) {
     // Reproject the trail so it stays on the same curve while the pattern itself changes.
-    path.points = path.points.map(point => project(point, seconds));
+    path.points = path.points.map(point => project(point, seconds, 3, path.level));
     const previous = path.points[0];
     let head: Point = [...previous];
     const steps = Math.max(2, Math.ceil(speed * delta / 1.5));
@@ -127,7 +132,7 @@ const { edge } = Astro.props;
       const gradient = contour(head, seconds);
       const length = Math.hypot(gradient.x, gradient.y) || 1;
       const step = speed * delta / height / steps * path.direction;
-      head = project([head[0] - gradient.y / length * step, head[1] + gradient.x / length * step], seconds);
+      head = project([head[0] - gradient.y / length * step, head[1] + gradient.x / length * step], seconds, 3, path.level);
     }
     path.travelled += Math.hypot(head[0] - previous[0], head[1] - previous[1]) * height;
     if (path.travelled >= 3) {
@@ -136,45 +141,69 @@ const { edge } = Astro.props;
     } else path.points[0] = head;
   }
 
-  function seedPoint(width: number, height: number, seconds: number, index: number): Point {
+  function zoneBounds(zone: number): Point { return [0.06 + zone * 0.3, 0.34 + zone * 0.3]; }
+
+  function seedPoint(width: number, height: number, seconds: number, index: number, zone: number) {
     const aspect = width / height;
-    for (let attempt = 0; attempt < 20; attempt++) {
-      const x = (((index + attempt) * 0.61803398875 + 0.13) % 1 - 0.5) * aspect * 0.6;
-      const point = project([x, Math.sin(index + attempt) * 0.08], seconds, 24);
-      if (Math.abs(point[1]) < 0.18 && Math.abs(point[0]) < aspect / 2 - 0.15) return point;
+    const [left, right] = zoneBounds(zone);
+    for (let attempt = 0; attempt < 48; attempt++) {
+      const fraction = ((index + attempt) * 0.61803398875 + 0.13) % 1;
+      const start: Point = [(left + 0.035 + fraction * 0.21 - 0.5) * aspect, Math.sin(index + attempt * 2.4) * 0.2];
+      // Every multiple of pi is an existing bright contour in the quasicrystal.
+      const level = Math.max(-1, Math.min(1, Math.round(contour(start, seconds).value / Math.PI))) * Math.PI;
+      const point = project(start, seconds, 24, level);
+      const u = point[0] / aspect + 0.5;
+      if (Math.abs(point[1]) < 0.25 && u > left + 0.01 && u < right - 0.01 && Math.abs(contour(point, seconds).value - level) < 0.001) return { point, level };
     }
-    return project([0, 0], seconds, 32);
+    return null;
   }
 
-  function seedOpacity(renderer: Renderer) {
-    const [x, y] = renderer.points[0];
-    const edge = Math.min((0.35 - Math.abs(y)) / 0.12, (renderer.width / renderer.height / 2 - 0.15 - Math.abs(x)) / 0.2);
-    return Math.max(0, Math.min(1, edge, (renderer.clock - renderer.seedBorn) / 0.4));
+  function seedOpacity(renderer: Renderer, neuron: Neuron) {
+    if (!neuron.points.length) return 0;
+    const [x, y] = neuron.points[0];
+    const [left, right] = zoneBounds(neuron.zone);
+    const u = x * renderer.height / renderer.width + 0.5;
+    const edge = Math.min((0.35 - Math.abs(y)) / 0.12, Math.min(u - left, right - u) * renderer.width / 12);
+    return Math.max(0, Math.min(1, edge, (renderer.clock - neuron.seedBorn) / 0.4));
   }
 
-  function reseed(renderer: Renderer) {
-    const start = seedPoint(renderer.width, renderer.height, renderer.clock, renderer.seedIndex++);
-    renderer.points = Array.from({ length: 9 }, () => [...start]);
-    renderer.travelled = 0;
-    renderer.seedBorn = renderer.clock;
-    renderer.nextBurst = renderer.clock + 0.9;
+  function reseed(renderer: Renderer, neuron: Neuron) {
+    const seed = seedPoint(renderer.width, renderer.height, renderer.clock, neuron.seedIndex++, neuron.zone);
+    neuron.points = seed ? Array.from({ length: 9 }, () => [...seed.point]) : [];
+    neuron.level = seed?.level ?? 0;
+    neuron.travelled = 0;
+    neuron.seedBorn = renderer.clock;
+    neuron.nextBurst = renderer.clock + 0.9 + neuron.zone * 0.55;
+  }
+
+  function createNeurons(): Neuron[] {
+    return [0, 1, 2].map(zone => ({ zone, points: [], level: 0, direction: zone === 1 ? -1 : 1, travelled: 0, pulses: [], nextBurst: 0, seedBorn: 0, seedIndex: zone * 7 }));
   }
 
   function advance(renderer: Renderer, delta: number) {
     // Each backdrop keeps its own clock, so returning onscreen never jumps the comet.
     renderer.clock += delta;
-    movePath(renderer, renderer.height, renderer.clock, delta, 28);
-    const [x, y] = renderer.points[0];
-    if (Math.abs(y) >= 0.35 || Math.abs(x) >= renderer.width / renderer.height / 2 - 0.15) reseed(renderer);
-    renderer.pulses = renderer.pulses.filter(pulse => renderer.clock - pulse.born < 2.1);
-    if (renderer.clock >= renderer.nextBurst && seedOpacity(renderer) > 0.5 && !renderer.pulses.length) {
-      renderer.pulses = [-1, 1].map(direction => ({
-        points: Array.from({ length: 9 }, () => [...renderer.points[0]] as Point),
-        direction, travelled: 0, born: renderer.clock,
-      }));
-      renderer.nextBurst = renderer.clock + 5;
+    for (const neuron of renderer.neurons) {
+      if (!neuron.points.length) reseed(renderer, neuron);
+      if (!neuron.points.length) continue;
+      movePath(neuron, renderer.height, renderer.clock, delta, 26 + neuron.zone * 2);
+      const [x, y] = neuron.points[0];
+      const u = x * renderer.height / renderer.width + 0.5;
+      const [left, right] = zoneBounds(neuron.zone);
+      // A contour can shrink away as the waves move. Start on another curve before drifting off it.
+      const vanished = Math.abs(contour(neuron.points[0], renderer.clock).value - neuron.level) > 0.02;
+      if (Math.abs(y) >= 0.35 || u <= left || u >= right || vanished) reseed(renderer, neuron);
+      neuron.pulses = neuron.pulses.filter(pulse => renderer.clock - pulse.born < 2.1);
+      if (renderer.clock >= neuron.nextBurst && seedOpacity(renderer, neuron) > 0.5 && !neuron.pulses.length) {
+        neuron.pulses = [-1, 1].map(direction => ({
+          points: Array.from({ length: 9 }, () => [...neuron.points[0]] as Point),
+          direction, level: neuron.level, travelled: 0, born: renderer.clock,
+        }));
+        neuron.nextBurst = renderer.clock + 5 + neuron.zone * 0.65;
+      }
+      neuron.pulses.forEach(pulse => movePath(pulse, renderer.height, renderer.clock, delta, 75 + neuron.zone * 6));
+      neuron.pulses = neuron.pulses.filter(pulse => Math.abs(contour(pulse.points[0], renderer.clock).value - pulse.level) < 0.02);
     }
-    renderer.pulses.forEach(pulse => movePath(pulse, renderer.height, renderer.clock, delta, 75));
   }
 
   function startBackdrops() {
@@ -195,7 +224,7 @@ const { edge } = Astro.props;
     let last = 0;
     let paper = [0, 0, 0];
     let blue = [0, 0, 0];
-    let comet = [0, 0, 0];
+    let colors: number[][] = [];
 
     function updateColors() {
       const style = getComputedStyle(document.documentElement);
@@ -203,7 +232,8 @@ const { edge } = Astro.props;
         const hex = style.getPropertyValue(name).trim().slice(1);
         return [0, 2, 4].map(offset => parseInt(hex.slice(offset, offset + 2), 16) / 255);
       };
-      paper = rgb('--paper'); blue = rgb('--accent'); comet = rgb('--comet');
+      paper = rgb('--paper'); blue = rgb('--accent');
+      colors = ['--comet', '--comet-teal', '--comet-violet'].map(rgb);
     }
 
     function prepare(canvas: HTMLCanvasElement): Renderer | undefined {
@@ -240,8 +270,8 @@ const { edge } = Astro.props;
         comet: gl.getUniformLocation(program, 'comet'),
         trail: gl.getUniformLocation(program, 'trail[0]'),
         emission: gl.getUniformLocation(program, 'emission'),
-        pulses: [], clock: 9, nextBurst: 10, seedBorn: 9, seedIndex: 0,
-        points: [], direction: 1, travelled: 0, width: 0, height: 0, coordinates: new Float32Array(18),
+        neurons: createNeurons(), clock: 9,
+        width: 0, height: 0, coordinates: new Float32Array(18),
       };
       renderers.set(canvas, renderer);
       if (control) control.hidden = false;
@@ -253,8 +283,7 @@ const { edge } = Astro.props;
       const { canvas, gl } = renderer;
       if (renderer.width !== canvas.clientWidth || renderer.height !== canvas.clientHeight) {
         renderer.width = canvas.clientWidth; renderer.height = canvas.clientHeight;
-        renderer.pulses = [];
-        reseed(renderer);
+        renderer.neurons.forEach(neuron => { neuron.pulses = []; reseed(renderer, neuron); });
       }
       // Keep the drawing buffer small, even on high-density phones and wide monitors.
       const scale = Math.min(1, 1200 / canvas.clientWidth, 240 / canvas.clientHeight);
@@ -274,34 +303,42 @@ const { edge } = Astro.props;
       renderer.gl.uniform2fv(renderer.trail, renderer.coordinates);
     }
 
+    function drawSignal(renderer: Renderer, points: Point[], opacity: number) {
+      if (!points.length || opacity <= 0) return;
+      const { gl } = renderer;
+      uploadTrail(renderer, points);
+      let left = 1, right = 0, bottom = 1, top = 0;
+      for (let i = 0; i < 18; i += 2) {
+        left = Math.min(left, renderer.coordinates[i]); right = Math.max(right, renderer.coordinates[i]);
+        bottom = Math.min(bottom, renderer.coordinates[i + 1]); top = Math.max(top, renderer.coordinates[i + 1]);
+      }
+      const x = Math.max(0, Math.floor(left * renderer.canvas.width) - 3);
+      const y = Math.max(0, Math.floor(bottom * renderer.canvas.height) - 3);
+      const width = Math.min(renderer.canvas.width - x, Math.ceil(right * renderer.canvas.width) + 3 - x);
+      const height = Math.min(renderer.canvas.height - y, Math.ceil(top * renderer.canvas.height) + 3 - y);
+      if (width <= 0 || height <= 0) return;
+      gl.scissor(x, y, width, height);
+      gl.uniform2f(renderer.emission, 1, opacity);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+
     function draw(renderer: Renderer) {
       const { gl } = renderer;
       gl.disable(gl.BLEND); gl.disable(gl.SCISSOR_TEST);
       gl.uniform1f(renderer.time, renderer.clock);
       gl.uniform3fv(renderer.paper, paper); gl.uniform3fv(renderer.blue, blue);
-      gl.uniform3fv(renderer.comet, comet);
-      gl.uniform2f(renderer.emission, 0, seedOpacity(renderer));
-      uploadTrail(renderer, renderer.points);
+      gl.uniform2f(renderer.emission, 0, 0);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-      // Reuse the same program and canvas; only shade the small rectangle around each pulse.
+      // All three neurons share one canvas. Limit every signal draw to its small trail rectangle.
       gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.enable(gl.SCISSOR_TEST);
-      for (const pulse of renderer.pulses) {
-        const age = renderer.clock - pulse.born;
-        const opacity = Math.min(1, age / 0.08) * Math.min(1, (2.1 - age) / 0.6);
-        uploadTrail(renderer, pulse.points);
-        let left = 1, right = 0, bottom = 1, top = 0;
-        for (let i = 0; i < 18; i += 2) {
-          left = Math.min(left, renderer.coordinates[i]); right = Math.max(right, renderer.coordinates[i]);
-          bottom = Math.min(bottom, renderer.coordinates[i + 1]); top = Math.max(top, renderer.coordinates[i + 1]);
+      for (const neuron of renderer.neurons) {
+        gl.uniform3fv(renderer.comet, colors[neuron.zone]);
+        drawSignal(renderer, neuron.points, seedOpacity(renderer, neuron));
+        for (const pulse of neuron.pulses) {
+          const age = renderer.clock - pulse.born;
+          const opacity = Math.min(1, age / 0.08) * Math.min(1, (2.1 - age) / 0.6);
+          drawSignal(renderer, pulse.points, opacity);
         }
-        const x = Math.max(0, Math.floor(left * renderer.canvas.width) - 3);
-        const y = Math.max(0, Math.floor(bottom * renderer.canvas.height) - 3);
-        const width = Math.min(renderer.canvas.width - x, Math.ceil(right * renderer.canvas.width) + 3 - x);
-        const height = Math.min(renderer.canvas.height - y, Math.ceil(top * renderer.canvas.height) + 3 - y);
-        if (width <= 0 || height <= 0) continue;
-        gl.scissor(x, y, width, height);
-        gl.uniform2f(renderer.emission, 1, opacity);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
       }
       gl.disable(gl.BLEND); gl.disable(gl.SCISSOR_TEST);
     }
