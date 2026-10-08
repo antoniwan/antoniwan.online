@@ -2,6 +2,18 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.8.0] - 2026-10-08
+
+### Added
+
+- The amber pixel sends brief pulses in both directions along the quasicrystal curves. Each pulse leaves a fading trail.
+- Keep a quiet interval between bursts. Reuse the existing canvas and restrict extra drawing to each pulse's small area.
+
+### Fixed
+
+- Keep a separate animation clock for each backdrop. The comet resumes smoothly when its backdrop returns onscreen.
+- Match the contour calculation to the displayed canvas size when the drawing buffer is scaled down.
+
 ## [1.7.4] - 2026-10-07
 
 ### Changed

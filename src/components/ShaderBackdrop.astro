@@ -34,18 +34,22 @@ const { edge } = Astro.props;
     uniform vec3 blue;
     uniform vec3 comet;
     uniform vec2 trail[9];
+    uniform vec2 emission;
     void main(){
       vec2 uv=gl_FragCoord.xy/resolution;
-      vec2 p=(uv-0.5)*vec2(resolution.x/resolution.y,1.0);
-      float t=time*0.14;
-      float wave=0.0;
-      for(int i=0;i<5;i++){
-        float angle=float(i)*0.62831853+t*0.07;
-        wave+=cos(dot(p,vec2(cos(angle),sin(angle)))*16.0+t*(float(i)*0.10+0.3));
+      vec3 color=paper;
+      if(emission.x<0.5){
+        vec2 p=(uv-0.5)*vec2(surface.x/surface.y,1.0);
+        float t=time*0.14;
+        float wave=0.0;
+        for(int i=0;i<5;i++){
+          float angle=float(i)*0.62831853+t*0.07;
+          wave+=cos(dot(p,vec2(cos(angle),sin(angle)))*16.0+t*(float(i)*0.10+0.3));
+        }
+        float pattern=0.08+0.8*pow(0.5+0.5*cos(wave*2.0),8.0);
+        float strength=pattern*0.34*(0.34+0.66*smoothstep(0.05,0.88,uv.x));
+        color=mix(paper,blue,strength);
       }
-      float pattern=0.08+0.8*pow(0.5+0.5*cos(wave*2.0),8.0);
-      float strength=pattern*0.34*(0.34+0.66*smoothstep(0.05,0.88,uv.x));
-      vec3 color=mix(paper,blue,strength);
       vec2 pixel=abs((uv-trail[0])*surface);
       float point=1.0-smoothstep(0.45,0.95,max(pixel.x,pixel.y));
       float tail=0.0;
@@ -57,11 +61,14 @@ const { edge } = Astro.props;
         float fade=pow(1.0-(float(i)+along)/8.0,2.0);
         tail=max(tail,exp(-distance*distance)*fade*0.7);
       }
-      gl_FragColor=vec4(mix(color,comet,max(point,tail)),1.0);
+      float light=max(point,tail)*emission.y;
+      gl_FragColor=emission.x<0.5 ? vec4(mix(color,comet,light),1.0) : vec4(comet*light,light);
     }`;
 
   type Point = [number, number];
-  type Renderer = {
+  type Path = { points: Point[]; direction: number; travelled: number };
+  type Pulse = Path & { born: number };
+  type Renderer = Path & {
     canvas: HTMLCanvasElement;
     gl: WebGLRenderingContext;
     resolution: WebGLUniformLocation | null;
@@ -71,9 +78,10 @@ const { edge } = Astro.props;
     blue: WebGLUniformLocation | null;
     comet: WebGLUniformLocation | null;
     trail: WebGLUniformLocation | null;
-    points: Point[];
-    direction: number;
-    travelled: number;
+    emission: WebGLUniformLocation | null;
+    pulses: Pulse[];
+    clock: number;
+    nextBurst: number;
     width: number;
     height: number;
     coordinates: Float32Array;
@@ -106,27 +114,43 @@ const { edge } = Astro.props;
     return result;
   }
 
-  function moveComet(renderer: Renderer, seconds: number, delta: number) {
+  function movePath(path: Path, width: number, height: number, seconds: number, delta: number, speed: number) {
     // Reproject the trail so it stays on the same curve while the pattern itself changes.
-    renderer.points = renderer.points.map(point => project(point, seconds));
-    const previous = renderer.points[0];
+    path.points = path.points.map(point => project(point, seconds));
+    const previous = path.points[0];
     let head: Point = [...previous];
-    for (let i = 0; i < 2; i++) {
+    const steps = Math.max(2, Math.ceil(speed * delta / 1.5));
+    for (let i = 0; i < steps; i++) {
       const gradient = contour(head, seconds);
       const length = Math.hypot(gradient.x, gradient.y) || 1;
-      const step = 28 * delta / renderer.height / 2 * renderer.direction;
+      const step = speed * delta / height / steps * path.direction;
       head = project([head[0] - gradient.y / length * step, head[1] + gradient.x / length * step], seconds);
     }
-    const aspect = renderer.width / renderer.height;
+    const aspect = width / height;
     if (Math.abs(head[0]) > aspect / 2 - 0.025 || Math.abs(head[1]) > 0.4) {
-      renderer.direction *= -1;
+      path.direction *= -1;
       head = previous;
     }
-    renderer.travelled += Math.hypot(head[0] - previous[0], head[1] - previous[1]) * renderer.height;
-    if (renderer.travelled >= 3) {
-      renderer.points = [head, ...renderer.points.slice(0, 8)];
-      renderer.travelled = 0;
-    } else renderer.points[0] = head;
+    path.travelled += Math.hypot(head[0] - previous[0], head[1] - previous[1]) * height;
+    if (path.travelled >= 3) {
+      path.points = [head, ...path.points.slice(0, 8)];
+      path.travelled = 0;
+    } else path.points[0] = head;
+  }
+
+  function advance(renderer: Renderer, delta: number) {
+    // Each backdrop keeps its own clock, so returning onscreen never jumps the comet.
+    renderer.clock += delta;
+    movePath(renderer, renderer.width, renderer.height, renderer.clock, delta, 28);
+    renderer.pulses = renderer.pulses.filter(pulse => renderer.clock - pulse.born < 1.6);
+    if (renderer.clock >= renderer.nextBurst) {
+      renderer.pulses = [-1, 1].map(direction => ({
+        points: Array.from({ length: 9 }, () => [...renderer.points[0]] as Point),
+        direction, travelled: 0, born: renderer.clock,
+      }));
+      renderer.nextBurst = renderer.clock + 7;
+    }
+    renderer.pulses.forEach(pulse => movePath(pulse, renderer.width, renderer.height, renderer.clock, delta, 90));
   }
 
   function startBackdrops() {
@@ -145,7 +169,6 @@ const { edge } = Astro.props;
     try { paused = localStorage.getItem('antoniwan-motion') === 'paused'; } catch { /* Storage is optional. */ }
     let frame = 0;
     let last = 0;
-    let seconds = 9;
     let paper = [0, 0, 0];
     let blue = [0, 0, 0];
     let comet = [0, 0, 0];
@@ -192,6 +215,8 @@ const { edge } = Astro.props;
         blue: gl.getUniformLocation(program, 'blue'),
         comet: gl.getUniformLocation(program, 'comet'),
         trail: gl.getUniformLocation(program, 'trail[0]'),
+        emission: gl.getUniformLocation(program, 'emission'),
+        pulses: [], clock: 9, nextBurst: 12,
         points: [], direction: 1, travelled: 0, width: 0, height: 0, coordinates: new Float32Array(18),
       };
       renderers.set(canvas, renderer);
@@ -204,9 +229,11 @@ const { edge } = Astro.props;
       const { canvas, gl } = renderer;
       if (renderer.width !== canvas.clientWidth || renderer.height !== canvas.clientHeight) {
         renderer.width = canvas.clientWidth; renderer.height = canvas.clientHeight;
-        const start = project([-0.22 * renderer.width / renderer.height, 0.12], seconds, 16);
+        const start = project([-0.22 * renderer.width / renderer.height, 0.12], renderer.clock, 16);
         renderer.points = Array.from({ length: 9 }, () => [...start]);
         renderer.travelled = 0;
+        renderer.pulses = [];
+        renderer.nextBurst = renderer.clock + 3;
       }
       // Keep the drawing buffer small, even on high-density phones and wide monitors.
       const scale = Math.min(1, 1200 / canvas.clientWidth, 240 / canvas.clientHeight);
@@ -218,17 +245,44 @@ const { edge } = Astro.props;
       gl.uniform2f(renderer.surface, canvas.clientWidth, canvas.clientHeight);
     }
 
-    function draw(renderer: Renderer) {
-      const { gl } = renderer;
-      gl.uniform1f(renderer.time, seconds);
-      gl.uniform3fv(renderer.paper, paper); gl.uniform3fv(renderer.blue, blue);
-      gl.uniform3fv(renderer.comet, comet);
-      renderer.points.forEach((point, index) => {
+    function uploadTrail(renderer: Renderer, points: Point[]) {
+      points.forEach((point, index) => {
         renderer.coordinates[index * 2] = point[0] * renderer.height / renderer.width + 0.5;
         renderer.coordinates[index * 2 + 1] = point[1] + 0.5;
       });
-      gl.uniform2fv(renderer.trail, renderer.coordinates);
+      renderer.gl.uniform2fv(renderer.trail, renderer.coordinates);
+    }
+
+    function draw(renderer: Renderer) {
+      const { gl } = renderer;
+      gl.disable(gl.BLEND); gl.disable(gl.SCISSOR_TEST);
+      gl.uniform1f(renderer.time, renderer.clock);
+      gl.uniform3fv(renderer.paper, paper); gl.uniform3fv(renderer.blue, blue);
+      gl.uniform3fv(renderer.comet, comet);
+      gl.uniform2f(renderer.emission, 0, 1);
+      uploadTrail(renderer, renderer.points);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+      // Reuse the same program and canvas; only shade the small rectangle around each pulse.
+      gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.enable(gl.SCISSOR_TEST);
+      for (const pulse of renderer.pulses) {
+        const age = renderer.clock - pulse.born;
+        const opacity = Math.min(1, age / 0.08) * Math.min(1, (1.6 - age) / 0.45);
+        uploadTrail(renderer, pulse.points);
+        let left = 1, right = 0, bottom = 1, top = 0;
+        for (let i = 0; i < 18; i += 2) {
+          left = Math.min(left, renderer.coordinates[i]); right = Math.max(right, renderer.coordinates[i]);
+          bottom = Math.min(bottom, renderer.coordinates[i + 1]); top = Math.max(top, renderer.coordinates[i + 1]);
+        }
+        const x = Math.max(0, Math.floor(left * renderer.canvas.width) - 3);
+        const y = Math.max(0, Math.floor(bottom * renderer.canvas.height) - 3);
+        const width = Math.min(renderer.canvas.width - x, Math.ceil(right * renderer.canvas.width) + 3 - x);
+        const height = Math.min(renderer.canvas.height - y, Math.ceil(top * renderer.canvas.height) + 3 - y);
+        if (width <= 0 || height <= 0) continue;
+        gl.scissor(x, y, width, height);
+        gl.uniform2f(renderer.emission, 1, opacity);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+      }
+      gl.disable(gl.BLEND); gl.disable(gl.SCISSOR_TEST);
     }
 
     function tick(now: number) {
@@ -236,11 +290,10 @@ const { edge } = Astro.props;
       if (document.hidden || reduced.matches || paused || !visible.size) return;
       if (now - last >= 1000 / 24) {
         const delta = Math.min((now - last) / 1000, 0.1);
-        seconds += delta;
         last = now;
         visible.forEach(canvas => {
           const renderer = renderers.get(canvas);
-          if (renderer) { moveComet(renderer, seconds, delta); draw(renderer); }
+          if (renderer) { advance(renderer, delta); draw(renderer); }
         });
       }
       frame = requestAnimationFrame(tick);
