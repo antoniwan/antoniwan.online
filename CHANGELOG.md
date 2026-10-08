@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.16.6] - 2026-10-08
+
+### Fixed
+
+- The UPR Río Piedras campus website was a WordPress site that others built; I mostly added to it. The entry now says "I did all of this", not "I built".
+
 ## [1.16.5] - 2026-10-08
 
 ### Changed
