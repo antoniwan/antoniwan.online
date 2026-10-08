@@ -236,6 +236,8 @@ figure { margin: 0; }
 .project h3 { font-size: 1.5rem; }
 .project h3 a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; }
 .project h3 a:hover { text-decoration: underline; }
+/* A text entry has no link, so its title keeps the same 44px row as a linked one. */
+.project--text h3 { display: flex; align-items: center; min-height: 44px; }
 .project > p { margin: 0 0 1rem; color: var(--ink-2); font-size: 0.9375rem; }
 .project .project__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; margin: auto 0 0; padding-top: 1rem; color: var(--muted); font: 0.6875rem/1.6 var(--font-mono); }
 .project__meta a { display: inline-flex; align-items: center; min-height: 44px; }

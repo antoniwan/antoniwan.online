@@ -2,6 +2,16 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.14.0] - 2026-10-08
+
+### Added
+
+- Add "For others" to Projects: text entries, without links, for work I built for other people. The first two are the Stanley Black & Decker web platform and a freelance WordPress site for a lawyer. Clients are never named without their permission.
+
+### Changed
+
+- Retitle Projects "Things I've built", because I hand most things off once they are built. The introduction says so, and the two lists are "My own" and "For others".
+
 ## [1.13.0] - 2026-10-08
 
 ### Changed

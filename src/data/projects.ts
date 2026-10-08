@@ -6,7 +6,7 @@ export interface Project {
   stack: string;
 }
 
-/** Everything I built and still keep running. Client work is listed with the company, not here. */
+/** My own things that I still run. Work I built and handed over to others is in workForOthers. */
 export const projects: Project[] = [
   {
     title: 'Notes',
@@ -65,3 +65,23 @@ export const projects: Project[] = [
   },
 ];
 
+export interface WorkEntry {
+  title: string;
+  body: string;
+  /** Who it was for, and the main tool. */
+  context: string;
+}
+
+/** Work I did for other people: text only, no links, at a high level. Never name a client without their permission. */
+export const workForOthers: WorkEntry[] = [
+  {
+    title: "Stanley Black & Decker's web platform",
+    body: "The brands' websites moved from slow PHP to a fast Next.js platform, with services every brand shares: product search, product registration, and user profiles. I shepherded the move with SBD Digital.",
+    context: 'Day job · Next.js',
+  },
+  {
+    title: "A lawyer's website",
+    body: 'A freelance website for a lawyer. I built it on WordPress and learned a lot about WordPress doing it.',
+    context: 'Freelance · WordPress',
+  },
+];

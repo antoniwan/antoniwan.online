@@ -2,28 +2,29 @@
 import Base from '../layouts/Base.astro';
 import Seam from '../components/Seam.astro';
 import { SITE } from '../config/site';
-import { projects } from '../data/projects';
+import { projects, workForOthers } from '../data/projects';
 ---
 
 <Base
   title="Projects"
-  description="Everything Antonio Rodríguez Martínez built and keeps running: Notes, his company's site, Skincare for You, Panda and Wolf, two bilingual picture books, LinksForest, and this site."
+  description="Things Antonio Rodríguez Martínez has built: Notes, his company's site, Skincare for You, Panda and Wolf, two bilingual picture books, LinksForest, this site, and work for others."
 >
   <section class="hero">
     <div>
       <span class="eyebrow">Projects</span>
-      <h1>Things I built and keep</h1>
+      <h1>Things I've built</h1>
       <p class="hero__intro">
-        Small web things, mostly for my family and myself, and the sites I run. The code is on{' '}
-        <a href="https://github.com/antoniwan" rel="me">GitHub</a>. Client work and consulting live with{' '}
-        <a href={SITE.company.consultingUrl}>my company</a>.
+        I like starting things. Once one is built, I hand it to someone and go build the next idea. Most
+        of the code is on <a href="https://github.com/antoniwan" rel="me">GitHub</a>. New client work and
+        consulting go through <a href={SITE.company.consultingUrl}>my company</a>.
       </p>
     </div>
   </section>
 
   <Seam />
 
-  <section class="section" id="projects" aria-label="Projects">
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">My own</h2>
     <ul class="projects">
       {
         projects.map((project) => (
@@ -41,6 +42,23 @@ import { projects } from '../data/projects';
                 </>
               )}
             </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <Seam />
+
+  <section class="section" id="work-for-others" aria-labelledby="work-for-others-title">
+    <h2 id="work-for-others-title">For others</h2>
+    <ul class="projects">
+      {
+        workForOthers.map((entry) => (
+          <li class="project project--text">
+            <h3>{entry.title}</h3>
+            <p>{entry.body}</p>
+            <p class="project__meta">{entry.context}</p>
           </li>
         ))
       }

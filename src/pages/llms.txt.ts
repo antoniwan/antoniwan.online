@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { principles } from '../data/principles';
-import { projects } from '../data/projects';
+import { projects, workForOthers } from '../data/projects';
 import { workAreas } from '../data/work';
 
 /** `/llms.txt` (https://llmstxt.org): this site for AI agents, built from the same data as the pages. */
@@ -28,7 +28,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 - [Home](${url('/')}): who he is, the latest essays, and every link
 - [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works and his principles, and the company
-- [Projects](${url('/projects')}): ${projects.map((p) => p.title).join(', ')}
+- [Projects](${url('/projects')}): his own (${projects.map((p) => p.title).join(', ')}) and work for others (${workForOthers.map((w) => w.title).join('; ')})
 
 ## Writing
 
