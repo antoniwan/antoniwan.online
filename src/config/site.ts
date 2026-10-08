@@ -4,7 +4,7 @@ export const SITE = {
   handle: 'antoniwan',
   /** The name as most people type it, without accents. Notes spells it this way. */
   plainName: 'Antonio Rodriguez Martinez',
-  /** The portrait's alt text on Home. The photo is unedited apart from crop and format. */
+  /** The portrait's alt text on Home and About. The photo is unedited apart from crop and format. */
   portraitAlt: 'Antonio Rodríguez Martínez, smiling, in glasses and a dark T-shirt, against a gray wall',
   /** The one ID for Antonio in structured data. Notes, the company site and the books point here. */
   personId: 'https://antoniwan.online/#person',

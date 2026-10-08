@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.12.0] - 2026-10-08
+
+### Added
+
+- Show the portrait on About as a small circle floating beside "Who I am": 80px on phones, 112px from 48rem, like the home hero on a phone.
+
 ## [1.11.1] - 2026-10-08
 
 ### Fixed
