@@ -1,5 +1,6 @@
 {
   "framework": "astro",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [{ "source": "/code", "destination": "/projects", "permanent": true }]
 }

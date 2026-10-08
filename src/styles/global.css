@@ -231,6 +231,7 @@ figure { margin: 0; }
 .principles h3 { font-size: 1.25rem; }
 .principles p { margin: 0; color: var(--ink-2); font-size: 0.9375rem; }
 .projects { display: grid; gap: 1rem; margin-top: 2rem; }
+.section > .projects:first-child { margin-top: 0; }
 .project { display: flex; flex-direction: column; padding: 1.5rem; background: var(--paper-2); border-radius: 10px; }
 .project h3 { font-size: 1.5rem; }
 .project h3 a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; }
@@ -298,5 +299,4 @@ figure { margin: 0; }
   .section--split { gap: 5rem; }
   .book-art { height: 210px; }
   .project { padding: 2rem; }
-  .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

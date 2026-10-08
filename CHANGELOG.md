@@ -2,6 +2,23 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.13.0] - 2026-10-08
+
+### Changed
+
+- Rename Code to Projects (`/projects`); `/code` redirects there (308). The page lists everything I built and still keep running.
+- Compress "How I work": the paragraph keeps the process, and six principles become four in the same words: Systems over shortcuts, Deliberate over rushed, Clear code, Humans over hype. Two columns, so none sits alone.
+
+### Added
+
+- List the company site and Skincare for You on Projects.
+- Add running to Daily on About: I move every day, and running comes first.
+
+### Removed
+
+- Remove "Small things" and the word game from Projects.
+- Remove the "Projects" heading above the list; the page title already says it.
+
 ## [1.12.1] - 2026-10-08
 
 ### Changed

@@ -28,7 +28,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 - [Home](${url('/')}): who he is, the latest essays, and every link
 - [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works and his principles, and the company
-- [Code](${url('/code')}): ${projects.map((p) => p.title).join(', ')}
+- [Projects](${url('/projects')}): ${projects.map((p) => p.title).join(', ')}
 
 ## Writing
 

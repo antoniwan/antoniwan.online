@@ -6,7 +6,7 @@ export interface Project {
   stack: string;
 }
 
-/** Things I built and keep. Client work is listed with the company, not here. */
+/** Everything I built and still keep running. Client work is listed with the company, not here. */
 export const projects: Project[] = [
   {
     title: 'Notes',
@@ -16,11 +16,24 @@ export const projects: Project[] = [
     stack: 'Astro, TypeScript',
   },
   {
-    title: 'LinksForest',
-    href: 'https://links-forest-phi.vercel.app',
-    repo: 'https://github.com/antoniwan/links-forest',
-    body: 'A themed link page you can make your own. Fork it, edit one file, ship it. It ran this domain until October 2026.',
-    stack: 'Astro',
+    title: 'Strong Hands, Soft Heart',
+    href: 'https://www.stronghandssoftheart.com',
+    repo: 'https://github.com/Strong-Hands-Soft-Heart/stronghandssoftheart.com',
+    body: "My company's site, built from its own design system. The moving background is drawn from the company's mark.",
+    stack: 'Astro, WebGL',
+  },
+  {
+    title: 'Skincare for You',
+    href: 'https://skincare.builds.software',
+    repo: 'https://github.com/antoniwan/skin-care-for-me-webapp',
+    body: "A phone-first app for a skincare routine: your products, morning and evening steps, and a warning when two ingredients don't mix. Spanish first, English too. Your shelf stays in your browser. Early: version 0.1.",
+    stack: 'Next.js, React',
+  },
+  {
+    title: 'Panda and Wolf',
+    href: 'https://notes.antoniwan.online/p/panda-and-wolf',
+    body: 'Two Obsidian vaults kept by agent skills I write from scratch. One rule sits under both: honesty. The vaults are private; the essay explains the system.',
+    stack: 'Markdown, agent skills',
   },
   {
     title: 'Mia, the Sun, and the Moon',
@@ -37,10 +50,11 @@ export const projects: Project[] = [
     stack: 'Vite',
   },
   {
-    title: 'Panda and Wolf',
-    href: 'https://notes.antoniwan.online/p/panda-and-wolf',
-    body: 'Two Obsidian vaults kept by agent skills I write from scratch. One rule sits under both: honesty. The vaults are private; the essay explains the system.',
-    stack: 'Markdown, agent skills',
+    title: 'LinksForest',
+    href: 'https://links-forest-phi.vercel.app',
+    repo: 'https://github.com/antoniwan/links-forest',
+    body: 'A themed link page you can make your own. Fork it, edit one file, ship it. It ran this domain until October 2026.',
+    stack: 'Astro',
   },
   {
     title: 'antoniwan.online',
@@ -51,10 +65,3 @@ export const projects: Project[] = [
   },
 ];
 
-export const smallThings = [
-  {
-    title: 'Word game',
-    href: 'https://wordle-clone-arm.netlify.app',
-    body: 'A Wordle clone from a React course that friends and family kept playing.',
-  },
-];
