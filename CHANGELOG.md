@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.15.1] - 2026-10-08
+
+### Fixed
+
+- Daily on About: I'm a hands-on parent to three kids, not two.
+
 ## [1.15.0] - 2026-10-08
 
 ### Added
