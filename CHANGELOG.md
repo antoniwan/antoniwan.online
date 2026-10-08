@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.26.1] - 2026-10-08
+
+### Fixed
+
+- The portrait hover on About: the avatar's frame stretched to fill its grid column, so the tongue-out photo spread into a wide oval beside the title. The frame now shrinks to the photo.
+
 ## [1.26.0] - 2026-10-08
 
 ### Changed
