@@ -77,7 +77,7 @@ export const sections: LinkSection[] = [
     items: [
       { label: 'GitHub', href: 'https://github.com/antoniwan', note: 'Code and open source.', me: true },
       {
-        label: 'GitHub, the company',
+        label: 'Company GitHub',
         href: 'https://github.com/Strong-Hands-Soft-Heart',
         note: 'Strong Hands, Soft Heart repositories.',
       },

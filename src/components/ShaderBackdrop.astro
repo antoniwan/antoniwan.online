@@ -29,6 +29,8 @@ const { edge } = Astro.props;
     precision mediump float;
     uniform vec2 resolution;
     uniform vec2 surface;
+    uniform float unit;
+    uniform vec2 shade;
     uniform float time;
     uniform vec3 paper;
     uniform vec3 blue;
@@ -38,7 +40,7 @@ const { edge } = Astro.props;
     void main(){
       vec2 uv=gl_FragCoord.xy/resolution;
       if(emission.x<0.5){
-        vec2 p=(uv-0.5)*vec2(surface.x/surface.y,1.0);
+        vec2 p=(uv-0.5)*surface/unit;
         float t=time*0.14;
         float wave=0.0;
         for(int i=0;i<5;i++){
@@ -46,7 +48,7 @@ const { edge } = Astro.props;
           wave+=cos(dot(p,vec2(cos(angle),sin(angle)))*16.0+t*(float(i)*0.10+0.3));
         }
         float pattern=0.08+0.8*pow(0.5+0.5*cos(wave*2.0),8.0);
-        float strength=pattern*0.34*(0.34+0.66*smoothstep(0.05,0.88,uv.x));
+        float strength=pattern*shade.x*mix(1.0,0.34+0.66*smoothstep(0.05,0.88,uv.x),shade.y);
         gl_FragColor=vec4(mix(paper,blue,strength),1.0);
         return;
       }
@@ -71,6 +73,7 @@ const { edge } = Astro.props;
   type Pulse = Path & { born: number };
   type Neuron = Path & {
     zone: number;
+    bounds: Point;
     nextBurst: number;
     seedBorn: number;
     seedIndex: number;
@@ -81,6 +84,7 @@ const { edge } = Astro.props;
     gl: WebGLRenderingContext;
     resolution: WebGLUniformLocation | null;
     surface: WebGLUniformLocation | null;
+    unit: WebGLUniformLocation | null;
     time: WebGLUniformLocation | null;
     paper: WebGLUniformLocation | null;
     blue: WebGLUniformLocation | null;
@@ -89,10 +93,16 @@ const { edge } = Astro.props;
     emission: WebGLUniformLocation | null;
     neurons: Neuron[];
     clock: number;
+    seam: number | null;
     width: number;
     height: number;
+    /** CSS pixels per pattern unit. A backdrop uses its height; a seam uses the header's scale. */
+    scale: number;
     coordinates: Float32Array;
   };
+
+  // A seam is shorter than the header. This keeps its curves the same size as the header's.
+  const SEAM_SCALE = 96;
 
   // The bright curves occur where the shader's wave sum is zero (or another multiple of pi).
   function contour(point: Point, seconds: number) {
@@ -122,7 +132,7 @@ const { edge } = Astro.props;
     return result;
   }
 
-  function movePath(path: Path, height: number, seconds: number, delta: number, speed: number) {
+  function movePath(path: Path, scale: number, seconds: number, delta: number, speed: number) {
     // Reproject the trail so it stays on the same curve while the pattern itself changes.
     path.points = path.points.map(point => project(point, seconds, 3, path.level));
     const previous = path.points[0];
@@ -131,29 +141,33 @@ const { edge } = Astro.props;
     for (let i = 0; i < steps; i++) {
       const gradient = contour(head, seconds);
       const length = Math.hypot(gradient.x, gradient.y) || 1;
-      const step = speed * delta / height / steps * path.direction;
+      const step = speed * delta / scale / steps * path.direction;
       head = project([head[0] - gradient.y / length * step, head[1] + gradient.x / length * step], seconds, 3, path.level);
     }
-    path.travelled += Math.hypot(head[0] - previous[0], head[1] - previous[1]) * height;
+    path.travelled += Math.hypot(head[0] - previous[0], head[1] - previous[1]) * scale;
     if (path.travelled >= 3) {
       path.points = [head, ...path.points.slice(0, 8)];
       path.travelled = 0;
     } else path.points[0] = head;
   }
 
-  function zoneBounds(zone: number): Point { return [0.06 + zone * 0.3, 0.34 + zone * 0.3]; }
+  // Half the canvas height in pattern units. Neurons stay within 70% of it.
+  function halfHeight(renderer: Renderer) { return renderer.height / renderer.scale / 2; }
+  function across(renderer: Renderer, x: number) { return x * renderer.scale / renderer.width + 0.5; }
 
-  function seedPoint(width: number, height: number, seconds: number, index: number, zone: number) {
-    const aspect = width / height;
-    const [left, right] = zoneBounds(zone);
+  function seedPoint(renderer: Renderer, seconds: number, index: number, bounds: Point) {
+    const aspect = renderer.width / renderer.scale;
+    const half = halfHeight(renderer);
+    const [left, right] = bounds;
     for (let attempt = 0; attempt < 48; attempt++) {
       const fraction = ((index + attempt) * 0.61803398875 + 0.13) % 1;
-      const start: Point = [(left + 0.035 + fraction * 0.21 - 0.5) * aspect, Math.sin(index + attempt * 2.4) * 0.2];
-      // Every multiple of pi is an existing bright contour in the quasicrystal.
-      const level = Math.max(-1, Math.min(1, Math.round(contour(start, seconds).value / Math.PI))) * Math.PI;
+      const start: Point = [(left + 0.035 + fraction * (right - left - 0.07) - 0.5) * aspect, Math.sin(index + attempt * 2.4) * half * 0.4];
+      // Every multiple of pi is an existing bright contour in the quasicrystal. A seam's neuron
+      // keeps to zero, the long winding network; pi and minus pi are mostly small rings.
+      const level = renderer.seam !== null ? 0 : Math.max(-1, Math.min(1, Math.round(contour(start, seconds).value / Math.PI))) * Math.PI;
       const point = project(start, seconds, 24, level);
       const u = point[0] / aspect + 0.5;
-      if (Math.abs(point[1]) < 0.25 && u > left + 0.01 && u < right - 0.01 && Math.abs(contour(point, seconds).value - level) < 0.001) return { point, level };
+      if (Math.abs(point[1]) < half * 0.5 && u > left + 0.01 && u < right - 0.01 && Math.abs(contour(point, seconds).value - level) < 0.001) return { point, level };
     }
     return null;
   }
@@ -161,14 +175,15 @@ const { edge } = Astro.props;
   function seedOpacity(renderer: Renderer, neuron: Neuron) {
     if (!neuron.points.length) return 0;
     const [x, y] = neuron.points[0];
-    const [left, right] = zoneBounds(neuron.zone);
-    const u = x * renderer.height / renderer.width + 0.5;
-    const edge = Math.min((0.35 - Math.abs(y)) / 0.12, Math.min(u - left, right - u) * renderer.width / 12);
+    const [left, right] = neuron.bounds;
+    const u = across(renderer, x);
+    const half = halfHeight(renderer);
+    const edge = Math.min((half * 0.7 - Math.abs(y)) / (half * 0.24), Math.min(u - left, right - u) * renderer.width / 12);
     return Math.max(0, Math.min(1, edge, (renderer.clock - neuron.seedBorn) / 0.4));
   }
 
   function reseed(renderer: Renderer, neuron: Neuron) {
-    const seed = seedPoint(renderer.width, renderer.height, renderer.clock, neuron.seedIndex++, neuron.zone);
+    const seed = seedPoint(renderer, renderer.clock, neuron.seedIndex++, neuron.bounds);
     neuron.points = seed ? Array.from({ length: 9 }, () => [...seed.point]) : [];
     neuron.level = seed?.level ?? 0;
     neuron.travelled = 0;
@@ -176,8 +191,12 @@ const { edge } = Astro.props;
     neuron.nextBurst = renderer.clock + 0.9 + neuron.zone * 0.55;
   }
 
-  function createNeurons(): Neuron[] {
-    return [0, 1, 2].map(zone => ({ zone, points: [], level: 0, direction: zone === 1 ? -1 : 1, travelled: 0, pulses: [], nextBurst: 0, seedBorn: 0, seedIndex: zone * 7 }));
+  function createNeurons(seam: number | null): Neuron[] {
+    const neuron = (zone: number, bounds: Point, direction: number, seedIndex: number): Neuron =>
+      ({ zone, bounds, points: [], level: 0, direction, travelled: 0, pulses: [], nextBurst: 0, seedBorn: 0, seedIndex });
+    // A seam has one neuron across its width. Consecutive seams take turns with the three colors.
+    if (seam !== null) return [neuron(seam % 3, [0.12, 0.88], seam % 2 ? -1 : 1, seam * 5)];
+    return [0, 1, 2].map(zone => neuron(zone, [0.06 + zone * 0.3, 0.34 + zone * 0.3], zone === 1 ? -1 : 1, zone * 7));
   }
 
   function advance(renderer: Renderer, delta: number) {
@@ -186,13 +205,13 @@ const { edge } = Astro.props;
     for (const neuron of renderer.neurons) {
       if (!neuron.points.length) reseed(renderer, neuron);
       if (!neuron.points.length) continue;
-      movePath(neuron, renderer.height, renderer.clock, delta, 26 + neuron.zone * 2);
+      movePath(neuron, renderer.scale, renderer.clock, delta, 26 + neuron.zone * 2);
       const [x, y] = neuron.points[0];
-      const u = x * renderer.height / renderer.width + 0.5;
-      const [left, right] = zoneBounds(neuron.zone);
+      const u = across(renderer, x);
+      const [left, right] = neuron.bounds;
       // A contour can shrink away as the waves move. Start on another curve before drifting off it.
       const vanished = Math.abs(contour(neuron.points[0], renderer.clock).value - neuron.level) > 0.02;
-      if (Math.abs(y) >= 0.35 || u <= left || u >= right || vanished) reseed(renderer, neuron);
+      if (Math.abs(y) >= halfHeight(renderer) * 0.7 || u <= left || u >= right || vanished) reseed(renderer, neuron);
       neuron.pulses = neuron.pulses.filter(pulse => renderer.clock - pulse.born < 2.1);
       if (renderer.clock >= neuron.nextBurst && seedOpacity(renderer, neuron) > 0.5 && !neuron.pulses.length) {
         neuron.pulses = [-1, 1].map(direction => ({
@@ -201,7 +220,7 @@ const { edge } = Astro.props;
         }));
         neuron.nextBurst = renderer.clock + 5 + neuron.zone * 0.65;
       }
-      neuron.pulses.forEach(pulse => movePath(pulse, renderer.height, renderer.clock, delta, 75 + neuron.zone * 6));
+      neuron.pulses.forEach(pulse => movePath(pulse, renderer.scale, renderer.clock, delta, 75 + neuron.zone * 6));
       neuron.pulses = neuron.pulses.filter(pulse => Math.abs(contour(pulse.points[0], renderer.clock).value - pulse.level) < 0.02);
     }
   }
@@ -214,6 +233,7 @@ const { edge } = Astro.props;
     const dark = matchMedia('(prefers-color-scheme: dark)');
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     if (connection?.saveData || !canvases.length) return;
+    const seams = canvases.filter(canvas => 'seam' in canvas.dataset);
 
     const renderers = new Map<HTMLCanvasElement, Renderer>();
     const unavailable = new Set<HTMLCanvasElement>();
@@ -260,18 +280,23 @@ const { edge } = Astro.props;
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
       const position = gl.getAttribLocation(program, 'position');
       gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+      const seam = seams.includes(canvas) ? seams.indexOf(canvas) : null;
+      // Seams draw a fainter pattern with even strength from edge to edge.
+      gl.uniform2f(gl.getUniformLocation(program, 'shade'), seam === null ? 0.34 : 0.24, seam === null ? 1 : 0);
       const renderer: Renderer = {
         canvas, gl,
         resolution: gl.getUniformLocation(program, 'resolution'),
         surface: gl.getUniformLocation(program, 'surface'),
+        unit: gl.getUniformLocation(program, 'unit'),
         time: gl.getUniformLocation(program, 'time'),
         paper: gl.getUniformLocation(program, 'paper'),
         blue: gl.getUniformLocation(program, 'blue'),
         comet: gl.getUniformLocation(program, 'comet'),
         trail: gl.getUniformLocation(program, 'trail[0]'),
         emission: gl.getUniformLocation(program, 'emission'),
-        neurons: createNeurons(), clock: 9,
-        width: 0, height: 0, coordinates: new Float32Array(18),
+        // Different start times keep two seams on one screen from showing the same pattern.
+        neurons: createNeurons(seam), clock: 9 + (seam ?? 0) * 37, seam,
+        width: 0, height: 0, scale: 1, coordinates: new Float32Array(18),
       };
       renderers.set(canvas, renderer);
       if (control) control.hidden = false;
@@ -283,6 +308,7 @@ const { edge } = Astro.props;
       const { canvas, gl } = renderer;
       if (renderer.width !== canvas.clientWidth || renderer.height !== canvas.clientHeight) {
         renderer.width = canvas.clientWidth; renderer.height = canvas.clientHeight;
+        renderer.scale = renderer.seam === null ? renderer.height : SEAM_SCALE;
         renderer.neurons.forEach(neuron => { neuron.pulses = []; reseed(renderer, neuron); });
       }
       // Keep the drawing buffer small, even on high-density phones and wide monitors.
@@ -293,12 +319,13 @@ const { edge } = Astro.props;
       gl.viewport(0, 0, width, height);
       gl.uniform2f(renderer.resolution, width, height);
       gl.uniform2f(renderer.surface, canvas.clientWidth, canvas.clientHeight);
+      gl.uniform1f(renderer.unit, renderer.scale);
     }
 
     function uploadTrail(renderer: Renderer, points: Point[]) {
       points.forEach((point, index) => {
-        renderer.coordinates[index * 2] = point[0] * renderer.height / renderer.width + 0.5;
-        renderer.coordinates[index * 2 + 1] = point[1] + 0.5;
+        renderer.coordinates[index * 2] = across(renderer, point[0]);
+        renderer.coordinates[index * 2 + 1] = point[1] * renderer.scale / renderer.height + 0.5;
       });
       renderer.gl.uniform2fv(renderer.trail, renderer.coordinates);
     }
@@ -329,7 +356,7 @@ const { edge } = Astro.props;
       gl.uniform3fv(renderer.paper, paper); gl.uniform3fv(renderer.blue, blue);
       gl.uniform2f(renderer.emission, 0, 0);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
-      // All three neurons share one canvas. Limit every signal draw to its small trail rectangle.
+      // The neurons of one canvas share it. Limit every signal draw to its small trail rectangle.
       gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.enable(gl.SCISSOR_TEST);
       for (const neuron of renderer.neurons) {
         gl.uniform3fv(renderer.comet, colors[neuron.zone]);

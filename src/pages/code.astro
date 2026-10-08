@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Seam from '../components/Seam.astro';
 import { SITE } from '../config/site';
 import { projects, smallThings } from '../data/projects';
 ---
@@ -19,6 +20,8 @@ import { projects, smallThings } from '../data/projects';
       </p>
     </div>
   </section>
+
+  <Seam />
 
   <section class="section" id="projects">
     <h2>Projects</h2>
@@ -44,6 +47,8 @@ import { projects, smallThings } from '../data/projects';
       }
     </ul>
   </section>
+
+  <Seam />
 
   <section class="section" id="small-things">
     <h2>Small things</h2>

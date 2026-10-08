@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import LinkList from '../components/LinkList.astro';
 import NoteList from '../components/NoteList.astro';
+import Seam from '../components/Seam.astro';
 import profile from '../profile.avif';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
@@ -34,9 +35,11 @@ const [firstName, ...familyName] = SITE.name.split(' ');
         fetchpriority="high"
       />
     </figure>
-    <h1 id="intro-title" class="hero__name">{firstName}{' '}<span>{familyName.join(' ')}</span></h1>
+    <h1 id="intro-title" class="hero__name">
+      <span class="hero__hello">Hi! I'm</span>{' '}{firstName}{' '}<span class="hero__family">{familyName.join(' ')}</span>
+    </h1>
     <p class="hero__intro">
-        I'm Antonio, <strong>{SITE.handle}</strong> on most of the internet. By day I'm a technical
+        On most of the internet I'm <strong>{SITE.handle}</strong>. By day I'm a technical
         program manager at Stanley Black &amp; Decker. I write essays at <a href={SITE.notesUrl}>Notes</a>,
         build small web things, and make music. Boricua in Florida, and a father, which is where most of
         the writing comes from.
@@ -50,6 +53,8 @@ const [firstName, ...familyName] = SITE.name.split(' ');
   <aside class="business-note" aria-label="Consulting">
     <p>For consulting, visit my company, <a href={SITE.company.consultingUrl}>{SITE.company.name}</a>.</p>
   </aside>
+
+  <Seam />
 
   <section class="section section--split" id="writing" aria-labelledby="writing-title">
     <div class="section__heading">
@@ -69,5 +74,12 @@ const [firstName, ...familyName] = SITE.name.split(' ');
     </div>
   </section>
 
-  {rest.map((section) => <LinkList section={section} />)}
+  {
+    rest.map((section) => (
+      <>
+        <Seam />
+        <LinkList section={section} />
+      </>
+    ))
+  }
 </Base>

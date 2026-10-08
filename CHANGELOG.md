@@ -2,6 +2,20 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.10.0] - 2026-10-08
+
+### Added
+
+- Divide the sections with a seam: a thin slice of the header's pattern at the header's scale, faded at both ends, with one neuron in it. Consecutive seams take turns with amber, teal, and violet.
+- Without WebGL, with reduced motion, or with Data Saver, each seam shows a faded hairline.
+
+### Changed
+
+- Greet visitors on the home page: "Hi! I'm" above the name. The introduction now starts "On most of the internet I'm antoniwan."
+- Say "a member of SBD Digital" instead of "a founding member" on About and in llms.txt.
+- Say "I shepherded the move" instead of "I led the move" in the platform work.
+- Rename the company's GitHub link to "Company GitHub".
+
 ## [1.9.0] - 2026-10-08
 
 ### Added

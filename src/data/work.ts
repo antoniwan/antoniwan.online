@@ -6,7 +6,7 @@ export const workAreas = [
   },
   {
     title: 'Platform',
-    body: "I led the move of the brands' websites from slow PHP to a fast Next.js platform, and shipped services every brand shares: product search, product registration, and user profiles.",
+    body: "I shepherded the move of the brands' websites from slow PHP to a fast Next.js platform, and shipped services every brand shares: product search, product registration, and user profiles.",
   },
   {
     title: 'Design systems',
