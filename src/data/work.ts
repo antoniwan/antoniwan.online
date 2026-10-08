@@ -6,7 +6,7 @@ export const workAreas = [
   },
   {
     title: 'Platform',
-    body: "I've been part of the brands' web platform since the original PHP sites, back when PHP was the right tool, through the move to a fast Next.js platform and the services every brand shares: product search, product registration, product identification, and user profiles.",
+    body: "I've been part of the brands' web platform since the original PHP sites, back when PHP was the right tool, through the move to a fast Next.js platform and the services every brand shares: product search, product registration, and user profiles.",
   },
   {
     title: 'Design systems',

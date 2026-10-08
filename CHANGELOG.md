@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.21.1] - 2026-10-08
+
+### Removed
+
+- Product identification from the shared services on About and Projects. It is not public yet, so it does not belong on this site.
+
 ## [1.21.0] - 2026-10-08
 
 ### Added
@@ -19,7 +25,7 @@ Notable changes to antoniwan.online. The project uses [Semantic Versioning](http
 ### Changed
 
 - About's "At work" says how I support the teams: the design systems team (front-end systems, Figma libraries, design to code) and a big AI team as the AI innovation product owner (ideas, user stories, sometimes code). People and practice adds interviewing, lunch-and-learn talks, and internal blog posts.
-- Product identification joins the shared services on About and Projects.
+- A new shared service joined the list on About and Projects (removed again in 1.21.1).
 
 ### Added
 
