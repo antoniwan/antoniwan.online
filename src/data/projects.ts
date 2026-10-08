@@ -158,12 +158,13 @@ export const workForOthers: WorkGroup[] = [
     ],
   },
   {
-    name: 'Clients',
+    name: 'Freelance',
     entries: [
       {
-        title: "A lawyer's website",
-        when: '2024 · WordPress',
-        body: 'A freelance website for a lawyer. I built it on WordPress and learned a lot about WordPress doing it.',
+        title: 'Selling my brain',
+        when: 'On the side',
+        body: 'Freelance work for extra income and to learn new things. I called it selling my brain: websites, applications, physical networks with routers, Cat5e cable and router configs, even a digital signage project. Whatever landed, for fun or for learning.',
+        parts: [{ name: "A lawyer's website", text: 'A WordPress site, in 2024. I learned a lot about WordPress doing it.' }],
       },
     ],
   },

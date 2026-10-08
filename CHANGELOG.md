@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.18.1] - 2026-10-08
+
+### Changed
+
+- "Clients" becomes "Freelance": one entry, "Selling my brain", for the side work I took on for extra income and to learn (websites, applications, physical networks, a digital signage project). The lawyer's WordPress site is one example under it.
+
 ## [1.18.0] - 2026-10-08
 
 ### Added
