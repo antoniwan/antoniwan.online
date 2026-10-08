@@ -97,12 +97,12 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'Stanley Black & Decker',
         when: '2021 to now',
-        body: "On SBD Digital, the team behind the brands' websites and apps and the services behind them. I've been part of the brands' web platform since the original PHP sites, back when PHP was the right tool, through the move to a modern Next.js platform with services every brand shares, like product search and product registration. Today I'm also the product owner for our AI innovation group, where the work is automation, and one of the technical people in our product design group.",
+        body: "I've been part of the brands' web platform from the original PHP sites to today's Next.js platform and the services every brand shares, like product search and registration. I also support our AI innovation group as its product owner, and our product design group as one of its technical people.",
       },
       {
         title: 'Agencies and startups',
         when: '2008 to 2021',
-        body: "I co-founded a web shop in college, Kolapse Interactive. Nobox, a South Florida marketing agency, bought it to bring our whole team on board; we all moved to Miami and lived together for months, and it was so much fun. I became a partner there, then was director of technology at M8 and CTO of a startup, CarBuckets. The agencies bought ads for companies at scale, and we built the tech around it, including apps used by millions for Sony, PlayStation, Mozilla, Marriott and Copa Airlines. Both Nobox and M8 were bought while I was there, and working on the technology side of each through the sale was very cool. I also pitched, sold add-ons, taught our sales staff how the tech worked, and once went to F8, Facebook's developer conference; working with all those vendors and companies was a blast. At M8, moving to static sites cut operating costs by about 80%.",
+        body: "I co-founded a web shop in college, Kolapse Interactive. Nobox, a South Florida marketing agency, bought it to bring our team on board, and we all moved to Miami and lived together for months; it was so much fun. I became a partner there, then director of technology at M8, then CTO of a startup, CarBuckets. The agencies bought ads at scale and we built the tech around them, including apps used by millions for Sony, PlayStation, Mozilla, Marriott, and Copa Airlines. I pitched, sold add-ons, taught our sales team the tech, went to F8, Facebook's developer conference, and worked on the technology side of both agencies when they were sold. At M8, moving to static sites cut operating costs by about 80%.",
       },
       {
         title: 'University of Puerto Rico, Río Piedras',

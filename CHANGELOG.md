@@ -2,6 +2,14 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.22.0] - 2026-10-08
+
+### Changed
+
+- Editorial pass on About: no lesson lines or rank. "I go where the team needs me" replaces "the work goes where the most important problem is". "I've learned that good technical work needs a team where people feel safe to speak up" replaces the "Along the way I came to one belief" line and its jargon. Daily ends plainly about the divorce and being present. The company "handles" consulting; no "door".
+- Background lists the real path: work-study web apps at UPR, a web shop with a friend that an agency bought, then partner, director of technology, CTO, product owner, and technical program manager. "Engineering manager" was never a title, so it is gone.
+- Projects: the SBD and agencies entries are about a third shorter, with the same facts.
+
 ## [1.21.2] - 2026-10-08
 
 ### Changed
