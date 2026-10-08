@@ -2,6 +2,16 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.19.2] - 2026-10-08
+
+### Changed
+
+- Humility pass. No word ranks me above other people:
+  - "the main technical voice in our product design group" is now "one of the technical people" (Projects, About, llms.txt, LinkedIn copy, GitHub README).
+  - "guiding the technology side of each through the sale" is now "working on the technology side" (Projects).
+  - "I hold the shape of a product" is now "I help keep a product's shape clear" (About, llms.txt, LinkedIn copy).
+- Job titles, the AI innovation product owner role, and the reach of the apps stay: they are facts about the work, not rankings.
+
 ## [1.19.1] - 2026-10-08
 
 ### Changed

@@ -2,7 +2,7 @@
 export const workAreas = [
   {
     title: 'Product architecture',
-    body: 'Specs, user journeys, and acceptance criteria. I hold the shape of a product across services while many teams build pieces of it.',
+    body: "Specs, user journeys, and acceptance criteria. I help keep a product's shape clear across services while many teams build pieces of it.",
   },
   {
     title: 'Platform',
