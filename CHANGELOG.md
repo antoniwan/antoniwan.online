@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.27.1] - 2026-10-14
+
+### Changed
+
+- Projects: the game's card reads "Uplift, Tower Game".
+
 ## [1.27.0] - 2026-10-14
 
 ### Added

@@ -23,7 +23,7 @@ export const projects: Project[] = [
     stack: 'Astro, WebGL',
   },
   {
-    title: 'Uplift',
+    title: 'Uplift, Tower Game',
     href: 'https://uplifttowergame.com',
     body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
     stack: 'TypeScript, PixiJS, SolidJS',
