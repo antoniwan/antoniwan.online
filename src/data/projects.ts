@@ -6,14 +6,23 @@ export interface Project {
   stack: string;
 }
 
-/** My own things that I still run. Work I built and handed over to others is in workForOthers. */
+/**
+ * My own things that I still run, newest first by when each started. Work I built and handed over to
+ * others is in workForOthers.
+ */
 export const projects: Project[] = [
   {
-    title: 'Notes',
-    href: 'https://notes.antoniwan.online',
-    repo: 'https://github.com/antoniwan/notes',
-    body: 'My writing site. Essays in English and Spanish, household recipes, and a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
-    stack: 'Astro, TypeScript',
+    title: 'Uplift, Tower Game',
+    href: 'https://uplifttowergame.com',
+    body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
+    stack: 'TypeScript, PixiJS, SolidJS',
+  },
+  {
+    title: 'antoniwan.online',
+    href: '/',
+    repo: 'https://github.com/antoniwan/antoniwan.online',
+    body: 'This site, since October 7, 2026. Before it came arod.us in 2022, builds.software in 2025, and a link page on this domain: many names and ideas. This is the one I enjoy, and it keeps changing.',
+    stack: 'Astro, plain CSS',
   },
   {
     title: 'Strong Hands, Soft Heart',
@@ -23,23 +32,10 @@ export const projects: Project[] = [
     stack: 'Astro, WebGL',
   },
   {
-    title: 'Uplift, Tower Game',
-    href: 'https://uplifttowergame.com',
-    body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
-    stack: 'TypeScript, PixiJS, SolidJS',
-  },
-  {
     title: 'Panda and Wolf',
     href: 'https://notes.antoniwan.online/p/panda-and-wolf',
     body: 'Two Obsidian vaults kept by agent skills I write from scratch. One rule sits under both: honesty. The vaults are private; the essay explains the system.',
     stack: 'Markdown, agent skills',
-  },
-  {
-    title: 'Mia, the Sun, and the Moon',
-    href: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
-    repo: 'https://github.com/Strong-Hands-Soft-Heart/book-sun-and-moon',
-    body: 'A bilingual picture book as a web app, written for my daughter and my nephew. Published by Strong Hands, Soft Heart.',
-    stack: 'React, Vite',
   },
   {
     title: 'The Bent One',
@@ -56,11 +52,18 @@ export const projects: Project[] = [
     stack: 'Astro',
   },
   {
-    title: 'antoniwan.online',
-    href: '/',
-    repo: 'https://github.com/antoniwan/antoniwan.online',
-    body: 'This site, since October 7, 2026. Before it came arod.us in 2022, builds.software in 2025, and a link page on this domain: many names and ideas. This is the one I enjoy, and it keeps changing.',
-    stack: 'Astro, plain CSS',
+    title: 'Notes',
+    href: 'https://notes.antoniwan.online',
+    repo: 'https://github.com/antoniwan/notes',
+    body: 'My writing site. Essays in English and Spanish, household recipes, and a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
+    stack: 'Astro, TypeScript',
+  },
+  {
+    title: 'Mia, the Sun, and the Moon',
+    href: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
+    repo: 'https://github.com/Strong-Hands-Soft-Heart/book-sun-and-moon',
+    body: 'A bilingual picture book as a web app, written for my daughter and my nephew. Published by Strong Hands, Soft Heart.',
+    stack: 'React, Vite',
   },
 ];
 

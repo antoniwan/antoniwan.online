@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.27.2] - 2026-10-14
+
+### Changed
+
+- Projects: my own projects run newest first, by when each started, like the rest of the page: Uplift, this site, the company site, Panda and Wolf, The Bent One, LinksForest, Notes, and Mia, the Sun, and the Moon. The page description follows the same order and names Uplift.
+
 ## [1.27.1] - 2026-10-14
 
 ### Changed
