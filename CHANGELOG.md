@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.27.0] - 2026-10-14
+
+### Added
+
+- Projects: Uplift, a tower-building game that plays in your browser, in playtest at uplifttowergame.com. Published by Strong Hands, Soft Heart. The repository is private, so the entry links the game only. `/llms.txt` lists it with the other projects.
+
 ## [1.26.2] - 2026-10-08
 
 ### Changed

@@ -23,6 +23,12 @@ export const projects: Project[] = [
     stack: 'Astro, WebGL',
   },
   {
+    title: 'Uplift',
+    href: 'https://uplifttowergame.com',
+    body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
+    stack: 'TypeScript, PixiJS, SolidJS',
+  },
+  {
     title: 'Panda and Wolf',
     href: 'https://notes.antoniwan.online/p/panda-and-wolf',
     body: 'Two Obsidian vaults kept by agent skills I write from scratch. One rule sits under both: honesty. The vaults are private; the essay explains the system.',
