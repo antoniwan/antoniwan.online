@@ -2,6 +2,12 @@
 
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
+## [1.27.3] - 2026-10-14
+
+### Changed
+
+- About: "write code", in the opening line, links to Projects.
+
 ## [1.27.2] - 2026-10-14
 
 ### Changed
