@@ -117,12 +117,12 @@ export const workForOthers: WorkGroup[] = [
       {
         title: 'University of Puerto Rico, Río Piedras',
         when: '2004 to 2010',
-        body: 'I did all of this as a work-study student in DTAA, the campus IT division, while I was still figuring out how to be a college student.',
+        body: 'I was a work-study student in DTAA, the campus IT division, while I was still figuring out how to be a college student.',
         parts: [
           { name: 'The campus website', text: 'A WordPress site that others built. I mostly added to it.' },
           { name: 'MiUPI', text: "The original version of the campus's online portal." },
           { name: 'Consulta al Estudiante', lang: 'es', text: 'The online student consultation from the big strike.' },
-          { name: 'Crime Log', text: "The campus's crime log, online." },
+          { name: 'Crime Log', text: "The campus's online crime log, built by my friend Nizar." },
           {
             name: 'Transcript checker',
             text: 'It would read your transcript and recommend a path to finish your degree. I was building it when I left DTAA and never finished it; it was hard.',

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.29.1 — 2026-10-17
+
+- Credit Nizar for the campus Crime Log.
+- Remove the claim that Antonio built every listed university project.
+
 ## 1.29.0 — 2026-10-17
 
 - Add Movies to Collections with latest watches, personal ratings, and searchable saved records.
