@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.28.1 — 2026-10-17
+
+- Use one shared page introduction for About, Projects, Collections, and Books.
+- Match title sizes, text width, and content spacing across these pages.
+- Remove introductory separators. The Books search panel marks the catalogue boundary.
+
 ## 1.28.0 — October 17, 2026
 
 - Add Collections and a searchable 133-book reading library.

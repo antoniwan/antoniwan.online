@@ -1,0 +1,24 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  parent?: { label: string; href: string };
+}
+
+const { label, title, parent } = Astro.props;
+---
+
+<section class="page-intro">
+  {parent ? (
+    <nav class="page-intro__label" aria-label="Breadcrumb">
+      <a href={parent.href}>{parent.label}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{label}</span>
+    </nav>
+  ) : <span class="page-intro__label">{label}</span>}
+  <div class="page-intro__heading">
+    <h1>{title}</h1>
+    {Astro.slots.has('portrait') && <div class="page-intro__portrait"><slot name="portrait" /></div>}
+  </div>
+  <p class="page-intro__description"><slot /></p>
+</section>

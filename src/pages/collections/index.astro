@@ -1,15 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Seam from '../../components/Seam.astro';
+import PageIntro from '../../components/PageIntro.astro';
 import { books } from '../../data/books';
 ---
 <Base title="Collections" description="Antonio's personal collections, starting with a searchable reading library. Books read, in progress, set aside, and still to read." collection>
-  <section class="hero hero--collection">
-    <span class="eyebrow">Collections</span>
-    <h1>Things I return to</h1>
-    <p class="hero__intro">Books, references, and the things I keep around while I learn. This is a personal catalogue, not a list of recommendations.</p>
-  </section>
-  <Seam />
+  <PageIntro label="Collections" title="Things I return to">
+    Books, references, and the things I keep around while I learn. This is a personal catalogue, not a list of recommendations.
+  </PageIntro>
   <section class="section collection-grid" aria-label="Collections">
     <a class="collection-card" href="/collections/books">
       <span class="eyebrow">01 / Reading library</span>

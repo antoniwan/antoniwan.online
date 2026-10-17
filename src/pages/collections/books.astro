@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageIntro from '../../components/PageIntro.astro';
 import { books, readingStatusLabels } from '../../data/books';
 import { SITE } from '../../config/site';
 const subjects = [...new Set(books.flatMap(book => book.subjects))].sort((first, second) => first.localeCompare(second));
@@ -7,12 +8,9 @@ const listId = `${SITE.url}/collections/books#catalogue`;
 const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's reading library", numberOfItems: books.length, itemListElement: books.map((book, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Book', '@id': `${SITE.url}/collections/books#${book.id}`, name: book.title, author: book.author, url: `${SITE.url}/collections/books#${book.id}` } })) };
 ---
 <Base title="Books — Collections" description="Antonio's reading library: books read, currently reading, to read, and abandoned. Search by title, author, subject, and reading status." collection mainEntity={listId}>
-  <section class="hero hero--collection">
-    <nav class="collection-breadcrumb" aria-label="Breadcrumb"><a href="/collections">Collections</a><span aria-hidden="true">/</span><span aria-current="page">Books</span></nav>
-    <span class="eyebrow">Reading library</span>
-    <h1>Books on my mind</h1>
-    <p class="hero__intro">Some I've finished, some I return to, some are still waiting. Reading status doesn't tell you whether I own a copy.</p>
-  </section>
+  <PageIntro label="Books" title="Books on my mind" parent={{ label: 'Collections', href: '/collections' }}>
+    Some I've finished, some I return to, some are still waiting. Reading status doesn't tell you whether I own a copy.
+  </PageIntro>
   <section class="section bookshelf" aria-label="Book catalogue">
     <form class="book-filters" id="book-filters" role="search" aria-label="Find a book" hidden>
       <label class="book-search">Search books<input id="book-search" name="q" type="search" placeholder="Title, author, or subject" aria-controls="book-list" autocomplete="off" /></label>
