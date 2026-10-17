@@ -2,10 +2,12 @@
 
 ## 1.30.0 — 2026-10-17
 
-- Group personal projects into apps and tools, games and books, and websites and writing.
-- Add category links and replace large project cards with plain entries.
+- Add category filters and small category labels to the project cards.
+- Keep the original project order and two-column card layout.
 - Make work history and experiments expandable while preserving their descriptions.
 - Retain the published book anchors and work history link.
+- Put the site name above the navigation on phones and small tablets.
+- Arrange project filters in two columns on phones.
 
 ## 1.29.2 — 2026-10-17
 

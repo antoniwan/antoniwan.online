@@ -16,40 +16,32 @@ import { projectCategories, projects, workForOthers } from '../data/projects';
     <a href={SITE.company.consultingUrl}>my company</a>.
   </PageIntro>
 
-  <nav class="project-nav" aria-label="Project categories">
-    {projectCategories.map(category => <a href={`#${category.id}`}>{category.title}</a>)}
-    <a href="#work-for-others">Work &amp; experiments</a>
-  </nav>
-
-  <div id="projects">
-    {projectCategories.map(category => (
-      <section class="project-category" id={category.id} aria-labelledby={`${category.id}-title`}>
-        <div class="project-category__heading">
-          <h2 id={`${category.id}-title`}>{category.title}</h2>
-          <p>{category.description}</p>
-        </div>
-        <ul class="projects">
-          {projects.filter(project => project.category === category.id).map(project => (
-          <li class="project" id={project.title === 'The Bent One' ? 'the-bent-one' : project.title === 'Mia, the Sun, and the Moon' ? 'mia-the-sun-and-the-moon' : undefined}>
-            <h3>
-              <a href={project.href}>{project.title}</a>
-            </h3>
-            <p>{project.body}</p>
-            <p class="project__meta">
-              {project.stack}
-              {project.repo && (
-                <>
-                  {' · '}
-                  <a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a>
-                </>
-              )}
-            </p>
-          </li>
-          ))}
-        </ul>
-      </section>
-    ))}
-  </div>
+  <section class="section project-showcase" id="projects" aria-labelledby="projects-title">
+    <div class="project-section-heading">
+      <h2 id="projects-title">My own</h2>
+      <a class="project-history-link" href="#work-for-others">Work &amp; experiments ↓</a>
+    </div>
+    <div class="project-browse">
+      <div class="project-filters" role="group" aria-label="Filter projects" hidden>
+        <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="project-list">All projects</button>
+        {projectCategories.map(category => <button type="button" data-project-filter={category.id} aria-pressed="false" aria-controls="project-list">{category.title}</button>)}
+      </div>
+      <p id="project-results" role="status" aria-live="polite" aria-atomic="true">{projects.length} projects</p>
+    </div>
+    <ul class="projects" id="project-list">
+      {projects.map(project => (
+        <li class="project" data-category={project.category} id={project.title === 'The Bent One' ? 'the-bent-one' : project.title === 'Mia, the Sun, and the Moon' ? 'mia-the-sun-and-the-moon' : undefined}>
+          <p class="project__category">{projectCategories.find(category => category.id === project.category)?.title}</p>
+          <h3><a href={project.href}>{project.title}</a></h3>
+          <p>{project.body}</p>
+          <p class="project__meta">
+            {project.stack}
+            {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </section>
 
   <section class="project-category project-history" id="work-for-others" aria-labelledby="work-for-others-title">
     <div class="project-category__heading">
@@ -61,3 +53,34 @@ import { projectCategories, projects, workForOthers } from '../data/projects';
     </div>
   </section>
 </Base>
+
+<script>
+  const filters = document.querySelector<HTMLElement>('.project-filters');
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-project-filter]')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.project[data-category]')];
+  const results = document.querySelector('#project-results');
+
+  function filterProjects(category: string) {
+    let count = 0;
+    cards.forEach(card => {
+      card.hidden = category !== 'all' && card.dataset.category !== category;
+      if (!card.hidden) count++;
+    });
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.projectFilter === category)));
+    if (results) results.textContent = category === 'all' ? `${count} projects` : `${count} of ${cards.length} projects`;
+  }
+
+  function revealLinkedProject() {
+    let target: HTMLElement | null;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+    catch { return; }
+    if (target?.matches('.project[hidden]')) {
+      filterProjects('all');
+      target.scrollIntoView({ block: 'start' });
+    }
+  }
+
+  buttons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.projectFilter ?? 'all')));
+  window.addEventListener('hashchange', revealLinkedProject);
+  if (filters) filters.hidden = false;
+</script>
