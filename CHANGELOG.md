@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.30.0 — 2026-10-17
+
+- Group personal projects into apps and tools, games and books, and websites and writing.
+- Add category links and replace large project cards with plain entries.
+- Make work history and experiments expandable while preserving their descriptions.
+- Retain the published book anchors and work history link.
+
 ## 1.29.2 — 2026-10-17
 
 - Remove Crime Log from the university project list.

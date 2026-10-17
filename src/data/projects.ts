@@ -1,4 +1,11 @@
+export const projectCategories = [
+  { id: 'apps-and-tools', title: 'Apps & tools', description: 'Useful things for everyday life and my own workflow.' },
+  { id: 'games-and-books', title: 'Games & books', description: 'Things to play, read, and spend a little time with.' },
+  { id: 'websites-and-writing', title: 'Websites & writing', description: 'My places on the web, for work and for myself.' },
+] as const;
+
 export interface Project {
+  category: typeof projectCategories[number]['id'];
   title: string;
   href: string;
   repo?: string;
@@ -7,12 +14,13 @@ export interface Project {
 }
 
 /**
- * My own things that I still run, newest first by when each started. Work I built and handed over to
- * others is in workForOthers.
+ * My own things that I still run, newest first within each displayed category.
+ * Work I built and handed over to others is in workForOthers.
  */
 export const projects: Project[] = [
   {
     title: 'Cookbook',
+    category: 'apps-and-tools',
     href: 'https://cookbook.antoniwan.online',
     repo: 'https://github.com/antoniwan/cookbook',
     body: 'Our family recipes, in English and Spanish. A practical kitchen notebook with adjustable quantities, ingredient checklists, printing, and a garlic bulb and strawberry keeping watch.',
@@ -20,12 +28,14 @@ export const projects: Project[] = [
   },
   {
     title: 'Uplift, Tower Game',
+    category: 'games-and-books',
     href: 'https://uplifttowergame.com',
     body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
     stack: 'TypeScript, PixiJS, SolidJS',
   },
   {
     title: 'antoniwan.online',
+    category: 'websites-and-writing',
     href: '/',
     repo: 'https://github.com/antoniwan/antoniwan.online',
     body: 'This site, since October 7, 2026. Before it came arod.us in 2022, builds.software in 2025, and a link page on this domain: many names and ideas. This is the one I enjoy, and it keeps changing.',
@@ -33,6 +43,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Strong Hands, Soft Heart',
+    category: 'websites-and-writing',
     href: 'https://www.stronghandssoftheart.com',
     repo: 'https://github.com/Strong-Hands-Soft-Heart/stronghandssoftheart.com',
     body: "My company's site, built from its own design system. The moving background is drawn from the company's mark.",
@@ -40,12 +51,14 @@ export const projects: Project[] = [
   },
   {
     title: 'Panda and Wolf',
+    category: 'apps-and-tools',
     href: 'https://notes.antoniwan.online/p/panda-and-wolf',
     body: 'Two Obsidian vaults kept by agent skills I write from scratch. One rule sits under both: honesty. The vaults are private; the essay explains the system.',
     stack: 'Markdown, agent skills',
   },
   {
     title: 'The Bent One',
+    category: 'games-and-books',
     href: 'https://the-bent-one-book.stronghandssoftheart.com',
     repo: 'https://github.com/Strong-Hands-Soft-Heart/the-bent-one',
     body: 'A bilingual picture book with animated spreads. Published by Strong Hands, Soft Heart.',
@@ -53,6 +66,7 @@ export const projects: Project[] = [
   },
   {
     title: 'LinksForest',
+    category: 'apps-and-tools',
     href: 'https://links-forest-phi.vercel.app',
     repo: 'https://github.com/antoniwan/links-forest',
     body: 'A themed link page you can make your own. Fork it, edit one file, ship it. It ran this domain until October 2026.',
@@ -60,6 +74,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Notes',
+    category: 'websites-and-writing',
     href: 'https://notes.antoniwan.online',
     repo: 'https://github.com/antoniwan/notes',
     body: 'My public notebook. Essays in English and Spanish, with a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
@@ -67,6 +82,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Mia, the Sun, and the Moon',
+    category: 'games-and-books',
     href: 'https://mia-the-sun-and-the-moon-web-book.stronghandssoftheart.com',
     repo: 'https://github.com/Strong-Hands-Soft-Heart/book-sun-and-moon',
     body: 'A bilingual picture book as a web app, written for my daughter and my nephew. Published by Strong Hands, Soft Heart.',
@@ -93,6 +109,7 @@ export interface WorkEntry {
 
 export interface WorkGroup {
   name: string;
+  description: string;
   entries: WorkEntry[];
 }
 
@@ -103,6 +120,7 @@ export interface WorkGroup {
 export const workForOthers: WorkGroup[] = [
   {
     name: 'Jobs',
+    description: 'Stanley Black & Decker, agencies, startups, and university work.',
     entries: [
       {
         title: 'Stanley Black & Decker',
@@ -133,6 +151,7 @@ export const workForOthers: WorkGroup[] = [
   },
   {
     name: 'Freelance',
+    description: 'Websites, applications, networks, and whatever else landed.',
     entries: [
       {
         title: 'Selling my brain',
@@ -143,6 +162,7 @@ export const workForOthers: WorkGroup[] = [
   },
   {
     name: 'Friends, family and neighbors',
+    description: 'Small sites, front ends, and help for people I know.',
     entries: [
       {
         title: 'Favors',
@@ -153,6 +173,7 @@ export const workForOthers: WorkGroup[] = [
   },
   {
     name: 'Nerd projects',
+    description: 'Experiments, prototypes, and things I built to learn.',
     entries: [
       {
         title: 'Experiments and demos',

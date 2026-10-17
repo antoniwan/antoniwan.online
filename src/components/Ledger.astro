@@ -10,8 +10,12 @@ const { groups } = Astro.props;
 
 {
   groups.map((group) => (
-    <div class="ledger">
-      <h3 class="ledger__group">{group.name}</h3>
+    <details class="ledger">
+      <summary class="ledger__summary">
+        <h3 class="ledger__group">{group.name}</h3>
+        <span class="ledger__description">{group.description}</span>
+        <span class="ledger__toggle" aria-hidden="true">+</span>
+      </summary>
       <ul class="ledger__entries">
         {group.entries.map((entry) => (
           <li class="ledger__entry">
@@ -33,6 +37,6 @@ const { groups } = Astro.props;
           </li>
         ))}
       </ul>
-    </div>
+    </details>
   ))
 }

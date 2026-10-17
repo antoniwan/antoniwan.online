@@ -1,27 +1,35 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
-import Seam from '../components/Seam.astro';
 import { SITE } from '../config/site';
 import Ledger from '../components/Ledger.astro';
-import { projects, workForOthers } from '../data/projects';
+import { projectCategories, projects, workForOthers } from '../data/projects';
 ---
 
 <Base
   title="Projects"
-  description="Things Antonio Rodríguez Martínez has built: Cookbook, Uplift, this site, Panda and Wolf, bilingual picture books, Notes, and work for others."
+  description="Projects by Antonio Rodríguez Martínez: apps and tools, games and books, websites and writing, and work for others."
 >
   <PageIntro label="Projects" title="Things I've built">
-        I like starting things. Once one is built, I hand it to someone and go build the next idea. Most
-        of the code is on <a href="https://github.com/antoniwan" rel="me">GitHub</a>. New client work and
-        consulting go through <a href={SITE.company.consultingUrl}>my company</a>.
+    Things I build for myself, for others, and for the fun of it. Most of the code is on
+    <a href="https://github.com/antoniwan" rel="me">GitHub</a>. Client work and consulting go through
+    <a href={SITE.company.consultingUrl}>my company</a>.
   </PageIntro>
 
-  <section class="section" id="projects" aria-labelledby="projects-title">
-    <h2 id="projects-title">My own</h2>
-    <ul class="projects">
-      {
-        projects.map((project) => (
+  <nav class="project-nav" aria-label="Project categories">
+    {projectCategories.map(category => <a href={`#${category.id}`}>{category.title}</a>)}
+    <a href="#work-for-others">Work &amp; experiments</a>
+  </nav>
+
+  <div id="projects">
+    {projectCategories.map(category => (
+      <section class="project-category" id={category.id} aria-labelledby={`${category.id}-title`}>
+        <div class="project-category__heading">
+          <h2 id={`${category.id}-title`}>{category.title}</h2>
+          <p>{category.description}</p>
+        </div>
+        <ul class="projects">
+          {projects.filter(project => project.category === category.id).map(project => (
           <li class="project" id={project.title === 'The Bent One' ? 'the-bent-one' : project.title === 'Mia, the Sun, and the Moon' ? 'mia-the-sun-and-the-moon' : undefined}>
             <h3>
               <a href={project.href}>{project.title}</a>
@@ -32,21 +40,21 @@ import { projects, workForOthers } from '../data/projects';
               {project.repo && (
                 <>
                   {' · '}
-                  <a href={project.repo}>Source</a>
+                  <a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a>
                 </>
               )}
             </p>
           </li>
-        ))
-      }
-    </ul>
-  </section>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
 
-  <Seam />
-
-  <section class="section section--split" id="work-for-others" aria-labelledby="work-for-others-title">
-    <div class="section__heading">
-      <h2 id="work-for-others-title">For others, and for fun</h2>
+  <section class="project-category project-history" id="work-for-others" aria-labelledby="work-for-others-title">
+    <div class="project-category__heading">
+      <h2 id="work-for-others-title">Work &amp; experiments</h2>
+      <p>Jobs, side work, favors, and ideas I followed for a while.</p>
     </div>
     <div class="section__body">
       <Ledger groups={workForOthers} />

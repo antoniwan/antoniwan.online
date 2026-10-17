@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
 import { principles } from '../data/principles';
-import { projects, workForOthers } from '../data/projects';
+import { projectCategories, projects, workForOthers } from '../data/projects';
 import { workAreas } from '../data/work';
 
 /** `/llms.txt` (https://llmstxt.org): this site for AI agents, built from the same data as the pages. */
@@ -32,7 +32,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 - [Books](${url('/collections/books')}): searchable reading library; public data at ${url('/collections/books.json')}
 - [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list, not a complete viewing history; public data at ${url('/collections/movies.json')}
 - [Cookbook](https://cookbook.antoniwan.online/): family recipes in English and Spanish, with its own public home
-- [Projects](${url('/projects')}): his own (${projects.map((p) => p.title).join('; ')}), work for others (${workForOthers.flatMap((g) => g.entries).map((e) => e.title).join('; ')}), and side projects for fun, most of them stopped or replaced
+- [Projects](${url('/projects')}): ${projectCategories.map(category => `${category.title} (${projects.filter(project => project.category === category.id).map(project => project.title).join('; ')})`).join('; ')}. Work and experiments include ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}.
 
 ## Writing
 
