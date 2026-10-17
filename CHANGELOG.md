@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.29.2 — 2026-10-17
+
+- Remove Crime Log from the university project list.
+
 ## 1.29.1 — 2026-10-17
 
 - Credit Nizar for the campus Crime Log.

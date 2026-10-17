@@ -122,7 +122,6 @@ export const workForOthers: WorkGroup[] = [
           { name: 'The campus website', text: 'A WordPress site that others built. I mostly added to it.' },
           { name: 'MiUPI', text: "The original version of the campus's online portal." },
           { name: 'Consulta al Estudiante', lang: 'es', text: 'The online student consultation from the big strike.' },
-          { name: 'Crime Log', text: "The campus's online crime log, built by my friend Nizar." },
           {
             name: 'Transcript checker',
             text: 'It would read your transcript and recommend a path to finish your degree. I was building it when I left DTAA and never finished it; it was hard.',
