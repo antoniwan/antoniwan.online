@@ -13,6 +13,10 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 ## Run it
 
+Collections starts with the reading library at `/collections/books`. The [Collections guide](docs/collections.md) describes public selection and local snapshot updates.
+
+Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading-library catalogue.
+
 ```bash
 pnpm install
 pnpm dev

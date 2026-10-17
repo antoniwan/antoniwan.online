@@ -12,6 +12,13 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    title: 'Cookbook',
+    href: 'https://cookbook.antoniwan.online',
+    repo: 'https://github.com/antoniwan/cookbook',
+    body: 'Our family recipes, in English and Spanish. A practical kitchen notebook with adjustable quantities, ingredient checklists, printing, and a garlic bulb and strawberry keeping watch.',
+    stack: 'Astro, TypeScript',
+  },
+  {
     title: 'Uplift, Tower Game',
     href: 'https://uplifttowergame.com',
     body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
@@ -55,7 +62,7 @@ export const projects: Project[] = [
     title: 'Notes',
     href: 'https://notes.antoniwan.online',
     repo: 'https://github.com/antoniwan/notes',
-    body: 'My writing site. Essays in English and Spanish, household recipes, and a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
+    body: 'My public notebook. Essays in English and Spanish, with a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
     stack: 'Astro, TypeScript',
   },
   {

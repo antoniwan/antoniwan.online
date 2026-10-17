@@ -15,9 +15,11 @@ interface Props {
   /** True on pages about Antonio himself (Home, About): marks them as his profile page. */
   profile?: boolean;
   noindex?: boolean;
+  collection?: boolean;
+  mainEntity?: string;
 }
 
-const { title, description = SITE.description, profile = false, noindex = false } = Astro.props;
+const { title, description = SITE.description, profile = false, noindex = false, collection = false, mainEntity } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} (${SITE.handle})`;
 // build.format is 'file', so pathnames end in .html at build time; Vercel serves them without it.
 const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
@@ -60,7 +62,7 @@ const structuredData = {
   '@graph': [
     ...(cleanPath === '/' ? [website] : []),
     {
-      '@type': profile ? 'ProfilePage' : 'WebPage',
+      '@type': profile ? 'ProfilePage' : collection ? 'CollectionPage' : 'WebPage',
       '@id': canonical,
       url: canonical,
       name: fullTitle,
@@ -69,6 +71,7 @@ const structuredData = {
       isPartOf: { '@id': website['@id'] },
       about: { '@id': SITE.personId },
       ...(profile ? { mainEntity: { '@id': SITE.personId } } : {}),
+      ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
     },
     person,
   ],

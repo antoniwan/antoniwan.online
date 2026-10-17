@@ -4,7 +4,7 @@ import ShaderBackdrop from './ShaderBackdrop.astro';
 
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
 const tld = SITE.domain.slice(SITE.handle.length);
-const isCurrent = (href: string) => href.startsWith('/') && path === href;
+const isCurrent = (href: string) => href.startsWith('/') && (path === href || path.startsWith(href + '/'));
 ---
 
 <header class="header">

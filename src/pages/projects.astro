@@ -8,7 +8,7 @@ import { projects, workForOthers } from '../data/projects';
 
 <Base
   title="Projects"
-  description="Things Antonio Rodríguez Martínez has built, newest first: Uplift, this site, his company's site, Panda and Wolf, two bilingual picture books, LinksForest, Notes, and work for others."
+  description="Things Antonio Rodríguez Martínez has built: Cookbook, Uplift, this site, Panda and Wolf, bilingual picture books, Notes, and work for others."
 >
   <section class="hero">
     <div>
@@ -29,7 +29,7 @@ import { projects, workForOthers } from '../data/projects';
     <ul class="projects">
       {
         projects.map((project) => (
-          <li class="project">
+          <li class="project" id={project.title === 'The Bent One' ? 'the-bent-one' : project.title === 'Mia, the Sun, and the Moon' ? 'mia-the-sun-and-the-moon' : undefined}>
             <h3>
               <a href={project.href}>{project.title}</a>
             </h3>

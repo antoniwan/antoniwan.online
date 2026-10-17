@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import { books, readingStatusLabels } from '../../data/books';
+import { SITE } from '../../config/site';
+const subjects = [...new Set(books.flatMap(book => book.subjects))].sort((first, second) => first.localeCompare(second));
+const listId = `${SITE.url}/collections/books#catalogue`;
+const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's reading library", numberOfItems: books.length, itemListElement: books.map((book, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Book', '@id': `${SITE.url}/collections/books#${book.id}`, name: book.title, author: book.author, url: `${SITE.url}/collections/books#${book.id}` } })) };
+---
+<Base title="Books — Collections" description="Antonio's reading library: books read, currently reading, to read, and abandoned. Search by title, author, subject, and reading status." collection mainEntity={listId}>
+  <section class="hero hero--collection">
+    <nav class="collection-breadcrumb" aria-label="Breadcrumb"><a href="/collections">Collections</a><span aria-hidden="true">/</span><span aria-current="page">Books</span></nav>
+    <span class="eyebrow">Reading library</span>
+    <h1>Books on my mind</h1>
+    <p class="hero__intro">Some I've finished, some I return to, some are still waiting. Reading status doesn't tell you whether I own a copy.</p>
+  </section>
+  <section class="section bookshelf" aria-label="Book catalogue">
+    <form class="book-filters" id="book-filters" role="search" aria-label="Find a book" hidden>
+      <label class="book-search">Search books<input id="book-search" name="q" type="search" placeholder="Title, author, or subject" aria-controls="book-list" autocomplete="off" /></label>
+      <label>Reading status<select id="book-status" name="status" aria-controls="book-list"><option value="">All statuses</option>{Object.entries(readingStatusLabels).filter(([value]) => books.some(book => book.readingStatus === value)).map(([value, label]) => <option value={value}>{label}</option>)}</select></label>
+      <label>Subject<select id="book-subject" name="subject" aria-controls="book-list"><option value="">All subjects</option>{subjects.map(subject => <option value={subject}>{subject}</option>)}</select></label>
+      <button type="reset" class="book-reset">Clear filters</button>
+    </form>
+    <div class="book-results"><p id="book-results" role="status" aria-live="polite" aria-atomic="true">{books.length} books</p><span>Titles A–Z</span></div>
+    <ul id="book-list" class="book-list" aria-label="Books">
+      {books.map(book => <li class="book-entry" id={book.id} data-book data-title={book.title} data-author={book.author} data-status={book.readingStatus} data-subjects={JSON.stringify(book.subjects)}>
+        <div><h2><a href={`#${book.id}`}>{book.title}</a></h2><p class="book-author">{book.author}</p><ul class="book-subjects" aria-label="Subjects">{book.subjects.map(subject => <li>{subject}</li>)}</ul></div>
+        <p class="book-status" data-reading-status={book.readingStatus}>{readingStatusLabels[book.readingStatus]}</p>
+      </li>)}
+    </ul>
+    <div class="book-empty" id="book-empty" hidden><h2>No books match</h2><p>Try another title or author, or clear the filters.</p></div>
+    <p class="section__footnote">A selected snapshot of my Panda inventory. Unknown ownership and reference use stay unrecorded. This catalogue shows neither personal ratings nor unverified rating averages. <a href="/collections/books.json">Download the public catalogue as JSON</a>.</p>
+    <noscript><p>The complete catalogue is available above. Enable JavaScript to use the filters.</p></noscript>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+</Base>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#book-filters');
+  const search = document.querySelector<HTMLInputElement>('#book-search');
+  const status = document.querySelector<HTMLSelectElement>('#book-status');
+  const subject = document.querySelector<HTMLSelectElement>('#book-subject');
+  const results = document.querySelector('#book-results');
+  const empty = document.querySelector<HTMLElement>('#book-empty');
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-book]')];
+  const normalize = (text: string) => text.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  if (form && search && status && subject && results && empty) {
+    const update = () => {
+      const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+      let count = 0;
+      for (const row of rows) {
+        const subjects = JSON.parse(row.dataset.subjects ?? '[]') as string[];
+        const text = normalize([row.dataset.title, row.dataset.author, ...subjects].join(' '));
+        row.hidden = !terms.every(term => text.includes(term)) || Boolean(status.value && row.dataset.status !== status.value) || Boolean(subject.value && !subjects.includes(subject.value));
+        if (!row.hidden) count++;
+      }
+      results.textContent = count === rows.length ? `${count} books` : `${count} of ${rows.length} books`;
+      empty.hidden = count > 0;
+    };
+    const restore = () => {
+      const params = new URL(location.href).searchParams;
+      search.value = params.get('q') ?? '';
+      const legacyStatus = params.get('status') === 'in-progress' ? 'reading' : params.get('status') ?? '';
+      status.value = [...status.options].some(option => option.value === legacyStatus) ? legacyStatus : '';
+      const selectedSubject = params.get('subject') ?? params.get('shelf') ?? '';
+      subject.value = [...subject.options].some(option => option.value === selectedSubject) ? selectedSubject : '';
+      update();
+    };
+    const apply = () => {
+      update();
+      const url = new URL(location.href);
+      url.searchParams.delete('shelf');
+      for (const [name, value] of [['q', search.value.trim()], ['status', status.value], ['subject', subject.value]]) {
+        if (value) url.searchParams.set(name, value);
+        else url.searchParams.delete(name);
+      }
+      history.replaceState(history.state, '', url);
+    };
+    search.addEventListener('input', apply);
+    status.addEventListener('change', apply);
+    subject.addEventListener('change', apply);
+    form.addEventListener('submit', event => { event.preventDefault(); apply(); });
+    form.addEventListener('reset', () => requestAnimationFrame(apply));
+    window.addEventListener('popstate', restore);
+    restore();
+    form.hidden = false;
+  }
+</script>

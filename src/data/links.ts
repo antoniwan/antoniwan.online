@@ -27,7 +27,7 @@ export const sections: LinkSection[] = [
       {
         label: 'Notes',
         href: 'https://notes.antoniwan.online',
-        note: 'Essays on fatherhood, philosophy, culture and work, and the recipes we cook at home. Every post is also served as markdown.',
+        note: 'Essays on fatherhood, philosophy, culture and work. Every post is also served as markdown.',
       },
       {
         label: 'Medium',

@@ -1,0 +1,1075 @@
+[
+  {
+    "title": "10-Minute Life Lessons for Kids",
+    "author": "Jamie C. Miller",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "101 Essays That Will Change The Way You Think",
+    "author": "Brianna Wiest",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "12 Rules for Life: An Antidote to Chaos",
+    "author": "Jordan B. Peterson",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "14,000 Things to Be Happy About",
+    "author": "Barbara Ann Kipfer",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "A Beginner's Guide to Discrete Mathematics",
+    "author": "W.D. Wallis",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "A Calendar of Wisdom",
+    "author": "Leo Tolstoy",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Adult Children of Emotionally Immature Parents",
+    "author": "Lindsay C. Gibson",
+    "subjects": [
+      "Personal Development & Self-Help",
+      "Parenting & Child Development",
+      "Personal Development"
+    ],
+    "aliases": [],
+    "statusResolution": "read"
+  },
+  {
+    "title": "AJAX and PHP",
+    "author": "Cristian Darie",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Allies in Healing",
+    "author": "Laura Davis",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Anger: Taming the Beast",
+    "author": "Reneau Z. Peurifoy",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Anger: Wisdom for Cooling the Flames",
+    "author": "Thich Nhat Hanh",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Arcángeles: Una guía espiritual",
+    "author": "Mari Silva",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Atlas of the Heart",
+    "author": "Brené Brown",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Attached",
+    "author": "Amir Levine",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Basic Art of Adjustments: A Beginning Guide to Yoga",
+    "author": "Alanna Kaivalya",
+    "subjects": [
+      "Yoga & Meditation"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Beyond Good and Evil",
+    "author": "Friedrich Nietzsche",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Bridge to Terabithia",
+    "author": "Katherine Paterson",
+    "subjects": [
+      "Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Bringing Up Girls",
+    "author": "James C. Dobson",
+    "subjects": [
+      "Relationships & Trauma Recovery",
+      "Miscellaneous"
+    ],
+    "aliases": [
+      "Bring Up Girls"
+    ],
+    "statusResolution": "read"
+  },
+  {
+    "title": "Building Evolutionary Architectures",
+    "author": "Neal Ford",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Calm the Chaos Cards",
+    "author": "Nicola Ries Taggart",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Cocina criolla",
+    "author": "Empresas Cucuye Inc.",
+    "subjects": [
+      "Food & Cooking"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Complex PTSD: From Surviving to Thriving",
+    "author": "Pete Walker",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Coping with Trauma-Related Dissociation",
+    "author": "Suzette Boon",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Cunningham's Encyclopedia of Magical Herbs",
+    "author": "Scott Cunningham",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Cyanide and Happiness",
+    "author": "Kris Wilson",
+    "subjects": [
+      "Comics & Humor"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Database Management Systems",
+    "author": "Raghu Ramakrishnan",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Diasporican: A Puerto Rican Cookbook",
+    "author": "Illyanna Maisonet",
+    "subjects": [
+      "Food & Cooking"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Effective JavaScript",
+    "author": "David Herman",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "El principito",
+    "author": "Antoine de Saint-Exupéry",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Emotional Intelligence 2.0",
+    "author": "Travis Bradberry",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Empath and Psychic Abilities",
+    "author": "Ellen J. Cure",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Everything Is F*cked",
+    "author": "Mark Manson",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Feeling Good",
+    "author": "David D. Burns",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Feeling Good Together",
+    "author": "David D. Burns",
+    "subjects": [
+      "Personal Development"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Freakonomics",
+    "author": "Steven D. Levitt",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Fundamentals of Software Architecture",
+    "author": "Mark Richards",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Gong Baths: A Guide to Sound Healing",
+    "author": "Stephen Hill",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Guías espirituales animales",
+    "author": "Mari Silva",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Guitar Fretboard",
+    "author": "Guitar Head",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Hacking Growth",
+    "author": "Sean Ellis",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Happily Ever After: The Artwork of Jeremy Fish",
+    "author": "Jeremy Fish",
+    "subjects": [
+      "Creative & Design"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Healing Your Wounded Inner Child",
+    "author": "Maria Clarke",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "High Output Management",
+    "author": "Andrew S. Grove",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "High Performance Habits",
+    "author": "Brendon Burchard",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "High Performance JavaScript",
+    "author": "Nicholas C. Zakas",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "High Performance MySQL",
+    "author": "Baron Schwartz",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "How to Cook Everything",
+    "author": "Mark Bittman",
+    "subjects": [
+      "Parenting & Life"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "HTML and CSS: Design and Build Websites",
+    "author": "Jon Duckett",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Human Anatomy in Full Color",
+    "author": "John Green",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Improve Your Handwriting",
+    "author": "Rosemary Sassoon",
+    "subjects": [
+      "Art & Design"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Infection & Immunity",
+    "author": "John H.L. Playton",
+    "subjects": [
+      "Other"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Integral Yoga: The Yoga Sutras of Patanjali",
+    "author": "Satchidananda",
+    "subjects": [
+      "Yoga & Meditation"
+    ],
+    "aliases": [
+      "The Yoga Sutras of Patanjali"
+    ]
+  },
+  {
+    "title": "JavaScript Patterns",
+    "author": "Stoyan Stefanov",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "JavaScript: The Definitive Guide",
+    "author": "David Flanagan",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Journey to the Heart",
+    "author": "Melody Beattie",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Kanban",
+    "author": "David J. Anderson",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Lighter: Let Go of the Past, Connect With the Present, and Expand the Future",
+    "author": "Yung Pueblo",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Lord of the Flies",
+    "author": "William Golding",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Magical Beginnings, Enchanted Lives",
+    "author": "Deepak Chopra",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Mark Ryden. Pinxit",
+    "author": "Amanda Erlanson",
+    "subjects": [
+      "Art & Design"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Me and White Supremacy",
+    "author": "Layla F. Saad",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Medical Medium Cleanse to Heal",
+    "author": "Anthony William",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Methods of Persuasion",
+    "author": "Nick Kolenda",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Modern Software Engineering",
+    "author": "David Farley",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Mujeres que corren con los Lobos",
+    "author": "Clarissa Pinkola Estés",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "No More Mr. Nice Guy",
+    "author": "Robert A. Glover",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "No-Drama Discipline",
+    "author": "Daniel J. Siegel",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Nonviolent Communication",
+    "author": "Marshall B. Rosenberg",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Of Human Freedom",
+    "author": "Epictetus",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Operating System Concepts",
+    "author": "Abraham Silberschatz",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "PHP Object-Oriented Solutions",
+    "author": "David Powers",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Practical Guide to the Montessori Method at Home",
+    "author": "Julia Palmarola",
+    "subjects": [
+      "Parenting & Child Development"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Print Handwriting Workbook for Adults",
+    "author": "Sujatha Lalgudi",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Professional JavaScript for Web Developers",
+    "author": "Nicholas C. Zakas",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Programming Languages: Design and Implementation",
+    "author": "Terrence W. Pratt",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Psychic Empath",
+    "author": "Kimberly Moon",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Ready Player One",
+    "author": "Ernest Cline",
+    "subjects": [
+      "Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Recovery from Gaslighting & Narcissistic Abuse",
+    "author": "Don Barlow",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Ruined by Design",
+    "author": "Mike Monteiro",
+    "subjects": [
+      "Creative & Design"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Saboreando Salud",
+    "author": "Lydibel Porrata",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Soul Cleansing and Energetic Protection",
+    "author": "Eva Márquez",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Starry Messenger",
+    "author": "Neil deGrasse Tyson",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Stuff Good Players Should Know",
+    "author": "Dick DeVenzio",
+    "subjects": [
+      "Sports & Coaching"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The 48 Laws of Power",
+    "author": "Robert Greene",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The 5 Love Languages of Teenagers",
+    "author": "Gary Chapman",
+    "subjects": [
+      "Parenting & Child Development"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The 7 Habits of Highly Effective People",
+    "author": "Stephen R. Covey",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Art of Leadership",
+    "author": "Michael Lopp",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Bhagavad Gita",
+    "author": "Krishna-Dwaipayana Vyasa",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Book of CSS3",
+    "author": "Peter Gasston",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Book of Virtues for Young People",
+    "author": "William J. Bennett",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The China Study",
+    "author": "T. Colin Campbell",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Complete Calvin and Hobbes",
+    "author": "Bill Watterson",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Couple's Workbook",
+    "author": "The School of Life",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Courage to Heal",
+    "author": "Ellen Bass",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Creative Act: A Way of Being",
+    "author": "Rick Rubin",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Daily Stoic",
+    "author": "Ryan Holiday",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Declaration of Independence and the Constitution",
+    "author": "Founding Fathers",
+    "subjects": [
+      "Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Dore Gallery: His 120 Greatest Illustrations",
+    "author": "Gustave Doré",
+    "subjects": [
+      "Creative & Design"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Five Love Languages",
+    "author": "Gary Chapman",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Grown-Up's Guide to Teenage Humans",
+    "author": "Josh Shipp",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Manager's Path",
+    "author": "Camille Fournier",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Obstacle Is the Way",
+    "author": "Ryan Holiday",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Power of Positive Thinking",
+    "author": "Norman Vincent Peale",
+    "subjects": [
+      "Personal Development"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Professional Product Owner",
+    "author": "Don McGreal",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Tipping Point",
+    "author": "Malcolm Gladwell",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The War of Art",
+    "author": "Steven Pressfield",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Way of the Superior Man",
+    "author": "David Deida",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Web Designer's Idea Book, Vol. 2",
+    "author": "Patrick McNeil",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Whole-Brain Child",
+    "author": "Daniel J. Siegel",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "The Wisdom of the Enneagram",
+    "author": "Don Richard Riso",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Thing Explainer",
+    "author": "Randall Munroe",
+    "subjects": [
+      "Other"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "This Is How We Come Back Stronger",
+    "author": "Feminist Book Society",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Thus spake Zarathustra",
+    "author": "Friedrich Nietzsche",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Una vida con Ángeles",
+    "author": "Tania Karam",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Untamed",
+    "author": "Glennon Doyle",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "User Story Mapping",
+    "author": "Jeff Patton",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Veneración a los ancestros",
+    "author": "Mari Silva",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Version Control with Git",
+    "author": "Jon Loeliger",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "We're Pregnant! The First Time Dad's Pregnancy Handbook",
+    "author": "Adrian Kulp",
+    "subjects": [
+      "Parenting & Life"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Web Database Applications with PHP & MySQL",
+    "author": "Hugh E. Williams",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "What is HTML 5?",
+    "author": "Brett McLaughlin",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Why Does He Do That?",
+    "author": "Lundy Bancroft",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Yoga Nidra Scripts",
+    "author": "Tamara Skyhawk",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "You Are Your Child's First Teacher",
+    "author": "Rahima Baldwin Dancy",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "You Can Heal Your Life",
+    "author": "Louise L. Hay",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "aliases": []
+  },
+  {
+    "title": "Your Erroneous Zones",
+    "author": "Wayne W. Dyer",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "aliases": []
+  }
+]

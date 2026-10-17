@@ -1,0 +1,1468 @@
+[
+  {
+    "id": "10-minute-life-lessons-for-kids-jamie-c-miller",
+    "title": "10-Minute Life Lessons for Kids",
+    "author": "Jamie C. Miller",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "101-essays-that-will-change-the-way-you-think-brianna-wiest",
+    "title": "101 Essays That Will Change The Way You Think",
+    "author": "Brianna Wiest",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "reading",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "12-rules-for-life-an-antidote-to-chaos-jordan-b-peterson",
+    "title": "12 Rules for Life: An Antidote to Chaos",
+    "author": "Jordan B. Peterson",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "14-000-things-to-be-happy-about-barbara-ann-kipfer",
+    "title": "14,000 Things to Be Happy About",
+    "author": "Barbara Ann Kipfer",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "a-beginner-s-guide-to-discrete-mathematics-w-d-wallis",
+    "title": "A Beginner's Guide to Discrete Mathematics",
+    "author": "W.D. Wallis",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "a-calendar-of-wisdom-leo-tolstoy",
+    "title": "A Calendar of Wisdom",
+    "author": "Leo Tolstoy",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "adult-children-of-emotionally-immature-parents-lindsay-c-gibson",
+    "title": "Adult Children of Emotionally Immature Parents",
+    "author": "Lindsay C. Gibson",
+    "subjects": [
+      "Personal Development & Self-Help",
+      "Parenting & Child Development",
+      "Personal Development"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "ajax-and-php-cristian-darie",
+    "title": "AJAX and PHP",
+    "author": "Cristian Darie",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "allies-in-healing-laura-davis",
+    "title": "Allies in Healing",
+    "author": "Laura Davis",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "anger-taming-the-beast-reneau-z-peurifoy",
+    "title": "Anger: Taming the Beast",
+    "author": "Reneau Z. Peurifoy",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "anger-wisdom-for-cooling-the-flames-thich-nhat-hanh",
+    "title": "Anger: Wisdom for Cooling the Flames",
+    "author": "Thich Nhat Hanh",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "arcangeles-una-guia-espiritual-mari-silva",
+    "title": "Arcángeles: Una guía espiritual",
+    "author": "Mari Silva",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "atlas-of-the-heart-brene-brown",
+    "title": "Atlas of the Heart",
+    "author": "Brené Brown",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "reading",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "atomic-habits-james-clear",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "attached-amir-levine",
+    "title": "Attached",
+    "author": "Amir Levine",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "basic-art-of-adjustments-a-beginning-guide-to-yoga-alanna-kaivalya",
+    "title": "Basic Art of Adjustments: A Beginning Guide to Yoga",
+    "author": "Alanna Kaivalya",
+    "subjects": [
+      "Yoga & Meditation"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "beyond-good-and-evil-friedrich-nietzsche",
+    "title": "Beyond Good and Evil",
+    "author": "Friedrich Nietzsche",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "readingStatus": "abandoned",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "bridge-to-terabithia-katherine-paterson",
+    "title": "Bridge to Terabithia",
+    "author": "Katherine Paterson",
+    "subjects": [
+      "Literature"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "bringing-up-girls-james-c-dobson",
+    "title": "Bringing Up Girls",
+    "author": "James C. Dobson",
+    "subjects": [
+      "Relationships & Trauma Recovery",
+      "Miscellaneous"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "building-evolutionary-architectures-neal-ford",
+    "title": "Building Evolutionary Architectures",
+    "author": "Neal Ford",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "calm-the-chaos-cards-nicola-ries-taggart",
+    "title": "Calm the Chaos Cards",
+    "author": "Nicola Ries Taggart",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "cocina-criolla-empresas-cucuye-inc",
+    "title": "Cocina criolla",
+    "author": "Empresas Cucuye Inc.",
+    "subjects": [
+      "Food & Cooking"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "complex-ptsd-from-surviving-to-thriving-pete-walker",
+    "title": "Complex PTSD: From Surviving to Thriving",
+    "author": "Pete Walker",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "coping-with-trauma-related-dissociation-suzette-boon",
+    "title": "Coping with Trauma-Related Dissociation",
+    "author": "Suzette Boon",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "cunningham-s-encyclopedia-of-magical-herbs-scott-cunningham",
+    "title": "Cunningham's Encyclopedia of Magical Herbs",
+    "author": "Scott Cunningham",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "cyanide-and-happiness-kris-wilson",
+    "title": "Cyanide and Happiness",
+    "author": "Kris Wilson",
+    "subjects": [
+      "Comics & Humor"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "database-management-systems-raghu-ramakrishnan",
+    "title": "Database Management Systems",
+    "author": "Raghu Ramakrishnan",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "diasporican-a-puerto-rican-cookbook-illyanna-maisonet",
+    "title": "Diasporican: A Puerto Rican Cookbook",
+    "author": "Illyanna Maisonet",
+    "subjects": [
+      "Food & Cooking"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "effective-javascript-david-herman",
+    "title": "Effective JavaScript",
+    "author": "David Herman",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "el-principito-antoine-de-saint-exupery",
+    "title": "El principito",
+    "author": "Antoine de Saint-Exupéry",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "emotional-intelligence-2-0-travis-bradberry",
+    "title": "Emotional Intelligence 2.0",
+    "author": "Travis Bradberry",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "empath-and-psychic-abilities-ellen-j-cure",
+    "title": "Empath and Psychic Abilities",
+    "author": "Ellen J. Cure",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "everything-is-f-cked-mark-manson",
+    "title": "Everything Is F*cked",
+    "author": "Mark Manson",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "fahrenheit-451-ray-bradbury",
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "feeling-good-david-d-burns",
+    "title": "Feeling Good",
+    "author": "David D. Burns",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "feeling-good-together-david-d-burns",
+    "title": "Feeling Good Together",
+    "author": "David D. Burns",
+    "subjects": [
+      "Personal Development"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "freakonomics-steven-d-levitt",
+    "title": "Freakonomics",
+    "author": "Steven D. Levitt",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "fundamentals-of-software-architecture-mark-richards",
+    "title": "Fundamentals of Software Architecture",
+    "author": "Mark Richards",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "gong-baths-a-guide-to-sound-healing-stephen-hill",
+    "title": "Gong Baths: A Guide to Sound Healing",
+    "author": "Stephen Hill",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "guias-espirituales-animales-mari-silva",
+    "title": "Guías espirituales animales",
+    "author": "Mari Silva",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "guitar-fretboard-guitar-head",
+    "title": "Guitar Fretboard",
+    "author": "Guitar Head",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "hacking-growth-sean-ellis",
+    "title": "Hacking Growth",
+    "author": "Sean Ellis",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "happily-ever-after-the-artwork-of-jeremy-fish-jeremy-fish",
+    "title": "Happily Ever After: The Artwork of Jeremy Fish",
+    "author": "Jeremy Fish",
+    "subjects": [
+      "Creative & Design"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "healing-your-wounded-inner-child-maria-clarke",
+    "title": "Healing Your Wounded Inner Child",
+    "author": "Maria Clarke",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "high-output-management-andrew-s-grove",
+    "title": "High Output Management",
+    "author": "Andrew S. Grove",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "high-performance-habits-brendon-burchard",
+    "title": "High Performance Habits",
+    "author": "Brendon Burchard",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "high-performance-javascript-nicholas-c-zakas",
+    "title": "High Performance JavaScript",
+    "author": "Nicholas C. Zakas",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "high-performance-mysql-baron-schwartz",
+    "title": "High Performance MySQL",
+    "author": "Baron Schwartz",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "how-to-cook-everything-mark-bittman",
+    "title": "How to Cook Everything",
+    "author": "Mark Bittman",
+    "subjects": [
+      "Parenting & Life"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "html-and-css-design-and-build-websites-jon-duckett",
+    "title": "HTML and CSS: Design and Build Websites",
+    "author": "Jon Duckett",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "human-anatomy-in-full-color-john-green",
+    "title": "Human Anatomy in Full Color",
+    "author": "John Green",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "improve-your-handwriting-rosemary-sassoon",
+    "title": "Improve Your Handwriting",
+    "author": "Rosemary Sassoon",
+    "subjects": [
+      "Art & Design"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "infection-immunity-john-h-l-playton",
+    "title": "Infection & Immunity",
+    "author": "John H.L. Playton",
+    "subjects": [
+      "Other"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "integral-yoga-the-yoga-sutras-of-patanjali-satchidananda",
+    "title": "Integral Yoga: The Yoga Sutras of Patanjali",
+    "author": "Satchidananda",
+    "subjects": [
+      "Yoga & Meditation"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "javascript-patterns-stoyan-stefanov",
+    "title": "JavaScript Patterns",
+    "author": "Stoyan Stefanov",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "javascript-the-definitive-guide-david-flanagan",
+    "title": "JavaScript: The Definitive Guide",
+    "author": "David Flanagan",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "journey-to-the-heart-melody-beattie",
+    "title": "Journey to the Heart",
+    "author": "Melody Beattie",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "kanban-david-j-anderson",
+    "title": "Kanban",
+    "author": "David J. Anderson",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "lighter-let-go-of-the-past-connect-with-the-present-and-expand-the-future-yung-pueblo",
+    "title": "Lighter: Let Go of the Past, Connect With the Present, and Expand the Future",
+    "author": "Yung Pueblo",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "lord-of-the-flies-william-golding",
+    "title": "Lord of the Flies",
+    "author": "William Golding",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "magical-beginnings-enchanted-lives-deepak-chopra",
+    "title": "Magical Beginnings, Enchanted Lives",
+    "author": "Deepak Chopra",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "mark-ryden-pinxit-amanda-erlanson",
+    "title": "Mark Ryden. Pinxit",
+    "author": "Amanda Erlanson",
+    "subjects": [
+      "Art & Design"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "me-and-white-supremacy-layla-f-saad",
+    "title": "Me and White Supremacy",
+    "author": "Layla F. Saad",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "medical-medium-cleanse-to-heal-anthony-william",
+    "title": "Medical Medium Cleanse to Heal",
+    "author": "Anthony William",
+    "subjects": [
+      "Healing & Wellness"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "meditations-marcus-aurelius",
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "readingStatus": "reading",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "methods-of-persuasion-nick-kolenda",
+    "title": "Methods of Persuasion",
+    "author": "Nick Kolenda",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "modern-software-engineering-david-farley",
+    "title": "Modern Software Engineering",
+    "author": "David Farley",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "readingStatus": "reading",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "mujeres-que-corren-con-los-lobos-clarissa-pinkola-estes",
+    "title": "Mujeres que corren con los Lobos",
+    "author": "Clarissa Pinkola Estés",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "no-more-mr-nice-guy-robert-a-glover",
+    "title": "No More Mr. Nice Guy",
+    "author": "Robert A. Glover",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "no-drama-discipline-daniel-j-siegel",
+    "title": "No-Drama Discipline",
+    "author": "Daniel J. Siegel",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "nonviolent-communication-marshall-b-rosenberg",
+    "title": "Nonviolent Communication",
+    "author": "Marshall B. Rosenberg",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "of-human-freedom-epictetus",
+    "title": "Of Human Freedom",
+    "author": "Epictetus",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "operating-system-concepts-abraham-silberschatz",
+    "title": "Operating System Concepts",
+    "author": "Abraham Silberschatz",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "php-object-oriented-solutions-david-powers",
+    "title": "PHP Object-Oriented Solutions",
+    "author": "David Powers",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "practical-guide-to-the-montessori-method-at-home-julia-palmarola",
+    "title": "Practical Guide to the Montessori Method at Home",
+    "author": "Julia Palmarola",
+    "subjects": [
+      "Parenting & Child Development"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "print-handwriting-workbook-for-adults-sujatha-lalgudi",
+    "title": "Print Handwriting Workbook for Adults",
+    "author": "Sujatha Lalgudi",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "professional-javascript-for-web-developers-nicholas-c-zakas",
+    "title": "Professional JavaScript for Web Developers",
+    "author": "Nicholas C. Zakas",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "programming-languages-design-and-implementation-terrence-w-pratt",
+    "title": "Programming Languages: Design and Implementation",
+    "author": "Terrence W. Pratt",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "psychic-empath-kimberly-moon",
+    "title": "Psychic Empath",
+    "author": "Kimberly Moon",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "ready-player-one-ernest-cline",
+    "title": "Ready Player One",
+    "author": "Ernest Cline",
+    "subjects": [
+      "Literature"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "recovery-from-gaslighting-narcissistic-abuse-don-barlow",
+    "title": "Recovery from Gaslighting & Narcissistic Abuse",
+    "author": "Don Barlow",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "rich-dad-poor-dad-robert-t-kiyosaki",
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "readingStatus": "reading",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "ruined-by-design-mike-monteiro",
+    "title": "Ruined by Design",
+    "author": "Mike Monteiro",
+    "subjects": [
+      "Creative & Design"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "saboreando-salud-lydibel-porrata",
+    "title": "Saboreando Salud",
+    "author": "Lydibel Porrata",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "soul-cleansing-and-energetic-protection-eva-marquez",
+    "title": "Soul Cleansing and Energetic Protection",
+    "author": "Eva Márquez",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "starry-messenger-neil-degrasse-tyson",
+    "title": "Starry Messenger",
+    "author": "Neil deGrasse Tyson",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "stuff-good-players-should-know-dick-devenzio",
+    "title": "Stuff Good Players Should Know",
+    "author": "Dick DeVenzio",
+    "subjects": [
+      "Sports & Coaching"
+    ],
+    "readingStatus": "reading",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-48-laws-of-power-robert-greene",
+    "title": "The 48 Laws of Power",
+    "author": "Robert Greene",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-5-love-languages-of-teenagers-gary-chapman",
+    "title": "The 5 Love Languages of Teenagers",
+    "author": "Gary Chapman",
+    "subjects": [
+      "Parenting & Child Development"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-7-habits-of-highly-effective-people-stephen-r-covey",
+    "title": "The 7 Habits of Highly Effective People",
+    "author": "Stephen R. Covey",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-alchemist-paulo-coelho",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-art-of-leadership-michael-lopp",
+    "title": "The Art of Leadership",
+    "author": "Michael Lopp",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-bhagavad-gita-krishna-dwaipayana-vyasa",
+    "title": "The Bhagavad Gita",
+    "author": "Krishna-Dwaipayana Vyasa",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-book-of-css3-peter-gasston",
+    "title": "The Book of CSS3",
+    "author": "Peter Gasston",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-book-of-virtues-for-young-people-william-j-bennett",
+    "title": "The Book of Virtues for Young People",
+    "author": "William J. Bennett",
+    "subjects": [
+      "Miscellaneous"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-china-study-t-colin-campbell",
+    "title": "The China Study",
+    "author": "T. Colin Campbell",
+    "subjects": [
+      "Reference & Educational"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-complete-calvin-and-hobbes-bill-watterson",
+    "title": "The Complete Calvin and Hobbes",
+    "author": "Bill Watterson",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-couple-s-workbook-the-school-of-life",
+    "title": "The Couple's Workbook",
+    "author": "The School of Life",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-courage-to-heal-ellen-bass",
+    "title": "The Courage to Heal",
+    "author": "Ellen Bass",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-creative-act-a-way-of-being-rick-rubin",
+    "title": "The Creative Act: A Way of Being",
+    "author": "Rick Rubin",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-daily-stoic-ryan-holiday",
+    "title": "The Daily Stoic",
+    "author": "Ryan Holiday",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-declaration-of-independence-and-the-constitution-founding-fathers",
+    "title": "The Declaration of Independence and the Constitution",
+    "author": "Founding Fathers",
+    "subjects": [
+      "Literature"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-dore-gallery-his-120-greatest-illustrations-gustave-dore",
+    "title": "The Dore Gallery: His 120 Greatest Illustrations",
+    "author": "Gustave Doré",
+    "subjects": [
+      "Creative & Design"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-five-love-languages-gary-chapman",
+    "title": "The Five Love Languages",
+    "author": "Gary Chapman",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-grown-up-s-guide-to-teenage-humans-josh-shipp",
+    "title": "The Grown-Up's Guide to Teenage Humans",
+    "author": "Josh Shipp",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-manager-s-path-camille-fournier",
+    "title": "The Manager's Path",
+    "author": "Camille Fournier",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-metamorphosis-franz-kafka",
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "subjects": [
+      "Art & Literature"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-obstacle-is-the-way-ryan-holiday",
+    "title": "The Obstacle Is the Way",
+    "author": "Ryan Holiday",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-power-of-positive-thinking-norman-vincent-peale",
+    "title": "The Power of Positive Thinking",
+    "author": "Norman Vincent Peale",
+    "subjects": [
+      "Personal Development"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-professional-product-owner-don-mcgreal",
+    "title": "The Professional Product Owner",
+    "author": "Don McGreal",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-tipping-point-malcolm-gladwell",
+    "title": "The Tipping Point",
+    "author": "Malcolm Gladwell",
+    "subjects": [
+      "Business & Psychology"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-war-of-art-steven-pressfield",
+    "title": "The War of Art",
+    "author": "Steven Pressfield",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-way-of-the-superior-man-david-deida",
+    "title": "The Way of the Superior Man",
+    "author": "David Deida",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-web-designer-s-idea-book-vol-2-patrick-mcneil",
+    "title": "The Web Designer's Idea Book, Vol. 2",
+    "author": "Patrick McNeil",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-whole-brain-child-daniel-j-siegel",
+    "title": "The Whole-Brain Child",
+    "author": "Daniel J. Siegel",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "the-wisdom-of-the-enneagram-don-richard-riso",
+    "title": "The Wisdom of the Enneagram",
+    "author": "Don Richard Riso",
+    "subjects": [
+      "Philosophy & Wisdom"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "thing-explainer-randall-munroe",
+    "title": "Thing Explainer",
+    "author": "Randall Munroe",
+    "subjects": [
+      "Other"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "thinking-fast-and-slow-daniel-kahneman",
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "subjects": [
+      "Leadership & Management"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "this-is-how-we-come-back-stronger-feminist-book-society",
+    "title": "This Is How We Come Back Stronger",
+    "author": "Feminist Book Society",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "thus-spake-zarathustra-friedrich-nietzsche",
+    "title": "Thus spake Zarathustra",
+    "author": "Friedrich Nietzsche",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "abandoned",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "una-vida-con-angeles-tania-karam",
+    "title": "Una vida con Ángeles",
+    "author": "Tania Karam",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "untamed-glennon-doyle",
+    "title": "Untamed",
+    "author": "Glennon Doyle",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "user-story-mapping-jeff-patton",
+    "title": "User Story Mapping",
+    "author": "Jeff Patton",
+    "subjects": [
+      "Tech & Engineering"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "veneracion-a-los-ancestros-mari-silva",
+    "title": "Veneración a los ancestros",
+    "author": "Mari Silva",
+    "subjects": [
+      "Spiritual Guides & Angels"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "version-control-with-git-jon-loeliger",
+    "title": "Version Control with Git",
+    "author": "Jon Loeliger",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "we-re-pregnant-the-first-time-dad-s-pregnancy-handbook-adrian-kulp",
+    "title": "We're Pregnant! The First Time Dad's Pregnancy Handbook",
+    "author": "Adrian Kulp",
+    "subjects": [
+      "Parenting & Life"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "web-database-applications-with-php-mysql-hugh-e-williams",
+    "title": "Web Database Applications with PHP & MySQL",
+    "author": "Hugh E. Williams",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "what-is-html-5-brett-mclaughlin",
+    "title": "What is HTML 5?",
+    "author": "Brett McLaughlin",
+    "subjects": [
+      "Technology & Programming"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "why-does-he-do-that-lundy-bancroft",
+    "title": "Why Does He Do That?",
+    "author": "Lundy Bancroft",
+    "subjects": [
+      "Relationships & Trauma Recovery"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "yoga-nidra-scripts-tamara-skyhawk",
+    "title": "Yoga Nidra Scripts",
+    "author": "Tamara Skyhawk",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "you-are-your-child-s-first-teacher-rahima-baldwin-dancy",
+    "title": "You Are Your Child's First Teacher",
+    "author": "Rahima Baldwin Dancy",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "you-can-heal-your-life-louise-l-hay",
+    "title": "You Can Heal Your Life",
+    "author": "Louise L. Hay",
+    "subjects": [
+      "Spirituality & Personal Growth"
+    ],
+    "readingStatus": "to-read",
+    "ownership": "unknown",
+    "referenceUse": null
+  },
+  {
+    "id": "your-erroneous-zones-wayne-w-dyer",
+    "title": "Your Erroneous Zones",
+    "author": "Wayne W. Dyer",
+    "subjects": [
+      "Personal Development & Self-Help"
+    ],
+    "readingStatus": "read",
+    "ownership": "unknown",
+    "referenceUse": null
+  }
+]

@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.28.0 — October 17, 2026
+
+- Add Collections and a searchable 133-book reading library.
+- Publish a selected JSON snapshot with corrected reading statuses and duplicate handling.
+- Keep unknown ownership separate from reading status and omit unverified ratings.
+- Add a local, explicit-selection inventory exporter without runtime vault access.
+- Add Cookbook to Projects and correct the Notes description.
+- Preserve authored-book anchors for the Notes catalogue migration.
+
 Notable changes to antoniwan.online. The project uses [Semantic Versioning](https://semver.org/).
 
 ## [1.27.3] - 2026-10-14
