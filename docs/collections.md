@@ -7,6 +7,8 @@ Added October 17, 2026.
 - /collections introduces the personal collections.
 - /collections/books contains the reading library.
 - /collections/books.json exposes the same selected records as JSON.
+- /collections/movies contains recent watches and the saved movie list.
+- /collections/movies.json exposes the public movie records.
 - /projects contains authored books and Cookbook as separate projects.
 
 The library contains 133 distinct books from the existing public Notes catalogue. The original catalogue had 137 rows.
@@ -26,6 +28,8 @@ The existing public catalogue defines the initial publication selection in src/d
 The selected inventory snapshot lives in src/data/books.json. The website reads only this snapshot.
 
 The public website and deployment have no runtime connection to Panda. Builds do not need the vault or its filesystem path.
+
+Movies use the public Letterboxd feed, not Panda. The refresh procedure is in [movies.md](movies.md).
 
 The export script reads only the supplied Book Library Inventory Markdown file. It never writes to Panda.
 

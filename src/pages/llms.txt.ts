@@ -30,6 +30,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 - [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works and his principles, and the company
 - [Collections](${url('/collections')}): selected personal catalogues
 - [Books](${url('/collections/books')}): searchable reading library; public data at ${url('/collections/books.json')}
+- [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list, not a complete viewing history; public data at ${url('/collections/movies.json')}
 - [Cookbook](https://cookbook.antoniwan.online/): family recipes in English and Spanish, with its own public home
 - [Projects](${url('/projects')}): his own (${projects.map((p) => p.title).join('; ')}), work for others (${workForOthers.flatMap((g) => g.entries).map((e) => e.title).join('; ')}), and side projects for fun, most of them stopped or replaced
 

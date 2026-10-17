@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.29.0 — 2026-10-17
+
+- Add Movies to Collections with latest watches, personal ratings, and searchable saved records.
+- Keep the movie list in JSON. Merge public Letterboxd updates without deleting older saved watches.
+- Read recent public entries at build time. Use the dated snapshot when Letterboxd is unavailable.
+- Add an explicit snapshot refresh command, a JSON endpoint, and Movie list structured data.
+- Reuse the shared page header and catalogue controls. Do not copy reviews or private notes.
+
 ## 1.28.1 — 2026-10-17
 
 - Use one shared page introduction for About, Projects, Collections, and Books.

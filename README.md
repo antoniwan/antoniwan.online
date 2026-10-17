@@ -11,11 +11,15 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 - `/llms.txt` is generated from the same data as the pages.
 - Business goes to [Strong Hands, Soft Heart](https://www.stronghandssoftheart.com). This site has no contact form on purpose.
 
-## Run it
+## Collections
 
 Collections starts with the reading library at `/collections/books`. The [Collections guide](docs/collections.md) describes public selection and local snapshot updates.
 
 Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading-library catalogue.
+
+Movies live at `/collections/movies`. The saved JSON list and refresh instructions are in [docs/movies.md](docs/movies.md).
+
+## Run it
 
 ```bash
 pnpm install

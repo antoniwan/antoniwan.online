@@ -2,10 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import { books } from '../../data/books';
+import { getMovieCollection } from '../../data/movies';
+const { snapshot } = await getMovieCollection();
 ---
-<Base title="Collections" description="Antonio's personal collections, starting with a searchable reading library. Books read, in progress, set aside, and still to read." collection>
+<Base title="Collections" description="Antonio's personal collections: a searchable reading library and movie diary, with recent watches and personal ratings." collection>
   <PageIntro label="Collections" title="Things I return to">
-    Books, references, and the things I keep around while I learn. This is a personal catalogue, not a list of recommendations.
+    Books, movies, and the things I keep around while I learn. These are personal catalogues, not lists of recommendations.
   </PageIntro>
   <section class="section collection-grid" aria-label="Collections">
     <a class="collection-card" href="/collections/books">
@@ -13,6 +15,12 @@ import { books } from '../../data/books';
       <h2>Books <span aria-hidden="true">↗</span></h2>
       <p>What I've read, what I'm reading, what I want to read, and what I put down.</p>
       <span class="collection-card__count">{books.length} books · Search by title, author, or subject</span>
+    </a>
+    <a class="collection-card" href="/collections/movies">
+      <span class="eyebrow">02 / Watching diary</span>
+      <h2>Movies <span aria-hidden="true">↗</span></h2>
+      <p>Recent watches, films I come back to, and my own ratings.</p>
+      <span class="collection-card__count">{snapshot.movies.length} films · Latest watches and a searchable list</span>
     </a>
     <aside class="collection-context">
       <h2>A different kind of shelf</h2>

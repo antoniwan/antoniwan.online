@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import LatestWatched from '../../components/LatestWatched.astro';
+import { getMovieCollection } from '../../data/movies';
+import { watchDate } from '../../utils/movies';
+import { SITE } from '../../config/site';
+const { snapshot, source } = await getMovieCollection();
+const movies = snapshot.movies;
+const decades = [...new Set(movies.flatMap(movie => movie.year ? [Math.floor(movie.year / 10) * 10] : []))].sort((first, second) => second - first);
+const listId = `${SITE.url}/collections/movies#catalogue`;
+const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's movie collection", numberOfItems: movies.length, itemListElement: movies.map((movie, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Movie', '@id': `${SITE.url}/collections/movies#${movie.id}`, name: movie.title, url: `${SITE.url}/collections/movies#${movie.id}`, sameAs: `https://letterboxd.com/film/${movie.id}/` } })) };
+---
+<Base title="Movies — Collections" description="Antonio's movie collection, recent watches, rewatches, and personal ratings from his public Letterboxd diary." collection mainEntity={listId}>
+  <PageIntro label="Movies" title="Things I've watched" parent={{ label: 'Collections', href: '/collections' }}>
+    Films, first watches, and returns. A growing list from my Letterboxd diary, not a complete history of everything I've seen.
+  </PageIntro>
+  <LatestWatched movies={movies} diaryUrl={`${snapshot.profileUrl}diary/`} />
+  <section class="section bookshelf" aria-labelledby="movie-catalogue-title">
+    <div class="collection-section-heading"><div><h2 id="movie-catalogue-title">The movie list</h2><p>A small catalogue. No reviews or private notes are copied here.</p></div></div>
+    <form class="book-filters" id="movie-filters" role="search" aria-label="Find a movie" hidden>
+      <label>Search movies<input id="movie-search" name="q" type="search" placeholder="Title or release year" aria-controls="movie-list" autocomplete="off" /></label>
+      <label>My rating<select id="movie-rating" name="rating" aria-controls="movie-list"><option value="">All ratings</option><option value="4">4 stars and above</option><option value="3">3 stars and above</option><option value="unrated">Not rated</option></select></label>
+      <label>Release decade<select id="movie-decade" name="decade" aria-controls="movie-list"><option value="">All decades</option>{decades.map(decade => <option value={decade}>{decade}s</option>)}</select></label>
+      <button class="book-reset" type="reset">Clear filters</button>
+    </form>
+    <div class="book-results"><p id="movie-results" role="status" aria-live="polite" aria-atomic="true">{movies.length} films</p><span>Titles A–Z</span></div>
+    <ul class="book-list" id="movie-list" aria-label="Movies">
+      {movies.map(movie => {
+        const latest = movie.watches[0];
+        return <li class="movie-entry" id={movie.id} data-movie data-title={movie.title} data-year={movie.year ?? ''} data-rating={latest?.rating ?? ''}>
+          <div><h3><a href={`#${movie.id}`}>{movie.title}</a></h3><p>{movie.year}{latest && <> · Last recorded <time datetime={latest.watchedOn}>{watchDate(latest.watchedOn)}</time></>}</p>
+            {latest && <a class="movie-diary-link" href={latest.href}>Diary entry</a>}
+            {latest?.rewatch && <span class="movie-rewatch">Rewatch</span>}
+            {movie.watches.length > 1 && <details><summary>{movie.watches.length} recorded watches</summary><ul>{movie.watches.map(watch => <li><a href={watch.href}>{watchDate(watch.watchedOn)}</a>{watch.rating !== null && ` · ${watch.rating}/5`}{watch.rewatch && ' · Rewatch'}</li>)}</ul></details>}
+          </div>
+          <span class="book-status">{latest?.rating !== null && latest?.rating !== undefined ? `My rating: ${latest.rating}/5` : 'Not rated'}</span>
+        </li>;
+      })}
+    </ul>
+    <div class="book-empty" id="movie-empty" hidden><h3>No movies match</h3><p>Try another title or clear the filters.</p></div>
+    <p class="section__footnote">{source === 'saved' ? 'Letterboxd was unavailable at build time. Showing the saved list.' : 'Recent entries checked against the public Letterboxd feed at build time.'} {snapshot.refreshedAt && <>Last checked <time datetime={snapshot.refreshedAt}>{watchDate(snapshot.refreshedAt.slice(0, 10))}</time>.</>} Older saved entries remain in this list. Rewatch labels do not imply a complete viewing count. <a href="/collections/movies.json">Download the public movie list as JSON</a>.</p>
+    <noscript><p>The complete saved list is available above. Enable JavaScript to use the filters.</p></noscript>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+</Base>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#movie-filters');
+  const search = document.querySelector<HTMLInputElement>('#movie-search');
+  const rating = document.querySelector<HTMLSelectElement>('#movie-rating');
+  const decade = document.querySelector<HTMLSelectElement>('#movie-decade');
+  const results = document.querySelector('#movie-results');
+  const empty = document.querySelector<HTMLElement>('#movie-empty');
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-movie]')];
+  const normalize = (value: string) => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  if (form && search && rating && decade && results && empty) {
+    const update = () => {
+      const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+      let count = 0;
+      for (const row of rows) {
+        const text = normalize(`${row.dataset.title} ${row.dataset.year}`);
+        const matchesRating = !rating.value || (rating.value === 'unrated' ? row.dataset.rating === '' : row.dataset.rating !== '' && Number(row.dataset.rating) >= Number(rating.value));
+        const matchesDecade = !decade.value || Boolean(row.dataset.year && Math.floor(Number(row.dataset.year) / 10) * 10 === Number(decade.value));
+        row.hidden = !terms.every(term => text.includes(term)) || !matchesRating || !matchesDecade;
+        if (!row.hidden) count++;
+      }
+      results.textContent = count === rows.length ? `${count} films` : `${count} of ${rows.length} films`;
+      empty.hidden = count > 0;
+    };
+    const restore = () => {
+      const params = new URL(location.href).searchParams;
+      search.value = params.get('q') ?? '';
+      for (const [select, name] of [[rating, 'rating'], [decade, 'decade']] as const) {
+        const value = params.get(name) ?? '';
+        select.value = [...select.options].some(option => option.value === value) ? value : '';
+      }
+      update();
+    };
+    const apply = () => {
+      update();
+      const url = new URL(location.href);
+      for (const [name, value] of [['q', search.value.trim()], ['rating', rating.value], ['decade', decade.value]]) {
+        if (value) url.searchParams.set(name, value); else url.searchParams.delete(name);
+      }
+      history.replaceState(history.state, '', url);
+    };
+    search.addEventListener('input', apply);
+    rating.addEventListener('change', apply);
+    decade.addEventListener('change', apply);
+    form.addEventListener('submit', event => { event.preventDefault(); apply(); });
+    form.addEventListener('reset', () => requestAnimationFrame(apply));
+    window.addEventListener('popstate', restore);
+    restore();
+    form.hidden = false;
+  }
+</script>
