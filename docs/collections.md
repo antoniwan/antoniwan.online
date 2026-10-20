@@ -73,3 +73,11 @@ Legacy status=in-progress becomes reading in the browser. The shelf query parame
 Notes /books redirects to /projects. The original authored-book fragment identifiers remain on their project entries.
 
 Reading-library entries receive stable title-and-author identifiers. Filters work with bookmarkable query parameters and do not require a backend.
+
+## Search and sharing
+
+Each collection page has a visible breadcrumb and the same trail as a BreadcrumbList in its structured data. Both come from one `parent` value in the page.
+
+Books has no snapshot date in its data, so its page carries no `dateModified` and its sitemap entry no `lastmod`. Movies and Games do (see their guides). `/collections` takes the newest of them.
+
+Each collection has a share card in `public/og/`, drawn by `pnpm og:collections` from the data. Rerun it and commit the cards after any snapshot changes.

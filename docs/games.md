@@ -25,7 +25,7 @@ The website reads only `src/data/games.json`. The public site has no runtime con
 
 The export script reads only the two files named by its arguments. It never writes to Panda.
 
-Release years come from the vault where it records one. Where neither file records a year, the script uses a public release-year map inside the script. Those are public facts, not vault entries. Twenty games have no year, and their pages show none.
+Release years come from the vault where it records one. Where neither file records a year, the script uses a public release-year map inside the script. Those are public facts, not vault entries. As of October 20, 2026, 15 games have no year. The list shows "Year not recorded", and the timeline leaves them out.
 
 Titles that appear in more than one place become one record. The script merges them through an explicit alias map. Platforms are combined. Hours and progress come from the Galaxy and rotation tables. Year, decade, and genre come from the backlog.
 
@@ -102,3 +102,25 @@ Fix aliases and release years in the script, not in the JSON. A later `--write` 
 A title that leaves both sources is listed as removed. It disappears from the public records on the next write.
 
 Do not store the vault path in deployment settings. Only the local export command needs it.
+
+## Wikipedia, Steam, and Wikidata links
+
+Titles link to their English Wikipedia article. Games sold on Steam also get a Steam link. The structured data adds the Wikidata item to each game's `sameAs`.
+
+`scripts/link-games.ts` matches each game to a Wikidata item, so the Wikipedia article and the Steam ID belong to the same game. A candidate must be a video game (or an expansion, compilation, remake, or remaster) released within a year of the game's recorded year. The script reads Wikipedia from the item's English sitelink and Steam from its Steam application ID.
+
+The links live in `src/data/game-links.json`, apart from `games.json`, so an export does not erase them. A game with no confident match has no entry and no link. An unlinked title is better than a wrong one.
+
+As of October 20, 2026, 251 of the 255 games Antonio did not make are matched: 240 with a Wikipedia article and 212 with Steam. Bonfire, Call of Duty, and The Settlers are left unlinked because the notes do not say which game they mean. The Nioh Collection has no Wikidata item. Uplift links to its own site.
+
+1. After an export adds games, run `node scripts/link-games.ts`. This is a dry run.
+2. Review the matched, ambiguous, and unmatched lists.
+3. Fix wrong or missing matches in the script's overrides map (game id to Wikidata QID, or `null` to leave a game unlinked). `--why <id,id>` explains what the search found.
+4. Run it again with `--write`.
+5. Run `pnpm check` and `pnpm build`.
+
+The script caches Wikimedia responses in `node_modules/.cache/link-games/`. Delete that folder to fetch fresh data.
+
+## Search and sharing
+
+The page's `dateModified` and the sitemap's `lastmod` are the snapshot's `exportedAt`. The share card `public/og/games.png` shows the lifetime estimate and the game count. Run `pnpm og:collections` after an export and commit the card.

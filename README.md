@@ -13,13 +13,25 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 ## Collections
 
-Collections starts with the reading library at `/collections/books`. The [Collections guide](docs/collections.md) describes public selection and local snapshot updates.
+`/collections` holds three personal catalogues. Each has a page, a public JSON copy, and a guide:
 
-Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading-library catalogue.
+| Collection | Page | Data | Source | Guide |
+| --- | --- | --- | --- | --- |
+| Books | `/collections/books` | `/collections/books.json` | Antonio's book inventory, exported by `scripts/export-books.ts` | [docs/collections.md](docs/collections.md) |
+| Movies | `/collections/movies` | `/collections/movies.json` | His public Letterboxd feed, saved by `scripts/sync-movies.ts` | [docs/movies.md](docs/movies.md) |
+| Games | `/collections/games` | `/collections/games.json` | His gaming notes, exported by `scripts/export-games.ts`; Wikipedia and Steam links from `scripts/link-games.ts` | [docs/games.md](docs/games.md) |
 
-Movies live at `/collections/movies`. The saved JSON list and refresh instructions are in [docs/movies.md](docs/movies.md).
+The site reads only the saved snapshots in `src/data/`. Builds never need the private notes. The export scripts read the files named on their command line and never write to them.
 
-Games live at `/collections/games`. The public snapshot, its allowlist, and refresh instructions are in [docs/games.md](docs/games.md).
+Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading library.
+
+## Search and sharing
+
+- `src/layouts/Base.astro` writes one JSON-LD graph per page: the WebSite (on Home), the page itself, a BreadcrumbList where the page has a parent, and the Person. Collection pages and Projects add an `ItemList` of their entries: books, films, games (with Wikipedia, Steam, and Wikidata links), and the things Antonio made.
+- Collection pages carry `dateModified` from their own data, and the sitemap gives them the same `lastmod`. Pages without a real date get none.
+- Books, Movies, and Games have their own share cards in `public/og/`. Every other page uses the portrait card.
+- `/llms.txt` is generated from the same data as the pages. After every build, `scripts/check-llms.mjs` fails the build if a sitemap page has no line there.
+- Vercel production builds ping IndexNow with every sitemap page (`src/utils/indexNow.ts`). The ping never fails the build.
 
 ## Run it
 
@@ -28,6 +40,10 @@ pnpm install
 pnpm dev
 ```
 
-`pnpm og` rebuilds `public/og.png` and `public/apple-touch-icon.png` from the portrait (`src/portrait-2026-10.avif`). The social card's URL carries a hash of the file, so link previews refresh after a redraw.
+`pnpm check` type-checks. `pnpm build` builds to `dist/` and then runs the `/llms.txt` check.
 
-`pnpm og:collections` rebuilds the share cards for the three collection pages (`public/og/books.png`, `movies.png`, `games.png`). Each one draws a frozen frame of the site's quasicrystal pattern behind the page title and a stat line computed from `src/data/*.json`, so rerun it and commit the PNGs after the books, movies, or games data changes. Both scripts draw with headless Chrome; set `CHROME` to the browser binary if it is not found (Chrome or Edge on Windows).
+`pnpm og` rebuilds `public/og.png` and `public/apple-touch-icon.png` from the portrait (`src/portrait-2026-10.avif`). The social card's URL carries a hash of the file, so link previews refresh after a redraw. This script still assumes macOS paths and Chrome at the macOS location; on Windows it needs fixing before it will run.
+
+`pnpm og:collections` rebuilds the share cards for the three collection pages (`public/og/books.png`, `movies.png`, `games.png`). Each one draws a frozen frame of the site's quasicrystal pattern behind the page title and a stat line computed from `src/data/*.json`, so rerun it and commit the PNGs after the books, movies, or games data changes. It finds Chrome or Edge on Windows and Chrome on macOS; set `CHROME` to the browser binary if it does not.
+
+Agents: read [AGENTS.md](AGENTS.md) for what to keep in step when the site changes.

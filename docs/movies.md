@@ -6,9 +6,9 @@ Added October 17, 2026.
 
 - `/collections/movies` contains recent watches and the searchable movie list.
 - `/collections/movies.json` contains the same public records and source metadata.
-- `/collections` links to Books and Movies.
+- `/collections` links to Books, Movies, and Games.
 
-The initial list contains 50 dated film watches from Antonio's public Letterboxd feed.
+The initial list contained 50 dated film watches from Antonio's public Letterboxd feed. As of October 20, 2026, it holds 51.
 
 This list is not a complete viewing history. The feed contains recent activity, not the full diary.
 
@@ -50,3 +50,9 @@ The list replaces the Letterboxd component on Notes' About page. Notes keeps its
 Old Notes `/about#about-watched-heading` links move to `/collections/movies#latest-watches` in the browser.
 
 The current implementation adds no recurring scheduler. New builds check the feed; persisted history requires the explicit refresh command.
+
+## Search and sharing
+
+The page's `dateModified` is the newest recorded watch in the merged list. The sitemap's `lastmod` reads the saved `movies.json`, so it catches up when you run the refresh with `--write`. Never use `refreshedAt` as a page date: a live build sets it to the build time.
+
+The share card `public/og/movies.png` shows the film count and the newest watch from `movies.json`. Run `pnpm og:collections` after a refresh and commit the card.

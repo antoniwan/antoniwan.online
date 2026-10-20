@@ -4,9 +4,14 @@ import { sections } from '../data/links';
 import { principles } from '../data/principles';
 import { projectCategories, projects, workForOthers } from '../data/projects';
 import { workAreas } from '../data/work';
+import { books } from '../data/books';
+import { getMovieCollection } from '../data/movies';
+import { games } from '../data/games';
 
 /** `/llms.txt` (https://llmstxt.org): this site for AI agents, built from the same data as the pages. */
-export const GET: APIRoute = () => {
+export const GET: APIRoute = async () => {
+  const { snapshot: movies } = await getMovieCollection();
+  const count = (n: number) => n.toLocaleString('en-US');
   const url = (path: string) => new URL(path, SITE.url).href;
   const section = (id: string) => sections.find((s) => s.id === id);
   const list = (id: string) =>
@@ -28,10 +33,10 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 - [Home](${url('/')}): who he is, the latest essays, and every link
 - [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works and his principles, and the company
-- [Collections](${url('/collections')}): selected personal catalogues
-- [Books](${url('/collections/books')}): searchable reading library; public data at ${url('/collections/books.json')}
-- [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list, not a complete viewing history; public data at ${url('/collections/movies.json')}
-- [Games](${url('/collections/games')}): play log with status, platforms, and hours marked by how far they can be trusted, not a complete record of time played; public data at ${url('/collections/games.json')}
+- [Collections](${url('/collections')}): selected personal catalogues: books, movies, and games
+- [Books](${url('/collections/books')}): searchable reading library of ${count(books.length)} books, each marked read, reading, to read, or abandoned; public data at ${url('/collections/books.json')}
+- [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list of ${count(movies.movies.length)} films, not a complete viewing history; public data at ${url('/collections/movies.json')}
+- [Games](${url('/collections/games')}): play log of ${count(games.games.length)} games, each playing, played, or up next, with platforms and hours marked by how far they can be trusted (tracked, estimate, or at least), not a complete record of time played; titles link to Wikipedia and, where sold there, Steam; public data at ${url('/collections/games.json')}
 - [Cookbook](https://cookbook.antoniwan.online/): family recipes in English and Spanish, with its own public home
 - [Projects](${url('/projects')}): ${projectCategories.map(category => `${category.title} (${projects.filter(project => project.category === category.id).map(project => project.title).join('; ')})`).join('; ')}. Work and experiments include ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}.
 

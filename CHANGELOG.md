@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.32.1 — 2026-10-20
+
+- Count the books, films, and games in `/llms.txt` from the data, and describe Games' statuses and links there.
+- Fail the build when a page in the sitemap has no line in `/llms.txt`.
+- Add AGENTS.md: what to keep in step when the site changes.
+- Bring the README and the Collections, Movies, and Games guides up to date: the three collections, structured data, share cards, and the Wikipedia and Steam links.
+
 ## 1.32.0 — 2026-10-20
 
 - Give Books, Movies, and Games their own share cards, drawn from the site's pattern with a stat from each collection. `pnpm og:collections` redraws them.
