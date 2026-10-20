@@ -151,12 +151,12 @@ export const workForOthers: WorkGroup[] = [
   },
   {
     name: 'Freelance',
-    description: 'Websites, applications, networks, and whatever else landed.',
+    description: 'Websites, applications, and networks, for people who bring a problem.',
     entries: [
       {
         title: 'Selling my brain',
         when: 'On the side',
-        body: 'Freelance work for extra income and to learn new things. I called it selling my brain: websites (WordPress among them), applications, wired networks (I ran the Cat5e cable and set up the routers), and even a digital signage project. Whatever landed, for fun or for learning.',
+        body: "Freelance work, by the project. I call it selling my brain: you bring the problem, I bring the thinking and the hands. I've built websites (WordPress among them) and applications, ran the Cat5e cable and set up the routers for a wired network, and delivered a digital signage project. I take work that pays and teaches me something. New freelance work goes through my company.",
       },
     ],
   },

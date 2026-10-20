@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.30.1 — 2026-10-20
+
+- Rewrite the Freelance entry, "Selling my brain", to be about freelance work: what I take on, the jobs I've done, and that new work goes through my company.
+
 ## 1.30.0 — 2026-10-17
 
 - Add category filters and small category labels to the project cards.
