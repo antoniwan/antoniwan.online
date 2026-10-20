@@ -8,6 +8,7 @@ import Footer from '../components/Footer.astro';
 import BackToTop from '../components/BackToTop.astro';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
+import type { Crumb } from '../utils/breadcrumbs';
 
 interface Props {
   title?: string;
@@ -17,17 +18,24 @@ interface Props {
   noindex?: boolean;
   collection?: boolean;
   mainEntity?: string;
+  /** A page's own share card in public/, with its alt text. Defaults to the portrait card. */
+  card?: { path: string; alt: string };
+  /** Trail from Home to this page (see utils/breadcrumbs). Becomes a BreadcrumbList. */
+  breadcrumbs?: Crumb[];
+  /** ISO date the page's content last changed. Leave out when there is no real date. */
+  dateModified?: string;
 }
 
-const { title, description = SITE.description, profile = false, noindex = false, collection = false, mainEntity } = Astro.props;
+const { title, description = SITE.description, profile = false, noindex = false, collection = false, mainEntity, breadcrumbs, dateModified, card } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} (${SITE.handle})`;
 // build.format is 'file', so pathnames end in .html at build time; Vercel serves them without it.
 const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
 const canonical = new URL(cleanPath, SITE.url).href;
 // A short hash of og.png in its URL makes link previews fetch the new card after a redraw.
-const ogVersion = createHash('sha256').update(readFileSync('public/og.png')).digest('hex').slice(0, 8);
-const ogImage = new URL(`/og.png?v=${ogVersion}`, SITE.url).href;
-const ogImageAlt = `${SITE.domain}: ${SITE.name}, with his portrait. Builder. Father. Boricua.`;
+const versioned = (path: string) => new URL(`${path}?v=${createHash('sha256').update(readFileSync(`public${path}`)).digest('hex').slice(0, 8)}`, SITE.url).href;
+const portraitCard = versioned('/og.png');
+const ogImage = card ? versioned(card.path) : portraitCard;
+const ogImageAlt = card?.alt ?? `${SITE.domain}: ${SITE.name}, with his portrait. Builder. Father. Boricua.`;
 const sameAs = sections
   .flatMap((section) => section.items)
   .filter((item) => item.me)
@@ -40,7 +48,7 @@ const person = {
   alternateName: [SITE.handle, SITE.plainName],
   url: SITE.url,
   email: SITE.email,
-  image: ogImage,
+  image: portraitCard,
   jobTitle: 'Technical Program Manager',
   worksFor: { '@type': 'Organization', name: 'Stanley Black & Decker', url: 'https://www.stanleyblackanddecker.com' },
   homeLocation: { '@type': 'State', name: 'Florida', sameAs: 'https://www.wikidata.org/wiki/Q812' },
@@ -57,6 +65,13 @@ const website = {
   inLanguage: 'en',
   publisher: { '@id': SITE.personId },
 };
+// The last crumb is this page, so it takes the canonical URL; the others resolve against the site.
+const breadcrumbId = `${canonical}#breadcrumb`;
+const breadcrumbList = breadcrumbs && {
+  '@type': 'BreadcrumbList',
+  '@id': breadcrumbId,
+  itemListElement: breadcrumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.name, item: index === breadcrumbs.length - 1 ? canonical : new URL(crumb.href, SITE.url).href })),
+};
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -68,11 +83,14 @@ const structuredData = {
       name: fullTitle,
       description,
       inLanguage: 'en',
+      ...(dateModified ? { dateModified } : {}),
       isPartOf: { '@id': website['@id'] },
+      ...(breadcrumbList ? { breadcrumb: { '@id': breadcrumbId } } : {}),
       about: { '@id': SITE.personId },
       ...(profile ? { mainEntity: { '@id': SITE.personId } } : {}),
       ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
     },
+    ...(breadcrumbList ? [breadcrumbList] : []),
     person,
   ],
 };

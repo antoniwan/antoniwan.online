@@ -4,10 +4,12 @@ import PageIntro from '../../components/PageIntro.astro';
 import { books } from '../../data/books';
 import { getMovieCollection } from '../../data/movies';
 import { games } from '../../data/games';
+import { breadcrumbs } from '../../utils/breadcrumbs';
+import { collectionsModified } from '../../utils/lastmod';
 const { snapshot } = await getMovieCollection();
 const trackedHours = games.trackedFloorHours.toLocaleString('en-US');
 ---
-<Base title="Collections" description="Antonio's personal collections: a searchable reading library, a movie diary, and a game log, with recent watches, personal ratings, and tracked hours." collection>
+<Base title="Collections" description="Antonio's personal collections: a searchable reading library, a movie diary, and a game log, with recent watches, personal ratings, and tracked hours." collection breadcrumbs={breadcrumbs('Collections', '/collections')} dateModified={collectionsModified(snapshot.movies)}>
   <PageIntro label="Collections" title="Things I return to">
     Books, movies, games, and the things I keep around while I learn. These are personal catalogues, not lists of recommendations.
   </PageIntro>

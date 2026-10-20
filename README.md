@@ -29,3 +29,5 @@ pnpm dev
 ```
 
 `pnpm og` rebuilds `public/og.png` and `public/apple-touch-icon.png` from the portrait (`src/portrait-2026-10.avif`). The social card's URL carries a hash of the file, so link previews refresh after a redraw.
+
+`pnpm og:collections` rebuilds the share cards for the three collection pages (`public/og/books.png`, `movies.png`, `games.png`). Each one draws a frozen frame of the site's quasicrystal pattern behind the page title and a stat line computed from `src/data/*.json`, so rerun it and commit the PNGs after the books, movies, or games data changes. Both scripts draw with headless Chrome; set `CHROME` to the browser binary if it is not found (Chrome or Edge on Windows).

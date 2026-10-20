@@ -4,11 +4,58 @@ import PageIntro from '../components/PageIntro.astro';
 import { SITE } from '../config/site';
 import Ledger from '../components/Ledger.astro';
 import { projectCategories, projects, workForOthers } from '../data/projects';
+
+// Structured data for "My own" only. Work for others belonged to employers and clients, so it is left out.
+// Every fact below comes from the card in src/data/projects.ts; nothing is added that the card does not say.
+const author = { '@id': SITE.personId };
+const company = { '@type': 'Organization', name: SITE.company.name, url: SITE.company.url };
+const anchors: Record<string, string> = {
+  'The Bent One': 'the-bent-one',
+  'Mia, the Sun, and the Moon': 'mia-the-sun-and-the-moon',
+};
+// The schema.org type and the facts the card states beyond its title, link and text.
+const schemaByTitle: Record<string, Record<string, unknown>> = {
+  'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
+  'Uplift, Tower Game': { '@type': 'VideoGame', gamePlatform: 'Web browser', publisher: company },
+  // The same @id as the WebSite node Base emits on Home, so both describe one site.
+  'antoniwan.online': { '@type': 'WebSite', '@id': `${SITE.url}/#website` },
+  'Strong Hands, Soft Heart': { '@type': 'WebSite', publisher: company },
+  'Panda and Wolf': { '@type': 'CreativeWork' },
+  'The Bent One': { '@type': 'Book', publisher: company },
+  'LinksForest': { '@type': 'WebApplication' },
+  'Notes': { '@type': 'Blog', inLanguage: ['en', 'es'] },
+  'Mia, the Sun, and the Moon': { '@type': 'Book', publisher: company },
+};
+const listId = `${SITE.url}/projects#my-own`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': listId,
+  name: "Antonio's own projects",
+  numberOfItems: projects.length,
+  itemListElement: projects.map((project, index) => {
+    const anchor = anchors[project.title];
+    const facts = schemaByTitle[project.title] ?? { '@type': 'CreativeWork' };
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        ...facts,
+        ...(anchor ? { '@id': `${SITE.url}/projects#${anchor}` } : {}),
+        name: project.title,
+        url: project.href.startsWith('/') ? SITE.url + project.href : project.href,
+        description: project.body,
+        author,
+      },
+    };
+  }),
+};
 ---
 
 <Base
   title="Projects"
   description="Projects by Antonio Rodríguez Martínez: apps and tools, games and books, websites and writing, and work for others."
+  mainEntity={listId}
 >
   <PageIntro label="Projects" title="Things I've built">
     Things I build for myself, for others, and for the fun of it. Most of the code is on
@@ -52,6 +99,7 @@ import { projectCategories, projects, workForOthers } from '../data/projects';
       <Ledger groups={workForOthers} />
     </div>
   </section>
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
 </Base>
 
 <script>

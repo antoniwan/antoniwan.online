@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-10-17T14:44:22.092Z",
+  "refreshedAt": "2026-10-20T17:23:07.904Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -29,6 +29,21 @@
           "id": "letterboxd-watch-1355566568",
           "href": "https://letterboxd.com/antoniwan/film/alice-in-wonderland-1951/",
           "watchedOn": "2026-06-13",
+          "rating": 3.5,
+          "rewatch": true
+        }
+      ]
+    },
+    {
+      "id": "american-psycho",
+      "title": "American Psycho",
+      "year": 2000,
+      "posterUrl": "https://a.ltrbxd.com/resized/sm/upload/5b/u9/av/il/ecoY7zJL6Ub3URP1oPhPfGflEjV-0-600-0-900-crop.jpg?v=8126850315",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1544772289",
+          "href": "https://letterboxd.com/antoniwan/film/american-psycho/",
+          "watchedOn": "2026-10-18",
           "rating": 3.5,
           "rewatch": true
         }

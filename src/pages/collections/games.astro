@@ -9,6 +9,8 @@ import GameEgg from '../../components/GameEgg.astro';
 import { games as snapshot, gameLinks, gameStatusLabels, hoursConfidenceLabels, type GameStatus } from '../../data/games';
 import { decadeGroup, decadeGroups, decadeLabel, formatNumber } from '../../utils/games';
 import { watchDate } from '../../utils/movies';
+import { breadcrumbs } from '../../utils/breadcrumbs';
+import { gamesModified } from '../../utils/lastmod';
 import { SITE } from '../../config/site';
 
 const games = [...snapshot.games].sort((first, second) => first.title.localeCompare(second.title));
@@ -27,14 +29,15 @@ const letterOf = (title: string) => {
 const letters = [...new Set(games.map(game => letterOf(game.title)))].sort((a, b) => (a === '#' ? -1 : b === '#' ? 1 : a.localeCompare(b)));
 const firstOfLetter = new Map(letters.map(letter => [letter, games.find(game => letterOf(game.title) === letter)!.id]));
 const listId = `${SITE.url}/collections/games#game-catalogue`;
-const sameAs = (id: string, href?: string) => [href, gameLinks[id]?.wikipedia, gameLinks[id]?.steam].filter((url): url is string => Boolean(url));
+const parent = { label: 'Collections', href: '/collections' };
+const sameAs = (id: string, href?: string) => [href, gameLinks[id]?.wikipedia, gameLinks[id]?.steam, gameLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${gameLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
 const schema = {
   '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's game collection", numberOfItems: games.length,
   itemListElement: games.map((game, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'VideoGame', '@id': `${SITE.url}/collections/games#${game.id}`, name: game.title, url: `${SITE.url}/collections/games#${game.id}`, ...(game.year ? { datePublished: String(game.year) } : {}), ...(game.platforms.length ? { gamePlatform: game.platforms } : {}), ...(sameAs(game.id, game.href).length ? { sameAs: sameAs(game.id, game.href) } : {}) } })),
 };
 ---
-<Base title="Games — Collections" description="Antonio's game collection: what he is playing now, the games he has spent the most hours in, and every title he has played, with hours marked by how much they can be trusted." collection mainEntity={listId}>
-  <PageIntro label="Games" title="Things I've played" parent={{ label: 'Collections', href: '/collections' }}>
+<Base title="Games — Collections" description="Antonio's game collection: what he is playing now, the games he has spent the most hours in, and every title he has played, with hours marked by how much they can be trusted." collection mainEntity={listId} breadcrumbs={breadcrumbs('Games', '/collections/games', parent)} dateModified={gamesModified} card={{ path: '/og/games.png', alt: "antoniwan.online / Collections: Things I've played, about 20,000 to 25,000 hours across 256 games, on the site's pink quasicrystal pattern." }}>
+  <PageIntro label="Games" title="Things I've played" parent={parent}>
     Thirty-plus years of games. I mark every hour count by how far it can be trusted: counted, guessed, or a floor.
   </PageIntro>
   <GamesNav />

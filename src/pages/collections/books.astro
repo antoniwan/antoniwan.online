@@ -3,12 +3,15 @@ import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import { books, readingStatusLabels } from '../../data/books';
 import { SITE } from '../../config/site';
+import { breadcrumbs } from '../../utils/breadcrumbs';
+// No dateModified here: the books snapshot carries no date.
+const parent = { label: 'Collections', href: '/collections' };
 const subjects = [...new Set(books.flatMap(book => book.subjects))].sort((first, second) => first.localeCompare(second));
 const listId = `${SITE.url}/collections/books#catalogue`;
 const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's reading library", numberOfItems: books.length, itemListElement: books.map((book, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Book', '@id': `${SITE.url}/collections/books#${book.id}`, name: book.title, author: book.author, url: `${SITE.url}/collections/books#${book.id}` } })) };
 ---
-<Base title="Books — Collections" description="Antonio's reading library: books read, currently reading, to read, and abandoned. Search by title, author, subject, and reading status." collection mainEntity={listId}>
-  <PageIntro label="Books" title="Books on my mind" parent={{ label: 'Collections', href: '/collections' }}>
+<Base title="Books — Collections" description="Antonio's reading library: books read, currently reading, to read, and abandoned. Search by title, author, subject, and reading status." collection mainEntity={listId} breadcrumbs={breadcrumbs('Books', '/collections/books', parent)} card={{ path: '/og/books.png', alt: "antoniwan.online / Collections: Books on my mind, Antonio's reading library, on the site's pink quasicrystal pattern." }}>
+  <PageIntro label="Books" title="Books on my mind" parent={parent}>
     Some I've finished, some I return to, some are still waiting. Reading status doesn't tell you whether I own a copy.
   </PageIntro>
   <section class="section bookshelf" aria-label="Book catalogue">

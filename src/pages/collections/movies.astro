@@ -5,14 +5,17 @@ import LatestWatched from '../../components/LatestWatched.astro';
 import { getMovieCollection } from '../../data/movies';
 import { watchDate } from '../../utils/movies';
 import { SITE } from '../../config/site';
+import { breadcrumbs } from '../../utils/breadcrumbs';
+import { moviesModified } from '../../utils/lastmod';
+const parent = { label: 'Collections', href: '/collections' };
 const { snapshot, source } = await getMovieCollection();
 const movies = snapshot.movies;
 const decades = [...new Set(movies.flatMap(movie => movie.year ? [Math.floor(movie.year / 10) * 10] : []))].sort((first, second) => second - first);
 const listId = `${SITE.url}/collections/movies#catalogue`;
 const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's movie collection", numberOfItems: movies.length, itemListElement: movies.map((movie, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Movie', '@id': `${SITE.url}/collections/movies#${movie.id}`, name: movie.title, url: `${SITE.url}/collections/movies#${movie.id}`, sameAs: `https://letterboxd.com/film/${movie.id}/` } })) };
 ---
-<Base title="Movies — Collections" description="Antonio's movie collection, recent watches, rewatches, and personal ratings from his public Letterboxd diary." collection mainEntity={listId}>
-  <PageIntro label="Movies" title="Things I've watched" parent={{ label: 'Collections', href: '/collections' }}>
+<Base title="Movies — Collections" description="Antonio's movie collection, recent watches, rewatches, and personal ratings from his public Letterboxd diary." collection mainEntity={listId} breadcrumbs={breadcrumbs('Movies', '/collections/movies', parent)} dateModified={moviesModified(movies)} card={{ path: '/og/movies.png', alt: "antoniwan.online / Collections: Things I've watched, Antonio's movie diary, on the site's pink quasicrystal pattern." }}>
+  <PageIntro label="Movies" title="Things I've watched" parent={parent}>
     Films, first watches, and returns. A growing list from my Letterboxd diary, not a complete history of everything I've seen.
   </PageIntro>
   <LatestWatched movies={movies} diaryUrl={`${snapshot.profileUrl}diary/`} />

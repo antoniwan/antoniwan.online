@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.32.0 — 2026-10-20
+
+- Give Books, Movies, and Games their own share cards, drawn from the site's pattern with a stat from each collection. `pnpm og:collections` redraws them.
+- Add breadcrumbs to the structured data for Collections and its three pages, from the same data as the visible breadcrumb.
+- Date the collection pages from their own data, in the structured data and the sitemap. Pages without a real date get none.
+- Describe my own projects on Projects as works I made: the two picture books as books, Uplift as a game, and the sites as sites.
+- Link every matched game to its Wikidata entry as well as Wikipedia and Steam.
+- Add American Psycho to Movies from the public Letterboxd diary.
+
 ## 1.31.0 — 2026-10-20
 
 - Add Games to Collections: what I'm playing now, the hours I can count, a timeline by decade, and a searchable game list.
