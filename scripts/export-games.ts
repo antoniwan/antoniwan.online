@@ -89,6 +89,11 @@ const publicReleaseYears: Record<string, number> = {
   'Hades II': 2025, 'Songs of Conquest': 2024, 'Stranded: Alien Dawn': 2023, 'Foundation': 2025, 'The Blood of Dawnwalker': 2026,
 };
 
+// Public platforms for titles whose rows name none. Antonio states them in his own public review on Notes, so they are public facts, not vault entries. Applied only when the record has no platforms.
+const publicPlatforms: Record<string, string[]> = {
+  'Crimson Desert': ['PS5'],
+};
+
 // Hours kept as the source's own point figure when it also gives a range.
 const hoursOverrides: Record<string, { value: number; display: string }> = {
   'League of Legends': { value: 8000, display: '~6,000–9,000h' },
@@ -306,6 +311,7 @@ for (const record of records.values()) {
   const override = hoursOverrides[record.title];
   if (override && record.hours) record.hours = { ...record.hours, value: override.value, display: override.display };
   if (record.year === null && publicReleaseYears[record.title]) record.year = publicReleaseYears[record.title];
+  if (record.platforms.length === 0 && publicPlatforms[record.title]) record.platforms = [...publicPlatforms[record.title]];
   // The backlog's decade sections are loose (Elden Ring sits under the 2010s), so a known release year decides the decade.
   if (record.year !== null) record.decade = Math.floor(record.year / 10) * 10;
   if (pcStores.some(store => record.platforms.includes(store))) record.platforms = record.platforms.filter(platform => platform !== 'PC');

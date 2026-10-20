@@ -1,0 +1,201 @@
+{
+  "generatedAt": "2026-10-20",
+  "links": {
+    "12-rules-for-life-an-antidote-to-chaos-jordan-b-peterson": {
+      "wikidata": "Q51530290",
+      "wikipedia": "https://en.wikipedia.org/wiki/12_Rules_for_Life"
+    },
+    "14-000-things-to-be-happy-about-barbara-ann-kipfer": {
+      "wikidata": "Q4549578",
+      "wikipedia": "https://en.wikipedia.org/wiki/14,000_Things_to_Be_Happy_About"
+    },
+    "a-calendar-of-wisdom-leo-tolstoy": {
+      "wikidata": "Q2894412",
+      "wikipedia": "https://en.wikipedia.org/wiki/A_Calendar_of_Wisdom"
+    },
+    "atlas-of-the-heart-brene-brown": {
+      "wikidata": "Q110324427",
+      "wikipedia": "https://en.wikipedia.org/wiki/Atlas_of_the_Heart"
+    },
+    "atomic-habits-james-clear": {
+      "wikidata": "Q98178602",
+      "wikipedia": "https://en.wikipedia.org/wiki/Atomic_Habits"
+    },
+    "beyond-good-and-evil-friedrich-nietzsche": {
+      "wikidata": "Q579794",
+      "wikipedia": "https://en.wikipedia.org/wiki/Beyond_Good_and_Evil"
+    },
+    "bridge-to-terabithia-katherine-paterson": {
+      "wikidata": "Q838776",
+      "wikipedia": "https://en.wikipedia.org/wiki/Bridge_to_Terabithia_(novel)"
+    },
+    "complex-ptsd-from-surviving-to-thriving-pete-walker": {
+      "wikidata": "Q106029185",
+      "wikipedia": null
+    },
+    "el-principito-antoine-de-saint-exupery": {
+      "wikidata": "Q25338",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Little_Prince"
+    },
+    "emotional-intelligence-2-0-travis-bradberry": {
+      "wikidata": "Q5373771",
+      "wikipedia": null
+    },
+    "everything-is-f-cked-mark-manson": {
+      "wikidata": "Q88218883",
+      "wikipedia": "https://en.wikipedia.org/wiki/Everything_Is_Fucked"
+    },
+    "fahrenheit-451-ray-bradbury": {
+      "wikidata": "Q202009",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fahrenheit_451"
+    },
+    "feeling-good-david-d-burns": {
+      "wikidata": "Q5441385",
+      "wikipedia": "https://en.wikipedia.org/wiki/Feeling_Good:_The_New_Mood_Therapy"
+    },
+    "freakonomics-steven-d-levitt": {
+      "wikidata": "Q1211497",
+      "wikipedia": "https://en.wikipedia.org/wiki/Freakonomics"
+    },
+    "high-output-management-andrew-s-grove": {
+      "wikidata": "Q124830345",
+      "wikipedia": "https://en.wikipedia.org/wiki/High_Output_Management"
+    },
+    "high-performance-mysql-baron-schwartz": {
+      "wikidata": "Q22969374",
+      "wikipedia": null
+    },
+    "how-to-cook-everything-mark-bittman": {
+      "wikidata": "Q5918527",
+      "wikipedia": "https://en.wikipedia.org/wiki/How_to_Cook_Everything"
+    },
+    "lord-of-the-flies-william-golding": {
+      "wikidata": "Q271764",
+      "wikipedia": "https://en.wikipedia.org/wiki/Lord_of_the_Flies"
+    },
+    "me-and-white-supremacy-layla-f-saad": {
+      "wikidata": "Q96418926",
+      "wikipedia": "https://en.wikipedia.org/wiki/Me_and_White_Supremacy"
+    },
+    "meditations-marcus-aurelius": {
+      "wikidata": "Q1152283",
+      "wikipedia": "https://en.wikipedia.org/wiki/Meditations"
+    },
+    "modern-software-engineering-david-farley": {
+      "wikidata": "Q138793221",
+      "wikipedia": null
+    },
+    "mujeres-que-corren-con-los-lobos-clarissa-pinkola-estes": {
+      "wikidata": "Q9171157",
+      "wikipedia": "https://en.wikipedia.org/wiki/Women_Who_Run_with_the_Wolves"
+    },
+    "no-drama-discipline-daniel-j-siegel": {
+      "wikidata": "Q140937021",
+      "wikipedia": null
+    },
+    "nonviolent-communication-marshall-b-rosenberg": {
+      "wikidata": "Q110245425",
+      "wikipedia": null
+    },
+    "operating-system-concepts-abraham-silberschatz": {
+      "wikidata": "Q113564617",
+      "wikipedia": "https://en.wikipedia.org/wiki/Operating_System_Concepts"
+    },
+    "ready-player-one-ernest-cline": {
+      "wikidata": "Q3906523",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ready_Player_One"
+    },
+    "rich-dad-poor-dad-robert-t-kiyosaki": {
+      "wikidata": "Q2342159",
+      "wikipedia": "https://en.wikipedia.org/wiki/Rich_Dad_Poor_Dad"
+    },
+    "the-48-laws-of-power-robert-greene": {
+      "wikidata": "Q574219",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_48_Laws_of_Power"
+    },
+    "the-5-love-languages-of-teenagers-gary-chapman": {
+      "wikidata": "Q114735843",
+      "wikipedia": null
+    },
+    "the-7-habits-of-highly-effective-people-stephen-r-covey": {
+      "wikidata": "Q1053942",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_7_Habits_of_Highly_Effective_People"
+    },
+    "the-alchemist-paulo-coelho": {
+      "wikidata": "Q179021",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Alchemist_(novel)"
+    },
+    "the-bhagavad-gita-krishna-dwaipayana-vyasa": {
+      "wikidata": "Q46802",
+      "wikipedia": "https://en.wikipedia.org/wiki/Bhagavad_Gita"
+    },
+    "the-china-study-t-colin-campbell": {
+      "wikidata": "Q1820616",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_China_Study"
+    },
+    "the-courage-to-heal-ellen-bass": {
+      "wikidata": "Q2410536",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Courage_to_Heal"
+    },
+    "the-creative-act-a-way-of-being-rick-rubin": {
+      "wikidata": "Q125910977",
+      "wikipedia": null
+    },
+    "the-daily-stoic-ryan-holiday": {
+      "wikidata": "Q28859286",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Daily_Stoic"
+    },
+    "the-five-love-languages-gary-chapman": {
+      "wikidata": "Q786405",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Five_Love_Languages"
+    },
+    "the-metamorphosis-franz-kafka": {
+      "wikidata": "Q184222",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Metamorphosis"
+    },
+    "the-obstacle-is-the-way-ryan-holiday": {
+      "wikidata": "Q17199115",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Obstacle_Is_the_Way"
+    },
+    "the-power-of-positive-thinking-norman-vincent-peale": {
+      "wikidata": "Q30661140",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Power_of_Positive_Thinking"
+    },
+    "the-tipping-point-malcolm-gladwell": {
+      "wikidata": "Q336342",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Tipping_Point"
+    },
+    "the-war-of-art-steven-pressfield": {
+      "wikidata": "Q7773504",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_War_of_Art_(book)"
+    },
+    "the-whole-brain-child-daniel-j-siegel": {
+      "wikidata": "Q61114328",
+      "wikipedia": null
+    },
+    "thing-explainer-randall-munroe": {
+      "wikidata": "Q60740291",
+      "wikipedia": "https://en.wikipedia.org/wiki/Thing_Explainer"
+    },
+    "thinking-fast-and-slow-daniel-kahneman": {
+      "wikidata": "Q983718",
+      "wikipedia": "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"
+    },
+    "thus-spake-zarathustra-friedrich-nietzsche": {
+      "wikidata": "Q199774",
+      "wikipedia": "https://en.wikipedia.org/wiki/Thus_Spoke_Zarathustra"
+    },
+    "untamed-glennon-doyle": {
+      "wikidata": "Q96412777",
+      "wikipedia": "https://en.wikipedia.org/wiki/Untamed_(memoir)"
+    },
+    "you-can-heal-your-life-louise-l-hay": {
+      "wikidata": "Q8057104",
+      "wikipedia": "https://en.wikipedia.org/wiki/You_Can_Heal_Your_Life"
+    },
+    "your-erroneous-zones-wayne-w-dyer": {
+      "wikidata": "Q1751107",
+      "wikipedia": "https://en.wikipedia.org/wiki/Your_Erroneous_Zones"
+    }
+  }
+}

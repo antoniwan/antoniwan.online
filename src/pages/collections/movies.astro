@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import LatestWatched from '../../components/LatestWatched.astro';
-import { getMovieCollection } from '../../data/movies';
+import { getMovieCollection, movieLinks } from '../../data/movies';
 import { watchDate } from '../../utils/movies';
 import { SITE } from '../../config/site';
 import { breadcrumbs } from '../../utils/breadcrumbs';
@@ -12,7 +12,8 @@ const { snapshot, source } = await getMovieCollection();
 const movies = snapshot.movies;
 const decades = [...new Set(movies.flatMap(movie => movie.year ? [Math.floor(movie.year / 10) * 10] : []))].sort((first, second) => second - first);
 const listId = `${SITE.url}/collections/movies#catalogue`;
-const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's movie collection", numberOfItems: movies.length, itemListElement: movies.map((movie, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Movie', '@id': `${SITE.url}/collections/movies#${movie.id}`, name: movie.title, url: `${SITE.url}/collections/movies#${movie.id}`, sameAs: `https://letterboxd.com/film/${movie.id}/` } })) };
+const sameAs = (id: string) => [`https://letterboxd.com/film/${id}/`, movieLinks[id]?.wikipedia, movieLinks[id]?.imdb, movieLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${movieLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
+const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's movie collection", numberOfItems: movies.length, itemListElement: movies.map((movie, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Movie', '@id': `${SITE.url}/collections/movies#${movie.id}`, name: movie.title, url: `${SITE.url}/collections/movies#${movie.id}`, sameAs: sameAs(movie.id) } })) };
 ---
 <Base title="Movies — Collections" description="Antonio's movie collection, recent watches, rewatches, and personal ratings from his public Letterboxd diary." collection mainEntity={listId} breadcrumbs={breadcrumbs('Movies', '/collections/movies', parent)} dateModified={moviesModified(movies)} card={{ path: '/og/movies.png', alt: "antoniwan.online / Collections: Things I've watched, Antonio's movie diary, on the site's pink quasicrystal pattern." }}>
   <PageIntro label="Movies" title="Things I've watched" parent={parent}>

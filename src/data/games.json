@@ -666,7 +666,9 @@
       "title": "Crimson Desert",
       "year": 2026,
       "decade": 2020,
-      "platforms": [],
+      "platforms": [
+        "PS5"
+      ],
       "genre": null,
       "status": "played",
       "hours": {

@@ -1,14 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
-import { books, readingStatusLabels } from '../../data/books';
+import { books, bookLinks, readingStatusLabels } from '../../data/books';
 import { SITE } from '../../config/site';
 import { breadcrumbs } from '../../utils/breadcrumbs';
 // No dateModified here: the books snapshot carries no date.
 const parent = { label: 'Collections', href: '/collections' };
 const subjects = [...new Set(books.flatMap(book => book.subjects))].sort((first, second) => first.localeCompare(second));
 const listId = `${SITE.url}/collections/books#catalogue`;
-const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's reading library", numberOfItems: books.length, itemListElement: books.map((book, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Book', '@id': `${SITE.url}/collections/books#${book.id}`, name: book.title, author: book.author, url: `${SITE.url}/collections/books#${book.id}` } })) };
+const sameAs = (id: string) => [bookLinks[id]?.wikipedia, bookLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${bookLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
+const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's reading library", numberOfItems: books.length, itemListElement: books.map((book, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Book', '@id': `${SITE.url}/collections/books#${book.id}`, name: book.title, author: book.author, url: `${SITE.url}/collections/books#${book.id}`, ...(sameAs(book.id).length ? { sameAs: sameAs(book.id) } : {}) } })) };
 ---
 <Base title="Books — Collections" description="Antonio's reading library: books read, currently reading, to read, and abandoned. Search by title, author, subject, and reading status." collection mainEntity={listId} breadcrumbs={breadcrumbs('Books', '/collections/books', parent)} card={{ path: '/og/books.png', alt: "antoniwan.online / Collections: Books on my mind, Antonio's reading library, on the site's pink quasicrystal pattern." }}>
   <PageIntro label="Books" title="Books on my mind" parent={parent}>
@@ -24,7 +25,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
     <div class="book-results"><p id="book-results" role="status" aria-live="polite" aria-atomic="true">{books.length} books</p><span>Titles A–Z</span></div>
     <ul id="book-list" class="book-list" aria-label="Books">
       {books.map(book => <li class="book-entry" id={book.id} data-book data-title={book.title} data-author={book.author} data-status={book.readingStatus} data-subjects={JSON.stringify(book.subjects)}>
-        <div><h2><a href={`#${book.id}`}>{book.title}</a></h2><p class="book-author">{book.author}</p><ul class="book-subjects" aria-label="Subjects">{book.subjects.map(subject => <li>{subject}</li>)}</ul></div>
+        <div><h2><a href={bookLinks[book.id]?.wikipedia ?? `#${book.id}`}>{book.title}</a></h2><p class="book-author">{book.author}</p><ul class="book-subjects" aria-label="Subjects">{book.subjects.map(subject => <li>{subject}</li>)}</ul></div>
         <p class="book-status" data-reading-status={book.readingStatus}>{readingStatusLabels[book.readingStatus]}</p>
       </li>)}
     </ul>

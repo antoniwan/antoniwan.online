@@ -17,9 +17,11 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 | Collection | Page | Data | Source | Guide |
 | --- | --- | --- | --- | --- |
-| Books | `/collections/books` | `/collections/books.json` | Antonio's book inventory, exported by `scripts/export-books.ts` | [docs/collections.md](docs/collections.md) |
-| Movies | `/collections/movies` | `/collections/movies.json` | His public Letterboxd feed, saved by `scripts/sync-movies.ts` | [docs/movies.md](docs/movies.md) |
+| Books | `/collections/books` | `/collections/books.json` | Antonio's book inventory, exported by `scripts/export-books.ts`; Wikipedia links from `scripts/link-books.ts` | [docs/collections.md](docs/collections.md) |
+| Movies | `/collections/movies` | `/collections/movies.json` | His public Letterboxd feed, saved by `scripts/sync-movies.ts`; Wikipedia, IMDb, and Wikidata from `scripts/link-movies.ts` | [docs/movies.md](docs/movies.md) |
 | Games | `/collections/games` | `/collections/games.json` | His gaming notes, exported by `scripts/export-games.ts`; Wikipedia and Steam links from `scripts/link-games.ts` | [docs/games.md](docs/games.md) |
+
+The `link-*` scripts match entries to Wikidata and save the links beside each snapshot (`book-links.json`, `movie-links.json`, `game-links.json`), so a refresh of the snapshot never erases them. A wrong link is worse than none: an entry without a confident match stays unlinked. Antonio's own game reviews on Notes are listed in `src/data/game-reviews.ts`.
 
 The site reads only the saved snapshots in `src/data/`. Builds never need the private notes. The export scripts read the files named on their command line and never write to them.
 
@@ -27,7 +29,7 @@ Cookbook has its own entry in Projects. Authored picture books remain in Project
 
 ## Search and sharing
 
-- `src/layouts/Base.astro` writes one JSON-LD graph per page: the WebSite (on Home), the page itself, a BreadcrumbList where the page has a parent, and the Person. Collection pages and Projects add an `ItemList` of their entries: books, films, games (with Wikipedia, Steam, and Wikidata links), and the things Antonio made.
+- `src/layouts/Base.astro` writes one JSON-LD graph per page: the WebSite (on Home), the page itself, a BreadcrumbList where the page has a parent, and the Person. The Person's photo, languages, topics, and school live in `src/config/site.ts`; the photo is `public/portrait-2026-10.jpg`, an 800×800 copy of the portrait (give a new one a new name). Collection pages and Projects add an `ItemList` of their entries: books and films (with Wikipedia, IMDb, and Wikidata where matched), games (with Wikipedia, Steam, Wikidata, and his own reviews), and the things Antonio made.
 - Collection pages carry `dateModified` from their own data, and the sitemap gives them the same `lastmod`. Pages without a real date get none.
 - Books, Movies, and Games have their own share cards in `public/og/`. Every other page uses the portrait card.
 - `/llms.txt` is generated from the same data as the pages. After every build, `scripts/check-llms.mjs` fails the build if a sitemap page has no line there.

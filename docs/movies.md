@@ -56,3 +56,21 @@ The current implementation adds no recurring scheduler. New builds check the fee
 The page's `dateModified` is the newest recorded watch in the merged list. The sitemap's `lastmod` reads the saved `movies.json`, so it catches up when you run the refresh with `--write`. Never use `refreshedAt` as a page date: a live build sets it to the build time.
 
 The share card `public/og/movies.png` shows the film count and the newest watch from `movies.json`. Run `pnpm og:collections` after a refresh and commit the card.
+
+## Wikipedia, IMDb, and Wikidata links
+
+The page's structured data (the `ItemList` JSON-LD) adds a Wikipedia article, an IMDb title page, and a Wikidata item to each film's `sameAs`, beside the Letterboxd link. The visible page does not change: titles and the diary link go where they went before.
+
+The links live in `src/data/movie-links.json`, apart from `movies.json`, so the Letterboxd refresh never erases them. `movieLinks` in `src/data/movies.ts` reads the file. A film with no verified match has no entry and gets only its Letterboxd link.
+
+`scripts/link-movies.ts` makes the match exactly, not by title. Wikidata's Letterboxd film ID property (P6127) holds the same slug that `movies.json` uses as each film's `id`. The script asks the Wikidata SPARQL endpoint for those slugs, then reads the English Wikipedia sitelink and the IMDb ID (P345) from the same item. A slug that maps to more than one item is ambiguous and stays unlinked unless the `overrides` map in the script names the right item. Newer films often lack P6127 and stay unlinked. The script never guesses them.
+
+To refresh, run it after the Letterboxd refresh adds films:
+
+1. Run `node scripts/link-movies.ts` to preview. It lists matched, ambiguous, and unmatched films.
+2. Run `node scripts/link-movies.ts --write` to save `src/data/movie-links.json`.
+3. Review the diff, then run `pnpm check` and `pnpm build`.
+
+The script caches Wikimedia responses in `node_modules/.cache/link-movies/`. Delete that folder to fetch fresh data. It sends a descriptive User-Agent, makes requests one at a time, and retries when Wikidata is busy.
+
+As of October 20, 2026: 51 films, 48 matched, 47 with an English Wikipedia article, 48 with an IMDb page. No slug was ambiguous, so no overrides are set. Three films have no P6127 item and stay unlinked: Animals (2026), Desert Warrior (2025), and Dracula (2025). One Mile: Chapter One (2026) matched but has no English Wikipedia article.

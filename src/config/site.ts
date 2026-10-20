@@ -6,6 +6,12 @@ export const SITE = {
   plainName: 'Antonio Rodriguez Martinez',
   /** The portrait's alt text on Home and About. The photo is unedited apart from crop and format. */
   portraitAlt: 'Antonio Rodríguez Martínez, smiling, in glasses and a dark T-shirt, against a gray wall',
+  /** The plain portrait, 800×800, for the Person in structured data. Made from src/portrait-2026-10.avif; give a new one a new name. */
+  portraitImage: '/portrait-2026-10.jpg',
+  /** For the Person in structured data. Each fact is on the site: About, the work areas, and Notes (essays in English and Spanish). */
+  languages: ['en', 'es'],
+  knowsAbout: ['Technical program management', 'Product architecture', 'Web platforms', 'Design systems', 'AI and automation', 'Prototyping'],
+  alumniOf: { name: 'University of Puerto Rico, Río Piedras', wikidata: 'https://www.wikidata.org/wiki/Q7896167' },
   /** The one ID for Antonio in structured data. Notes, the company site and the books point here. */
   personId: 'https://antoniwan.online/#person',
   tagline: 'Builder. Father. Boricua 🇵🇷',

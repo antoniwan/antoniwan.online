@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.33.0 — 2026-10-20
+
+- Link 40 books to their Wikipedia articles, matched through Wikidata by title and author. Books without a confident match stay unlinked.
+- Name each matched film's Wikipedia, IMDb, and Wikidata pages in the Movies structured data, matched exactly through Wikidata's Letterboxd IDs.
+- Link my Crimson Desert review on Notes from the game list and the Most hours bar, and mark it as my review in the structured data. List the game on PS5.
+- Give my Person data my portrait, the languages I write in, what I work on, and the University of Puerto Rico, Río Piedras.
+- Shorten the Games page description so search results show it whole.
+
 ## 1.32.1 — 2026-10-20
 
 - Count the books, films, and games in `/llms.txt` from the data, and describe Games' statuses and links there.

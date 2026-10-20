@@ -64,6 +64,22 @@ Selection removals remove public records on the next export. They do not delete 
 
 Do not store credentials or a private vault path in deployment settings. Only the local export command needs the inventory path.
 
+## Wikipedia links
+
+A book's title links to its English Wikipedia article when it has one. The page's structured data adds the Wikipedia article and the Wikidata item to that book's `sameAs`. A book with a Wikidata item but no article keeps its local link and gets only the Wikidata `sameAs`.
+
+`scripts/link-books.ts` matches each book to a Wikidata item and writes `src/data/book-links.json`, apart from `books.json`, so an export does not erase the links. A candidate must be a written work (literary work, book, written work, or non-fiction work, or a subclass of one), and an edition item counts only when no work item exists. Its author (P50) must match the book's author after normalizing names, so "Jr.", middle initials, and co-authors listed as "A and B" do not matter. Its title must match a label or alias, and a subtitle may differ ("12 Rules for Life" and "12 Rules for Life: An Antidote to Chaos"). A book with no confident match has no entry and no link. An unlinked title is better than a wrong one. Self-help titles often have no Wikidata item, and some items have no English article.
+
+As of October 20, 2026, 49 of the 133 books are matched: 40 with a Wikipedia article and 9 with only a Wikidata item. 84 are left unlinked. The matches need no overrides. Each article's REST summary was read to confirm it describes the book, not its author or a film adaptation.
+
+1. After an export adds books, run `node scripts/link-books.ts`. This is a dry run.
+2. Review the matched, ambiguous, and unmatched lists.
+3. Fix wrong or missing matches in the script's overrides map (book id to Wikidata QID, or `null` to leave a book unlinked). `--why <id,id>` explains what the search found.
+4. Run it again with `--write`.
+5. Run `pnpm check` and `pnpm build`.
+
+The script caches Wikimedia responses in `node_modules/.cache/link-books/`. Delete that folder to fetch fresh data.
+
 ## URL continuity
 
 Notes /library and /library/books redirect here after the destination is live.

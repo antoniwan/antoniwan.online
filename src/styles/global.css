@@ -454,6 +454,8 @@ figure { margin: 0; }
 .hours-bar { min-width: 0; }
 .hours-bar__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .1rem 1rem; margin-bottom: .35rem; }
 .hours-bar__title { min-width: 0; color: var(--ink); font-weight: 600; overflow-wrap: anywhere; }
+.hours-bar__review { margin-left: .4rem; color: var(--ink-2); font-size: .875rem; font-weight: 400; white-space: nowrap; }
+.hours-bar__review:hover { color: var(--accent); }
 .hours-bar__figure { color: var(--ink-2); font-size: .875rem; }
 .hours-bar__track { height: .85rem; border-radius: 3px; background: var(--paper-2); }
 .hours-bar__fill { height: 100%; border-radius: 3px; background: var(--accent); }
@@ -484,6 +486,8 @@ figure { margin: 0; }
 .game-entry__facts { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
 .game-entry__store { color: var(--ink-2); }
 .game-entry__store:hover { color: var(--accent); }
+.game-entry__review { color: var(--ink-2); }
+.game-entry__review:hover { color: var(--accent); }
 .book-status[data-game-status='playing'] { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
 
 /* In-page navigation: a quiet row under the intro that sticks to the top as a slim bar. The sections and the filter form leave room for it (the page already adds 1.5rem of scroll padding). */

@@ -6,6 +6,7 @@ import HoursHallOfFame from '../../components/HoursHallOfFame.astro';
 import GamesTimeline from '../../components/GamesTimeline.astro';
 import GamesNav from '../../components/GamesNav.astro';
 import GameEgg from '../../components/GameEgg.astro';
+import { gameReviews } from '../../data/game-reviews';
 import { games as snapshot, gameLinks, gameStatusLabels, hoursConfidenceLabels, type GameStatus } from '../../data/games';
 import { decadeGroup, decadeGroups, decadeLabel, formatNumber } from '../../utils/games';
 import { watchDate } from '../../utils/movies';
@@ -33,10 +34,10 @@ const parent = { label: 'Collections', href: '/collections' };
 const sameAs = (id: string, href?: string) => [href, gameLinks[id]?.wikipedia, gameLinks[id]?.steam, gameLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${gameLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
 const schema = {
   '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's game collection", numberOfItems: games.length,
-  itemListElement: games.map((game, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'VideoGame', '@id': `${SITE.url}/collections/games#${game.id}`, name: game.title, url: `${SITE.url}/collections/games#${game.id}`, ...(game.year ? { datePublished: String(game.year) } : {}), ...(game.platforms.length ? { gamePlatform: game.platforms } : {}), ...(sameAs(game.id, game.href).length ? { sameAs: sameAs(game.id, game.href) } : {}) } })),
+  itemListElement: games.map((game, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'VideoGame', '@id': `${SITE.url}/collections/games#${game.id}`, name: game.title, url: `${SITE.url}/collections/games#${game.id}`, ...(game.year ? { datePublished: String(game.year) } : {}), ...(game.platforms.length ? { gamePlatform: game.platforms } : {}), ...(sameAs(game.id, game.href).length ? { sameAs: sameAs(game.id, game.href) } : {}), ...(gameReviews[game.id] ? { review: { '@type': 'Review', author: { '@id': SITE.personId }, url: gameReviews[game.id].url, name: gameReviews[game.id].title, datePublished: gameReviews[game.id].datePublished } } : {}) } })),
 };
 ---
-<Base title="Games — Collections" description="Antonio's game collection: what he is playing now, the games he has spent the most hours in, and every title he has played, with hours marked by how much they can be trusted." collection mainEntity={listId} breadcrumbs={breadcrumbs('Games', '/collections/games', parent)} dateModified={gamesModified} card={{ path: '/og/games.png', alt: "antoniwan.online / Collections: Things I've played, about 20,000 to 25,000 hours across 256 games, on the site's pink quasicrystal pattern." }}>
+<Base title="Games — Collections" description="Antonio's game collection: what he is playing now, the games with the most hours, and every title played, with hours marked by how far to trust them." collection mainEntity={listId} breadcrumbs={breadcrumbs('Games', '/collections/games', parent)} dateModified={gamesModified} card={{ path: '/og/games.png', alt: "antoniwan.online / Collections: Things I've played, about 20,000 to 25,000 hours across 256 games, on the site's pink quasicrystal pattern." }}>
   <PageIntro label="Games" title="Things I've played" parent={parent}>
     Thirty-plus years of games. I mark every hour count by how far it can be trusted: counted, guessed, or a floor.
   </PageIntro>
@@ -62,14 +63,16 @@ const schema = {
       {games.map(game => {
         const group = decadeGroup(game);
         const link = gameLinks[game.id];
+        const review = gameReviews[game.id];
         return <li class="game-entry" id={game.id} data-game data-letter={letterOf(game.title)} data-title={game.title} data-year={game.year ?? ''} data-status={game.status} data-platforms={game.platforms.join('|')} data-decade={group ?? 'none'}>
           <div>
             <h3><a href={link?.wikipedia ?? game.href ?? `#${game.id}`}>{game.title}</a></h3>
             <p class="game-entry__meta">{game.year ?? 'Year not recorded'}{game.platforms.length > 0 && <> · {game.platforms.join(' · ')}</>}{link?.steam && <> · <a class="game-entry__store" href={link.steam}>Steam</a></>}</p>
-            {(game.hours?.value != null || game.progress !== null || game.builtByMe) && <p class="game-entry__facts">
+            {(game.hours?.value != null || game.progress !== null || game.builtByMe || review) && <p class="game-entry__facts">
               {game.hours && game.hours.value !== null && <span class="game-entry__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></span>}
               {game.progress !== null && <span>{game.progress}% complete</span>}
               {game.builtByMe && game.href && <a href={game.href}>I built this</a>}
+              {review && <a class="game-entry__review" href={review.url}>My review</a>}
             </p>}
           </div>
           <span class="book-status" data-game-status={game.status}>{gameStatusLabels[game.status]}</span>

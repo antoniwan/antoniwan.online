@@ -1,6 +1,7 @@
 ---
 import type { Game, GamesSnapshot } from '../data/games';
 import { hoursConfidenceLabels } from '../data/games';
+import { gameReviews } from '../data/game-reviews';
 import { confidenceHints, formatNumber } from '../utils/games';
 interface Props { games: Game[]; lifetime: GamesSnapshot['lifetime']; trackedFloorHours: number; limit?: number; }
 const { games, lifetime, trackedFloorHours, limit = 10 } = Astro.props;
@@ -28,7 +29,7 @@ const yearsHigh = (lifetime.high / 8766).toFixed(1);
       const hours = game.hours!;
       return <li class="hours-bar" data-confidence={hours.confidence}>
         <div class="hours-bar__head">
-          <span class="hours-bar__title">{game.title}</span>
+          <span class="hours-bar__title">{game.title}{gameReviews[game.id] && <> <a class="hours-bar__review" href={gameReviews[game.id].url}>My review</a></>}</span>
           <span class="hours-bar__figure"><span>{hours.display}</span> <span class="game-conf" data-confidence={hours.confidence}>{hoursConfidenceLabels[hours.confidence]}</span></span>
         </div>
         <div class="hours-bar__track" aria-hidden="true"><div class="hours-bar__fill" style={`width:${width(hours.value as number)}%`}></div></div>

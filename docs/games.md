@@ -27,6 +27,8 @@ The export script reads only the two files named by its arguments. It never writ
 
 Release years come from the vault where it records one. Where neither file records a year, the script uses a public release-year map inside the script. Those are public facts, not vault entries. As of October 20, 2026, 15 games have no year. The list shows "Year not recorded", and the timeline leaves them out.
 
+A game whose rows name no platform can get one from a small `publicPlatforms` map in the script, applied only when the record has none. Those are public facts too, taken from Antonio's own public writing. As of October 20, 2026, it holds one entry: Crimson Desert, PS5, from his review.
+
 Titles that appear in more than one place become one record. The script merges them through an explicit alias map. Platforms are combined. Hours and progress come from the Galaxy and rotation tables. Year, decade, and genre come from the backlog.
 
 ## What may be public
@@ -120,6 +122,14 @@ As of October 20, 2026, 251 of the 255 games Antonio did not make are matched: 2
 5. Run `pnpm check` and `pnpm build`.
 
 The script caches Wikimedia responses in `node_modules/.cache/link-games/`. Delete that folder to fetch fresh data.
+
+## Reviews
+
+When Antonio reviews a game on Notes, the Games page links it. The reviews live in `src/data/game-reviews.ts`, a hand-kept map from game id to the essay's `url`, `title`, and `datePublished`. They are his own public essays, not notes, so they sit outside the export.
+
+The game's row shows a quiet "My review" link, and so does its Most hours bar. The page's structured data gives that game a `review` with Antonio as the author. As of October 20, 2026, there is one: Crimson Desert.
+
+To add one, copy the essay's canonical URL (no `.md`), its title, and its publish date into the map under the game's id from `games.json`. Then run `pnpm check` and `pnpm build`. Only real reviews of a game on the list belong here, not essays that mention games.
 
 ## Search and sharing
 
