@@ -1,0 +1,162 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import NowPlaying from '../../components/NowPlaying.astro';
+import HoursHallOfFame from '../../components/HoursHallOfFame.astro';
+import GamesTimeline from '../../components/GamesTimeline.astro';
+import GamesNav from '../../components/GamesNav.astro';
+import GameEgg from '../../components/GameEgg.astro';
+import { games as snapshot, gameLinks, gameStatusLabels, hoursConfidenceLabels, type GameStatus } from '../../data/games';
+import { decadeGroup, decadeGroups, decadeLabel, formatNumber } from '../../utils/games';
+import { watchDate } from '../../utils/movies';
+import { SITE } from '../../config/site';
+
+const games = [...snapshot.games].sort((first, second) => first.title.localeCompare(second.title));
+const byId = new Map(games.map(game => [game.id, game]));
+const nowPlaying = snapshot.nowPlaying.flatMap(id => byId.get(id) ?? []);
+const statusOrder: GameStatus[] = ['playing', 'played', 'up-next'];
+const statuses = statusOrder.filter(status => games.some(game => game.status === status));
+const platforms = [...new Set(games.flatMap(game => game.platforms))].sort((first, second) => first.localeCompare(second));
+const decades = decadeGroups.filter(decade => games.some(game => decadeGroup(game) === decade));
+const hasUndated = games.some(game => decadeGroup(game) === null);
+// The A–Z jump: a title's letter ignores accents; digits and symbols share "#".
+const letterOf = (title: string) => {
+  const first = title.normalize('NFKD').replace(/[̀-ͯ]/g, '').trim().charAt(0).toUpperCase();
+  return /[A-Z]/.test(first) ? first : '#';
+};
+const letters = [...new Set(games.map(game => letterOf(game.title)))].sort((a, b) => (a === '#' ? -1 : b === '#' ? 1 : a.localeCompare(b)));
+const firstOfLetter = new Map(letters.map(letter => [letter, games.find(game => letterOf(game.title) === letter)!.id]));
+const listId = `${SITE.url}/collections/games#game-catalogue`;
+const sameAs = (id: string, href?: string) => [href, gameLinks[id]?.wikipedia, gameLinks[id]?.steam].filter((url): url is string => Boolean(url));
+const schema = {
+  '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's game collection", numberOfItems: games.length,
+  itemListElement: games.map((game, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'VideoGame', '@id': `${SITE.url}/collections/games#${game.id}`, name: game.title, url: `${SITE.url}/collections/games#${game.id}`, ...(game.year ? { datePublished: String(game.year) } : {}), ...(game.platforms.length ? { gamePlatform: game.platforms } : {}), ...(sameAs(game.id, game.href).length ? { sameAs: sameAs(game.id, game.href) } : {}) } })),
+};
+---
+<Base title="Games — Collections" description="Antonio's game collection: what he is playing now, the games he has spent the most hours in, and every title he has played, with hours marked by how much they can be trusted." collection mainEntity={listId}>
+  <PageIntro label="Games" title="Things I've played" parent={{ label: 'Collections', href: '/collections' }}>
+    Thirty-plus years of games. I mark every hour count by how far it can be trusted: counted, guessed, or a floor.
+  </PageIntro>
+  <GamesNav />
+  <NowPlaying games={nowPlaying} />
+  <HoursHallOfFame games={games} lifetime={snapshot.lifetime} trackedFloorHours={snapshot.trackedFloorHours} />
+  <GamesTimeline games={games} />
+  <section class="section bookshelf" aria-labelledby="game-catalogue-title" id="game-catalogue">
+    <div class="collection-section-heading"><div><h2 id="game-catalogue-title">The game list</h2><p>Every title I have a record of. No notes or screenshots are copied here.</p></div></div>
+    <p class="game-key"><strong>Played</strong> covers everything I've picked up, from finished to opened once. Hours and progress tell them apart.</p>
+    <form class="book-filters game-filters" id="game-filters" role="search" aria-label="Find a game" hidden>
+      <label class="game-filters__search">Search games<input id="game-search" name="q" type="search" placeholder="Title or release year" aria-controls="game-list" autocomplete="off" /></label>
+      <label>Status<select id="game-status" name="status" aria-controls="game-list"><option value="">All statuses</option>{statuses.map(status => <option value={status}>{gameStatusLabels[status]}</option>)}</select></label>
+      <label>Platform<select id="game-platform" name="platform" aria-controls="game-list"><option value="">All platforms</option>{platforms.map(platform => <option value={platform}>{platform}</option>)}</select></label>
+      <label>Release decade<select id="game-decade" name="decade" aria-controls="game-list"><option value="">All decades</option>{decades.map(decade => <option value={decade}>{decadeLabel(decade)}</option>)}{hasUndated && <option value="none">Year not recorded</option>}</select></label>
+      <button class="book-reset" type="reset">Clear filters</button>
+    </form>
+    <div class="book-results"><p id="game-results" role="status" aria-live="polite" aria-atomic="true">{games.length} games</p><span>Titles A–Z</span></div>
+    <nav class="games-letters" aria-label="Jump to a letter">
+      <ul>{letters.map(letter => <li><a href={`#${firstOfLetter.get(letter)}`} data-letter-jump={letter} aria-label={letter === '#' ? 'Numbers and symbols' : undefined}>{letter}</a></li>)}</ul>
+    </nav>
+    <ul class="book-list" id="game-list" aria-label="Games">
+      {games.map(game => {
+        const group = decadeGroup(game);
+        const link = gameLinks[game.id];
+        return <li class="game-entry" id={game.id} data-game data-letter={letterOf(game.title)} data-title={game.title} data-year={game.year ?? ''} data-status={game.status} data-platforms={game.platforms.join('|')} data-decade={group ?? 'none'}>
+          <div>
+            <h3><a href={link?.wikipedia ?? game.href ?? `#${game.id}`}>{game.title}</a></h3>
+            <p class="game-entry__meta">{game.year ?? 'Year not recorded'}{game.platforms.length > 0 && <> · {game.platforms.join(' · ')}</>}{link?.steam && <> · <a class="game-entry__store" href={link.steam}>Steam</a></>}</p>
+            {(game.hours?.value != null || game.progress !== null || game.builtByMe) && <p class="game-entry__facts">
+              {game.hours && game.hours.value !== null && <span class="game-entry__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></span>}
+              {game.progress !== null && <span>{game.progress}% complete</span>}
+              {game.builtByMe && game.href && <a href={game.href}>I built this</a>}
+            </p>}
+          </div>
+          <span class="book-status" data-game-status={game.status}>{gameStatusLabels[game.status]}</span>
+        </li>;
+      })}
+    </ul>
+    <div class="book-empty" id="game-empty" hidden><h3>No games match</h3><p>Try another title or clear the filters.</p></div>
+    <p class="section__footnote">Snapshot from <time datetime={snapshot.exportedAt}>{watchDate(snapshot.exportedAt)}</time>, {formatNumber(games.length)} games. Hours marked Tracked come from a platform or in-game counter. Platform counters count idle time. <a href="/collections/games.json">Download the public game list as JSON</a>.</p>
+    <noscript><p>The complete list is available above. Enable JavaScript to use the filters.</p></noscript>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  <GameEgg />
+</Base>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#game-filters');
+  const search = document.querySelector<HTMLInputElement>('#game-search');
+  const status = document.querySelector<HTMLSelectElement>('#game-status');
+  const platform = document.querySelector<HTMLSelectElement>('#game-platform');
+  const decade = document.querySelector<HTMLSelectElement>('#game-decade');
+  const results = document.querySelector('#game-results');
+  const empty = document.querySelector<HTMLElement>('#game-empty');
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-game]')];
+  const normalize = (value: string) => value.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  if (form && search && status && platform && decade && results && empty) {
+    const selects = [[status, 'status'], [platform, 'platform'], [decade, 'decade']] as const;
+    const update = () => {
+      const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+      let count = 0;
+      for (const row of rows) {
+        const text = normalize(`${row.dataset.title} ${row.dataset.year}`);
+        const matches = terms.every(term => text.includes(term))
+          && (!status.value || row.dataset.status === status.value)
+          && (!platform.value || (row.dataset.platforms ?? '').split('|').includes(platform.value))
+          && (!decade.value || row.dataset.decade === decade.value);
+        row.hidden = !matches;
+        if (matches) count++;
+      }
+      results.textContent = count === rows.length ? `${count} games` : `${count} of ${rows.length} games`;
+      empty.hidden = count > 0;
+      document.dispatchEvent(new CustomEvent('games:filtered', { detail: { count, total: rows.length } }));
+    };
+    const restore = () => {
+      const params = new URL(location.href).searchParams;
+      search.value = params.get('q') ?? '';
+      for (const [select, name] of selects) {
+        const value = params.get(name) ?? '';
+        select.value = [...select.options].some(option => option.value === value) ? value : '';
+      }
+      update();
+    };
+    const apply = () => {
+      update();
+      const url = new URL(location.href);
+      for (const [name, value] of [['q', search.value.trim()], ...selects.map(([select, name]) => [name, select.value] as const)]) {
+        if (value) url.searchParams.set(name, value); else url.searchParams.delete(name);
+      }
+      history.replaceState(history.state, '', url);
+    };
+    search.addEventListener('input', apply);
+    for (const [select] of selects) select.addEventListener('change', apply);
+    form.addEventListener('submit', event => { event.preventDefault(); apply(); });
+    form.addEventListener('reset', () => requestAnimationFrame(apply));
+    window.addEventListener('popstate', restore);
+    restore();
+    form.hidden = false;
+    // A linked game can start hidden by a filter; scroll to it once the list is filtered.
+    if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+  }
+</script>
+<script>
+  // A–Z jump: go to the first row that is still showing under the current filters; letters with none are disabled.
+  const jumps = [...document.querySelectorAll<HTMLAnchorElement>('[data-letter-jump]')];
+  const entries = [...document.querySelectorAll<HTMLElement>('[data-game]')];
+  const firstVisible = (letter: string) => entries.find(row => row.dataset.letter === letter && !row.hidden);
+  const refresh = () => {
+    for (const jump of jumps) {
+      const home = jump.dataset.href ??= jump.getAttribute('href') ?? '';
+      if (firstVisible(jump.dataset.letterJump!)) { jump.setAttribute('href', home); jump.removeAttribute('aria-disabled'); }
+      else { jump.removeAttribute('href'); jump.setAttribute('aria-disabled', 'true'); }
+    }
+  };
+  document.addEventListener('games:filtered', refresh);
+  document.querySelector('.games-letters')?.addEventListener('click', event => {
+    const jump = (event.target as Element).closest<HTMLAnchorElement>('[data-letter-jump]');
+    if (!jump) return;
+    event.preventDefault();
+    const row = firstVisible(jump.dataset.letterJump!);
+    if (!row) return;
+    row.scrollIntoView();
+    row.querySelector<HTMLElement>('h3 a')?.focus({ preventScroll: true });
+  });
+  refresh();
+</script>

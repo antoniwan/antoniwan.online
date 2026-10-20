@@ -19,6 +19,8 @@ Cookbook has its own entry in Projects. Authored picture books remain in Project
 
 Movies live at `/collections/movies`. The saved JSON list and refresh instructions are in [docs/movies.md](docs/movies.md).
 
+Games live at `/collections/games`. The public snapshot, its allowlist, and refresh instructions are in [docs/games.md](docs/games.md).
+
 ## Run it
 
 ```bash

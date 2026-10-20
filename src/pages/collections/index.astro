@@ -3,11 +3,13 @@ import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import { books } from '../../data/books';
 import { getMovieCollection } from '../../data/movies';
+import { games } from '../../data/games';
 const { snapshot } = await getMovieCollection();
+const trackedHours = games.trackedFloorHours.toLocaleString('en-US');
 ---
-<Base title="Collections" description="Antonio's personal collections: a searchable reading library and movie diary, with recent watches and personal ratings." collection>
+<Base title="Collections" description="Antonio's personal collections: a searchable reading library, a movie diary, and a game log, with recent watches, personal ratings, and tracked hours." collection>
   <PageIntro label="Collections" title="Things I return to">
-    Books, movies, and the things I keep around while I learn. These are personal catalogues, not lists of recommendations.
+    Books, movies, games, and the things I keep around while I learn. These are personal catalogues, not lists of recommendations.
   </PageIntro>
   <section class="section collection-grid" aria-label="Collections">
     <a class="collection-card" href="/collections/books">
@@ -22,6 +24,12 @@ const { snapshot } = await getMovieCollection();
       <p>Recent watches, films I come back to, and my own ratings.</p>
       <span class="collection-card__count">{snapshot.movies.length} films · Latest watches and a searchable list</span>
     </a>
+    <a class="collection-card collection-card--games" href="/collections/games">
+      <span class="eyebrow">03 / Play log</span>
+      <h2>Games <span aria-hidden="true">↗</span></h2>
+      <p>What I'm playing now, what I've finished, and the hours I can actually count.</p>
+      <span class="collection-card__count">{games.games.length} games · {trackedHours} hours tracked · Now playing and a searchable list</span>
+    </a>
     <aside class="collection-context">
       <h2>A different kind of shelf</h2>
       <p>The picture books I wrote belong with the things I've made. You'll find them in <a href="/projects">Projects</a>.</p>
@@ -29,3 +37,14 @@ const { snapshot } = await getMovieCollection();
     </aside>
   </section>
 </Base>
+
+<style>
+  /* Below 64rem, Games spans the full row under Books and Movies. From 64rem, the three cards sit across. */
+  @media (min-width: 48rem) {
+    .collection-card--games { grid-column: 1 / -1; }
+  }
+  @media (min-width: 64rem) {
+    .collection-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .collection-card--games { grid-column: auto; }
+  }
+</style>

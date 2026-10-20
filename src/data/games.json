@@ -1,0 +1,3526 @@
+{
+  "exportedAt": "2026-10-20",
+  "lifetime": {
+    "low": 20000,
+    "high": 25000,
+    "confidence": "estimate"
+  },
+  "trackedFloorHours": 5907,
+  "nowPlaying": [
+    "warhammer-40000-rogue-trader",
+    "control-resonant",
+    "dune-awakening",
+    "uplift"
+  ],
+  "lookingForward": [
+    "the-last-of-us-part-ii"
+  ],
+  "games": [
+    {
+      "id": "age-of-empires",
+      "title": "Age of Empires",
+      "year": 1997,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "age-of-empires-ii",
+      "title": "Age of Empires II",
+      "year": 1999,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "age-of-empires-iv",
+      "title": "Age of Empires IV",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "age-of-wonders-4",
+      "title": "Age of Wonders 4",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "anno-1800",
+      "title": "Anno 1800",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "Ubisoft Connect"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 36.38,
+        "display": "36h 23m",
+        "confidence": "tracked",
+        "source": "Ubisoft Connect via GOG Galaxy"
+      },
+      "progress": null
+    },
+    {
+      "id": "anno-2205",
+      "title": "Anno 2205",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "apex-legends",
+      "title": "Apex Legends",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "Origin",
+        "PSN",
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": 33
+    },
+    {
+      "id": "assassins-creed-iv-black-flag",
+      "title": "Assassin's Creed IV Black Flag",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "assassins-creed-mirage",
+      "title": "Assassin's Creed Mirage",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "assassins-creed-origins",
+      "title": "Assassin's Creed Origins",
+      "year": 2017,
+      "decade": 2010,
+      "platforms": [
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 47
+    },
+    {
+      "id": "assassins-creed-shadows",
+      "title": "Assassin's Creed Shadows",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "assassins-creed-valhalla",
+      "title": "Assassin's Creed Valhalla",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "astro-bot",
+      "title": "Astro Bot",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Platformer",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "atlas-fallen",
+      "title": "Atlas Fallen",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "avatar-frontiers-of-pandora",
+      "title": "Avatar: Frontiers of Pandora",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "baldurs-gate",
+      "title": "Baldur's Gate",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "baldurs-gate-3",
+      "title": "Baldur's Gate 3",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "GOG",
+        "PS5"
+      ],
+      "genre": "RPG (Traditional & Action)",
+      "status": "played",
+      "hours": {
+        "value": 118.03,
+        "display": "118h 02m",
+        "confidence": "tracked",
+        "source": "GOG Galaxy"
+      },
+      "progress": 57
+    },
+    {
+      "id": "baldurs-gate-ii-enhanced-edition",
+      "title": "Baldur's Gate II: Enhanced Edition",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "baldurs-gate-ii-shadows-of-amn",
+      "title": "Baldur's Gate II: Shadows of Amn",
+      "year": 2000,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "baldurs-gate-enhanced-edition",
+      "title": "Baldur's Gate: Enhanced Edition",
+      "year": 2012,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "banishers-ghosts-of-new-eden",
+      "title": "Banishers: Ghosts of New Eden",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "battlefield-1942",
+      "title": "Battlefield 1942",
+      "year": 2002,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "battlefield-2",
+      "title": "Battlefield 2",
+      "year": 2005,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "battlefield-2042",
+      "title": "Battlefield 2042",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "battlefield-3",
+      "title": "Battlefield 3",
+      "year": 2011,
+      "decade": 2010,
+      "platforms": [
+        "Origin"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 47.67,
+        "display": "47h 40m",
+        "confidence": "tracked",
+        "source": "Origin via GOG Galaxy"
+      },
+      "progress": 38
+    },
+    {
+      "id": "battlefield-4",
+      "title": "Battlefield 4",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "Origin"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 143.87,
+        "display": "143h 52m",
+        "confidence": "tracked",
+        "source": "Origin via GOG Galaxy"
+      },
+      "progress": 19
+    },
+    {
+      "id": "battlefield-6",
+      "title": "Battlefield 6",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Shooter",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "bioshock",
+      "title": "Bioshock",
+      "year": 2007,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "bioshock-2",
+      "title": "Bioshock 2",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "bioshock-infinite",
+      "title": "Bioshock Infinite",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "bloodborne",
+      "title": "Bloodborne",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "bonfire",
+      "title": "Bonfire",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "bylina",
+      "title": "Bylina",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "cairn",
+      "title": "Cairn",
+      "year": 2026,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "call-of-duty",
+      "title": "Call of Duty",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "carrion",
+      "title": "Carrion",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "Xbox"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 0.8,
+        "display": "48m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 43
+    },
+    {
+      "id": "civilization-v",
+      "title": "Civilization V",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Tactics",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "civilization-vi",
+      "title": "Civilization VI",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": "Strategy & Tactics",
+      "status": "played",
+      "hours": {
+        "value": 30.37,
+        "display": "30h 22m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 6
+    },
+    {
+      "id": "command-and-conquer",
+      "title": "Command & Conquer",
+      "year": 1996,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "command-and-conquer-red-alert",
+      "title": "Command & Conquer: Red Alert",
+      "year": 1996,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "command-and-conquer-tiberian-sun",
+      "title": "Command & Conquer: Tiberian Sun",
+      "year": 1999,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "company-of-heroes-3",
+      "title": "Company of Heroes 3",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "conan-exiles",
+      "title": "Conan Exiles",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 54
+    },
+    {
+      "id": "control-resonant",
+      "title": "Control Resonant",
+      "year": 2026,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "playing",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "counter-strike",
+      "title": "Counter-Strike",
+      "year": 2000,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "counter-strike-2",
+      "title": "Counter-Strike 2",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Multiplayer & Live Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "counter-strike-source",
+      "title": "Counter-Strike: Source",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "crimson-desert",
+      "title": "Crimson Desert",
+      "year": 2026,
+      "decade": 2020,
+      "platforms": [],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 260,
+        "display": "260h+",
+        "confidence": "floor",
+        "source": null
+      },
+      "progress": null
+    },
+    {
+      "id": "crusader-kings-ii",
+      "title": "Crusader Kings II",
+      "year": 2012,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Tactics",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "crusader-kings-iii",
+      "title": "Crusader Kings III",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Management",
+      "status": "up-next",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "cult-of-the-lamb",
+      "title": "Cult of the Lamb",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Roguelike & Roguelite",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "cyberpunk-2077",
+      "title": "Cyberpunk 2077",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "GOG",
+        "PS5"
+      ],
+      "genre": "RPG (Traditional & Action)",
+      "status": "played",
+      "hours": {
+        "value": 63.28,
+        "display": "63h 17m",
+        "confidence": "tracked",
+        "source": "GOG Galaxy"
+      },
+      "progress": 39
+    },
+    {
+      "id": "dark-souls",
+      "title": "Dark Souls",
+      "year": 2011,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dark-souls-ii",
+      "title": "Dark Souls II",
+      "year": 2014,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dark-souls-iii",
+      "title": "Dark Souls III",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "days-gone-remastered",
+      "title": "Days Gone Remastered",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dead-cells",
+      "title": "Dead Cells",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "Steam",
+        "PS5"
+      ],
+      "genre": "Roguelike & Roguelite",
+      "status": "played",
+      "hours": {
+        "value": 11.15,
+        "display": "11h 09m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 42
+    },
+    {
+      "id": "dead-space",
+      "title": "Dead Space",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Survival Horror",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "destiny-2-the-final-shape",
+      "title": "Destiny 2: The Final Shape",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "deus-ex",
+      "title": "Deus Ex",
+      "year": 2000,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "deus-ex-invisible-war",
+      "title": "Deus Ex: Invisible War",
+      "year": 2003,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "diablo-iii-reaper-of-souls",
+      "title": "Diablo III: Reaper of Souls",
+      "year": 2014,
+      "decade": 2010,
+      "platforms": [
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 69
+    },
+    {
+      "id": "disco-elysium-the-final-cut",
+      "title": "Disco Elysium: The Final Cut",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Indie & Art",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dishonored",
+      "title": "Dishonored",
+      "year": 2012,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dishonored-2",
+      "title": "Dishonored 2",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "divinity-original-sin",
+      "title": "Divinity: Original Sin",
+      "year": 2014,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "divinity-original-sin-2",
+      "title": "Divinity: Original Sin 2",
+      "year": 2017,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "doom",
+      "title": "Doom",
+      "year": 1993,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "doom-3",
+      "title": "Doom 3",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "doom-eternal",
+      "title": "Doom Eternal",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Shooter",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dota-2",
+      "title": "Dota 2",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": "Multiplayer & Live Service",
+      "status": "played",
+      "hours": {
+        "value": 4190,
+        "display": "4,190h",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": null
+    },
+    {
+      "id": "dragon-age-ii",
+      "title": "Dragon Age II",
+      "year": 2011,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dragon-age-inquisition",
+      "title": "Dragon Age: Inquisition",
+      "year": 2014,
+      "decade": 2010,
+      "platforms": [
+        "Origin"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": {
+        "value": 81.28,
+        "display": "81h 17m",
+        "confidence": "tracked",
+        "source": "Origin via GOG Galaxy"
+      },
+      "progress": 57
+    },
+    {
+      "id": "dragon-age-origins",
+      "title": "Dragon Age: Origins",
+      "year": 2009,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dragon-age-the-veilguard",
+      "title": "Dragon Age: The Veilguard",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dragon-quest-builders-2",
+      "title": "Dragon Quest Builders 2",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "Xbox"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 24.47,
+        "display": "24h 28m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 0
+    },
+    {
+      "id": "dragons-dogma-2",
+      "title": "Dragon's Dogma 2",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "RPG (Traditional & Action)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "duke-nukem-3d",
+      "title": "Duke Nukem 3D",
+      "year": 1996,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dune-awakening",
+      "title": "Dune: Awakening",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "playing",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "dynasty-warriors-origins",
+      "title": "Dynasty Warriors: Origins",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "elden-ring",
+      "title": "Elden Ring",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Action & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "enshrouded",
+      "title": "Enshrouded",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "fall-guys",
+      "title": "Fall Guys",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "fallout",
+      "title": "Fallout",
+      "year": 1997,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "fallout-2",
+      "title": "Fallout 2",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "fallout-4",
+      "title": "Fallout 4",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "PC",
+        "Xbox"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": {
+        "value": 112.6,
+        "display": "112h 36m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 45
+    },
+    {
+      "id": "fallout-tactics-brotherhood-of-steel",
+      "title": "Fallout Tactics: Brotherhood of Steel",
+      "year": 2001,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "fallout-new-vegas",
+      "title": "Fallout: New Vegas",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "far-cry",
+      "title": "Far Cry",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "far-cry-6",
+      "title": "Far Cry 6",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "Ubisoft Connect"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 35.18,
+        "display": "35h 11m",
+        "confidence": "tracked",
+        "source": "Ubisoft Connect via GOG Galaxy"
+      },
+      "progress": null
+    },
+    {
+      "id": "far-changing-tides",
+      "title": "FAR: Changing Tides",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "Xbox"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 3.35,
+        "display": "3h 21m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 43
+    },
+    {
+      "id": "farthest-frontier",
+      "title": "Farthest Frontier",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "final-fantasy-vii-rebirth",
+      "title": "Final Fantasy VII Rebirth",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "final-fantasy-xiv",
+      "title": "Final Fantasy XIV",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "Steam",
+        "PS5"
+      ],
+      "genre": "Multiplayer & Live Service",
+      "status": "played",
+      "hours": {
+        "value": 70.05,
+        "display": "70h 03m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": null
+    },
+    {
+      "id": "final-fantasy-xvi",
+      "title": "Final Fantasy XVI",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "JRPG & Turn-Based RPG",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "foundation",
+      "title": "Foundation",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "frostpunk",
+      "title": "Frostpunk",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "frostpunk-2",
+      "title": "Frostpunk 2",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Strategy & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "ghost-of-tsushima-directors-cut",
+      "title": "Ghost of Tsushima Director's Cut",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "god-forsaken",
+      "title": "God Forsaken",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "god-of-war",
+      "title": "God of War",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PSN",
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": 54
+    },
+    {
+      "id": "god-of-war-ragnarok",
+      "title": "God of War Ragnarök",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "grand-theft-auto-v",
+      "title": "Grand Theft Auto V",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 33,
+        "display": "33h 00m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 10
+    },
+    {
+      "id": "greedfall-2",
+      "title": "GreedFall 2",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "grim-fandango",
+      "title": "Grim Fandango",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Adventure & Point-and-Click",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "grounded",
+      "title": "Grounded",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Survival & Exploration",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "hades",
+      "title": "Hades",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Indie & Art",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "hades-ii",
+      "title": "Hades II",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "half-life",
+      "title": "Half-Life",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "half-life-2",
+      "title": "Half-Life 2",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & FPS",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "halo-infinite",
+      "title": "Halo Infinite",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "Xbox"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 40.42,
+        "display": "40h 25m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 43
+    },
+    {
+      "id": "harvestella",
+      "title": "Harvestella",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "helldivers-2",
+      "title": "Helldivers 2",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Shooter",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "heretic",
+      "title": "Heretic",
+      "year": 1994,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "hitman-world-of-assassination",
+      "title": "Hitman World of Assassination",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Stealth",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "hogwarts-legacy",
+      "title": "Hogwarts Legacy",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "hollow-knight",
+      "title": "Hollow Knight",
+      "year": 2017,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Indie & Art",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "hollow-knight-silksong",
+      "title": "Hollow Knight: Silksong",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Metroidvania",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "horizon-zero-dawn",
+      "title": "Horizon Zero Dawn",
+      "year": 2017,
+      "decade": 2010,
+      "platforms": [
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 49
+    },
+    {
+      "id": "humankind",
+      "title": "Humankind",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "Xbox"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 20.57,
+        "display": "20h 34m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 8
+    },
+    {
+      "id": "jazz-jackrabbit",
+      "title": "Jazz Jackrabbit",
+      "year": 1994,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Platform & Action-Platformer",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "jazz-jackrabbit-2",
+      "title": "Jazz Jackrabbit 2",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Platform & Action-Platformer",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "kingdom-come-deliverance",
+      "title": "Kingdom Come: Deliverance",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "kingdom-come-deliverance-ii",
+      "title": "Kingdom Come: Deliverance II",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "kingdom-two-crowns",
+      "title": "Kingdom Two Crowns",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "kotor-ii-the-sith-lords",
+      "title": "KOTOR II: The Sith Lords",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "kotor-knights-of-the-old-republic",
+      "title": "KOTOR: Knights of the Old Republic",
+      "year": 2003,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "league-of-legends",
+      "title": "League of Legends",
+      "year": 2009,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Multiplayer & Live Service",
+      "status": "played",
+      "hours": {
+        "value": 8000,
+        "display": "~6,000–9,000h",
+        "confidence": "estimate",
+        "source": null
+      },
+      "progress": null
+    },
+    {
+      "id": "left-4-dead-2",
+      "title": "Left 4 Dead 2",
+      "year": 2009,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "lego-worlds",
+      "title": "LEGO Worlds",
+      "year": 2017,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "lemmings",
+      "title": "Lemmings",
+      "year": 1991,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Puzzle & Misc.",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "lost-paws",
+      "title": "Lost Paws",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "mafia-the-old-country",
+      "title": "Mafia: The Old Country",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "marvel-rivals",
+      "title": "Marvel Rivals",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "marvels-midnight-suns",
+      "title": "Marvel's Midnight Suns",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Tactical & Strategy",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "marvels-spider-man-2",
+      "title": "Marvel's Spider-Man 2",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "marvels-spider-man-remastered",
+      "title": "Marvel's Spider-Man Remastered",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "marvels-spider-man-miles-morales",
+      "title": "Marvel's Spider-Man: Miles Morales",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "mass-effect",
+      "title": "Mass Effect",
+      "year": 2007,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "mass-effect-2",
+      "title": "Mass Effect 2",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "mass-effect-3",
+      "title": "Mass Effect 3",
+      "year": 2012,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "mass-effect-legendary-edition",
+      "title": "Mass Effect Legendary Edition",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "max-payne-3",
+      "title": "Max Payne 3",
+      "year": 2012,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "metal-gear-solid-v-the-phantom-pain",
+      "title": "Metal Gear Solid V: The Phantom Pain",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "Steam",
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 106.23,
+        "display": "106h 14m",
+        "confidence": "tracked",
+        "source": "GOG Galaxy"
+      },
+      "progress": 64
+    },
+    {
+      "id": "metro-2033",
+      "title": "Metro 2033",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "microsoft-flight-simulator-5-0",
+      "title": "Microsoft Flight Simulator 5.0",
+      "year": 1993,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Flight Simulation",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "might-and-magic-heroes-vii",
+      "title": "Might & Magic Heroes VII",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "nba-2k16",
+      "title": "NBA 2K16",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 41
+    },
+    {
+      "id": "neva",
+      "title": "Neva",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "neverwinter-nights",
+      "title": "Neverwinter Nights",
+      "year": 2002,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "neverwinter-nights-2",
+      "title": "Neverwinter Nights 2",
+      "year": 2006,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "nier-replicant",
+      "title": "NieR Replicant",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "nier-automata",
+      "title": "NieR: Automata",
+      "year": 2017,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "nine-sols",
+      "title": "Nine Sols",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Metroidvania",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "nioh-3",
+      "title": "Nioh 3",
+      "year": 2026,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "no-mans-sky",
+      "title": "No Man's Sky",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "octopath-traveler-ii",
+      "title": "Octopath Traveler II",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "ori-and-the-will-of-the-wisps",
+      "title": "Ori and the Will of the Wisps",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "Xbox"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 25.07,
+        "display": "25h 04m",
+        "confidence": "tracked",
+        "source": "Xbox via GOG Galaxy"
+      },
+      "progress": 3
+    },
+    {
+      "id": "overcooked-all-you-can-eat",
+      "title": "Overcooked! All You Can Eat",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "oxygen-not-included",
+      "title": "Oxygen Not Included",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 94.33,
+        "display": "94h 20m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 30
+    },
+    {
+      "id": "pathfinder-kingmaker",
+      "title": "Pathfinder: Kingmaker",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 84.28,
+        "display": "84h 17m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 31
+    },
+    {
+      "id": "pathfinder-wrath-of-the-righteous",
+      "title": "Pathfinder: Wrath of the Righteous",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "GOG"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 146.02,
+        "display": "146h 01m",
+        "confidence": "tracked",
+        "source": "GOG Galaxy"
+      },
+      "progress": 9
+    },
+    {
+      "id": "portal",
+      "title": "Portal",
+      "year": 2007,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "portal-2",
+      "title": "Portal 2",
+      "year": 2011,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "FPS & Action",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "prince-of-persia",
+      "title": "Prince of Persia",
+      "year": 1989,
+      "decade": 1980,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Platform & Action-Platformer",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "quake",
+      "title": "Quake",
+      "year": 1996,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "quake-ii",
+      "title": "Quake II",
+      "year": 1997,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "railroad-tycoon",
+      "title": "Railroad Tycoon",
+      "year": 1990,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Tycoon",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "railroad-tycoon-ii",
+      "title": "Railroad Tycoon II",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Tycoon",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "ratchet-and-clank",
+      "title": "Ratchet & Clank",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 40
+    },
+    {
+      "id": "ratchet-and-clank-rift-apart",
+      "title": "Ratchet & Clank: Rift Apart",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Platformer",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "red-dead-redemption-2",
+      "title": "Red Dead Redemption 2",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PC",
+        "PSN"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 37
+    },
+    {
+      "id": "rise-of-the-ronin",
+      "title": "Rise of the Ronin",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "robocop-rogue-city",
+      "title": "RoboCop: Rogue City",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "rocket-league",
+      "title": "Rocket League",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "PSN",
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": 82
+    },
+    {
+      "id": "roller-coaster-tycoon",
+      "title": "Roller Coaster Tycoon",
+      "year": 1999,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "roller-coaster-tycoon-2",
+      "title": "Roller Coaster Tycoon 2",
+      "year": 2002,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "rust",
+      "title": "Rust",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 78.5,
+        "display": "78h 30m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 71
+    },
+    {
+      "id": "sackboy-a-big-adventure",
+      "title": "Sackboy: A Big Adventure",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Platformer",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "schrodingers-cat-burglar",
+      "title": "Schrödinger's Cat Burglar",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "scott-pilgrim-vs-the-world-the-game",
+      "title": "Scott Pilgrim vs. the World: The Game",
+      "year": 2010,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "sekiro-shadows-die-twice",
+      "title": "Sekiro: Shadows Die Twice",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "sid-meiers-civilization-vii",
+      "title": "Sid Meier's Civilization VII",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Tactical & Strategy",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "sifu",
+      "title": "Sifu",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Stealth",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "simcity",
+      "title": "SimCity",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "Origin"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 89.82,
+        "display": "89h 49m",
+        "confidence": "tracked",
+        "source": "Origin via GOG Galaxy"
+      },
+      "progress": null
+    },
+    {
+      "id": "simcity-2000",
+      "title": "SimCity 2000",
+      "year": 1993,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Tycoon",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "simcity-3000",
+      "title": "SimCity 3000",
+      "year": 1999,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "simcity-4",
+      "title": "SimCity 4",
+      "year": 2003,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "skyrim",
+      "title": "Skyrim",
+      "year": 2011,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "slay-the-spire",
+      "title": "Slay the Spire",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Roguelike & Roguelite",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "songs-of-conquest",
+      "title": "Songs of Conquest",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "space-haven",
+      "title": "Space Haven",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 47,
+        "display": "47h 00m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": null
+    },
+    {
+      "id": "spellforce-conquest-of-eo",
+      "title": "SpellForce: Conquest of Eo",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "spiritfarer",
+      "title": "Spiritfarer",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Indie & Art",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "splinter-cell",
+      "title": "Splinter Cell",
+      "year": 2002,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Stealth & Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "splinter-cell-chaos-theory",
+      "title": "Splinter Cell: Chaos Theory",
+      "year": 2005,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Stealth & Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "splinter-cell-pandora-tomorrow",
+      "title": "Splinter Cell: Pandora Tomorrow",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Stealth & Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "star-wars-jedi-fallen-order",
+      "title": "Star Wars Jedi: Fallen Order",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "star-wars-jedi-survivor",
+      "title": "Star Wars Jedi: Survivor",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "star-wars-outlaws",
+      "title": "Star Wars Outlaws",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "star-wars-squadrons",
+      "title": "Star Wars Squadrons",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "starcraft",
+      "title": "StarCraft",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "stardew-valley",
+      "title": "Stardew Valley",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "Indie & Art",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "starfield",
+      "title": "Starfield",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Traditional & Action)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "stellaris",
+      "title": "Stellaris",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "stranded-alien-dawn",
+      "title": "Stranded: Alien Dawn",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "terminator-dark-fate-defiance",
+      "title": "Terminator: Dark Fate — Defiance",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-blood-of-dawnwalker",
+      "title": "The Blood of Dawnwalker",
+      "year": 2026,
+      "decade": 2020,
+      "platforms": [],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-curse-of-monkey-island",
+      "title": "The Curse of Monkey Island",
+      "year": 1997,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Adventure & Point-and-Click",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-elder-scrolls-iii-morrowind",
+      "title": "The Elder Scrolls III: Morrowind",
+      "year": 2002,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-elder-scrolls-iv-oblivion",
+      "title": "The Elder Scrolls IV: Oblivion",
+      "year": 2006,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-expanse-a-telltale-series",
+      "title": "The Expanse: A Telltale Series",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-last-of-us-part-i",
+      "title": "The Last of Us Part I",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-last-of-us-part-ii",
+      "title": "The Last of Us Part II",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [],
+      "genre": null,
+      "status": "up-next",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-necromancers-tale",
+      "title": "The Necromancer's Tale",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-nioh-collection",
+      "title": "The Nioh Collection",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Action RPG & Soulslike",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-outer-worlds",
+      "title": "The Outer Worlds",
+      "year": 2019,
+      "decade": 2010,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "RPG (Traditional & Action)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-outer-worlds-2",
+      "title": "The Outer Worlds 2",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-riftbreaker",
+      "title": "The Riftbreaker",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-secret-of-monkey-island",
+      "title": "The Secret of Monkey Island",
+      "year": 1990,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Adventure & Point-and-Click",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-settlers",
+      "title": "The Settlers",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-sims",
+      "title": "The Sims",
+      "year": 2000,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Tycoon",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-sims-2",
+      "title": "The Sims 2",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-sims-3",
+      "title": "The Sims 3",
+      "year": 2009,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-sims-4",
+      "title": "The Sims 4",
+      "year": 2014,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-witcher",
+      "title": "The Witcher",
+      "year": 2007,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "RPG (Western)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "the-witcher-3-wild-hunt",
+      "title": "The Witcher 3: Wild Hunt",
+      "year": 2015,
+      "decade": 2010,
+      "platforms": [
+        "GOG",
+        "PS5"
+      ],
+      "genre": "RPG (Western Action & Traditional)",
+      "status": "played",
+      "hours": {
+        "value": 34.93,
+        "display": "34h 56m",
+        "confidence": "tracked",
+        "source": "GOG Galaxy"
+      },
+      "progress": 100
+    },
+    {
+      "id": "tie-fighter",
+      "title": "TIE Fighter",
+      "year": 1994,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Flight Simulation",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "timberborn",
+      "title": "Timberborn",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "total-war-rome-ii",
+      "title": "Total War: Rome II",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Tactics",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "unreal",
+      "title": "Unreal",
+      "year": 1998,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "unreal-tournament",
+      "title": "Unreal Tournament",
+      "year": 1999,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Action & Action-Adventure",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "uplift",
+      "title": "Uplift",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "Browser"
+      ],
+      "genre": null,
+      "status": "playing",
+      "hours": null,
+      "progress": null,
+      "builtByMe": true,
+      "href": "https://uplifttowergame.com"
+    },
+    {
+      "id": "v-rising",
+      "title": "V Rising",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "Steam"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": {
+        "value": 32.35,
+        "display": "32h 21m",
+        "confidence": "tracked",
+        "source": "Steam via GOG Galaxy"
+      },
+      "progress": 0
+    },
+    {
+      "id": "valheim",
+      "title": "Valheim",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Survival & Exploration",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "valorant",
+      "title": "Valorant",
+      "year": 2020,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Multiplayer & Live Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "vampire-survivors",
+      "title": "Vampire Survivors",
+      "year": 2022,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Roguelike & Roguelite",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "visions-of-mana",
+      "title": "Visions of Mana",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warcana",
+      "title": "Warcana",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warcraft-ii-tides-of-darkness",
+      "title": "Warcraft II: Tides of Darkness",
+      "year": 1995,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warcraft-iii-reign-of-chaos",
+      "title": "Warcraft III: Reign of Chaos",
+      "year": 2002,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warcraft-orcs-and-humans",
+      "title": "Warcraft: Orcs & Humans",
+      "year": 1994,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Real-Time Strategy (RTS)",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warframe",
+      "title": "Warframe",
+      "year": 2013,
+      "decade": 2010,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Co-op, Party & Live-Service",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warhammer-40000-battlesector",
+      "title": "Warhammer 40,000: Battlesector",
+      "year": 2021,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warhammer-40000-gladius-relics-of-war",
+      "title": "Warhammer 40,000: Gladius — Relics of War",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warhammer-40000-inquisitor-martyr",
+      "title": "Warhammer 40,000: Inquisitor — Martyr",
+      "year": 2018,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "warhammer-40000-rogue-trader",
+      "title": "Warhammer 40,000: Rogue Trader",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "playing",
+      "hours": {
+        "value": 121.37,
+        "display": "121h 22m",
+        "confidence": "tracked",
+        "source": "In-game counter"
+      },
+      "progress": null
+    },
+    {
+      "id": "warhammer-40000-space-marine-2",
+      "title": "Warhammer 40,000: Space Marine 2",
+      "year": 2024,
+      "decade": 2020,
+      "platforms": [
+        "PS5"
+      ],
+      "genre": "Shooter",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "wo-long-fallen-dynasty",
+      "title": "Wo Long: Fallen Dynasty",
+      "year": 2023,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "wolfquest-anniversary-edition",
+      "title": "WolfQuest: Anniversary Edition",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "world-of-warcraft",
+      "title": "World of Warcraft",
+      "year": 2004,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "MMORPG",
+      "status": "played",
+      "hours": {
+        "value": 2500,
+        "display": "~2,000–3,000h",
+        "confidence": "estimate",
+        "source": null
+      },
+      "progress": null
+    },
+    {
+      "id": "worms",
+      "title": "Worms",
+      "year": 1995,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Puzzle & Misc.",
+      "status": "up-next",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "x-wing",
+      "title": "X-Wing",
+      "year": 1990,
+      "decade": 1990,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Flight Simulation",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "xcom-2",
+      "title": "XCOM 2",
+      "year": 2016,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Tactics",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "xcom-enemy-unknown",
+      "title": "XCOM: Enemy Unknown",
+      "year": 2012,
+      "decade": 2010,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Strategy & Tactics",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "zoo-tycoon",
+      "title": "Zoo Tycoon",
+      "year": 2001,
+      "decade": 2000,
+      "platforms": [
+        "PC"
+      ],
+      "genre": "Simulation & Management",
+      "status": "played",
+      "hours": null,
+      "progress": null
+    }
+  ]
+}

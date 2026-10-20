@@ -1,0 +1,1260 @@
+{
+  "generatedAt": "2026-10-20",
+  "links": {
+    "age-of-empires": {
+      "wikidata": "Q220767",
+      "wikipedia": "https://en.wikipedia.org/wiki/Age_of_Empires_(video_game)",
+      "steam": null
+    },
+    "age-of-empires-ii": {
+      "wikidata": "Q34852",
+      "wikipedia": "https://en.wikipedia.org/wiki/Age_of_Empires_II",
+      "steam": null
+    },
+    "age-of-empires-iv": {
+      "wikidata": "Q55154676",
+      "wikipedia": "https://en.wikipedia.org/wiki/Age_of_Empires_IV",
+      "steam": "https://store.steampowered.com/app/1466860/"
+    },
+    "age-of-wonders-4": {
+      "wikidata": "Q118136551",
+      "wikipedia": "https://en.wikipedia.org/wiki/Age_of_Wonders_4",
+      "steam": "https://store.steampowered.com/app/1669000/"
+    },
+    "anno-1800": {
+      "wikidata": "Q52432849",
+      "wikipedia": "https://en.wikipedia.org/wiki/Anno_1800",
+      "steam": "https://store.steampowered.com/app/916440/"
+    },
+    "anno-2205": {
+      "wikidata": "Q20144161",
+      "wikipedia": "https://en.wikipedia.org/wiki/Anno_2205",
+      "steam": "https://store.steampowered.com/app/375910/"
+    },
+    "apex-legends": {
+      "wikidata": "Q61478103",
+      "wikipedia": "https://en.wikipedia.org/wiki/Apex_Legends",
+      "steam": "https://store.steampowered.com/app/1172470/"
+    },
+    "assassins-creed-iv-black-flag": {
+      "wikidata": "Q6052688",
+      "wikipedia": "https://en.wikipedia.org/wiki/Assassin's_Creed_IV:_Black_Flag",
+      "steam": "https://store.steampowered.com/app/242050/"
+    },
+    "assassins-creed-mirage": {
+      "wikidata": "Q113675008",
+      "wikipedia": "https://en.wikipedia.org/wiki/Assassin's_Creed_Mirage",
+      "steam": "https://store.steampowered.com/app/3035570/"
+    },
+    "assassins-creed-origins": {
+      "wikidata": "Q30138024",
+      "wikipedia": "https://en.wikipedia.org/wiki/Assassin's_Creed_Origins",
+      "steam": "https://store.steampowered.com/app/582160/"
+    },
+    "assassins-creed-shadows": {
+      "wikidata": "Q117716202",
+      "wikipedia": "https://en.wikipedia.org/wiki/Assassin's_Creed_Shadows",
+      "steam": "https://store.steampowered.com/app/3159330/"
+    },
+    "assassins-creed-valhalla": {
+      "wikidata": "Q92464687",
+      "wikipedia": "https://en.wikipedia.org/wiki/Assassin's_Creed_Valhalla",
+      "steam": "https://store.steampowered.com/app/2208920/"
+    },
+    "astro-bot": {
+      "wikidata": "Q126199700",
+      "wikipedia": "https://en.wikipedia.org/wiki/Astro_Bot",
+      "steam": null
+    },
+    "atlas-fallen": {
+      "wikidata": "Q113586084",
+      "wikipedia": "https://en.wikipedia.org/wiki/Atlas_Fallen",
+      "steam": "https://store.steampowered.com/app/1230530/"
+    },
+    "avatar-frontiers-of-pandora": {
+      "wikidata": "Q107208649",
+      "wikipedia": "https://en.wikipedia.org/wiki/Avatar:_Frontiers_of_Pandora",
+      "steam": "https://store.steampowered.com/app/2840770/"
+    },
+    "baldurs-gate": {
+      "wikidata": "Q663583",
+      "wikipedia": "https://en.wikipedia.org/wiki/Baldur's_Gate_(video_game)",
+      "steam": null
+    },
+    "baldurs-gate-3": {
+      "wikidata": "Q64441774",
+      "wikipedia": "https://en.wikipedia.org/wiki/Baldur's_Gate_3",
+      "steam": "https://store.steampowered.com/app/1086940/"
+    },
+    "baldurs-gate-enhanced-edition": {
+      "wikidata": "Q5242331",
+      "wikipedia": "https://en.wikipedia.org/wiki/Baldur's_Gate:_Enhanced_Edition",
+      "steam": "https://store.steampowered.com/app/228280/"
+    },
+    "baldurs-gate-ii-enhanced-edition": {
+      "wikidata": "Q16267529",
+      "wikipedia": "https://en.wikipedia.org/wiki/Baldur's_Gate_II:_Enhanced_Edition",
+      "steam": "https://store.steampowered.com/app/257350/"
+    },
+    "baldurs-gate-ii-shadows-of-amn": {
+      "wikidata": "Q804859",
+      "wikipedia": "https://en.wikipedia.org/wiki/Baldur's_Gate_II:_Shadows_of_Amn",
+      "steam": null
+    },
+    "banishers-ghosts-of-new-eden": {
+      "wikidata": "Q115641841",
+      "wikipedia": "https://en.wikipedia.org/wiki/Banishers:_Ghosts_of_New_Eden",
+      "steam": "https://store.steampowered.com/app/1493640/"
+    },
+    "battlefield-1942": {
+      "wikidata": "Q791439",
+      "wikipedia": "https://en.wikipedia.org/wiki/Battlefield_1942",
+      "steam": null
+    },
+    "battlefield-2": {
+      "wikidata": "Q206653",
+      "wikipedia": "https://en.wikipedia.org/wiki/Battlefield_2",
+      "steam": null
+    },
+    "battlefield-2042": {
+      "wikidata": "Q106686950",
+      "wikipedia": "https://en.wikipedia.org/wiki/Battlefield_2042",
+      "steam": "https://store.steampowered.com/app/1517290/"
+    },
+    "battlefield-3": {
+      "wikidata": "Q791454",
+      "wikipedia": "https://en.wikipedia.org/wiki/Battlefield_3",
+      "steam": "https://store.steampowered.com/app/1238820/"
+    },
+    "battlefield-4": {
+      "wikidata": "Q2618557",
+      "wikipedia": "https://en.wikipedia.org/wiki/Battlefield_4",
+      "steam": "https://store.steampowered.com/app/1238860/"
+    },
+    "battlefield-6": {
+      "wikidata": "Q132178505",
+      "wikipedia": "https://en.wikipedia.org/wiki/Battlefield_6",
+      "steam": "https://store.steampowered.com/app/2807960/"
+    },
+    "bioshock": {
+      "wikidata": "Q57270",
+      "wikipedia": "https://en.wikipedia.org/wiki/BioShock",
+      "steam": "https://store.steampowered.com/app/7670/"
+    },
+    "bioshock-2": {
+      "wikidata": "Q302839",
+      "wikipedia": "https://en.wikipedia.org/wiki/BioShock_2",
+      "steam": "https://store.steampowered.com/app/8850/"
+    },
+    "bioshock-infinite": {
+      "wikidata": "Q2074746",
+      "wikipedia": "https://en.wikipedia.org/wiki/BioShock_Infinite",
+      "steam": "https://store.steampowered.com/app/8870/"
+    },
+    "bloodborne": {
+      "wikidata": "Q17154554",
+      "wikipedia": "https://en.wikipedia.org/wiki/Bloodborne",
+      "steam": null
+    },
+    "bylina": {
+      "wikidata": "Q130481022",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/2461440/"
+    },
+    "cairn": {
+      "wikidata": "Q126414600",
+      "wikipedia": "https://en.wikipedia.org/wiki/Cairn_(video_game)",
+      "steam": "https://store.steampowered.com/app/1588550/"
+    },
+    "carrion": {
+      "wikidata": "Q96418019",
+      "wikipedia": "https://en.wikipedia.org/wiki/Carrion_(video_game)",
+      "steam": "https://store.steampowered.com/app/953490/"
+    },
+    "civilization-v": {
+      "wikidata": "Q2385",
+      "wikipedia": "https://en.wikipedia.org/wiki/Civilization_V",
+      "steam": "https://store.steampowered.com/app/8930/"
+    },
+    "civilization-vi": {
+      "wikidata": "Q24050047",
+      "wikipedia": "https://en.wikipedia.org/wiki/Civilization_VI",
+      "steam": "https://store.steampowered.com/app/289070/"
+    },
+    "command-and-conquer": {
+      "wikidata": "Q868523",
+      "wikipedia": "https://en.wikipedia.org/wiki/Command_%26_Conquer_(1995_video_game)",
+      "steam": "https://store.steampowered.com/app/2229830/"
+    },
+    "command-and-conquer-red-alert": {
+      "wikidata": "Q388225",
+      "wikipedia": "https://en.wikipedia.org/wiki/Command_%26_Conquer:_Red_Alert",
+      "steam": "https://store.steampowered.com/app/2229840/"
+    },
+    "command-and-conquer-tiberian-sun": {
+      "wikidata": "Q754335",
+      "wikipedia": "https://en.wikipedia.org/wiki/Command_%26_Conquer:_Tiberian_Sun",
+      "steam": null
+    },
+    "company-of-heroes-3": {
+      "wikidata": "Q107518015",
+      "wikipedia": "https://en.wikipedia.org/wiki/Company_of_Heroes_3",
+      "steam": "https://store.steampowered.com/app/1677280/"
+    },
+    "conan-exiles": {
+      "wikidata": "Q28753362",
+      "wikipedia": "https://en.wikipedia.org/wiki/Conan_Exiles",
+      "steam": "https://store.steampowered.com/app/440900/"
+    },
+    "control-resonant": {
+      "wikidata": "Q116947317",
+      "wikipedia": "https://en.wikipedia.org/wiki/Control_Resonant",
+      "steam": "https://store.steampowered.com/app/3669870/"
+    },
+    "counter-strike": {
+      "wikidata": "Q163628",
+      "wikipedia": "https://en.wikipedia.org/wiki/Counter-Strike_(video_game)",
+      "steam": "https://store.steampowered.com/app/10/"
+    },
+    "counter-strike-2": {
+      "wikidata": "Q111165107",
+      "wikipedia": "https://en.wikipedia.org/wiki/Counter-Strike_2",
+      "steam": "https://store.steampowered.com/app/730/"
+    },
+    "counter-strike-source": {
+      "wikidata": "Q473673",
+      "wikipedia": "https://en.wikipedia.org/wiki/Counter-Strike:_Source",
+      "steam": "https://store.steampowered.com/app/240/"
+    },
+    "crimson-desert": {
+      "wikidata": "Q85979990",
+      "wikipedia": "https://en.wikipedia.org/wiki/Crimson_Desert",
+      "steam": "https://store.steampowered.com/app/3321460/"
+    },
+    "crusader-kings-ii": {
+      "wikidata": "Q677869",
+      "wikipedia": "https://en.wikipedia.org/wiki/Crusader_Kings_II",
+      "steam": "https://store.steampowered.com/app/203770/"
+    },
+    "crusader-kings-iii": {
+      "wikidata": "Q71701894",
+      "wikipedia": "https://en.wikipedia.org/wiki/Crusader_Kings_III",
+      "steam": "https://store.steampowered.com/app/1158310/"
+    },
+    "cult-of-the-lamb": {
+      "wikidata": "Q108273566",
+      "wikipedia": "https://en.wikipedia.org/wiki/Cult_of_the_Lamb",
+      "steam": "https://store.steampowered.com/app/1313140/"
+    },
+    "cyberpunk-2077": {
+      "wikidata": "Q3182559",
+      "wikipedia": "https://en.wikipedia.org/wiki/Cyberpunk_2077",
+      "steam": "https://store.steampowered.com/app/1091500/"
+    },
+    "dark-souls": {
+      "wikidata": "Q1166232",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dark_Souls_(video_game)",
+      "steam": "https://store.steampowered.com/app/211420/"
+    },
+    "dark-souls-ii": {
+      "wikidata": "Q3702740",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dark_Souls_II",
+      "steam": "https://store.steampowered.com/app/236430/"
+    },
+    "dark-souls-iii": {
+      "wikidata": "Q20112508",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dark_Souls_III",
+      "steam": "https://store.steampowered.com/app/374320/"
+    },
+    "days-gone-remastered": {
+      "wikidata": "Q24576564",
+      "wikipedia": "https://en.wikipedia.org/wiki/Days_Gone",
+      "steam": null
+    },
+    "dead-cells": {
+      "wikidata": "Q30639210",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dead_Cells",
+      "steam": "https://store.steampowered.com/app/588650/"
+    },
+    "dead-space": {
+      "wikidata": "Q107616212",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dead_Space_(2023_video_game)",
+      "steam": "https://store.steampowered.com/app/1693980/"
+    },
+    "destiny-2-the-final-shape": {
+      "wikidata": "Q118645681",
+      "wikipedia": "https://en.wikipedia.org/wiki/Destiny_2:_The_Final_Shape",
+      "steam": "https://store.steampowered.com/app/2336880/"
+    },
+    "deus-ex": {
+      "wikidata": "Q644793",
+      "wikipedia": "https://en.wikipedia.org/wiki/Deus_Ex_(video_game)",
+      "steam": "https://store.steampowered.com/app/6910/"
+    },
+    "deus-ex-invisible-war": {
+      "wikidata": "Q252198",
+      "wikipedia": "https://en.wikipedia.org/wiki/Deus_Ex:_Invisible_War",
+      "steam": "https://store.steampowered.com/app/6920/"
+    },
+    "diablo-iii-reaper-of-souls": {
+      "wikidata": "Q14917711",
+      "wikipedia": "https://en.wikipedia.org/wiki/Diablo_III:_Reaper_of_Souls",
+      "steam": null
+    },
+    "disco-elysium-the-final-cut": {
+      "wikidata": "Q71693825",
+      "wikipedia": "https://en.wikipedia.org/wiki/Disco_Elysium",
+      "steam": null
+    },
+    "dishonored": {
+      "wikidata": "Q323264",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dishonored",
+      "steam": "https://store.steampowered.com/app/205100/"
+    },
+    "dishonored-2": {
+      "wikidata": "Q20095751",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dishonored_2",
+      "steam": "https://store.steampowered.com/app/403640/"
+    },
+    "divinity-original-sin": {
+      "wikidata": "Q5284389",
+      "wikipedia": "https://en.wikipedia.org/wiki/Divinity:_Original_Sin",
+      "steam": "https://store.steampowered.com/app/230230/"
+    },
+    "divinity-original-sin-2": {
+      "wikidata": "Q20899735",
+      "wikipedia": "https://en.wikipedia.org/wiki/Divinity:_Original_Sin_II",
+      "steam": "https://store.steampowered.com/app/435150/"
+    },
+    "doom": {
+      "wikidata": "Q189784",
+      "wikipedia": "https://en.wikipedia.org/wiki/Doom_(1993_video_game)",
+      "steam": "https://store.steampowered.com/app/2280/"
+    },
+    "doom-3": {
+      "wikidata": "Q203310",
+      "wikipedia": "https://en.wikipedia.org/wiki/Doom_3",
+      "steam": "https://store.steampowered.com/app/9050/"
+    },
+    "doom-eternal": {
+      "wikidata": "Q55662649",
+      "wikipedia": "https://en.wikipedia.org/wiki/Doom_Eternal",
+      "steam": "https://store.steampowered.com/app/782330/"
+    },
+    "dota-2": {
+      "wikidata": "Q771541",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dota_2",
+      "steam": "https://store.steampowered.com/app/570/"
+    },
+    "dragon-age-ii": {
+      "wikidata": "Q1064927",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dragon_Age_II",
+      "steam": "https://store.steampowered.com/app/1238040/"
+    },
+    "dragon-age-inquisition": {
+      "wikidata": "Q4037583",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dragon_Age:_Inquisition",
+      "steam": "https://store.steampowered.com/app/1222690/"
+    },
+    "dragon-age-origins": {
+      "wikidata": "Q735926",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dragon_Age:_Origins",
+      "steam": "https://store.steampowered.com/app/47810/"
+    },
+    "dragon-age-the-veilguard": {
+      "wikidata": "Q104651901",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dragon_Age:_The_Veilguard",
+      "steam": "https://store.steampowered.com/app/1845910/"
+    },
+    "dragon-quest-builders-2": {
+      "wikidata": "Q52161838",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dragon_Quest_Builders_2",
+      "steam": "https://store.steampowered.com/app/1072420/"
+    },
+    "dragons-dogma-2": {
+      "wikidata": "Q112609559",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dragon's_Dogma_2",
+      "steam": "https://store.steampowered.com/app/2054970/"
+    },
+    "duke-nukem-3d": {
+      "wikidata": "Q728061",
+      "wikipedia": "https://en.wikipedia.org/wiki/Duke_Nukem_3D",
+      "steam": "https://store.steampowered.com/app/225140/"
+    },
+    "dune-awakening": {
+      "wikidata": "Q113585920",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dune:_Awakening",
+      "steam": "https://store.steampowered.com/app/1172710/"
+    },
+    "dynasty-warriors-origins": {
+      "wikidata": "Q126199525",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dynasty_Warriors:_Origins",
+      "steam": "https://store.steampowered.com/app/2384580/"
+    },
+    "elden-ring": {
+      "wikidata": "Q64826862",
+      "wikipedia": "https://en.wikipedia.org/wiki/Elden_Ring",
+      "steam": "https://store.steampowered.com/app/1245620/"
+    },
+    "enshrouded": {
+      "wikidata": "Q122914994",
+      "wikipedia": "https://en.wikipedia.org/wiki/Enshrouded",
+      "steam": "https://store.steampowered.com/app/1203620/"
+    },
+    "fall-guys": {
+      "wikidata": "Q85760410",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fall_Guys",
+      "steam": "https://store.steampowered.com/app/1097150/"
+    },
+    "fallout": {
+      "wikidata": "Q60102",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fallout_(video_game)",
+      "steam": "https://store.steampowered.com/app/38400/"
+    },
+    "fallout-2": {
+      "wikidata": "Q910938",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fallout_2",
+      "steam": "https://store.steampowered.com/app/38410/"
+    },
+    "fallout-4": {
+      "wikidata": "Q10493813",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fallout_4",
+      "steam": "https://store.steampowered.com/app/377160/"
+    },
+    "fallout-new-vegas": {
+      "wikidata": "Q753749",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fallout:_New_Vegas",
+      "steam": "https://store.steampowered.com/app/22380/"
+    },
+    "fallout-tactics-brotherhood-of-steel": {
+      "wikidata": "Q995874",
+      "wikipedia": "https://en.wikipedia.org/wiki/Fallout_Tactics:_Brotherhood_of_Steel",
+      "steam": "https://store.steampowered.com/app/38420/"
+    },
+    "far-changing-tides": {
+      "wikidata": "Q108295044",
+      "wikipedia": "https://en.wikipedia.org/wiki/Far:_Changing_Tides",
+      "steam": "https://store.steampowered.com/app/1570010/"
+    },
+    "far-cry": {
+      "wikidata": "Q337865",
+      "wikipedia": "https://en.wikipedia.org/wiki/Far_Cry_(video_game)",
+      "steam": "https://store.steampowered.com/app/13520/"
+    },
+    "far-cry-6": {
+      "wikidata": "Q97120062",
+      "wikipedia": "https://en.wikipedia.org/wiki/Far_Cry_6",
+      "steam": "https://store.steampowered.com/app/2369390/"
+    },
+    "farthest-frontier": {
+      "wikidata": "Q113441369",
+      "wikipedia": "https://en.wikipedia.org/wiki/Farthest_Frontier",
+      "steam": "https://store.steampowered.com/app/1044720/"
+    },
+    "final-fantasy-vii-rebirth": {
+      "wikidata": "Q112617712",
+      "wikipedia": "https://en.wikipedia.org/wiki/Final_Fantasy_VII_Rebirth",
+      "steam": "https://store.steampowered.com/app/2909400/"
+    },
+    "final-fantasy-xiv": {
+      "wikidata": "Q868389",
+      "wikipedia": "https://en.wikipedia.org/wiki/Final_Fantasy_XIV_(2010_video_game)",
+      "steam": null
+    },
+    "final-fantasy-xvi": {
+      "wikidata": "Q99397792",
+      "wikipedia": "https://en.wikipedia.org/wiki/Final_Fantasy_XVI",
+      "steam": "https://store.steampowered.com/app/2515020/"
+    },
+    "foundation": {
+      "wikidata": "Q112966923",
+      "wikipedia": "https://en.wikipedia.org/wiki/Foundation_(video_game)",
+      "steam": "https://store.steampowered.com/app/690830/"
+    },
+    "frostpunk": {
+      "wikidata": "Q50356175",
+      "wikipedia": "https://en.wikipedia.org/wiki/Frostpunk",
+      "steam": "https://store.steampowered.com/app/323190/"
+    },
+    "frostpunk-2": {
+      "wikidata": "Q109906111",
+      "wikipedia": "https://en.wikipedia.org/wiki/Frostpunk_2",
+      "steam": "https://store.steampowered.com/app/1601580/"
+    },
+    "ghost-of-tsushima-directors-cut": {
+      "wikidata": "Q42564798",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ghost_of_Tsushima",
+      "steam": null
+    },
+    "god-forsaken": {
+      "wikidata": "Q135072639",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/3419290/"
+    },
+    "god-of-war": {
+      "wikidata": "Q18345138",
+      "wikipedia": "https://en.wikipedia.org/wiki/God_of_War_(2018_video_game)",
+      "steam": "https://store.steampowered.com/app/1593500/"
+    },
+    "god-of-war-ragnarok": {
+      "wikidata": "Q99397916",
+      "wikipedia": "https://en.wikipedia.org/wiki/God_of_War_Ragnar%C3%B6k",
+      "steam": "https://store.steampowered.com/app/2322010/"
+    },
+    "grand-theft-auto-v": {
+      "wikidata": "Q17452",
+      "wikipedia": "https://en.wikipedia.org/wiki/Grand_Theft_Auto_V",
+      "steam": "https://store.steampowered.com/app/271590/"
+    },
+    "greedfall-2": {
+      "wikidata": "Q114729594",
+      "wikipedia": "https://en.wikipedia.org/wiki/GreedFall:_The_Dying_World",
+      "steam": "https://store.steampowered.com/app/1997660/"
+    },
+    "grim-fandango": {
+      "wikidata": "Q592507",
+      "wikipedia": "https://en.wikipedia.org/wiki/Grim_Fandango",
+      "steam": null
+    },
+    "grounded": {
+      "wikidata": "Q96418509",
+      "wikipedia": "https://en.wikipedia.org/wiki/Grounded_(video_game)",
+      "steam": "https://store.steampowered.com/app/962130/"
+    },
+    "hades": {
+      "wikidata": "Q59756366",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hades_(video_game)",
+      "steam": "https://store.steampowered.com/app/1145360/"
+    },
+    "hades-ii": {
+      "wikidata": "Q115641620",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hades_II",
+      "steam": "https://store.steampowered.com/app/1145350/"
+    },
+    "half-life": {
+      "wikidata": "Q279744",
+      "wikipedia": "https://en.wikipedia.org/wiki/Half-Life_(video_game)",
+      "steam": "https://store.steampowered.com/app/70/"
+    },
+    "half-life-2": {
+      "wikidata": "Q193581",
+      "wikipedia": "https://en.wikipedia.org/wiki/Half-Life_2",
+      "steam": "https://store.steampowered.com/app/220/"
+    },
+    "halo-infinite": {
+      "wikidata": "Q54913666",
+      "wikipedia": "https://en.wikipedia.org/wiki/Halo_Infinite",
+      "steam": "https://store.steampowered.com/app/1240440/"
+    },
+    "harvestella": {
+      "wikidata": "Q112787088",
+      "wikipedia": "https://en.wikipedia.org/wiki/Harvestella",
+      "steam": "https://store.steampowered.com/app/1816300/"
+    },
+    "helldivers-2": {
+      "wikidata": "Q118645527",
+      "wikipedia": "https://en.wikipedia.org/wiki/Helldivers_2",
+      "steam": "https://store.steampowered.com/app/553850/"
+    },
+    "heretic": {
+      "wikidata": "Q936016",
+      "wikipedia": "https://en.wikipedia.org/wiki/Heretic_(video_game)",
+      "steam": null
+    },
+    "hitman-world-of-assassination": {
+      "wikidata": "Q116680138",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hitman:_World_of_Assassination",
+      "steam": "https://store.steampowered.com/app/1659040/"
+    },
+    "hogwarts-legacy": {
+      "wikidata": "Q99397854",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hogwarts_Legacy",
+      "steam": "https://store.steampowered.com/app/990080/"
+    },
+    "hollow-knight": {
+      "wikidata": "Q29300592",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hollow_Knight",
+      "steam": "https://store.steampowered.com/app/367520/"
+    },
+    "hollow-knight-silksong": {
+      "wikidata": "Q63294487",
+      "wikipedia": "https://en.wikipedia.org/wiki/Hollow_Knight:_Silksong",
+      "steam": "https://store.steampowered.com/app/1030300/"
+    },
+    "horizon-zero-dawn": {
+      "wikidata": "Q20155528",
+      "wikipedia": "https://en.wikipedia.org/wiki/Horizon_Zero_Dawn",
+      "steam": null
+    },
+    "humankind": {
+      "wikidata": "Q74705108",
+      "wikipedia": "https://en.wikipedia.org/wiki/Humankind_(video_game)",
+      "steam": "https://store.steampowered.com/app/1124300/"
+    },
+    "jazz-jackrabbit": {
+      "wikidata": "Q1366813",
+      "wikipedia": "https://en.wikipedia.org/wiki/Jazz_Jackrabbit_(1994_video_game)",
+      "steam": null
+    },
+    "jazz-jackrabbit-2": {
+      "wikidata": "Q2002026",
+      "wikipedia": "https://en.wikipedia.org/wiki/Jazz_Jackrabbit_2",
+      "steam": null
+    },
+    "kingdom-come-deliverance": {
+      "wikidata": "Q15408545",
+      "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_Come:_Deliverance",
+      "steam": "https://store.steampowered.com/app/379430/"
+    },
+    "kingdom-come-deliverance-ii": {
+      "wikidata": "Q125430996",
+      "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_Come:_Deliverance_II",
+      "steam": "https://store.steampowered.com/app/1771300/"
+    },
+    "kingdom-two-crowns": {
+      "wikidata": "Q111045952",
+      "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_Two_Crowns",
+      "steam": "https://store.steampowered.com/app/701160/"
+    },
+    "kotor-ii-the-sith-lords": {
+      "wikidata": "Q74669",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars_Knights_of_the_Old_Republic_II:_The_Sith_Lords",
+      "steam": "https://store.steampowered.com/app/208580/"
+    },
+    "kotor-knights-of-the-old-republic": {
+      "wikidata": "Q725902",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars:_Knights_of_the_Old_Republic_(video_game)",
+      "steam": "https://store.steampowered.com/app/32370/"
+    },
+    "league-of-legends": {
+      "wikidata": "Q223341",
+      "wikipedia": "https://en.wikipedia.org/wiki/League_of_Legends",
+      "steam": null
+    },
+    "left-4-dead-2": {
+      "wikidata": "Q472909",
+      "wikipedia": "https://en.wikipedia.org/wiki/Left_4_Dead_2",
+      "steam": "https://store.steampowered.com/app/550/"
+    },
+    "lego-worlds": {
+      "wikidata": "Q20024451",
+      "wikipedia": "https://en.wikipedia.org/wiki/Lego_Worlds",
+      "steam": "https://store.steampowered.com/app/332310/"
+    },
+    "lemmings": {
+      "wikidata": "Q864177",
+      "wikipedia": "https://en.wikipedia.org/wiki/Lemmings_(video_game)",
+      "steam": null
+    },
+    "lost-paws": {
+      "wikidata": "Q123404341",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/2027590/"
+    },
+    "mafia-the-old-country": {
+      "wikidata": "Q111272660",
+      "wikipedia": "https://en.wikipedia.org/wiki/Mafia:_The_Old_Country",
+      "steam": "https://store.steampowered.com/app/1941540/"
+    },
+    "marvel-rivals": {
+      "wikidata": "Q125175413",
+      "wikipedia": "https://en.wikipedia.org/wiki/Marvel_Rivals",
+      "steam": "https://store.steampowered.com/app/2767030/"
+    },
+    "marvels-midnight-suns": {
+      "wikidata": "Q108273563",
+      "wikipedia": "https://en.wikipedia.org/wiki/Marvel's_Midnight_Suns",
+      "steam": "https://store.steampowered.com/app/368260/"
+    },
+    "marvels-spider-man-2": {
+      "wikidata": "Q108479502",
+      "wikipedia": "https://en.wikipedia.org/wiki/Marvel's_Spider-Man_2",
+      "steam": "https://store.steampowered.com/app/2651280/"
+    },
+    "marvels-spider-man-miles-morales": {
+      "wikidata": "Q96216165",
+      "wikipedia": "https://en.wikipedia.org/wiki/Marvel's_Spider-Man:_Miles_Morales",
+      "steam": "https://store.steampowered.com/app/1817190/"
+    },
+    "marvels-spider-man-remastered": {
+      "wikidata": "Q100440421",
+      "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man:_Remastered",
+      "steam": "https://store.steampowered.com/app/1817070/"
+    },
+    "mass-effect": {
+      "wikidata": "Q275960",
+      "wikipedia": "https://en.wikipedia.org/wiki/Mass_Effect_(video_game)",
+      "steam": "https://store.steampowered.com/app/17460/"
+    },
+    "mass-effect-2": {
+      "wikidata": "Q725057",
+      "wikipedia": "https://en.wikipedia.org/wiki/Mass_Effect_2",
+      "steam": "https://store.steampowered.com/app/24980/"
+    },
+    "mass-effect-3": {
+      "wikidata": "Q753511",
+      "wikipedia": "https://en.wikipedia.org/wiki/Mass_Effect_3",
+      "steam": "https://store.steampowered.com/app/1238020/"
+    },
+    "mass-effect-legendary-edition": {
+      "wikidata": "Q101246186",
+      "wikipedia": "https://en.wikipedia.org/wiki/Mass_Effect_Legendary_Edition",
+      "steam": "https://store.steampowered.com/app/1328670/"
+    },
+    "max-payne-3": {
+      "wikidata": "Q736040",
+      "wikipedia": "https://en.wikipedia.org/wiki/Max_Payne_3",
+      "steam": "https://store.steampowered.com/app/204100/"
+    },
+    "metal-gear-solid-v-the-phantom-pain": {
+      "wikidata": "Q717600",
+      "wikipedia": "https://en.wikipedia.org/wiki/Metal_Gear_Solid_V:_The_Phantom_Pain",
+      "steam": "https://store.steampowered.com/app/287700/"
+    },
+    "metro-2033": {
+      "wikidata": "Q162751",
+      "wikipedia": "https://en.wikipedia.org/wiki/Metro_2033_(video_game)",
+      "steam": "https://store.steampowered.com/app/43110/"
+    },
+    "microsoft-flight-simulator-5-0": {
+      "wikidata": "Q108899515",
+      "wikipedia": "https://en.wikipedia.org/wiki/Microsoft_Flight_Simulator_5.0",
+      "steam": null
+    },
+    "might-and-magic-heroes-vii": {
+      "wikidata": "Q17511795",
+      "wikipedia": "https://en.wikipedia.org/wiki/Might_%26_Magic_Heroes_VII",
+      "steam": "https://store.steampowered.com/app/321960/"
+    },
+    "nba-2k16": {
+      "wikidata": "Q20049240",
+      "wikipedia": "https://en.wikipedia.org/wiki/NBA_2K16",
+      "steam": "https://store.steampowered.com/app/370240/"
+    },
+    "neva": {
+      "wikidata": "Q118645507",
+      "wikipedia": "https://en.wikipedia.org/wiki/Neva_(video_game)",
+      "steam": "https://store.steampowered.com/app/2420660/"
+    },
+    "neverwinter-nights": {
+      "wikidata": "Q549217",
+      "wikipedia": "https://en.wikipedia.org/wiki/Neverwinter_Nights_(2002_video_game)",
+      "steam": null
+    },
+    "neverwinter-nights-2": {
+      "wikidata": "Q629577",
+      "wikipedia": "https://en.wikipedia.org/wiki/Neverwinter_Nights_2",
+      "steam": "https://store.steampowered.com/app/2760/"
+    },
+    "nier-automata": {
+      "wikidata": "Q21078985",
+      "wikipedia": "https://en.wikipedia.org/wiki/Nier:_Automata",
+      "steam": "https://store.steampowered.com/app/524220/"
+    },
+    "nier-replicant": {
+      "wikidata": "Q106645039",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/1113560/"
+    },
+    "nine-sols": {
+      "wikidata": "Q112662958",
+      "wikipedia": "https://en.wikipedia.org/wiki/Nine_Sols",
+      "steam": "https://store.steampowered.com/app/1809540/"
+    },
+    "nioh-3": {
+      "wikidata": "Q134707677",
+      "wikipedia": "https://en.wikipedia.org/wiki/Nioh_3",
+      "steam": "https://store.steampowered.com/app/3681010/"
+    },
+    "no-mans-sky": {
+      "wikidata": "Q15297043",
+      "wikipedia": "https://en.wikipedia.org/wiki/No_Man's_Sky",
+      "steam": "https://store.steampowered.com/app/275850/"
+    },
+    "octopath-traveler-ii": {
+      "wikidata": "Q113957001",
+      "wikipedia": "https://en.wikipedia.org/wiki/Octopath_Traveler_II",
+      "steam": "https://store.steampowered.com/app/1971650/"
+    },
+    "ori-and-the-will-of-the-wisps": {
+      "wikidata": "Q30325568",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ori_and_the_Will_of_the_Wisps",
+      "steam": "https://store.steampowered.com/app/1057090/"
+    },
+    "overcooked-all-you-can-eat": {
+      "wikidata": "Q107421398",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/1243830/"
+    },
+    "oxygen-not-included": {
+      "wikidata": "Q28232693",
+      "wikipedia": "https://en.wikipedia.org/wiki/Oxygen_Not_Included",
+      "steam": "https://store.steampowered.com/app/457140/"
+    },
+    "pathfinder-kingmaker": {
+      "wikidata": "Q39059386",
+      "wikipedia": "https://en.wikipedia.org/wiki/Pathfinder:_Kingmaker",
+      "steam": "https://store.steampowered.com/app/640820/"
+    },
+    "pathfinder-wrath-of-the-righteous": {
+      "wikidata": "Q106795987",
+      "wikipedia": "https://en.wikipedia.org/wiki/Pathfinder:_Wrath_of_the_Righteous",
+      "steam": "https://store.steampowered.com/app/1184370/"
+    },
+    "portal": {
+      "wikidata": "Q274897",
+      "wikipedia": "https://en.wikipedia.org/wiki/Portal_(video_game)",
+      "steam": "https://store.steampowered.com/app/400/"
+    },
+    "portal-2": {
+      "wikidata": "Q279446",
+      "wikipedia": "https://en.wikipedia.org/wiki/Portal_2",
+      "steam": "https://store.steampowered.com/app/620/"
+    },
+    "prince-of-persia": {
+      "wikidata": "Q4047361",
+      "wikipedia": "https://en.wikipedia.org/wiki/Prince_of_Persia_(1989_video_game)",
+      "steam": null
+    },
+    "quake": {
+      "wikidata": "Q217423",
+      "wikipedia": "https://en.wikipedia.org/wiki/Quake_(video_game)",
+      "steam": "https://store.steampowered.com/app/2310/"
+    },
+    "quake-ii": {
+      "wikidata": "Q737103",
+      "wikipedia": "https://en.wikipedia.org/wiki/Quake_II",
+      "steam": "https://store.steampowered.com/app/2320/"
+    },
+    "railroad-tycoon": {
+      "wikidata": "Q5400123",
+      "wikipedia": "https://en.wikipedia.org/wiki/Railroad_Tycoon_(video_game)",
+      "steam": null
+    },
+    "railroad-tycoon-ii": {
+      "wikidata": "Q3179631",
+      "wikipedia": "https://en.wikipedia.org/wiki/Railroad_Tycoon_II",
+      "steam": "https://store.steampowered.com/app/7620/"
+    },
+    "ratchet-and-clank": {
+      "wikidata": "Q17183048",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ratchet_%26_Clank_(2016_video_game)",
+      "steam": null
+    },
+    "ratchet-and-clank-rift-apart": {
+      "wikidata": "Q96217480",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ratchet_%26_Clank:_Rift_Apart",
+      "steam": "https://store.steampowered.com/app/1895880/"
+    },
+    "red-dead-redemption-2": {
+      "wikidata": "Q27438121",
+      "wikipedia": "https://en.wikipedia.org/wiki/Red_Dead_Redemption_2",
+      "steam": "https://store.steampowered.com/app/1174180/"
+    },
+    "rise-of-the-ronin": {
+      "wikidata": "Q113961028",
+      "wikipedia": "https://en.wikipedia.org/wiki/Rise_of_the_R%C5%8Dnin",
+      "steam": "https://store.steampowered.com/app/1340990/"
+    },
+    "robocop-rogue-city": {
+      "wikidata": "Q107510346",
+      "wikipedia": "https://en.wikipedia.org/wiki/RoboCop:_Rogue_City",
+      "steam": "https://store.steampowered.com/app/1681430/"
+    },
+    "rocket-league": {
+      "wikidata": "Q20031743",
+      "wikipedia": "https://en.wikipedia.org/wiki/Rocket_League",
+      "steam": "https://store.steampowered.com/app/252950/"
+    },
+    "roller-coaster-tycoon": {
+      "wikidata": "Q5800778",
+      "wikipedia": "https://en.wikipedia.org/wiki/RollerCoaster_Tycoon_(video_game)",
+      "steam": "https://store.steampowered.com/app/285310/"
+    },
+    "roller-coaster-tycoon-2": {
+      "wikidata": "Q928874",
+      "wikipedia": "https://en.wikipedia.org/wiki/RollerCoaster_Tycoon_2",
+      "steam": "https://store.steampowered.com/app/285330/"
+    },
+    "rust": {
+      "wikidata": "Q15304961",
+      "wikipedia": "https://en.wikipedia.org/wiki/Rust_(video_game)",
+      "steam": "https://store.steampowered.com/app/252490/"
+    },
+    "sackboy-a-big-adventure": {
+      "wikidata": "Q96215907",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sackboy:_A_Big_Adventure",
+      "steam": "https://store.steampowered.com/app/1599660/"
+    },
+    "schrodingers-cat-burglar": {
+      "wikidata": "Q135019650",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/2111550/"
+    },
+    "scott-pilgrim-vs-the-world-the-game": {
+      "wikidata": "Q2080333",
+      "wikipedia": "https://en.wikipedia.org/wiki/Scott_Pilgrim_vs._the_World:_The_Game",
+      "steam": "https://store.steampowered.com/app/2215260/"
+    },
+    "sekiro-shadows-die-twice": {
+      "wikidata": "Q54906424",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sekiro:_Shadows_Die_Twice",
+      "steam": "https://store.steampowered.com/app/814380/"
+    },
+    "sid-meiers-civilization-vii": {
+      "wikidata": "Q126405953",
+      "wikipedia": "https://en.wikipedia.org/wiki/Civilization_VII",
+      "steam": "https://store.steampowered.com/app/1295660/"
+    },
+    "sifu": {
+      "wikidata": "Q108650420",
+      "wikipedia": "https://en.wikipedia.org/wiki/Sifu_(video_game)",
+      "steam": "https://store.steampowered.com/app/2138710/"
+    },
+    "simcity": {
+      "wikidata": "Q917647",
+      "wikipedia": "https://en.wikipedia.org/wiki/SimCity_(2013_video_game)",
+      "steam": null
+    },
+    "simcity-2000": {
+      "wikidata": "Q1767176",
+      "wikipedia": "https://en.wikipedia.org/wiki/SimCity_2000",
+      "steam": null
+    },
+    "simcity-3000": {
+      "wikidata": "Q1750905",
+      "wikipedia": "https://en.wikipedia.org/wiki/SimCity_3000",
+      "steam": "https://store.steampowered.com/app/2741560/"
+    },
+    "simcity-4": {
+      "wikidata": "Q719670",
+      "wikipedia": "https://en.wikipedia.org/wiki/SimCity_4",
+      "steam": "https://store.steampowered.com/app/24780/"
+    },
+    "skyrim": {
+      "wikidata": "Q323862",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Elder_Scrolls_V:_Skyrim",
+      "steam": "https://store.steampowered.com/app/72850/"
+    },
+    "slay-the-spire": {
+      "wikidata": "Q48078440",
+      "wikipedia": "https://en.wikipedia.org/wiki/Slay_the_Spire",
+      "steam": "https://store.steampowered.com/app/646570/"
+    },
+    "songs-of-conquest": {
+      "wikidata": "Q109332658",
+      "wikipedia": "https://en.wikipedia.org/wiki/Songs_of_Conquest",
+      "steam": "https://store.steampowered.com/app/867210/"
+    },
+    "space-haven": {
+      "wikidata": "Q68352829",
+      "wikipedia": "https://en.wikipedia.org/wiki/Space_Haven",
+      "steam": "https://store.steampowered.com/app/979110/"
+    },
+    "spellforce-conquest-of-eo": {
+      "wikidata": "Q116672273",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/1581770/"
+    },
+    "spiritfarer": {
+      "wikidata": "Q80533334",
+      "wikipedia": "https://en.wikipedia.org/wiki/Spiritfarer",
+      "steam": "https://store.steampowered.com/app/972660/"
+    },
+    "splinter-cell": {
+      "wikidata": "Q377242",
+      "wikipedia": "https://en.wikipedia.org/wiki/Tom_Clancy's_Splinter_Cell_(video_game)",
+      "steam": "https://store.steampowered.com/app/13560/"
+    },
+    "splinter-cell-chaos-theory": {
+      "wikidata": "Q533304",
+      "wikipedia": "https://en.wikipedia.org/wiki/Tom_Clancy's_Splinter_Cell:_Chaos_Theory",
+      "steam": "https://store.steampowered.com/app/13570/"
+    },
+    "splinter-cell-pandora-tomorrow": {
+      "wikidata": "Q1053110",
+      "wikipedia": "https://en.wikipedia.org/wiki/Tom_Clancy's_Splinter_Cell:_Pandora_Tomorrow",
+      "steam": null
+    },
+    "star-wars-jedi-fallen-order": {
+      "wikidata": "Q55449345",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars_Jedi:_Fallen_Order",
+      "steam": "https://store.steampowered.com/app/1172380/"
+    },
+    "star-wars-jedi-survivor": {
+      "wikidata": "Q112704136",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars_Jedi:_Survivor",
+      "steam": "https://store.steampowered.com/app/1774580/"
+    },
+    "star-wars-outlaws": {
+      "wikidata": "Q119361001",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars_Outlaws",
+      "steam": "https://store.steampowered.com/app/2842040/"
+    },
+    "star-wars-squadrons": {
+      "wikidata": "Q96312725",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars:_Squadrons",
+      "steam": "https://store.steampowered.com/app/1222730/"
+    },
+    "starcraft": {
+      "wikidata": "Q165929",
+      "wikipedia": "https://en.wikipedia.org/wiki/StarCraft_(video_game)",
+      "steam": null
+    },
+    "stardew-valley": {
+      "wikidata": "Q23013817",
+      "wikipedia": "https://en.wikipedia.org/wiki/Stardew_Valley",
+      "steam": "https://store.steampowered.com/app/413150/"
+    },
+    "starfield": {
+      "wikidata": "Q55286432",
+      "wikipedia": "https://en.wikipedia.org/wiki/Starfield_(video_game)",
+      "steam": "https://store.steampowered.com/app/1716740/"
+    },
+    "stellaris": {
+      "wikidata": "Q20829312",
+      "wikipedia": "https://en.wikipedia.org/wiki/Stellaris_(video_game)",
+      "steam": "https://store.steampowered.com/app/281990/"
+    },
+    "stranded-alien-dawn": {
+      "wikidata": "Q113586075",
+      "wikipedia": "https://en.wikipedia.org/wiki/Stranded:_Alien_Dawn",
+      "steam": "https://store.steampowered.com/app/1324130/"
+    },
+    "terminator-dark-fate-defiance": {
+      "wikidata": "Q124448698",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/1839950/"
+    },
+    "the-blood-of-dawnwalker": {
+      "wikidata": "Q124296459",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Blood_of_Dawnwalker",
+      "steam": "https://store.steampowered.com/app/3751260/"
+    },
+    "the-curse-of-monkey-island": {
+      "wikidata": "Q1137217",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Curse_of_Monkey_Island",
+      "steam": "https://store.steampowered.com/app/730820/"
+    },
+    "the-elder-scrolls-iii-morrowind": {
+      "wikidata": "Q718448",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Elder_Scrolls_III:_Morrowind",
+      "steam": "https://store.steampowered.com/app/22320/"
+    },
+    "the-elder-scrolls-iv-oblivion": {
+      "wikidata": "Q49607",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Elder_Scrolls_IV:_Oblivion",
+      "steam": "https://store.steampowered.com/app/22330/"
+    },
+    "the-expanse-a-telltale-series": {
+      "wikidata": "Q110029348",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Expanse:_A_Telltale_Series",
+      "steam": "https://store.steampowered.com/app/1708010/"
+    },
+    "the-last-of-us-part-i": {
+      "wikidata": "Q113377532",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Last_of_Us_Part_I",
+      "steam": "https://store.steampowered.com/app/1888930/"
+    },
+    "the-last-of-us-part-ii": {
+      "wikidata": "Q27950674",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Last_of_Us_Part_II",
+      "steam": null
+    },
+    "the-necromancers-tale": {
+      "wikidata": "Q134968988",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/1315320/"
+    },
+    "the-outer-worlds": {
+      "wikidata": "Q59535090",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Outer_Worlds",
+      "steam": "https://store.steampowered.com/app/578650/"
+    },
+    "the-outer-worlds-2": {
+      "wikidata": "Q107214673",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Outer_Worlds_2",
+      "steam": "https://store.steampowered.com/app/1449110/"
+    },
+    "the-riftbreaker": {
+      "wikidata": "Q108908477",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Riftbreaker",
+      "steam": "https://store.steampowered.com/app/780310/"
+    },
+    "the-secret-of-monkey-island": {
+      "wikidata": "Q179247",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Secret_of_Monkey_Island",
+      "steam": null
+    },
+    "the-sims": {
+      "wikidata": "Q184816",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Sims_(video_game)",
+      "steam": "https://store.steampowered.com/app/3314060/"
+    },
+    "the-sims-2": {
+      "wikidata": "Q182771",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Sims_2",
+      "steam": "https://store.steampowered.com/app/3314070/"
+    },
+    "the-sims-3": {
+      "wikidata": "Q185482",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Sims_3",
+      "steam": "https://store.steampowered.com/app/47890/"
+    },
+    "the-sims-4": {
+      "wikidata": "Q12579896",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Sims_4",
+      "steam": "https://store.steampowered.com/app/1222670/"
+    },
+    "the-witcher": {
+      "wikidata": "Q287637",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Witcher_(video_game)",
+      "steam": null
+    },
+    "the-witcher-3-wild-hunt": {
+      "wikidata": "Q4267401",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt",
+      "steam": "https://store.steampowered.com/app/292030/"
+    },
+    "tie-fighter": {
+      "wikidata": "Q55312",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars:_TIE_Fighter",
+      "steam": "https://store.steampowered.com/app/355250/"
+    },
+    "timberborn": {
+      "wikidata": "Q104704303",
+      "wikipedia": "https://en.wikipedia.org/wiki/Timberborn",
+      "steam": "https://store.steampowered.com/app/1062090/"
+    },
+    "total-war-rome-ii": {
+      "wikidata": "Q863643",
+      "wikipedia": "https://en.wikipedia.org/wiki/Total_War:_Rome_II",
+      "steam": "https://store.steampowered.com/app/214950/"
+    },
+    "unreal": {
+      "wikidata": "Q588147",
+      "wikipedia": "https://en.wikipedia.org/wiki/Unreal_(1998_video_game)",
+      "steam": "https://store.steampowered.com/app/13250/"
+    },
+    "unreal-tournament": {
+      "wikidata": "Q627877",
+      "wikipedia": "https://en.wikipedia.org/wiki/Unreal_Tournament",
+      "steam": "https://store.steampowered.com/app/13240/"
+    },
+    "v-rising": {
+      "wikidata": "Q112055534",
+      "wikipedia": "https://en.wikipedia.org/wiki/V_Rising",
+      "steam": "https://store.steampowered.com/app/1604030/"
+    },
+    "valheim": {
+      "wikidata": "Q105100327",
+      "wikipedia": "https://en.wikipedia.org/wiki/Valheim",
+      "steam": "https://store.steampowered.com/app/892970/"
+    },
+    "valorant": {
+      "wikidata": "Q86919275",
+      "wikipedia": "https://en.wikipedia.org/wiki/Valorant",
+      "steam": null
+    },
+    "vampire-survivors": {
+      "wikidata": "Q110726215",
+      "wikipedia": "https://en.wikipedia.org/wiki/Vampire_Survivors",
+      "steam": "https://store.steampowered.com/app/1794680/"
+    },
+    "visions-of-mana": {
+      "wikidata": "Q123698973",
+      "wikipedia": "https://en.wikipedia.org/wiki/Visions_of_Mana",
+      "steam": "https://store.steampowered.com/app/2490990/"
+    },
+    "warcana": {
+      "wikidata": "Q124608462",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/2022930/"
+    },
+    "warcraft-ii-tides-of-darkness": {
+      "wikidata": "Q741716",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warcraft_II:_Tides_of_Darkness",
+      "steam": null
+    },
+    "warcraft-iii-reign-of-chaos": {
+      "wikidata": "Q207948",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warcraft_III:_Reign_of_Chaos",
+      "steam": null
+    },
+    "warcraft-orcs-and-humans": {
+      "wikidata": "Q207885",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warcraft:_Orcs_%26_Humans",
+      "steam": null
+    },
+    "warframe": {
+      "wikidata": "Q7969348",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warframe",
+      "steam": "https://store.steampowered.com/app/230410/"
+    },
+    "warhammer-40000-battlesector": {
+      "wikidata": "Q107376557",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Battlesector",
+      "steam": "https://store.steampowered.com/app/1295500/"
+    },
+    "warhammer-40000-gladius-relics-of-war": {
+      "wikidata": "Q55662871",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Gladius_%E2%80%93_Relics_of_War",
+      "steam": "https://store.steampowered.com/app/489630/"
+    },
+    "warhammer-40000-inquisitor-martyr": {
+      "wikidata": "Q54829295",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Inquisitor_%E2%80%93_Martyr",
+      "steam": "https://store.steampowered.com/app/527430/"
+    },
+    "warhammer-40000-rogue-trader": {
+      "wikidata": "Q122442250",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Rogue_Trader_(video_game)",
+      "steam": "https://store.steampowered.com/app/2186680/"
+    },
+    "warhammer-40000-space-marine-2": {
+      "wikidata": "Q110055360",
+      "wikipedia": "https://en.wikipedia.org/wiki/Warhammer_40,000:_Space_Marine_2",
+      "steam": "https://store.steampowered.com/app/2183900/"
+    },
+    "wo-long-fallen-dynasty": {
+      "wikidata": "Q112566486",
+      "wikipedia": "https://en.wikipedia.org/wiki/Wo_Long:_Fallen_Dynasty",
+      "steam": "https://store.steampowered.com/app/1448440/"
+    },
+    "wolfquest-anniversary-edition": {
+      "wikidata": "Q122826506",
+      "wikipedia": null,
+      "steam": "https://store.steampowered.com/app/926990/"
+    },
+    "world-of-warcraft": {
+      "wikidata": "Q131007",
+      "wikipedia": "https://en.wikipedia.org/wiki/World_of_Warcraft",
+      "steam": null
+    },
+    "worms": {
+      "wikidata": "Q278771",
+      "wikipedia": "https://en.wikipedia.org/wiki/Worms_(1995_video_game)",
+      "steam": "https://store.steampowered.com/app/70640/"
+    },
+    "x-wing": {
+      "wikidata": "Q54853",
+      "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars:_X-Wing_(video_game)",
+      "steam": "https://store.steampowered.com/app/354430/"
+    },
+    "xcom-2": {
+      "wikidata": "Q20030150",
+      "wikipedia": "https://en.wikipedia.org/wiki/XCOM_2",
+      "steam": "https://store.steampowered.com/app/268500/"
+    },
+    "xcom-enemy-unknown": {
+      "wikidata": "Q26097",
+      "wikipedia": "https://en.wikipedia.org/wiki/XCOM:_Enemy_Unknown",
+      "steam": "https://store.steampowered.com/app/200510/"
+    },
+    "zoo-tycoon": {
+      "wikidata": "Q220102",
+      "wikipedia": "https://en.wikipedia.org/wiki/Zoo_Tycoon_(2001_video_game)",
+      "steam": null
+    }
+  }
+}

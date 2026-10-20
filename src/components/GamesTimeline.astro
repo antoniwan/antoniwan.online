@@ -1,0 +1,32 @@
+---
+import type { Game } from '../data/games';
+import { byStatusThenTitle, decadeGroup, decadeGroups, decadeLabel } from '../utils/games';
+interface Props { games: Game[]; perDecade?: number; }
+const { games, perDecade = 8 } = Astro.props;
+const groups = [...decadeGroups].reverse().map(decade => {
+  const members = games.filter(game => decadeGroup(game) === decade).sort(byStatusThenTitle);
+  return { decade, members };
+}).filter(group => group.members.length > 0);
+const undated = games.filter(game => decadeGroup(game) === null);
+const most = Math.max(...groups.map(group => group.members.length), 1);
+---
+
+<section class="section" aria-labelledby="timeline-title" id="timeline">
+  <div class="collection-section-heading">
+    <div><h2 id="timeline-title">By decade</h2><p>When each game came out. Played titles come first.</p></div>
+  </div>
+  <ol class="games-timeline">
+    {groups.map(({ decade, members }) => <li class="timeline-decade">
+      <div class="timeline-decade__head">
+        <h3>{decadeLabel(decade)}</h3>
+        <p class="timeline-decade__count"><span>{members.length}</span> {members.length === 1 ? 'game' : 'games'}</p>
+        <div class="timeline-decade__bar" aria-hidden="true"><div style={`width:${Math.round((members.length / most) * 100)}%`}></div></div>
+      </div>
+      <ul class="timeline-decade__titles">
+        {members.slice(0, perDecade).map(game => <li><a href={`?decade=${decade}#${game.id}`}>{game.title}</a></li>)}
+        {members.length > perDecade && <li class="timeline-decade__more"><a href={`?decade=${decade}#game-catalogue`}>and {members.length - perDecade} more</a></li>}
+      </ul>
+    </li>)}
+  </ol>
+  {undated.length > 0 && <p class="section__footnote">{undated.length} games have no release year recorded, so they are not on the timeline. They are all in the list below.</p>}
+</section>

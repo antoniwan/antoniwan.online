@@ -1,0 +1,84 @@
+---
+// In-page navigation for the games page. It sits under the intro, then sticks to the top of the
+// viewport as a slim bar. Position: sticky does that without JavaScript, so the links always work.
+// The script adds the current-section highlight and, in the list, the live count and a way back to the filters.
+interface Props { links?: { href: string; label: string }[]; }
+const {
+  links = [
+    { href: '#now-playing', label: 'Now playing' },
+    { href: '#hall-of-fame', label: 'Most hours' },
+    { href: '#timeline', label: 'By decade' },
+    { href: '#game-catalogue', label: 'The list' },
+  ],
+} = Astro.props;
+---
+
+<nav class="games-nav" aria-label="On this page" data-games-nav>
+  <div class="games-nav__scroll">
+    <ul class="games-nav__links">
+      {links.map(link => <li><a href={link.href}>{link.label}</a></li>)}
+    </ul>
+    <div class="games-nav__tools" data-games-nav-tools hidden>
+      <span class="games-nav__count" data-games-nav-count></span>
+      <a class="games-nav__filters" href="#game-filters" data-games-nav-filters>Filters</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.querySelector<HTMLElement>('[data-games-nav]');
+  if (nav) {
+    const scroller = nav.querySelector<HTMLElement>('.games-nav__scroll')!;
+    const links = [...nav.querySelectorAll<HTMLAnchorElement>('.games-nav__links a')];
+    const tools = nav.querySelector<HTMLElement>('[data-games-nav-tools]')!;
+    const count = nav.querySelector<HTMLElement>('[data-games-nav-count]')!;
+    const filters = nav.querySelector<HTMLAnchorElement>('[data-games-nav-filters]')!;
+    const targets = links.flatMap(link => {
+      const section = document.getElementById(link.hash.slice(1));
+      return section ? [{ link, section }] : [];
+    });
+
+    // The current section is the last one whose top has passed a line about a third of the way down the screen.
+    let active: HTMLAnchorElement | null = null;
+    const spy = () => {
+      const line = window.innerHeight * 0.3;
+      let current: (typeof targets)[number] | null = null;
+      for (const target of targets) if (target.section.getBoundingClientRect().top <= line) current = target;
+      const next = current?.link ?? null;
+      if (next === active) return;
+      active = next;
+      for (const { link } of targets) {
+        if (link === active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
+      }
+      tools.hidden = active?.hash !== '#game-catalogue';
+      // On a narrow screen the bar scrolls sideways; keep the current link in view, and the count and Filters when they show.
+      if (!tools.hidden) scroller.scrollLeft = scroller.scrollWidth;
+      else if (active) {
+        const left = active.offsetLeft;
+        const right = left + active.offsetWidth;
+        if (left < scroller.scrollLeft) scroller.scrollLeft = left - 16;
+        else if (right > scroller.scrollLeft + scroller.clientWidth) scroller.scrollLeft = right - scroller.clientWidth + 16;
+      }
+    };
+    const observer = new IntersectionObserver(spy, { rootMargin: '-30% 0px -69% 0px' });
+    for (const { section } of targets) observer.observe(section);
+    window.addEventListener('resize', spy);
+    spy();
+
+    // The count mirrors #game-results, which the filter script keeps up to date.
+    const readCount = () => {
+      count.textContent = document.getElementById('game-results')?.textContent ?? '';
+      if (!tools.hidden) scroller.scrollLeft = scroller.scrollWidth;
+    };
+    document.addEventListener('games:filtered', readCount);
+    readCount();
+
+    filters.addEventListener('click', event => {
+      const form = document.getElementById('game-filters');
+      if (!form || form.hidden) return;
+      event.preventDefault();
+      form.scrollIntoView();
+      document.getElementById('game-search')?.focus({ preventScroll: true });
+    });
+  }
+</script>

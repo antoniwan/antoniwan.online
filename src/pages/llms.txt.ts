@@ -31,6 +31,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 - [Collections](${url('/collections')}): selected personal catalogues
 - [Books](${url('/collections/books')}): searchable reading library; public data at ${url('/collections/books.json')}
 - [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list, not a complete viewing history; public data at ${url('/collections/movies.json')}
+- [Games](${url('/collections/games')}): play log with status, platforms, and hours marked by how far they can be trusted, not a complete record of time played; public data at ${url('/collections/games.json')}
 - [Cookbook](https://cookbook.antoniwan.online/): family recipes in English and Spanish, with its own public home
 - [Projects](${url('/projects')}): ${projectCategories.map(category => `${category.title} (${projects.filter(project => project.category === category.id).map(project => project.title).join('; ')})`).join('; ')}. Work and experiments include ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}.
 

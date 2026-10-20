@@ -1,0 +1,40 @@
+---
+import type { Game, GamesSnapshot } from '../data/games';
+import { hoursConfidenceLabels } from '../data/games';
+import { confidenceHints, formatNumber } from '../utils/games';
+interface Props { games: Game[]; lifetime: GamesSnapshot['lifetime']; trackedFloorHours: number; limit?: number; }
+const { games, lifetime, trackedFloorHours, limit = 10 } = Astro.props;
+const ranked = games
+  .filter(game => game.hours && game.hours.value !== null)
+  .sort((first, second) => (second.hours!.value as number) - (first.hours!.value as number))
+  .slice(0, limit);
+const top = ranked[0]?.hours?.value ?? 1;
+// Square root keeps a 260-hour game visible next to an 8,000-hour one.
+const width = (value: number) => Math.max(2, Math.round(Math.sqrt(value / top) * 1000) / 10);
+const yearsLow = (lifetime.low / 8766).toFixed(1);
+const yearsHigh = (lifetime.high / 8766).toFixed(1);
+---
+
+<section class="section" aria-labelledby="hall-of-fame-title" id="hall-of-fame">
+  <div class="collection-section-heading">
+    <div><h2 id="hall-of-fame-title">Most hours</h2><p>The games I have spent the longest in. Every figure says how far to trust it.</p></div>
+  </div>
+  <div class="hours-lifetime">
+    <p class="hours-lifetime__line"><span class="hours-lifetime__number" data-egg-trigger>~{formatNumber(lifetime.low)}–{formatNumber(lifetime.high)} hours</span> in all, about {yearsLow} to {yearsHigh} years of continuous play.</p>
+    <p class="hours-lifetime__line hours-lifetime__line--small"><strong>{formatNumber(trackedFloorHours)}</strong> of those hours are tracked by a platform or an in-game counter.</p>
+  </div>
+  <ol class="hours-bars">
+    {ranked.map(game => {
+      const hours = game.hours!;
+      return <li class="hours-bar" data-confidence={hours.confidence}>
+        <div class="hours-bar__head">
+          <span class="hours-bar__title">{game.title}</span>
+          <span class="hours-bar__figure"><span>{hours.display}</span> <span class="game-conf" data-confidence={hours.confidence}>{hoursConfidenceLabels[hours.confidence]}</span></span>
+        </div>
+        <div class="hours-bar__track" aria-hidden="true"><div class="hours-bar__fill" style={`width:${width(hours.value as number)}%`}></div></div>
+        <p class="visually-hidden">{confidenceHints[hours.confidence]}{hours.source ? `. Source: ${hours.source}` : ''}.</p>
+      </li>;
+    })}
+  </ol>
+  <p class="section__footnote"><strong>Tracked</strong> is a number a platform or the game counted. <strong>Estimate</strong> is my own guess from memory; those bars are hatched. <strong>At least</strong> is a floor; its bar fades out because the real number is higher. Bar lengths use a square-root scale so the smaller games stay visible, so compare the figures, not the bar lengths. Counters include idle time. I mark confidence because a guess presented as a measurement is worse than no number.</p>
+</section>

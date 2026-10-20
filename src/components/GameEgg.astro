@@ -1,0 +1,207 @@
+---
+// A hidden game, Signal. Open it with the Konami code on a keyboard, or by tapping an element
+// marked data-egg-trigger five times quickly. The game's code loads only then.
+---
+
+<dialog class="egg" data-egg aria-label="Signal, a hidden game" tabindex="-1">
+  <canvas class="egg__canvas" aria-hidden="true"></canvas>
+  <div class="egg__hud">
+    <p class="egg__score" aria-hidden="true"><span data-score>Score 0</span><span data-best>Best 0</span></p>
+    <div class="egg__buttons">
+      <button type="button" class="egg__chip" data-pause disabled>Pause</button>
+      <button type="button" class="egg__chip" data-close>Close</button>
+    </div>
+  </div>
+  <div class="egg__panel" data-panel>
+    <p class="egg__eyebrow" data-eyebrow>Hidden game</p>
+    <h2 class="egg__title" data-title>Signal</h2>
+    <p class="egg__lede" data-lede></p>
+    <p class="egg__result" data-result hidden></p>
+    <button type="button" class="egg__start" data-primary>Start</button>
+    <p class="egg__keys egg__keys--fine">Arrow keys or WASD to move. Space starts. P pauses. Esc closes.</p>
+    <p class="egg__keys egg__keys--coarse">Drag anywhere to move the neuron.</p>
+  </div>
+  <p class="egg__sr" role="status" aria-live="polite" data-status></p>
+</dialog>
+
+<style>
+  .egg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    overscroll-behavior: contain;
+  }
+  .egg:not([open]) { display: none; }
+  .egg:focus { outline: none; }
+  .egg::backdrop { background: var(--paper); }
+  .egg__canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .egg__hud {
+    position: absolute;
+    inset: 0 0 auto 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: max(0.75rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) 0 max(1rem, env(safe-area-inset-left));
+    pointer-events: none;
+  }
+  .egg__score, .egg__chip, .egg__panel {
+    background: color-mix(in srgb, var(--paper) 90%, transparent);
+    border: 1px solid var(--line);
+  }
+  .egg__score {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin: 0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font: 650 1rem/1.4 var(--font-display);
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .egg__score span:last-child { color: var(--muted); font-weight: 500; }
+  .egg__buttons { display: flex; gap: 0.5rem; pointer-events: auto; }
+  .egg__chip {
+    min-height: 44px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    color: var(--ink);
+    font: 600 0.8125rem/1 var(--font-text);
+    cursor: pointer;
+  }
+  .egg__chip:hover:not(:disabled) { color: var(--accent); }
+  .egg__chip:disabled { color: var(--muted); cursor: default; opacity: 0.6; }
+
+  .egg__panel {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: min(26rem, calc(100% - 2rem));
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: left;
+    transform: translate(-50%, -50%);
+  }
+  .egg__panel[hidden], .egg__result[hidden], .egg__lede[hidden] { display: none; }
+  .egg__eyebrow {
+    margin: 0 0 0.25rem;
+    color: var(--accent);
+    font: 600 0.75rem/1.4 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .egg__title { margin: 0 0 0.5rem; font-size: clamp(2rem, 7vw, 2.75rem); }
+  .egg__lede, .egg__result { margin: 0 0 1rem; color: var(--ink-2); }
+  .egg__result { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .egg__start {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--cta);
+    border-radius: 6px;
+    background: var(--cta);
+    color: var(--on-cta);
+    font: 600 0.9375rem/1 var(--font-text);
+    cursor: pointer;
+  }
+  .egg__start:hover { background: var(--accent); border-color: var(--accent); }
+  .egg__keys { margin: 1rem 0 0; color: var(--muted); font-size: 0.8125rem; line-height: 1.5; }
+  .egg__keys--coarse { display: none; }
+  @media (pointer: coarse) {
+    .egg__keys--fine { display: none; }
+    .egg__keys--coarse { display: block; }
+  }
+  .egg button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  .egg__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  /* The page behind a modal game should not scroll, and the trigger should not select text. */
+  :global(html:has(dialog[data-egg][open])) { overflow: hidden; }
+  :global([data-egg-trigger]) {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+</style>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('dialog[data-egg]');
+
+  if (dialog) {
+    const code = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let progress = 0;
+    let taps: number[] = [];
+    let loading = false;
+
+    // Nothing of the game ships with the page. It downloads once, when somebody finds it.
+    async function launch(opener: HTMLElement | null) {
+      if (loading || dialog!.open) return;
+      loading = true;
+      try {
+        const { openGame } = await import('../scripts/game-egg.ts');
+        openGame(dialog!, opener);
+      } catch {
+        // If the download fails, the page stays as it was.
+      } finally {
+        loading = false;
+      }
+    }
+
+    document.addEventListener('keydown', event => {
+      if (dialog.open || event.metaKey || event.ctrlKey || event.altKey) return;
+      const target = event.target;
+      if (target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) {
+        progress = 0;
+        return;
+      }
+      const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+      if (key === code[progress]) progress += 1;
+      else progress = key === code[0] ? 1 : 0;
+      if (progress === code.length) {
+        progress = 0;
+        launch(document.activeElement instanceof HTMLElement ? document.activeElement : null);
+      }
+    });
+
+    document.addEventListener('click', event => {
+      const trigger = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-egg-trigger]') : null;
+      if (!trigger) return;
+      const now = performance.now();
+      taps = [...taps.filter(time => now - time < 2500), now];
+      if (taps.length >= 5) {
+        taps = [];
+        launch(trigger);
+      }
+    });
+  }
+</script>

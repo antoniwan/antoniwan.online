@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.31.0 — 2026-10-20
+
+- Add Games to Collections: what I'm playing now, the hours I can count, a timeline by decade, and a searchable game list.
+- Mark each hour figure as tracked, estimated, or a minimum, so the numbers show how far they can be trusted.
+- Sort every game into one of three statuses: playing, played, or up next. Show no ratings.
+- Link each title to its Wikipedia article, and to its Steam page when it is sold there. Wikidata confirms both point at the same game.
+- Add a section bar that stays at the top while you scroll, with the live game count and A–Z jumps for the list.
+- Add a JSON endpoint for the game list, and structured data for the list.
+- Add Games to the Collections page and to the site's llms.txt.
+- Copy no quotes, notes, or account details into the game records.
+
 ## 1.30.1 — 2026-10-20
 
 - Rewrite the Freelance entry, "Selling my brain", to be about freelance work: what I take on, the jobs I've done, and that new work goes through my company.

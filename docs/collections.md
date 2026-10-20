@@ -9,6 +9,8 @@ Added October 17, 2026.
 - /collections/books.json exposes the same selected records as JSON.
 - /collections/movies contains recent watches and the saved movie list.
 - /collections/movies.json exposes the public movie records.
+- /collections/games contains the play log: current games, hours, a timeline, and the searchable game list.
+- /collections/games.json exposes the public game records.
 - /projects contains authored books and Cookbook as separate projects.
 
 The library contains 133 distinct books from the existing public Notes catalogue. The original catalogue had 137 rows.
@@ -30,6 +32,8 @@ The selected inventory snapshot lives in src/data/books.json. The website reads 
 The public website and deployment have no runtime connection to Panda. Builds do not need the vault or its filesystem path.
 
 Movies use the public Letterboxd feed, not Panda. The refresh procedure is in [movies.md](movies.md).
+
+Games use two Panda files, not a public feed. The snapshot, what stays private, and the refresh procedure are in [games.md](games.md).
 
 The export script reads only the supplied Book Library Inventory Markdown file. It never writes to Panda.
 

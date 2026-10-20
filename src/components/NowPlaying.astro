@@ -1,0 +1,24 @@
+---
+import type { Game } from '../data/games';
+import { hoursConfidenceLabels } from '../data/games';
+interface Props { games: Game[]; }
+const { games } = Astro.props;
+---
+
+<section class="section" aria-labelledby="now-playing-title" id="now-playing">
+  <div class="collection-section-heading">
+    <div><h2 id="now-playing-title">Now playing</h2><p>What is in the rotation this month.</p></div>
+  </div>
+  <ul class="now-playing">
+    {games.map(game => <li class="now-card" data-built={game.builtByMe ? '' : undefined}>
+      <p class="now-card__meta">
+        {(game.year || game.builtByMe) && <span>{game.year ?? 'In playtest'}</span>}
+        {game.platforms.length > 0 && <span>{game.platforms.join(' · ')}</span>}
+        {game.builtByMe && <span class="now-card__mark">I built this</span>}
+      </p>
+      <h3>{game.title}</h3>
+      {game.hours && game.hours.value !== null && <p class="now-card__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></p>}
+      {game.builtByMe && game.href && <p class="now-card__links"><a href={game.href}>Play Uplift</a><a href="/projects">About the project</a></p>}
+    </li>)}
+  </ul>
+</section>
