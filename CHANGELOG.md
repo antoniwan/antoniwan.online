@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.34.1 — 2026-10-25
+
+- Keep Latest watches current: a daily job reads my Letterboxd feed and publishes only when there is a new watch. Movies had stopped at American Psycho because nothing rebuilt the site after October 20.
+
 ## 1.34.0 — 2026-10-25
 
 - Add Lifesworn to Projects: the free 3D action RPG I'm making in Godot, where it stands, and a link to lifesworn.com.

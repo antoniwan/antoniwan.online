@@ -23,6 +23,8 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 The `link-*` scripts match entries to Wikidata and save the links beside each snapshot (`book-links.json`, `movie-links.json`, `game-links.json`), so a refresh of the snapshot never erases them. A wrong link is worse than none: an entry without a confident match stays unlinked. Antonio's own game reviews on Notes are listed in `src/data/game-reviews.ts`.
 
+Movies refresh themselves: `.github/workflows/refresh-movies.yml` checks the feed every day and pushes to `main` only when there is a new watch. Books and Games have no feed and stay manual.
+
 The site reads only the saved snapshots in `src/data/`. Builds never need the private notes. The export scripts read the files named on their command line and never write to them.
 
 Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading library.

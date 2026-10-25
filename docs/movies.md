@@ -24,7 +24,19 @@ At build time, the site merges recent public feed entries with the saved list. I
 
 If the feed fails, the site uses the dated saved list. The page identifies that fallback.
 
-A build does not write to the repository. Use the refresh command to retain new entries after they leave the feed.
+A build does not write to the repository, and a build only happens when something is pushed to `main`. Before October 25, 2026 nothing rebuilt the site on its own, so new watches waited for the next unrelated push: Ready or Not (October 21) and Speed (October 23) never showed up after the October 20 build.
+
+## Daily refresh
+
+`.github/workflows/refresh-movies.yml` runs once a day at 10:23 UTC, and on demand from the Actions tab (Refresh movies, Run workflow). It runs `node scripts/sync-movies.ts --write`. When a watch was added or changed, it also runs `node scripts/link-movies.ts --write` and `pnpm og:collections`, checks and builds the site, and pushes `movies.json`, `movie-links.json`, and `public/og/movies.png` to `main` as `github-actions[bot]`. Vercel deploys that push.
+
+A day with no new watch changes nothing: the job drops the `refreshedAt` stamp and makes no commit, so it makes no deploy. Each new watch costs one deploy, far under the Hobby limit.
+
+The job also keeps watches that later leave the feed, because it saves them to `movies.json`. If Letterboxd is down, the sync fails, the job shows red in Actions, and the site keeps the saved list.
+
+## Refresh by hand
+
+Use the refresh command to save new entries yourself, for example to review a change before it ships.
 
 1. Run `node scripts/sync-movies.ts` to preview changes.
 2. Review added and updated films.
@@ -49,7 +61,7 @@ The list replaces the Letterboxd component on Notes' About page. Notes keeps its
 
 Old Notes `/about#about-watched-heading` links move to `/collections/movies#latest-watches` in the browser.
 
-The current implementation adds no recurring scheduler. New builds check the feed; persisted history requires the explicit refresh command.
+The daily refresh above is the only scheduler. Builds still check the feed as well.
 
 ## Search and sharing
 
