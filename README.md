@@ -27,6 +27,8 @@ The site reads only the saved snapshots in `src/data/`. Builds never need the pr
 
 Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading library.
 
+A game in Projects may carry its own logo (`logo` in `src/data/projects.ts`, the file in `public/projects/`). It shows small beside the title and opens the game's site in a new tab. Uplift's is its `public/logo.png`; Lifesworn's is drawn from the game's title (Germania One, SIL Open Font License, as outlines) in its colours: pale gold to ember orange, a dark edge, and an ember for the dot of the i.
+
 ## Search and sharing
 
 - `src/layouts/Base.astro` writes one JSON-LD graph per page: the WebSite (on Home), the page itself, a BreadcrumbList where the page has a parent, and the Person. The Person's photo, languages, topics, and school live in `src/config/site.ts`; the photo is `public/portrait-2026-10.jpg`, an 800×800 copy of the portrait (give a new one a new name). Collection pages and Projects add an `ItemList` of their entries: books and films (with Wikipedia, IMDb, and Wikidata where matched), games (with Wikipedia, Steam, Wikidata, and his own reviews), and the things Antonio made.
