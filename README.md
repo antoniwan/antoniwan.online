@@ -27,7 +27,7 @@ The site reads only the saved snapshots in `src/data/`. Builds never need the pr
 
 Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading library.
 
-A game in Projects may carry its own logo (`logo` in `src/data/projects.ts`, the file in `public/projects/`). It shows small beside the title and opens the game in a new tab. Uplift's is its `public/logo.png`; Lifesworn's is drawn from the game's title (Germania One, SIL Open Font License, as outlines) in its colours: pale gold to ember orange, a dark edge, and an ember for the dot of the i.
+A game in Projects may carry its own logo (`logo` in `src/data/projects.ts`, the file in `public/projects/`). It shows small beside the title and opens the game's site in a new tab. Uplift's is its `public/logo.png`; Lifesworn's is drawn from the game's title (Germania One, SIL Open Font License, as outlines) in its colours: pale gold to ember orange, a dark edge, and an ember for the dot of the i.
 
 ## Search and sharing
 

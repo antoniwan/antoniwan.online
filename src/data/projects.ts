@@ -11,7 +11,7 @@ export interface Project {
   repo?: string;
   body: string;
   stack: string;
-  /** A game's own logo, shown small in its card. It opens the game (or, before there is one to play, its devlog) in a new tab. */
+  /** A game's own logo, shown small in its card. It opens the game's site in a new tab. */
   logo?: { src: string; width: number; height: number; pixelated?: boolean };
 }
 
@@ -31,8 +31,8 @@ export const projects: Project[] = [
   {
     title: 'Lifesworn',
     category: 'games-and-books',
-    href: 'https://notes.antoniwan.online/p/i-dont-write-the-code',
-    body: "A 3D action RPG about a swordsman for hire, and the game I've been dreaming about for years. Started in October 2026 in Godot. The fight is playable, but not public yet; a free demo comes when I'm proud of it. A devlog every other week, and a first region to play by January 2027.",
+    href: 'https://lifesworn.com',
+    body: "A free 3D action RPG, and the game I've been dreaming about for years. Its first champion is Milak Summir, a swordsman for hire. I make it alone, in Godot. A free demo for Windows, Mac, and Linux is coming to itch.io, with no date yet. Next up: the first region, built to play from start to finish.",
     stack: 'Godot, GDScript',
     logo: { src: '/projects/lifesworn-logo.svg', width: 170, height: 54 },
   },
