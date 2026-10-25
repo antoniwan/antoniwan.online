@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.34.0 — 2026-10-25
+
+- Add Lifesworn to Projects: the 3D action RPG I'm making in Godot, where it stands, and a link to its devlog.
+- Show the Uplift and Lifesworn logos small in their cards, beside the title. A logo opens the game, or Lifesworn's devlog until there is a game to play, in a new tab.
+- Bring the project cards up to date: Uplift is live and free, Strong Hands, Soft Heart has consulting, two books, and soap planned, Notes carries the devlogs, and Cookbook has a kitchen mode.
+
 ## 1.33.0 — 2026-10-20
 
 - Link 40 books to their Wikipedia articles, matched through Wikidata by title and author. Books without a confident match stay unlinked.

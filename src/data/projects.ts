@@ -11,6 +11,8 @@ export interface Project {
   repo?: string;
   body: string;
   stack: string;
+  /** A game's own logo, shown small in its card. It opens the game (or, before there is one to play, its devlog) in a new tab. */
+  logo?: { src: string; width: number; height: number; pixelated?: boolean };
 }
 
 /**
@@ -23,15 +25,24 @@ export const projects: Project[] = [
     category: 'apps-and-tools',
     href: 'https://cookbook.antoniwan.online',
     repo: 'https://github.com/antoniwan/cookbook',
-    body: 'Our family recipes, in English and Spanish. A practical kitchen notebook with adjustable quantities, ingredient checklists, printing, and a garlic bulb and strawberry keeping watch.',
+    body: 'Our family recipes, in English and Spanish. A practical kitchen notebook with adjustable quantities, ingredient checklists, a kitchen mode, printing, and a garlic bulb and strawberry keeping watch.',
     stack: 'Astro, TypeScript',
   },
   {
-    title: 'Uplift, Tower Game',
+    title: 'Lifesworn',
+    category: 'games-and-books',
+    href: 'https://notes.antoniwan.online/p/i-dont-write-the-code',
+    body: "A 3D action RPG about a swordsman for hire, and the game I've been dreaming about for years. Started in October 2026 in Godot. The fight is playable, but not public yet; a free demo comes when I'm proud of it. A devlog every other week, and a first region to play by January 2027.",
+    stack: 'Godot, GDScript',
+    logo: { src: '/projects/lifesworn-logo.svg', width: 170, height: 54 },
+  },
+  {
+    title: 'Uplift',
     category: 'games-and-books',
     href: 'https://uplifttowergame.com',
-    body: 'A tower-building game that plays in your browser: build a tower floor by floor and keep the elevators moving. In playtest. Published by Strong Hands, Soft Heart.',
+    body: 'My take on SimTower: build a tower floor by floor and keep the elevators moving. Live three days after it started, free, in your browser on a computer or a tablet. Still early, and every note from players shapes it. Published by Strong Hands, Soft Heart.',
     stack: 'TypeScript, PixiJS, SolidJS',
+    logo: { src: '/projects/uplift-logo.png', width: 100, height: 88, pixelated: true },
   },
   {
     title: 'antoniwan.online',
@@ -46,7 +57,7 @@ export const projects: Project[] = [
     category: 'websites-and-writing',
     href: 'https://www.stronghandssoftheart.com',
     repo: 'https://github.com/Strong-Hands-Soft-Heart/stronghandssoftheart.com',
-    body: "My company's site, built from its own design system. The moving background is drawn from the company's mark.",
+    body: "My company's site: consulting now, two picture books, and soap planned for late 2026. Built from its own design system; the moving background is drawn from the company's mark.",
     stack: 'Astro, WebGL',
   },
   {
@@ -77,7 +88,7 @@ export const projects: Project[] = [
     category: 'websites-and-writing',
     href: 'https://notes.antoniwan.online',
     repo: 'https://github.com/antoniwan/notes',
-    body: 'My public notebook. Essays in English and Spanish, with a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
+    body: 'My public notebook. Essays in English and Spanish, and the devlogs for Uplift and Lifesworn, with a markdown copy of every post for people and agents. It also charts my own writing: how often I post and what about.',
     stack: 'Astro, TypeScript',
   },
   {
