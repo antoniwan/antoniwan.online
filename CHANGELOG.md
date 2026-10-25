@@ -1,8 +1,15 @@
 # Changelog
 
-## 1.33.1 — 2026-10-25
+## 1.34.1 — 2026-10-25
 
 - Keep Latest watches current: a daily job reads my Letterboxd feed and publishes only when there is a new watch. Movies had stopped at American Psycho because nothing rebuilt the site after October 20.
+
+## 1.34.0 — 2026-10-25
+
+- Add Lifesworn to Projects: the free 3D action RPG I'm making in Godot, where it stands, and a link to lifesworn.com.
+- Show the Uplift and Lifesworn logos small in their cards, beside the title. A logo opens the game's site in a new tab.
+- Rewrite the Home intro: by day the same job, the rest of the time learning to make games, Uplift and Lifesworn, and writing essays and devlogs at Notes. The site description and `/llms.txt` say the same.
+- Bring the project cards up to date: Uplift is live and free, Strong Hands, Soft Heart has consulting, two books, and soap planned, Notes carries the devlogs, and Cookbook has a kitchen mode.
 
 ## 1.33.0 — 2026-10-20
 
