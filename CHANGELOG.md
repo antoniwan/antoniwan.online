@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.33.1 — 2026-10-25
+
+- Keep Latest watches current: a daily job reads my Letterboxd feed and publishes only when there is a new watch. Movies had stopped at American Psycho because nothing rebuilt the site after October 20.
+
 ## 1.33.0 — 2026-10-20
 
 - Link 40 books to their Wikipedia articles, matched through Wikidata by title and author. Books without a confident match stay unlinked.

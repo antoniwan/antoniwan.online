@@ -1,0 +1,66 @@
+# Keeps Movies current without a hand refresh. Once a day it reads the public Letterboxd feed,
+# and only when a watch was added or changed does it save the list, redraw the share card, and
+# push to main, which Vercel then deploys. A day with no new watch makes no commit and no deploy.
+name: Refresh movies
+
+on:
+  schedule:
+    - cron: '23 10 * * *' # 10:23 UTC, early morning in Puerto Rico
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-movies
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Merge the Letterboxd feed into the saved list
+        id: sync
+        run: |
+          node scripts/sync-movies.ts --write
+          # --write always stamps refreshedAt. A change to that line alone is not news.
+          if git diff --quiet -I '"refreshedAt"' -- src/data/movies.json; then
+            git checkout -- src/data/movies.json
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new or changed watches."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Link new films and redraw the share card
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          node scripts/link-movies.ts --write
+          pnpm og:collections
+
+      - name: Check and build
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          pnpm check
+          pnpm build
+
+      - name: Commit and push to main
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          # Only the movie files. The other cards are redrawn too and must not ride along.
+          git add src/data/movies.json src/data/movie-links.json public/og/movies.png
+          git commit -m 'data: refresh movies from Letterboxd'
+          git push origin HEAD:main
