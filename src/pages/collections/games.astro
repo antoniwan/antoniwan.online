@@ -67,7 +67,7 @@ const schema = {
         return <li class="game-entry" id={game.id} data-game data-letter={letterOf(game.title)} data-title={game.title} data-year={game.year ?? ''} data-status={game.status} data-platforms={game.platforms.join('|')} data-decade={group ?? 'none'}>
           <div>
             <h3><a href={link?.wikipedia ?? game.href ?? `#${game.id}`}>{game.title}</a></h3>
-            <p class="game-entry__meta">{game.year ?? 'Year not recorded'}{game.platforms.length > 0 && <> · {game.platforms.join(' · ')}</>}{link?.steam && <> · <a class="game-entry__store" href={link.steam}>Steam</a></>}</p>
+            <p class="game-entry__meta">{game.year ?? game.stage ?? 'Year not recorded'}{game.platforms.length > 0 && <> · {game.platforms.join(' · ')}</>}{link?.steam && <> · <a class="game-entry__store" href={link.steam}>Steam</a></>}</p>
             {(game.hours?.value != null || game.progress !== null || game.builtByMe || review) && <p class="game-entry__facts">
               {game.hours && game.hours.value !== null && <span class="game-entry__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></span>}
               {game.progress !== null && <span>{game.progress}% complete</span>}

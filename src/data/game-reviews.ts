@@ -16,4 +16,9 @@ export const gameReviews: Record<string, GameReview> = {
     title: '"Crimson Desert" Game Review',
     datePublished: '2026-04-29',
   },
+  'dispatch': {
+    url: 'https://notes.antoniwan.online/p/dispatch-game-review',
+    title: '"Dispatch" Game Review',
+    datePublished: '2026-05-13',
+  },
 };

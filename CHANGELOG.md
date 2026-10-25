@@ -1,8 +1,11 @@
 # Changelog
 
-## 1.34.1 — 2026-10-25
+## 1.35.0 — 2026-10-25
 
 - Simplify the Home intro: "I write at Notes".
+- Add Dispatch to Games, finished on PC, and link my review of it on Notes.
+- Update Now playing: Lifesworn, my own game in development, The Outer Worlds 2, Star Wars: Zero Company, and Star Trek: Voyager – Across the Unknown join the rotation.
+- Link "learning to make games" on Home to Projects, filtered to games and books. Projects now opens with a filter from `?category=`, and keeps the address in step when you pick one.
 
 ## 1.34.1 — 2026-10-25
 

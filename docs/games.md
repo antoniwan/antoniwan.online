@@ -27,6 +27,10 @@ The export script reads only the two files named by its arguments. It never writ
 
 Release years come from the vault where it records one. Where neither file records a year, the script uses a public release-year map inside the script. Those are public facts, not vault entries. As of October 20, 2026, 15 games have no year. The list shows "Year not recorded", and the timeline leaves them out.
 
+A game Antonio finished and reviewed on Notes before the vault lists it comes from a small `reviewed` list in the script, as played and 100% complete, and is skipped once the vault has it. As of October 25, 2026, it holds Dispatch.
+
+On October 25, 2026, the October 20 snapshot was edited by hand to match: Dispatch added, and Now playing set to what Antonio named that day. Lifesworn (his own game, like Uplift), Star Wars: Zero Company, and Star Trek: Voyager – Across the Unknown are `manual` entries with no `mention`, since the vault may not list them yet, and The Outer Worlds 2 is in `playingNow`. The snapshot now has 260 games: 8 playing, 249 played, and 3 up next. A game Antonio made carries a `stage` ("In playtest", "In development"), shown where a year would be, and a `linkLabel` for its link.
+
 A game whose rows name no platform can get one from a small `publicPlatforms` map in the script, applied only when the record has none. Those are public facts too, taken from Antonio's own public writing. As of October 20, 2026, it holds one entry: Crimson Desert, PS5, from his review.
 
 Titles that appear in more than one place become one record. The script merges them through an explicit alias map. Platforms are combined. Hours and progress come from the Galaxy and rotation tables. Year, decade, and genre come from the backlog.
