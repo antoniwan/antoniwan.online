@@ -7,10 +7,14 @@
   },
   "trackedFloorHours": 5907,
   "nowPlaying": [
+    "lifesworn",
+    "uplift",
+    "the-outer-worlds-2",
+    "star-wars-zero-company",
+    "star-trek-voyager-across-the-unknown",
     "warhammer-40000-rogue-trader",
     "control-resonant",
-    "dune-awakening",
-    "uplift"
+    "dune-awakening"
   ],
   "lookingForward": [
     "the-last-of-us-part-ii"
@@ -912,6 +916,19 @@
       "status": "played",
       "hours": null,
       "progress": null
+    },
+    {
+      "id": "dispatch",
+      "title": "Dispatch",
+      "year": 2025,
+      "decade": 2020,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "played",
+      "hours": null,
+      "progress": 100
     },
     {
       "id": "divinity-original-sin",
@@ -1835,6 +1852,23 @@
       "progress": null
     },
     {
+      "id": "lifesworn",
+      "title": "Lifesworn",
+      "year": null,
+      "decade": null,
+      "platforms": [
+        "PC"
+      ],
+      "genre": null,
+      "status": "playing",
+      "hours": null,
+      "progress": null,
+      "builtByMe": true,
+      "href": "https://lifesworn.com",
+      "stage": "In development",
+      "linkLabel": "Website"
+    },
+    {
       "id": "lost-paws",
       "title": "Lost Paws",
       "year": null,
@@ -2735,6 +2769,17 @@
       "progress": null
     },
     {
+      "id": "star-trek-voyager-across-the-unknown",
+      "title": "Star Trek: Voyager – Across the Unknown",
+      "year": null,
+      "decade": null,
+      "platforms": [],
+      "genre": null,
+      "status": "playing",
+      "hours": null,
+      "progress": null
+    },
+    {
       "id": "star-wars-jedi-fallen-order",
       "title": "Star Wars Jedi: Fallen Order",
       "year": 2019,
@@ -2784,6 +2829,17 @@
       ],
       "genre": null,
       "status": "played",
+      "hours": null,
+      "progress": null
+    },
+    {
+      "id": "star-wars-zero-company",
+      "title": "Star Wars: Zero Company",
+      "year": null,
+      "decade": null,
+      "platforms": [],
+      "genre": null,
+      "status": "playing",
       "hours": null,
       "progress": null
     },
@@ -3003,7 +3059,7 @@
         "PS5"
       ],
       "genre": "RPG (Western)",
-      "status": "played",
+      "status": "playing",
       "hours": null,
       "progress": null
     },
@@ -3208,7 +3264,9 @@
       "hours": null,
       "progress": null,
       "builtByMe": true,
-      "href": "https://uplifttowergame.com"
+      "href": "https://uplifttowergame.com",
+      "stage": "In playtest",
+      "linkLabel": "Play Uplift"
     },
     {
       "id": "v-rising",

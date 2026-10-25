@@ -100,12 +100,24 @@ const hoursOverrides: Record<string, { value: number; display: string }> = {
 };
 
 // Playing now, from the vault's October 2026 notes. Only names and status are copied; the script checks both are still mentioned.
-const manual: { title: string; mention: string; platforms: string[]; builtByMe?: boolean; href?: string }[] = [
+// An entry without `mention` is one Antonio named as playing on October 25, 2026, which the vault may not list yet.
+type ManualGame = { title: string; mention?: string; platforms: string[]; builtByMe?: boolean; href?: string; stage?: string; linkLabel?: string };
+const manual: ManualGame[] = [
   { title: 'Dune: Awakening', mention: 'Dune: Awakening', platforms: ['Steam'] },
-  { title: 'Uplift', mention: 'Uplift', platforms: ['Browser'], builtByMe: true, href: 'https://uplifttowergame.com' },
+  { title: 'Uplift', mention: 'Uplift', platforms: ['Browser'], builtByMe: true, href: 'https://uplifttowergame.com', stage: 'In playtest', linkLabel: 'Play Uplift' },
+  { title: 'Lifesworn', platforms: ['PC'], builtByMe: true, href: 'https://lifesworn.com', stage: 'In development', linkLabel: 'Website' },
+  { title: 'Star Wars: Zero Company', platforms: [] },
+  { title: 'Star Trek: Voyager – Across the Unknown', platforms: [] },
 ];
-for (const entry of manual) if (!inventory.includes(entry.mention)) throw new Error('Expected the inventory to mention ' + entry.mention + '.');
-const nowPlayingOrder = ['Warhammer 40,000: Rogue Trader', 'Control Resonant', 'Dune: Awakening', 'Uplift'];
+// Games the vault already lists that Antonio named as playing on October 25, 2026.
+const playingNow = ['The Outer Worlds 2'];
+// Games Antonio finished and reviewed in public on Notes before the vault lists them. Title, year and platform are from the review; finished is 100% complete.
+// Skipped once the vault has the title, so the vault's own record wins.
+const reviewed: { title: string; year: number; platforms: string[] }[] = [
+  { title: 'Dispatch', year: 2025, platforms: ['PC'] },
+];
+for (const entry of manual) if (entry.mention && !inventory.includes(entry.mention)) throw new Error('Expected the inventory to mention ' + entry.mention + '.');
+const nowPlayingOrder = ['Lifesworn', 'Uplift', 'The Outer Worlds 2', 'Star Wars: Zero Company', 'Star Trek: Voyager – Across the Unknown', 'Warhammer 40,000: Rogue Trader', 'Control Resonant', 'Dune: Awakening'];
 const lookingForwardOrder = ['The Last of Us Part II'];
 
 // ---------------------------------------------------------------- parsing helpers
@@ -301,8 +313,25 @@ for (const observation of observations) {
 // Hand-added current games.
 for (const entry of manual) {
   const key = matchKey(entry.title);
-  if (records.has(key)) throw new Error('Manual title already present in the sources: ' + entry.title);
-  records.set(key, { id: slug(entry.title), title: entry.title, year: null, decade: null, platforms: entry.platforms, genre: null, status: 'playing', hours: null, progress: null, ...(entry.builtByMe ? { builtByMe: true } : {}), ...(entry.href ? { href: entry.href } : {}), seen: [{ raw: entry.title, where: 'manual' }], aliased: false });
+  const listed = records.get(key);
+  // Once the vault lists a game Antonio named, the vault's record wins; the status and his own game's link carry over.
+  if (listed && !entry.mention) {
+    Object.assign(listed, { status: 'playing' }, entry.builtByMe ? { builtByMe: true } : {}, entry.href ? { href: entry.href } : {}, entry.stage ? { stage: entry.stage } : {}, entry.linkLabel ? { linkLabel: entry.linkLabel } : {});
+    continue;
+  }
+  if (listed) throw new Error('Manual title already present in the sources: ' + entry.title);
+  records.set(key, { id: slug(entry.title), title: entry.title, year: null, decade: null, platforms: entry.platforms, genre: null, status: 'playing', hours: null, progress: null, ...(entry.builtByMe ? { builtByMe: true } : {}), ...(entry.href ? { href: entry.href } : {}), ...(entry.stage ? { stage: entry.stage } : {}), ...(entry.linkLabel ? { linkLabel: entry.linkLabel } : {}), seen: [{ raw: entry.title, where: 'manual' }], aliased: false });
+}
+for (const title of playingNow) {
+  const record = records.get(matchKey(title));
+  if (!record) throw new Error('Expected the sources to list ' + title + '.');
+  record.status = 'playing';
+}
+
+for (const entry of reviewed) {
+  const key = matchKey(entry.title);
+  if (records.has(key)) continue;
+  records.set(key, { id: slug(entry.title), title: entry.title, year: entry.year, decade: null, platforms: entry.platforms, genre: null, status: 'finished', hours: null, progress: 100, seen: [{ raw: entry.title, where: 'review' }], aliased: false });
 }
 
 // Finish each record: overrides, public years, decade fallback, platform order.
@@ -319,7 +348,7 @@ for (const record of records.values()) {
   const distinct = new Set(record.seen.map(entry => entry.where + '|' + entry.raw));
   if (distinct.size > 1) merges.push(record.title + ' <- ' + [...distinct].map(entry => { const [where, raw] = entry.split('|'); return raw + ' [' + where.replace('inventory ', 'inv: ').replace('backlog ', 'backlog ') + ']'; }).join('; '));
   const { seen: _seen, aliased: _aliased, ...game } = record;
-  games.push({ id: game.id, title: game.title, year: game.year, decade: game.decade, platforms: game.platforms, genre: game.genre, status: publicStatus[game.status], hours: game.hours, progress: game.progress, ...(game.builtByMe ? { builtByMe: true } : {}), ...(game.href ? { href: game.href } : {}) });
+  games.push({ id: game.id, title: game.title, year: game.year, decade: game.decade, platforms: game.platforms, genre: game.genre, status: publicStatus[game.status], hours: game.hours, progress: game.progress, ...(game.builtByMe ? { builtByMe: true } : {}), ...(game.href ? { href: game.href } : {}), ...(game.stage ? { stage: game.stage } : {}), ...(game.linkLabel ? { linkLabel: game.linkLabel } : {}) });
 }
 games.sort((a, b) => a.title.localeCompare(b.title, 'en', { sensitivity: 'base' }));
 const ids = games.map(game => game.id);

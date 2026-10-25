@@ -139,7 +139,21 @@ const schema = {
     }
   }
 
-  buttons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.projectFilter ?? 'all')));
+  // ?category=<id> opens the list filtered, so other pages can link to one category. A click keeps the address in step.
+  function setCategoryParam(category: string) {
+    const url = new URL(location.href);
+    if (category === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', category);
+    history.replaceState(history.state, '', url);
+  }
+
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const category = button.dataset.projectFilter ?? 'all';
+    filterProjects(category);
+    setCategoryParam(category);
+  }));
   window.addEventListener('hashchange', revealLinkedProject);
   if (filters) filters.hidden = false;
+  const linked = new URLSearchParams(location.search).get('category');
+  if (linked && buttons.some(button => button.dataset.projectFilter === linked)) filterProjects(linked);
 </script>

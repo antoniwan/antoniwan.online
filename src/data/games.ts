@@ -33,9 +33,13 @@ export interface Game {
   hours: GameHours | null;
   /** Completion percent from a launcher. */
   progress: number | null;
-  /** True for a game Antonio made (Uplift). */
+  /** True for a game Antonio made (Uplift, Lifesworn). */
   builtByMe?: boolean;
   href?: string;
+  /** Where a game Antonio made stands, shown in place of a year: "In playtest", "In development". */
+  stage?: string;
+  /** The words on the link to `href` in Now playing. */
+  linkLabel?: string;
 }
 
 export interface GamesSnapshot {
