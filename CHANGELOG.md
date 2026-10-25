@@ -4,6 +4,7 @@
 
 - Add Lifesworn to Projects: the free 3D action RPG I'm making in Godot, where it stands, and a link to lifesworn.com.
 - Show the Uplift and Lifesworn logos small in their cards, beside the title. A logo opens the game's site in a new tab.
+- Rewrite the Home intro: by day the same job, the rest of the time learning to make games, Uplift and Lifesworn, and writing essays and devlogs at Notes. The site description and `/llms.txt` say the same.
 - Bring the project cards up to date: Uplift is live and free, Strong Hands, Soft Heart has consulting, two books, and soap planned, Notes carries the devlogs, and Cookbook has a kitchen mode.
 
 ## 1.33.0 — 2026-10-20
