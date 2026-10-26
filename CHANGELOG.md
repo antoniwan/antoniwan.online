@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.36.0 — 2026-10-26
+
+- Give `/llms.txt` a Projects section: every project with its link and its card's words, by category, and pointers to the llms.txt files of Uplift and Lifesworn. Games there mentions Now playing.
+- Fix the Lifesworn card: the game's price is not set, so it no longer says free, and it speaks of your own champion instead of Milak Summir, who is the game's test look, not its hero.
+
 ## 1.35.0 — 2026-10-25
 
 - Simplify the Home intro: "I write at Notes".
