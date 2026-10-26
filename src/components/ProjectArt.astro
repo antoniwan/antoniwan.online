@@ -1,0 +1,32 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+  /** "tile" is the small version Home uses. */
+  size?: 'card' | 'tile';
+}
+
+// A featured project's picture: the game's logo on its own stage, or the book's CSS illustration.
+// The logo carries the game's name, so it is the title's text alternative; the books' art is decoration.
+const { project, size = 'card' } = Astro.props;
+const art = project.featured?.art;
+---
+
+{art === 'logo' && project.logo ? (
+  <span class:list={['project-art', 'project-art--stage', `project-art--${project.featured?.id}`, `project-art--${size}`]}>
+    <img
+      src={project.logo.src}
+      width={project.logo.width}
+      height={project.logo.height}
+      alt={project.title}
+      class:list={{ 'is-pixelated': project.logo.pixelated }}
+      loading="lazy"
+      decoding="async"
+    />
+  </span>
+) : (
+  <span class:list={['project-art', 'book-art', `book-art--${art}`, `project-art--${size}`]} aria-hidden="true">
+    <span class="book-art__shape" />
+  </span>
+)}

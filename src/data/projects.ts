@@ -11,8 +11,13 @@ export interface Project {
   repo?: string;
   body: string;
   stack: string;
-  /** A game's own logo, shown small in its card. It opens the game's site in a new tab. */
+  /** A game's own logo. On a featured tile it stands in for the title. */
   logo?: { src: string; width: number; height: number; pixelated?: boolean };
+  /**
+   * The games and picture books lead Projects as big tiles, and Home shows the same four as small ones.
+   * `art` is the logo, or one of the books' CSS illustrations; `line` is one short fact under the text.
+   */
+  featured?: { id: string; art: 'logo' | 'sky' | 'line'; line: string };
 }
 
 /**
@@ -35,6 +40,7 @@ export const projects: Project[] = [
     body: "A 3D action RPG, and the game I've been dreaming about for years. You make your own champion and live their life. I make it alone, in Godot. A demo for Windows, Mac, and Linux is coming to itch.io, with no date yet. Next up: the first region, built to play from start to finish.",
     stack: 'Godot, GDScript',
     logo: { src: '/projects/lifesworn-logo.svg', width: 170, height: 54 },
+    featured: { id: 'lifesworn', art: 'logo', line: 'Demo coming to itch.io' },
   },
   {
     title: 'Uplift',
@@ -43,6 +49,7 @@ export const projects: Project[] = [
     body: 'My take on SimTower: build a tower floor by floor and keep the elevators moving. Live three days after it started, free, in your browser on a computer or a tablet. Still early, and every note from players shapes it. Published by Strong Hands, Soft Heart.',
     stack: 'TypeScript, PixiJS, SolidJS',
     logo: { src: '/projects/uplift-logo.png', width: 100, height: 88, pixelated: true },
+    featured: { id: 'uplift', art: 'logo', line: 'Free to play in your browser' },
   },
   {
     title: 'antoniwan.online',
@@ -74,14 +81,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/Strong-Hands-Soft-Heart/the-bent-one',
     body: 'A bilingual picture book with animated spreads. Published by Strong Hands, Soft Heart.',
     stack: 'Vite',
-  },
-  {
-    title: 'LinksForest',
-    category: 'apps-and-tools',
-    href: 'https://links-forest-phi.vercel.app',
-    repo: 'https://github.com/antoniwan/links-forest',
-    body: 'A themed link page you can make your own. Fork it, edit one file, ship it. It ran this domain until October 2026.',
-    stack: 'Astro',
+    featured: { id: 'the-bent-one', art: 'line', line: 'English and Spanish · Read it online' },
   },
   {
     title: 'Notes',
@@ -98,6 +98,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/Strong-Hands-Soft-Heart/book-sun-and-moon',
     body: 'A bilingual picture book as a web app, written for my daughter and my nephew. Published by Strong Hands, Soft Heart.',
     stack: 'React, Vite',
+    featured: { id: 'mia-the-sun-and-the-moon', art: 'sky', line: 'English and Spanish · Free to read' },
   },
 ];
 
