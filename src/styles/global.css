@@ -233,7 +233,6 @@ figure { margin: 0; }
 .book-author { grid-area: author; margin: 0; color: var(--ink-2); font-size: .875rem; }
 .book-subjects { grid-area: subjects; display: flex; flex-wrap: wrap; gap: .1rem .75rem; margin-top: .15rem; color: var(--muted); font-size: .6875rem; }
 .book-status { grid-area: status; margin: 0; align-self: start; justify-self: end; padding: .2rem .6rem; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; font-size: .75rem; }
-.game-entry .book-status { grid-area: auto; }
 .book-status[data-reading-status='reading'] { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
 .book-empty { padding: 3rem 0; }
 .collection-section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; margin-bottom: 1.5rem; }
@@ -529,12 +528,26 @@ figure { margin: 0; }
 .timeline-decade__more a { border-style: dashed; color: var(--muted); }
 
 .game-key { max-width: 62ch; margin: 0 0 1.25rem; color: var(--ink-2); font-size: .875rem; }
-.game-entry { display: grid; gap: .75rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 3.5rem; }
+/* The list folds by letter. Each game is one compact line; hours, progress and reviews add a second. */
+.games-folds { border-top: 1px solid var(--line); }
+.games-letter { border-bottom: 1px solid var(--line); scroll-margin-top: var(--games-nav-h); }
+.games-letter > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; padding: .35rem 0; cursor: pointer; list-style: none; }
+.games-letter > summary::-webkit-details-marker { display: none; }
+.games-letter > summary::after { content: '+'; color: var(--accent); font-size: 1.25rem; line-height: 1; }
+.games-letter[open] > summary::after { content: '−'; }
+.games-letter__name { font: 750 1.375rem/1 var(--font-display); letter-spacing: -.02em; }
+.games-letter__count { margin-left: auto; color: var(--muted); font: .75rem/1.2 var(--font-mono); }
+.games-letter > summary:hover .games-letter__name { color: var(--accent); }
+.games-letter .book-list { padding-bottom: .75rem; }
+.game-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; padding: .6rem 0; border-top: 1px solid var(--line); scroll-margin-top: 3.5rem; }
+.game-entry__line { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .75rem; min-width: 0; }
+.game-entry .game-entry__facts { grid-column: 1; margin: .2rem 0 0; }
+.game-entry > .book-status { grid-column: 2; grid-row: 1; }
 .game-entry:target { background: var(--accent-soft); outline: .75rem solid var(--accent-soft); border-radius: .25rem; }
-.game-entry h3 { margin-bottom: .35rem; font-size: 1.25rem; line-height: 1.4; overflow-wrap: anywhere; }
+.game-entry h3 { margin: 0; font-size: 1.0625rem; line-height: 1.4; overflow-wrap: anywhere; }
 .game-entry h3 a { color: var(--ink); text-decoration: none; }
 .game-entry h3 a:hover { color: var(--accent); text-decoration: underline; }
-.game-entry p { margin: 0 0 .4rem; color: var(--ink-2); font-size: .875rem; }
+.game-entry p { margin: 0; color: var(--ink-2); font-size: .8125rem; }
 .game-entry__facts { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
 .game-entry__store { color: var(--ink-2); }
 .game-entry__store:hover { color: var(--accent); }
@@ -549,7 +562,7 @@ figure { margin: 0; }
 .games-nav { position: sticky; top: 0; z-index: 5; margin-top: 1.5rem; border-block: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .games-nav__scroll { position: relative; display: flex; align-items: center; justify-content: space-between; gap: .25rem 1.5rem; min-height: calc(var(--games-nav-h) - 2px); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -ms-overflow-style: none; }
 .games-nav__scroll::-webkit-scrollbar { display: none; }
-.games-nav__links, .games-nav__tools, .games-letters ul { display: flex; margin: 0; padding: 0; list-style: none; }
+.games-nav__links, .games-nav__tools { display: flex; margin: 0; padding: 0; list-style: none; }
 .games-nav__links { flex: none; gap: .25rem; }
 .games-nav__tools { flex: none; align-items: center; gap: .5rem; }
 .games-nav__tools[hidden] { display: none; }
@@ -561,12 +574,6 @@ figure { margin: 0; }
 .games-nav__filters { border: 1px solid var(--line); border-radius: 999px; }
 .games-nav__filters:hover { border-color: var(--accent); }
 
-/* A–Z jump above the list. Letters with no row under the current filters are dimmed and cannot be followed. */
-.games-letters { margin: 0 0 .75rem; }
-.games-letters ul { flex-wrap: wrap; gap: .15rem; }
-.games-letters a { display: inline-grid; place-items: center; min-width: 2.5rem; min-height: 2.5rem; border-radius: .35rem; color: var(--accent); font: 600 .875rem/1 var(--font-mono); text-decoration: none; }
-.games-letters a:hover { background: var(--accent-soft); }
-.games-letters a[aria-disabled='true'] { color: var(--muted); opacity: .45; cursor: default; background: transparent; }
 
 @media (min-width: 30rem) {
   .book-filters.game-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -579,7 +586,6 @@ figure { margin: 0; }
   .book-filters.game-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .game-filters__search { grid-column: span 2; }
   .game-filters .book-reset { grid-column: auto; }
-  .game-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; }
   .timeline-decade { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 2rem; }
 }
 @media (min-width: 64rem) {

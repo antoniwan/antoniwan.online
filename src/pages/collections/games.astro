@@ -23,13 +23,14 @@ const statuses = statusOrder.filter(status => games.some(game => game.status ===
 const platforms = [...new Set(games.flatMap(game => game.platforms))].sort((first, second) => first.localeCompare(second));
 const decades = decadeGroups.filter(decade => games.some(game => decadeGroup(game) === decade));
 const hasUndated = games.some(game => decadeGroup(game) === null);
-// The A–Z jump: a title's letter ignores accents; digits and symbols share "#".
+// The letter folds: a title's letter ignores accents; digits and symbols share "#".
 const letterOf = (title: string) => {
   const first = title.normalize('NFKD').replace(/[̀-ͯ]/g, '').trim().charAt(0).toUpperCase();
   return /[A-Z]/.test(first) ? first : '#';
 };
 const letters = [...new Set(games.map(game => letterOf(game.title)))].sort((a, b) => (a === '#' ? -1 : b === '#' ? 1 : a.localeCompare(b)));
-const firstOfLetter = new Map(letters.map(letter => [letter, games.find(game => letterOf(game.title) === letter)!.id]));
+// The list folds by letter, so the page can end after By decade; search and the filters open the letters with matches.
+const letterId = (letter: string) => `letter-${letter === '#' ? 'numbers' : letter.toLowerCase()}`;
 const listId = `${SITE.url}/collections/games#game-catalogue`;
 const parent = { label: 'Collections', href: '/collections' };
 const sameAs = (id: string, href?: string) => [href, gameLinks[id]?.wikipedia, gameLinks[id]?.steam, gameLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${gameLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
@@ -58,29 +59,34 @@ const schema = {
       <button class="book-reset" type="reset">Clear filters</button>
     </form>
     <div class="book-results"><p id="game-results" role="status" aria-live="polite" aria-atomic="true">{games.length} games</p><span>Titles A–Z</span></div>
-    <nav class="games-letters" aria-label="Jump to a letter">
-      <ul>{letters.map(letter => <li><a href={`#${firstOfLetter.get(letter)}`} data-letter-jump={letter} aria-label={letter === '#' ? 'Numbers and symbols' : undefined}>{letter}</a></li>)}</ul>
-    </nav>
-    <ul class="book-list" id="game-list" aria-label="Games">
-      {games.map(game => {
-        const group = decadeGroup(game);
-        const link = gameLinks[game.id];
-        const review = gameReviews[game.id];
-        return <li class="game-entry" id={game.id} data-game data-letter={letterOf(game.title)} data-title={game.title} data-year={game.year ?? ''} data-status={game.status} data-platforms={game.platforms.join('|')} data-decade={group ?? 'none'}>
-          <div>
-            <h3><a href={link?.wikipedia ?? game.href ?? `#${game.id}`}>{game.title}</a></h3>
-            <p class="game-entry__meta">{game.year ?? game.stage ?? 'Year not recorded'}{game.platforms.length > 0 && <> · {game.platforms.join(' · ')}</>}{link?.steam && <> · <a class="game-entry__store" href={link.steam}>Steam</a></>}</p>
-            {(game.hours?.value != null || game.progress !== null || game.builtByMe || review) && <p class="game-entry__facts">
-              {game.hours && game.hours.value !== null && <span class="game-entry__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></span>}
-              {game.progress !== null && <span>{game.progress}% complete</span>}
-              {game.builtByMe && game.href && <a href={game.href}>I built this</a>}
-              {review && <a class="game-entry__review" href={review.url}>My review</a>}
-            </p>}
-          </div>
-          <span class="book-status" data-game-status={game.status}>{gameStatusLabels[game.status]}</span>
-        </li>;
+    <div class="games-folds" id="game-list">
+      {letters.map(letter => {
+        const inLetter = games.filter(game => letterOf(game.title) === letter);
+        return <details class="games-letter" id={letterId(letter)} data-letter-group={letter}>
+          <summary><span class="games-letter__name">{letter === '#' ? '0–9' : letter}</span><span class="games-letter__count" data-letter-count>{inLetter.length} {inLetter.length === 1 ? 'game' : 'games'}</span></summary>
+          <ul class="book-list" aria-label={`Games starting with ${letter === '#' ? 'a number' : letter}`}>
+            {inLetter.map(game => {
+              const group = decadeGroup(game);
+              const link = gameLinks[game.id];
+              const review = gameReviews[game.id];
+              return <li class="game-entry" id={game.id} data-game data-title={game.title} data-year={game.year ?? ''} data-status={game.status} data-platforms={game.platforms.join('|')} data-decade={group ?? 'none'}>
+                <div class="game-entry__line">
+                  <h3><a href={link?.wikipedia ?? game.href ?? `#${game.id}`}>{game.title}</a></h3>
+                  <p class="game-entry__meta">{game.year ?? game.stage ?? 'Year not recorded'}{game.platforms.length > 0 && <> · {game.platforms.join(' · ')}</>}{link?.steam && <> · <a class="game-entry__store" href={link.steam}>Steam</a></>}</p>
+                </div>
+                {(game.hours?.value != null || game.progress !== null || game.builtByMe || review) && <p class="game-entry__facts">
+                  {game.hours && game.hours.value !== null && <span class="game-entry__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></span>}
+                  {game.progress !== null && <span>{game.progress}% complete</span>}
+                  {game.builtByMe && game.href && <a href={game.href}>I built this</a>}
+                  {review && <a class="game-entry__review" href={review.url}>My review</a>}
+                </p>}
+                {game.status === 'played' ? <span class="visually-hidden">{gameStatusLabels.played}</span> : <span class="book-status" data-game-status={game.status}>{gameStatusLabels[game.status]}</span>}
+              </li>;
+            })}
+          </ul>
+        </details>;
       })}
-    </ul>
+    </div>
     <div class="book-empty" id="game-empty" hidden><h3>No games match</h3><p>Try another title or clear the filters.</p></div>
     <p class="section__footnote">Snapshot from <time datetime={snapshot.exportedAt}>{watchDate(snapshot.exportedAt)}</time>, {formatNumber(games.length)} games. Hours marked Tracked come from a platform or in-game counter. Platform counters count idle time. <a href="/collections/games.json">Download the public game list as JSON</a>.</p>
     <noscript><p>The complete list is available above. Enable JavaScript to use the filters.</p></noscript>
@@ -100,6 +106,7 @@ const schema = {
   const normalize = (value: string) => value.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   if (form && search && status && platform && decade && results && empty) {
     const selects = [[status, 'status'], [platform, 'platform'], [decade, 'decade']] as const;
+    let wasFiltering = false;
     const update = () => {
       const terms = normalize(search.value).split(/\s+/).filter(Boolean);
       let count = 0;
@@ -114,6 +121,17 @@ const schema = {
       }
       results.textContent = count === rows.length ? `${count} games` : `${count} of ${rows.length} games`;
       empty.hidden = count > 0;
+      // Letters with no match hide; while anything is filtered, the letters with matches open.
+      const filtering = count !== rows.length;
+      for (const group of document.querySelectorAll<HTMLDetailsElement>('[data-letter-group]')) {
+        const shown = group.querySelectorAll('[data-game]:not([hidden])').length;
+        group.hidden = shown === 0;
+        if (filtering) group.open = true;
+        const label = group.querySelector('[data-letter-count]');
+        if (label) label.textContent = `${shown} ${shown === 1 ? 'game' : 'games'}`;
+      }
+      if (filtering !== wasFiltering && !filtering) for (const group of document.querySelectorAll<HTMLDetailsElement>('[data-letter-group]')) group.open = false;
+      wasFiltering = filtering;
       document.dispatchEvent(new CustomEvent('games:filtered', { detail: { count, total: rows.length } }));
     };
     const restore = () => {
@@ -140,31 +158,14 @@ const schema = {
     window.addEventListener('popstate', restore);
     restore();
     form.hidden = false;
-    // A linked game can start hidden by a filter; scroll to it once the list is filtered.
-    if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+    // A linked game can start folded or hidden by a filter; open its letter and scroll to it once the list is filtered.
+    const reveal = () => {
+      let target: HTMLElement | null = null;
+      try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+      const fold = target?.closest<HTMLDetailsElement>('[data-letter-group]');
+      if (fold) { fold.open = true; target?.scrollIntoView(); }
+    };
+    if (location.hash) reveal();
+    window.addEventListener('hashchange', reveal);
   }
-</script>
-<script>
-  // A–Z jump: go to the first row that is still showing under the current filters; letters with none are disabled.
-  const jumps = [...document.querySelectorAll<HTMLAnchorElement>('[data-letter-jump]')];
-  const entries = [...document.querySelectorAll<HTMLElement>('[data-game]')];
-  const firstVisible = (letter: string) => entries.find(row => row.dataset.letter === letter && !row.hidden);
-  const refresh = () => {
-    for (const jump of jumps) {
-      const home = jump.dataset.href ??= jump.getAttribute('href') ?? '';
-      if (firstVisible(jump.dataset.letterJump!)) { jump.setAttribute('href', home); jump.removeAttribute('aria-disabled'); }
-      else { jump.removeAttribute('href'); jump.setAttribute('aria-disabled', 'true'); }
-    }
-  };
-  document.addEventListener('games:filtered', refresh);
-  document.querySelector('.games-letters')?.addEventListener('click', event => {
-    const jump = (event.target as Element).closest<HTMLAnchorElement>('[data-letter-jump]');
-    if (!jump) return;
-    event.preventDefault();
-    const row = firstVisible(jump.dataset.letterJump!);
-    if (!row) return;
-    row.scrollIntoView();
-    row.querySelector<HTMLElement>('h3 a')?.focus({ preventScroll: true });
-  });
-  refresh();
 </script>
