@@ -1,0 +1,29 @@
+---
+import { books } from '../data/books';
+interface Props {
+  /** On the Collections page the heading links on to the whole library. */
+  seeAll?: boolean;
+}
+const { seeAll = false } = Astro.props;
+const reading = books.filter(book => book.readingStatus === 'reading');
+// A quiet tint per book, picked from its first subject, so the shelf reads as spines and not as boxes.
+const tints = ['#7a4fa3', '#b0466e', '#2f7a68', '#a8672b', '#3e64a8', '#8a8f2e'];
+const tint = (text: string) => tints[[...text].reduce((sum, char) => sum + char.charCodeAt(0), 0) % tints.length];
+---
+
+{reading.length > 0 && (
+  <section class="section reading-now" aria-labelledby="reading-now-title" id="reading-now">
+    <div class="collection-section-heading">
+      <div><h2 id="reading-now-title">Reading now</h2><p>The books I have open right now.</p></div>
+      {seeAll && <a href="/collections/books">All {books.length} books →</a>}
+    </div>
+    <ul class="spines">
+      {reading.map(book => <li>
+        <a class="spine" href={`/collections/books#${book.id}`} style={`--spine: ${tint(book.subjects[0] ?? book.title)}`}>
+          <span class="spine__title">{book.title}</span>
+          <span class="spine__author">{book.author}</span>
+        </a>
+      </li>)}
+    </ul>
+  </section>
+)}

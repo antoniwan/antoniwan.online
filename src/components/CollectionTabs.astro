@@ -1,0 +1,17 @@
+---
+// Sideways links between the collections, under each collection's intro. The current one is marked.
+interface Props { current: 'lately' | 'books' | 'movies' | 'games'; }
+const { current } = Astro.props;
+const tabs = [
+  { id: 'lately', label: 'Lately', href: '/collections' },
+  { id: 'books', label: 'Books', href: '/collections/books' },
+  { id: 'movies', label: 'Movies', href: '/collections/movies' },
+  { id: 'games', label: 'Games', href: '/collections/games' },
+] as const;
+---
+
+<nav class="collection-tabs" aria-label="Collections">
+  <ul>
+    {tabs.map(tab => <li><a href={tab.href} aria-current={tab.id === current ? 'page' : undefined}>{tab.label}</a></li>)}
+  </ul>
+</nav>

@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
+import CollectionTabs from '../../components/CollectionTabs.astro';
 import LatestWatched from '../../components/LatestWatched.astro';
 import { getMovieCollection, movieLinks } from '../../data/movies';
 import { watchDate } from '../../utils/movies';
@@ -19,6 +20,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
   <PageIntro label="Movies" title="Things I've watched" parent={parent}>
     Films, first watches, and returns. A growing list from my Letterboxd diary, not a complete history of everything I've seen.
   </PageIntro>
+  <CollectionTabs current="movies" />
   <LatestWatched movies={movies} diaryUrl={`${snapshot.profileUrl}diary/`} />
   <section class="section bookshelf" aria-labelledby="movie-catalogue-title">
     <div class="collection-section-heading"><div><h2 id="movie-catalogue-title">The movie list</h2><p>A small catalogue. No reviews or private notes are copied here.</p></div></div>

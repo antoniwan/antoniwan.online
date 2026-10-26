@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
+import CollectionTabs from '../../components/CollectionTabs.astro';
 import { books, bookLinks, readingStatusLabels } from '../../data/books';
 import { SITE } from '../../config/site';
 import { breadcrumbs } from '../../utils/breadcrumbs';
@@ -15,6 +16,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
   <PageIntro label="Books" title="Books on my mind" parent={parent}>
     Some I've finished, some I return to, some are still waiting. Reading status doesn't tell you whether I own a copy.
   </PageIntro>
+  <CollectionTabs current="books" />
   <section class="section bookshelf" aria-label="Book catalogue">
     <form class="book-filters" id="book-filters" role="search" aria-label="Find a book" hidden>
       <label class="book-search">Search books<input id="book-search" name="q" type="search" placeholder="Title, author, or subject" aria-controls="book-list" autocomplete="off" /></label>

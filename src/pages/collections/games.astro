@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
+import CollectionTabs from '../../components/CollectionTabs.astro';
 import NowPlaying from '../../components/NowPlaying.astro';
 import HoursHallOfFame from '../../components/HoursHallOfFame.astro';
 import GamesTimeline from '../../components/GamesTimeline.astro';
@@ -41,6 +42,7 @@ const schema = {
   <PageIntro label="Games" title="Things I've played" parent={parent}>
     Thirty-plus years of games. I mark every hour count by how far it can be trusted: counted, guessed, or a floor.
   </PageIntro>
+  <CollectionTabs current="games" />
   <GamesNav />
   <NowPlaying games={nowPlaying} />
   <HoursHallOfFame games={games} lifetime={snapshot.lifetime} trackedFloorHours={snapshot.trackedFloorHours} />

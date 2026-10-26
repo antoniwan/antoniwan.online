@@ -1,19 +1,24 @@
 ---
 import { recentWatches, watchDate, type Movie } from '../utils/movies';
-interface Props { movies: Movie[]; diaryUrl: string; }
-const { movies, diaryUrl } = Astro.props;
+interface Props {
+  movies: Movie[];
+  diaryUrl: string;
+  /** On the Collections page the heading links on to the whole movie list instead of the diary. */
+  seeAll?: boolean;
+}
+const { movies, diaryUrl, seeAll = false } = Astro.props;
 const watches = recentWatches(movies);
 ---
 
 <section class="section" aria-labelledby="latest-watches-title" id="latest-watches">
   <div class="collection-section-heading">
     <div><h2 id="latest-watches-title">Latest watches</h2><p>The most recent watches recorded here. Ratings are mine, not a consensus.</p></div>
-    <a href={diaryUrl}>Full diary on Letterboxd</a>
+    {seeAll ? <a href="/collections/movies">All {movies.length} films →</a> : <a href={diaryUrl}>Full diary on Letterboxd</a>}
   </div>
   <ul class="watched-grid">
     {watches.map(({ movie, watch }) => <li>
       <a class="watched-card" href={watch.href}>
-        <div class="watched-card__art">{movie.posterUrl ? <img src={movie.posterUrl} alt="" width="200" height="300" loading="lazy" decoding="async" /> : <span aria-hidden="true">{movie.title}</span>}</div>
+        <div class="watched-card__art"><span class="watched-card__fallback" aria-hidden="true">{movie.title}</span>{movie.posterUrl && <img src={movie.posterUrl} alt="" width="200" height="300" loading="lazy" decoding="async" onerror="this.remove()" />}</div>
         <h3>{movie.title}</h3>
         <p class="watched-card__details">{movie.year}{watch.rating !== null && <span aria-label={`My rating: ${watch.rating} out of 5`}>{watch.rating}/5</span>}</p>
         <time datetime={watch.watchedOn}>{watchDate(watch.watchedOn)}</time>
