@@ -2,11 +2,13 @@
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import CollectionTabs from '../../components/CollectionTabs.astro';
+import ReadingNow from '../../components/ReadingNow.astro';
 import { books, bookLinks, readingStatusLabels } from '../../data/books';
 import { SITE } from '../../config/site';
 import { breadcrumbs } from '../../utils/breadcrumbs';
 // No dateModified here: the books snapshot carries no date.
 const parent = { label: 'Collections', href: '/collections' };
+const statusCounts = Object.entries(readingStatusLabels).map(([value, label]) => ({ value, label, count: books.filter(book => book.readingStatus === value).length })).filter(status => status.count > 0);
 const subjects = [...new Set(books.flatMap(book => book.subjects))].sort((first, second) => first.localeCompare(second));
 const listId = `${SITE.url}/collections/books#catalogue`;
 const sameAs = (id: string) => [bookLinks[id]?.wikipedia, bookLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${bookLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
@@ -17,18 +19,25 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
     Some I've finished, some I return to, some are still waiting. Reading status doesn't tell you whether I own a copy.
   </PageIntro>
   <CollectionTabs current="books" />
-  <section class="section bookshelf" aria-label="Book catalogue">
-    <form class="book-filters" id="book-filters" role="search" aria-label="Find a book" hidden>
+  <ReadingNow />
+  <section class="section bookshelf" aria-labelledby="book-catalogue-title">
+    <div class="collection-section-heading"><div><h2 id="book-catalogue-title">The book list</h2><p>Every book in the library, A to Z.</p></div></div>
+    <form class="book-filters book-filters--chips" id="book-filters" role="search" aria-label="Find a book" hidden>
       <label class="book-search">Search books<input id="book-search" name="q" type="search" placeholder="Title, author, or subject" aria-controls="book-list" autocomplete="off" /></label>
-      <label>Reading status<select id="book-status" name="status" aria-controls="book-list"><option value="">All statuses</option>{Object.entries(readingStatusLabels).filter(([value]) => books.some(book => book.readingStatus === value)).map(([value, label]) => <option value={value}>{label}</option>)}</select></label>
       <label>Subject<select id="book-subject" name="subject" aria-controls="book-list"><option value="">All subjects</option>{subjects.map(subject => <option value={subject}>{subject}</option>)}</select></label>
       <button type="reset" class="book-reset">Clear filters</button>
+      <fieldset class="status-chips"><legend>Reading status</legend>
+        <label><input type="radio" name="status" value="" checked aria-controls="book-list" /><span>All {books.length}</span></label>
+        {statusCounts.map(status => <label><input type="radio" name="status" value={status.value} aria-controls="book-list" /><span>{status.label} {status.count}</span></label>)}
+      </fieldset>
     </form>
     <div class="book-results"><p id="book-results" role="status" aria-live="polite" aria-atomic="true">{books.length} books</p><span>Titles A–Z</span></div>
     <ul id="book-list" class="book-list" aria-label="Books">
       {books.map(book => <li class="book-entry" id={book.id} data-book data-title={book.title} data-author={book.author} data-status={book.readingStatus} data-subjects={JSON.stringify(book.subjects)}>
-        <div><h2><a href={bookLinks[book.id]?.wikipedia ?? `#${book.id}`}>{book.title}</a></h2><p class="book-author">{book.author}</p><ul class="book-subjects" aria-label="Subjects">{book.subjects.map(subject => <li>{subject}</li>)}</ul></div>
-        <p class="book-status" data-reading-status={book.readingStatus}>{readingStatusLabels[book.readingStatus]}</p>
+        <h3><a href={bookLinks[book.id]?.wikipedia ?? `#${book.id}`}>{book.title}</a></h3>
+        <p class="book-author">{book.author}</p>
+        <ul class="book-subjects" aria-label="Subjects">{book.subjects.map(subject => <li>{subject}</li>)}</ul>
+        {book.readingStatus === 'read' ? <p class="visually-hidden">{readingStatusLabels.read}</p> : <p class="book-status" data-reading-status={book.readingStatus}>{readingStatusLabels[book.readingStatus]}</p>}
       </li>)}
     </ul>
     <div class="book-empty" id="book-empty" hidden><h2>No books match</h2><p>Try another title or author, or clear the filters.</p></div>
@@ -40,13 +49,14 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
 <script>
   const form = document.querySelector<HTMLFormElement>('#book-filters');
   const search = document.querySelector<HTMLInputElement>('#book-search');
-  const status = document.querySelector<HTMLSelectElement>('#book-status');
+  const statusInputs = [...document.querySelectorAll<HTMLInputElement>('input[name="status"]')];
+  const status = { get value() { return statusInputs.find(input => input.checked)?.value ?? ''; }, set value(next: string) { statusInputs.forEach(input => { input.checked = input.value === next; }); }, options: statusInputs };
   const subject = document.querySelector<HTMLSelectElement>('#book-subject');
   const results = document.querySelector('#book-results');
   const empty = document.querySelector<HTMLElement>('#book-empty');
   const rows = [...document.querySelectorAll<HTMLElement>('[data-book]')];
   const normalize = (text: string) => text.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-  if (form && search && status && subject && results && empty) {
+  if (form && search && statusInputs.length && subject && results && empty) {
     const update = () => {
       const terms = normalize(search.value).split(/\s+/).filter(Boolean);
       let count = 0;
@@ -79,7 +89,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
       history.replaceState(history.state, '', url);
     };
     search.addEventListener('input', apply);
-    status.addEventListener('change', apply);
+    statusInputs.forEach(input => input.addEventListener('change', apply));
     subject.addEventListener('change', apply);
     form.addEventListener('submit', event => { event.preventDefault(); apply(); });
     form.addEventListener('reset', () => requestAnimationFrame(apply));
