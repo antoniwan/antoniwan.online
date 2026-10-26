@@ -13,7 +13,7 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 ## Collections
 
-`/collections` holds three personal catalogues. Each has a page, a public JSON copy, and a guide:
+`/collections` is the Lately page: Reading now, the latest watches, and Now playing, each linking to its full list. Tabs under each collection's intro move between the four pages. The three catalogues each have a page, a public JSON copy, and a guide:
 
 | Collection | Page | Data | Source | Guide |
 | --- | --- | --- | --- | --- |
@@ -23,13 +23,15 @@ The personal site of Antonio Rodríguez Martínez: who he is, how he works, what
 
 The `link-*` scripts match entries to Wikidata and save the links beside each snapshot (`book-links.json`, `movie-links.json`, `game-links.json`), so a refresh of the snapshot never erases them. A wrong link is worse than none: an entry without a confident match stays unlinked. Antonio's own game reviews on Notes are listed in `src/data/game-reviews.ts`.
 
+Now playing cards show Steam's header image for games sold there, loaded from Steam's CDN, and initials on a plain tile otherwise; movie posters load from Letterboxd. Neither is stored in the repository.
+
 Movies refresh themselves: `.github/workflows/refresh-movies.yml` checks the feed every day and pushes to `main` only when there is a new watch. Books and Games have no feed and stay manual.
 
 The site reads only the saved snapshots in `src/data/`. Builds never need the private notes. The export scripts read the files named on their command line and never write to them.
 
 Cookbook has its own entry in Projects. Authored picture books remain in Projects, not the reading library.
 
-A game in Projects may carry its own logo (`logo` in `src/data/projects.ts`, the file in `public/projects/`). It shows small beside the title and opens the game's site in a new tab. Uplift's is its `public/logo.png`; Lifesworn's is drawn from the game's title (Germania One, SIL Open Font License, as outlines) in its colours: pale gold to ember orange, a dark edge, and an ember for the dot of the i.
+Projects leads with the games and picture books as big tiles (`featured` in `src/data/projects.ts`: an anchor id, the art, and a one-line status), and lists everything else below. Home shows the same four as small tiles under Making. A game's tile shows its logo (`logo`, the file in `public/projects/`) in place of its title, on a dark stage; a book's shows its CSS illustration. Uplift's logo is its `public/logo.png`; Lifesworn's is drawn from the game's title (Germania One, SIL Open Font License, as outlines) in its colours: pale gold to ember orange, a dark edge, and an ember for the dot of the i.
 
 ## Search and sharing
 

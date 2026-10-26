@@ -31,14 +31,14 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 ## Site
 
-- [Home](${url('/')}): who he is, the latest essays, and every link
-- [About](${url('/about')}): his work at Stanley Black & Decker, background, how he works and his principles, and the company
-- [Collections](${url('/collections')}): selected personal catalogues: books, movies, and games
+- [Home](${url('/')}): who he is, the latest essays, his games and picture books, and every link
+- [About](${url('/about')}): his work at Stanley Black & Decker, background, what he makes, how he works and his principles, and the company
+- [Collections](${url('/collections')}): what he is reading, watching, and playing lately, with the way into the three catalogues: books, movies, and games
 - [Books](${url('/collections/books')}): searchable reading library of ${count(books.length)} books, each marked read, reading, to read, or abandoned; public data at ${url('/collections/books.json')}
 - [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list of ${count(movies.movies.length)} films, not a complete viewing history; public data at ${url('/collections/movies.json')}
 - [Games](${url('/collections/games')}): play log of ${count(games.games.length)} games, each playing, played, or up next, with platforms and hours marked by how far they can be trusted (tracked, estimate, or at least), not a complete record of time played; what he is playing now at the top; titles link to Wikipedia, to Steam where sold there, and to his Notes review where he wrote one; public data at ${url('/collections/games.json')}
 - [Cookbook](https://cookbook.antoniwan.online/): family recipes in English and Spanish, with its own public home
-- [Projects](${url('/projects')}): the things he makes and still runs, by category (each is listed under Projects below), and the work he did for others: ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}
+- [Projects](${url('/projects')}): the things he makes and still runs, his games and picture books first (each is listed under Projects below), and the work he did for others: ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}
 
 ## Projects
 

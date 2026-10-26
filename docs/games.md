@@ -14,6 +14,8 @@ Thirty-two games have an hour figure. The tracked floor is 5,907 hours. The life
 
 The page is a log, not a complete history. Played covers everything from a finished game to one a save folder only proves was opened. Hours and progress tell them apart. The page shows no ratings.
 
+Now playing shows art: Antonio's own games use their logos, games sold on Steam use Steam's header image (loaded from Steam, never stored here), and the rest show their initials. The full list folds by letter, so the page ends after By decade; search and the filters open every letter with a match, and a link to a game opens its letter. Each game is one line, with a status pill only for Playing and Up next.
+
 ## Sources
 
 Both sources are in Panda, the personal Obsidian vault, under `Areas/Gaming`:

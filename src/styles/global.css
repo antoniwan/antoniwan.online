@@ -601,3 +601,11 @@ figure { margin: 0; }
 @media (min-width: 64rem) {
   .now-playing { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* Small links in lists stay at least 24px tall to tap (WCAG 2.2 target size) without moving the text. */
+.book-entry h3 a, .movie-entry h3 a, .game-entry h3 a, .project-row h4 a, .collection-section-heading > a, .page-intro__label a,
+.game-entry__store, .game-entry__review, .hours-bar__review, .game-entry__facts a, .movie-entry summary, .movie-entry details a {
+  display: inline-block;
+  padding-block: .25rem;
+  margin-block: -.25rem;
+}
