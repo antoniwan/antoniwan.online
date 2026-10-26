@@ -4,6 +4,7 @@
 
 - Lead Projects with my games and picture books as big tiles: the games' logos stand in for their titles on a dark stage, and the books show their sun and moon and bent line. Everything else follows as a compact list, and the filter tabs go.
 - Take LinksForest off Projects; it is retired.
+- Fix Lifesworn's card: the game and its demo are coming to Steam when they are ready, not to itch.io.
 - Make Collections a Lately page: Reading now, the latest watches, and Now playing, each with a link to the whole list. Tabs under each collection's intro move between them.
 - Give the Now playing cards art: my games' logos, Steam's header image for the rest, initials when there is none.
 - Open Books with Reading now, turn the status menu into chips with counts, and give each book one compact row with a status only when it isn't plain Read.

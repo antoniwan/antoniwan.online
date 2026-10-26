@@ -37,10 +37,10 @@ export const projects: Project[] = [
     title: 'Lifesworn',
     category: 'games-and-books',
     href: 'https://lifesworn.com',
-    body: "A 3D action RPG, and the game I've been dreaming about for years. You make your own champion and live their life. I make it alone, in Godot. A demo for Windows, Mac, and Linux is coming to itch.io, with no date yet. Next up: the first region, built to play from start to finish.",
+    body: "A 3D action RPG, and the game I've been dreaming about for years. You make your own champion and live their life. I make it alone, in Godot. The game and a demo for Windows, Mac, and Linux are coming to Steam when they are ready. Next up: the first region, built to play from start to finish.",
     stack: 'Godot, GDScript',
     logo: { src: '/projects/lifesworn-logo.svg', width: 170, height: 54 },
-    featured: { id: 'lifesworn', art: 'logo', line: 'Demo coming to itch.io' },
+    featured: { id: 'lifesworn', art: 'logo', line: 'Coming to Steam, demo too' },
   },
   {
     title: 'Uplift',
