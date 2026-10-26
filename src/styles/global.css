@@ -248,18 +248,22 @@ figure { margin: 0; }
 .watched-card__details { display: flex; flex-wrap: wrap; gap: .4rem .75rem; margin: 0 0 .25rem; font-size: .8125rem; color: var(--ink-2); }
 .watched-card__details span { color: var(--accent); }
 .watched-card time, .watched-card__rewatch { display: block; font-size: .75rem; color: var(--muted); }
-.movie-entry { display: grid; gap: 1rem; padding: 1.6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 2rem; }
+/* One row per film: a small poster, the title (it opens the diary entry), and the rating as stars. */
+.movie-entry { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 2rem; }
+.movie-entry__poster { display: block; position: relative; width: 2.5rem; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 3px; background: linear-gradient(160deg, var(--accent-soft), var(--paper-2)); }
+.movie-entry__poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.movie-stars { color: var(--accent); font-size: 1rem; letter-spacing: .05em; white-space: nowrap; }
+.movie-stars--none { color: var(--muted); font-size: .75rem; letter-spacing: 0; }
 .movie-entry:target { background: var(--accent-soft); outline: .75rem solid var(--accent-soft); border-radius: .25rem; }
-.movie-entry h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: .4rem; overflow-wrap: anywhere; }
+.movie-entry h3 { font-size: 1.0625rem; line-height: 1.4; margin: 0; overflow-wrap: anywhere; }
 .movie-entry h3 a { color: var(--ink); text-decoration: none; }
 .movie-entry h3 a:hover { color: var(--accent); text-decoration: underline; }
-.movie-entry p { margin: 0 0 .5rem; color: var(--ink-2); font-size: .875rem; }
-.movie-diary-link, .movie-rewatch, .movie-entry details { font-size: .8125rem; }
-.movie-rewatch { margin-left: 1rem; color: var(--muted); }
-.movie-entry details { margin-top: .75rem; }
+.movie-entry p { margin: 0; color: var(--ink-2); font-size: .8125rem; }
+.movie-entry details { font-size: .8125rem; }
+.movie-entry details { margin-top: .35rem; }
 .movie-entry summary { cursor: pointer; }
 @media (min-width: 40rem) { .watched-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 48rem) { .book-filters { grid-template-columns: minmax(10rem, 2fr) 1fr 1fr auto; } .book-filters--chips { grid-template-columns: minmax(10rem, 2fr) 1fr auto; } .movie-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; }
+@media (min-width: 48rem) { .book-filters { grid-template-columns: minmax(10rem, 2fr) 1fr 1fr auto; } .book-filters--chips { grid-template-columns: minmax(10rem, 2fr) 1fr auto; }
   .book-entry { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 6.5rem; grid-template-areas: 'title subjects status' 'author subjects status'; column-gap: 2rem; }
   .book-subjects { align-self: center; margin: 0; } }
 @media (min-width: 64rem) { .watched-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
