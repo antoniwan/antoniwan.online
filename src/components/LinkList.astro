@@ -32,19 +32,13 @@ const rel = (me?: boolean) => (me ? 'me' : undefined);
         ))}
       </ul>
     ) : (
-      <ul class:list={['links', { 'links--books': section.id === 'books' }]}>
-        {section.items.map((item, index) => (
+      <ul class="links">
+        {section.items.map((item) => (
           <li>
             <a class="link-card" href={item.href} rel={rel(item.me)}>
-              {section.id === 'books' && (
-                <span class:list={['book-art', index === 0 ? 'book-art--sky' : 'book-art--line']} aria-hidden="true">
-                  <span class="book-art__shape" />
-                </span>
-              )}
               <span class="link-card__body">
                 <span class="link-card__title">{item.label}</span>
                 {item.note && <span class="note">{item.note}</span>}
-                {section.id === 'books' && <span class="book-link">Read the story</span>}
               </span>
             </a>
           </li>

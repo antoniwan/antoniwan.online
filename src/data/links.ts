@@ -37,23 +37,6 @@ export const sections: LinkSection[] = [
     ],
   },
   {
-    id: 'work',
-    title: 'Work',
-    layout: 'list',
-    items: [
-      {
-        label: 'Stanley Black & Decker',
-        href: '/about#work',
-        note: "My day job since 2021, on SBD Digital: the brands' web platform and the services behind it, AI innovation, prototyping, product design, and mentoring.",
-      },
-      {
-        label: 'Strong Hands, Soft Heart',
-        href: 'https://www.stronghandssoftheart.com',
-        note: 'My company. AI and engineering consulting now, soap later. It publishes the picture books.',
-      },
-    ],
-  },
-  {
     id: 'books',
     title: 'Picture books',
     layout: 'list',
