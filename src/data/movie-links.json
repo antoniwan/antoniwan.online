@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20",
+  "generatedAt": "2026-10-26",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -55,6 +55,11 @@
       "wikidata": "Q126683577",
       "wikipedia": "https://en.wikipedia.org/wiki/Disclosure_Day",
       "imdb": "https://www.imdb.com/title/tt15047880/"
+    },
+    "dracula-2025": {
+      "wikidata": "Q125187519",
+      "wikipedia": "https://en.wikipedia.org/wiki/Dracula_(2025_French_film)",
+      "imdb": "https://www.imdb.com/title/tt31434030/"
     },
     "elio": {
       "wikidata": "Q113879962",
@@ -146,6 +151,11 @@
       "wikipedia": "https://en.wikipedia.org/wiki/Practical_Magic",
       "imdb": "https://www.imdb.com/title/tt0120791/"
     },
+    "ready-or-not-2019": {
+      "wikidata": "Q58815115",
+      "wikipedia": "https://en.wikipedia.org/wiki/Ready_or_Not_(2019_film)",
+      "imdb": "https://www.imdb.com/title/tt7798634/"
+    },
     "resident-evil-2026": {
       "wikidata": "Q136565785",
       "wikipedia": "https://en.wikipedia.org/wiki/Resident_Evil_(2026_film)",
@@ -160,6 +170,11 @@
       "wikidata": "Q492908",
       "wikipedia": "https://en.wikipedia.org/wiki/Snowpiercer",
       "imdb": "https://www.imdb.com/title/tt1706620/"
+    },
+    "speed": {
+      "wikidata": "Q108006",
+      "wikipedia": "https://en.wikipedia.org/wiki/Speed_(1994_film)",
+      "imdb": "https://www.imdb.com/title/tt0111257/"
     },
     "spider-man-brand-new-day": {
       "wikidata": "Q113244935",
