@@ -3,16 +3,16 @@ import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { SITE } from '../config/site';
 import Ledger from '../components/Ledger.astro';
-import { projectCategories, projects, workForOthers } from '../data/projects';
+import ProjectArt from '../components/ProjectArt.astro';
+import { projects, workForOthers } from '../data/projects';
 
 // Structured data for "My own" only. Work for others belonged to employers and clients, so it is left out.
 // Every fact below comes from the card in src/data/projects.ts; nothing is added that the card does not say.
 const author = { '@id': SITE.personId };
 const company = { '@type': 'Organization', name: SITE.company.name, url: SITE.company.url };
-const anchors: Record<string, string> = {
-  'The Bent One': 'the-bent-one',
-  'Mia, the Sun, and the Moon': 'mia-the-sun-and-the-moon',
-};
+// The games and picture books lead as big tiles; the rest follow as a compact list.
+const featured = projects.filter(project => project.featured);
+const others = projects.filter(project => !project.featured);
 // The schema.org type and the facts the card states beyond its title, link and text.
 const schemaByTitle: Record<string, Record<string, unknown>> = {
   'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
@@ -23,7 +23,6 @@ const schemaByTitle: Record<string, Record<string, unknown>> = {
   'Strong Hands, Soft Heart': { '@type': 'WebSite', publisher: company },
   'Panda and Wolf': { '@type': 'CreativeWork' },
   'The Bent One': { '@type': 'Book', publisher: company },
-  'LinksForest': { '@type': 'WebApplication' },
   'Notes': { '@type': 'Blog', inLanguage: ['en', 'es'] },
   'Mia, the Sun, and the Moon': { '@type': 'Book', publisher: company },
 };
@@ -34,8 +33,8 @@ const schema = {
   '@id': listId,
   name: "Antonio's own projects",
   numberOfItems: projects.length,
-  itemListElement: projects.map((project, index) => {
-    const anchor = anchors[project.title];
+  itemListElement: [...featured, ...others].map((project, index) => {
+    const anchor = project.featured?.id;
     const facts = schemaByTitle[project.title] ?? { '@type': 'CreativeWork' };
     return {
       '@type': 'ListItem',
@@ -55,7 +54,7 @@ const schema = {
 
 <Base
   title="Projects"
-  description="Projects by Antonio Rodríguez Martínez: apps and tools, games and books, websites and writing, and work for others."
+  description="Projects by Antonio Rodríguez Martínez: his games and picture books first, then apps, tools and websites, and work for others."
   mainEntity={listId}
 >
   <PageIntro label="Projects" title="Things I've built">
@@ -69,28 +68,32 @@ const schema = {
       <h2 id="projects-title">My own</h2>
       <a class="project-history-link" href="#work-for-others">Work &amp; experiments ↓</a>
     </div>
-    <div class="project-browse">
-      <div class="project-filters" role="group" aria-label="Filter projects" hidden>
-        <button type="button" data-project-filter="all" aria-pressed="true" aria-controls="project-list">All projects</button>
-        {projectCategories.map(category => <button type="button" data-project-filter={category.id} aria-pressed="false" aria-controls="project-list">{category.title}</button>)}
-      </div>
-      <p id="project-results" role="status" aria-live="polite" aria-atomic="true">{projects.length} projects</p>
-    </div>
-    <ul class="projects" id="project-list">
-      {projects.map(project => (
-        <li class="project" data-category={project.category} id={project.title === 'The Bent One' ? 'the-bent-one' : project.title === 'Mia, the Sun, and the Moon' ? 'mia-the-sun-and-the-moon' : undefined}>
-          <p class="project__category">{projectCategories.find(category => category.id === project.category)?.title}</p>
-          {project.logo ? (
-            <div class="project__head">
-              <h3><a href={project.href}>{project.title}</a></h3>
-              <a class="project__logo" href={project.href} target="_blank" rel="noopener">
-                <img src={project.logo.src} width={project.logo.width} height={project.logo.height} alt={project.title} class:list={{ 'is-pixelated': project.logo.pixelated }} loading="lazy" decoding="async" />
-                <span class="visually-hidden"> (opens in a new tab)</span>
-              </a>
-            </div>
+    <ul class="featured" id="featured" aria-label="Games and picture books">
+      {featured.map(project => (
+        <li class="project project--featured" id={project.featured?.id}>
+          {project.featured?.art === 'logo' ? (
+            <h3 class="project__art-title"><a href={project.href}><ProjectArt project={project} /></a></h3>
           ) : (
-            <h3><a href={project.href}>{project.title}</a></h3>
+            <>
+              <ProjectArt project={project} />
+              <h3><a href={project.href}>{project.title}</a></h3>
+            </>
           )}
+          <p class="project__line">{project.featured?.line}</p>
+          <p>{project.body}</p>
+          <p class="project__meta">
+            {project.stack}
+            {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+          </p>
+        </li>
+      ))}
+    </ul>
+
+    <h3 class="project-more-title">Also made</h3>
+    <ul class="project-rows">
+      {others.map(project => (
+        <li class="project-row">
+          <h4><a href={project.href}>{project.title}</a></h4>
           <p>{project.body}</p>
           <p class="project__meta">
             {project.stack}
@@ -113,47 +116,3 @@ const schema = {
   <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
 </Base>
 
-<script>
-  const filters = document.querySelector<HTMLElement>('.project-filters');
-  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-project-filter]')];
-  const cards = [...document.querySelectorAll<HTMLElement>('.project[data-category]')];
-  const results = document.querySelector('#project-results');
-
-  function filterProjects(category: string) {
-    let count = 0;
-    cards.forEach(card => {
-      card.hidden = category !== 'all' && card.dataset.category !== category;
-      if (!card.hidden) count++;
-    });
-    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.projectFilter === category)));
-    if (results) results.textContent = category === 'all' ? `${count} projects` : `${count} of ${cards.length} projects`;
-  }
-
-  function revealLinkedProject() {
-    let target: HTMLElement | null;
-    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
-    catch { return; }
-    if (target?.matches('.project[hidden]')) {
-      filterProjects('all');
-      target.scrollIntoView({ block: 'start' });
-    }
-  }
-
-  // ?category=<id> opens the list filtered, so other pages can link to one category. A click keeps the address in step.
-  function setCategoryParam(category: string) {
-    const url = new URL(location.href);
-    if (category === 'all') url.searchParams.delete('category');
-    else url.searchParams.set('category', category);
-    history.replaceState(history.state, '', url);
-  }
-
-  buttons.forEach(button => button.addEventListener('click', () => {
-    const category = button.dataset.projectFilter ?? 'all';
-    filterProjects(category);
-    setCategoryParam(category);
-  }));
-  window.addEventListener('hashchange', revealLinkedProject);
-  if (filters) filters.hidden = false;
-  const linked = new URLSearchParams(location.search).get('category');
-  if (linked && buttons.some(button => button.dataset.projectFilter === linked)) filterProjects(linked);
-</script>

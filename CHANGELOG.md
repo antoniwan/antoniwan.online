@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.37.0 — 2026-10-26
+
+- Lead Projects with my games and picture books as big tiles: the games' logos stand in for their titles on a dark stage, and the books show their sun and moon and bent line. Everything else follows as a compact list, and the filter tabs go.
+- Take LinksForest off Projects; it is retired.
+- Fix Lifesworn's card: the game and its demo are coming to Steam when they are ready, not to itch.io.
+- Make Collections a Lately page: Reading now, the latest watches, and Now playing, each with a link to the whole list. Tabs under each collection's intro move between them.
+- Give the Now playing cards art: my games' logos, Steam's header image for the rest, initials when there is none.
+- Open Books with Reading now, turn the status menu into chips with counts, and give each book one compact row with a status only when it isn't plain Read.
+- Fold the game list by letter and give each game one line; Played no longer gets a pill.
+- Give each film one row: a small poster, the title opening the diary entry, and the rating as stars.
+- Replace Home's Work and Picture books with Making: four small tiles for the games and books, each opening its project. Add "Making things" to About.
+- Mark the current page in the header with a filled pill, give posters a fallback when they fail to load, keep small list links at least 24px tall to tap, and use one heading level per book on Books.
+
 ## 1.36.0 — 2026-10-26
 
 - Give `/llms.txt` a Projects section: every project with its link and its card's words, by category, and pointers to the llms.txt files of Uplift and Lifesworn. Games there mentions Now playing.

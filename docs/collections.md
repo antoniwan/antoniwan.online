@@ -88,7 +88,7 @@ Legacy status=in-progress becomes reading in the browser. The shelf query parame
 
 Notes /books redirects to /projects. The original authored-book fragment identifiers remain on their project entries.
 
-Reading-library entries receive stable title-and-author identifiers. Filters work with bookmarkable query parameters and do not require a backend.
+Reading-library entries receive stable title-and-author identifiers. Filters work with bookmarkable query parameters and do not require a backend. The page opens with Reading now, the books marked reading, which the Collections page shows too. Reading status is a row of chips with counts; each book is one row, with a status pill only when it is not Read.
 
 ## Search and sharing
 

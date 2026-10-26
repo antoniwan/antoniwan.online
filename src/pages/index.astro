@@ -4,19 +4,23 @@ import Base from '../layouts/Base.astro';
 import LinkList from '../components/LinkList.astro';
 import NoteList from '../components/NoteList.astro';
 import Seam from '../components/Seam.astro';
+import ProjectArt from '../components/ProjectArt.astro';
 // Image URLs are hashed from the file's path and size, not its content, and browsers keep them a year.
 // Give a new portrait a new file name, or visitors keep seeing the old one.
 import profile from '../portrait-2026-10.avif';
 import tongue from '../portrait-tongue-2026-10.avif';
 import { SITE } from '../config/site';
 import { sections } from '../data/links';
+import { projects } from '../data/projects';
 import { latestNotes } from '../utils/notes';
 
 const NOTE_COUNT = 5;
 const notes = await latestNotes(NOTE_COUNT);
 const writing = sections.find((section) => section.id === 'writing');
 const medium = writing?.items.find((item) => item.label === 'Medium');
-const rest = sections.filter((section) => section.id !== 'writing');
+// The games and picture books show as small tiles under Making (a game's logo is its name, so its tile adds its one-line status); the books' own link section stays in the data for /llms.txt.
+const making = projects.filter((project) => project.featured);
+const rest = sections.filter((section) => section.id !== 'writing' && section.id !== 'books');
 const [firstName, ...familyName] = SITE.name.split(' ');
 ---
 
@@ -57,7 +61,7 @@ const [firstName, ...familyName] = SITE.name.split(' ');
     </h1>
     <p class="hero__intro">
         On most of the internet I'm <strong>{SITE.handle}</strong>. By day I'm a technical
-        program manager at Stanley Black &amp; Decker. The rest of the time I'm <a href="/projects?category=games-and-books#projects">learning to make
+        program manager at Stanley Black &amp; Decker. The rest of the time I'm <a href="/projects#featured">learning to make
         games</a>, <a href="https://uplifttowergame.com">Uplift</a> and <a href="https://lifesworn.com">Lifesworn</a>, and I
         write at <a href={SITE.notesUrl}>Notes</a>. Boricua in Florida, and a father, which
         is where most of the writing comes from.
@@ -90,6 +94,28 @@ const [firstName, ...familyName] = SITE.name.split(' ');
         {medium && <>{' '}Older essays are on <a href={medium.href}>Medium</a>.</>}
       </p>
     </div>
+  </section>
+
+  <Seam />
+
+  <section class="section section--split" id="making" aria-labelledby="making-title">
+    <div class="section__heading">
+      <h2 id="making-title">Making</h2>
+      <p class="section__lead">Two games I'm learning to make, and two picture books.</p>
+      <a class="text-link" href="/projects">Every project</a>
+    </div>
+    <ul class="section__body making">
+      {making.map((project) => (
+        <li>
+          <a class="making__tile" href={`/projects#${project.featured?.id}`}>
+            <ProjectArt project={project} size="tile" />
+            {project.featured?.art === 'logo'
+              ? <span class="making__line">{project.featured.line}</span>
+              : <span class="making__title">{project.title}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 
   {

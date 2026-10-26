@@ -1,52 +1,29 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
-import { books } from '../../data/books';
+import CollectionTabs from '../../components/CollectionTabs.astro';
+import ReadingNow from '../../components/ReadingNow.astro';
+import LatestWatched from '../../components/LatestWatched.astro';
+import NowPlaying from '../../components/NowPlaying.astro';
 import { getMovieCollection } from '../../data/movies';
 import { games } from '../../data/games';
 import { breadcrumbs } from '../../utils/breadcrumbs';
 import { collectionsModified } from '../../utils/lastmod';
 const { snapshot } = await getMovieCollection();
-const trackedHours = games.trackedFloorHours.toLocaleString('en-US');
+const byId = new Map(games.games.map(game => [game.id, game]));
+const nowPlaying = games.nowPlaying.flatMap(id => byId.get(id) ?? []);
 ---
-<Base title="Collections" description="Antonio's personal collections: a searchable reading library, a movie diary, and a game log, with recent watches, personal ratings, and tracked hours." collection breadcrumbs={breadcrumbs('Collections', '/collections')} dateModified={collectionsModified(snapshot.movies)}>
+<Base title="Collections" description="What Antonio is reading, watching, and playing lately, with the way into his reading library, movie diary, and game log." collection breadcrumbs={breadcrumbs('Collections', '/collections')} dateModified={collectionsModified(snapshot.movies)}>
   <PageIntro label="Collections" title="Things I return to">
-    Books, movies, games, and the things I keep around while I learn. These are personal catalogues, not lists of recommendations.
+    Books, movies, and games: what I'm into lately, and the whole shelf behind it. These are personal catalogues, not lists of recommendations.
   </PageIntro>
-  <section class="section collection-grid" aria-label="Collections">
-    <a class="collection-card" href="/collections/books">
-      <span class="eyebrow">01 / Reading library</span>
-      <h2>Books <span aria-hidden="true">↗</span></h2>
-      <p>What I've read, what I'm reading, what I want to read, and what I put down.</p>
-      <span class="collection-card__count">{books.length} books · Search by title, author, or subject</span>
-    </a>
-    <a class="collection-card" href="/collections/movies">
-      <span class="eyebrow">02 / Watching diary</span>
-      <h2>Movies <span aria-hidden="true">↗</span></h2>
-      <p>Recent watches, films I come back to, and my own ratings.</p>
-      <span class="collection-card__count">{snapshot.movies.length} films · Latest watches and a searchable list</span>
-    </a>
-    <a class="collection-card collection-card--games" href="/collections/games">
-      <span class="eyebrow">03 / Play log</span>
-      <h2>Games <span aria-hidden="true">↗</span></h2>
-      <p>What I'm playing now, what I've finished, and the hours I can actually count.</p>
-      <span class="collection-card__count">{games.games.length} games · {trackedHours} hours tracked · Now playing and a searchable list</span>
-    </a>
-    <aside class="collection-context">
-      <h2>A different kind of shelf</h2>
-      <p>The picture books I wrote belong with the things I've made. You'll find them in <a href="/projects">Projects</a>.</p>
-      <p>Our family recipes have their own home at <a href="https://cookbook.antoniwan.online/">Cookbook</a>.</p>
-    </aside>
-  </section>
+  <CollectionTabs current="lately" />
+  <ReadingNow seeAll />
+  <LatestWatched movies={snapshot.movies} diaryUrl={`${snapshot.profileUrl}diary/`} seeAll />
+  <NowPlaying games={nowPlaying} seeAll />
+  <aside class="section collection-context">
+    <h2>A different kind of shelf</h2>
+    <p>The picture books I wrote belong with the things I've made. You'll find them in <a href="/projects#featured">Projects</a>.</p>
+    <p>Our family recipes have their own home at <a href="https://cookbook.antoniwan.online/">Cookbook</a>.</p>
+  </aside>
 </Base>
-
-<style>
-  /* Below 64rem, Games spans the full row under Books and Movies. From 64rem, the three cards sit across. */
-  @media (min-width: 48rem) {
-    .collection-card--games { grid-column: 1 / -1; }
-  }
-  @media (min-width: 64rem) {
-    .collection-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .collection-card--games { grid-column: auto; }
-  }
-</style>

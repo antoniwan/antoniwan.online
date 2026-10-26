@@ -1,24 +1,46 @@
 ---
 import type { Game } from '../data/games';
-import { hoursConfidenceLabels } from '../data/games';
-interface Props { games: Game[]; }
-const { games } = Astro.props;
+import { gameLinks, games as snapshot, hoursConfidenceLabels } from '../data/games';
+import { projects } from '../data/projects';
+interface Props {
+  games: Game[];
+  /** On the Collections page the heading links on to the whole play log. */
+  seeAll?: boolean;
+}
+const { games, seeAll = false } = Astro.props;
+// Art for each card: my own games show their logo; the rest use Steam's header image, loaded from Steam.
+// A game Steam doesn't sell, or an image that fails to load, falls back to its initials on a plain tile.
+const logoFor = (game: Game) => projects.find(project => project.title === game.title)?.logo;
+const steamId = (game: Game) => gameLinks[game.id]?.steam?.match(/\/app\/(\d+)/)?.[1];
+const initials = (title: string) => title.split(/[\s:–-]+/).filter(word => /^[A-Z0-9]/.test(word)).slice(0, 3).map(word => word[0]).join('');
+const headerUrl = (id: string) => `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${id}/header.jpg`;
 ---
 
 <section class="section" aria-labelledby="now-playing-title" id="now-playing">
   <div class="collection-section-heading">
     <div><h2 id="now-playing-title">Now playing</h2><p>What is in the rotation this month.</p></div>
+    {seeAll && <a href="/collections/games">All {snapshot.games.length} games →</a>}
   </div>
   <ul class="now-playing">
-    {games.map(game => <li class="now-card" data-built={game.builtByMe ? '' : undefined}>
-      <p class="now-card__meta">
-        {(game.year || game.stage) && <span>{game.year ?? game.stage}</span>}
-        {game.platforms.length > 0 && <span>{game.platforms.join(' · ')}</span>}
-        {game.builtByMe && <span class="now-card__mark">I built this</span>}
-      </p>
-      <h3>{game.title}</h3>
-      {game.hours && game.hours.value !== null && <p class="now-card__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></p>}
-      {game.builtByMe && game.href && <p class="now-card__links"><a href={game.href}>{game.linkLabel ?? `Visit ${game.title}`}</a><a href="/projects">About the project</a></p>}
-    </li>)}
+    {games.map(game => {
+      const logo = logoFor(game);
+      const id = steamId(game);
+      return <li class="now-card" data-built={game.builtByMe ? '' : undefined}>
+        <div class:list={['now-card__art', { 'now-card__art--stage': logo, [`project-art--${game.id}`]: logo }]} aria-hidden="true">
+          {logo ? <img src={logo.src} width={logo.width} height={logo.height} alt="" class:list={{ 'is-pixelated': logo.pixelated }} loading="lazy" decoding="async" />
+            : id ? <img src={headerUrl(id)} width="460" height="215" alt="" loading="lazy" decoding="async" onerror="this.remove()" />
+            : null}
+          <span class="now-card__fallback">{initials(game.title)}</span>
+        </div>
+        <p class="now-card__meta">
+          {(game.year || game.stage) && <span>{game.year ?? game.stage}</span>}
+          {game.platforms.length > 0 && <span>{game.platforms.join(' · ')}</span>}
+          {game.builtByMe && <span class="now-card__mark">I built this</span>}
+        </p>
+        <h3>{game.title}</h3>
+        {game.hours && game.hours.value !== null && <p class="now-card__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></p>}
+        {game.builtByMe && game.href && <p class="now-card__links"><a href={game.href}>{game.linkLabel ?? `Visit ${game.title}`}</a><a href={`/projects#${game.id}`}>About the project</a></p>}
+      </li>;
+    })}
   </ul>
 </section>

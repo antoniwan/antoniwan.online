@@ -111,7 +111,7 @@ a.essay[target='_blank']::after,
 a.link-card[target='_blank']::after,
 a.watched-card[target='_blank']::after,
 .icons a[target='_blank']::after,
-.project__logo[target='_blank']::after { content: none; }
+.project__art-title a[target='_blank']::after { content: none; }
 p a[target='_blank'] { white-space: nowrap; }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; border-radius: 2px; }
 h1, h2, h3 {
@@ -147,8 +147,9 @@ figure { margin: 0; }
 .nav { display: flex; gap: 0.2rem; }
 .nav { flex-wrap: wrap; justify-content: flex-end; }
 .nav a { display: inline-flex; align-items: center; gap: 0.3rem; min-height: 44px; padding: 0.5rem 0.55rem; color: var(--ink-2); font-size: 0.8125rem; text-decoration: none; }
-.nav a:hover, .nav a[aria-current='page'] { color: var(--accent); text-decoration: underline; text-underline-offset: 0.45em; }
-.nav a[aria-current='page'] { font-weight: 600; }
+.nav a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.45em; }
+/* The current page is a soft filled pill, so it reads over the moving pattern. */
+.nav a[aria-current='page'] { align-self: center; min-height: 0; padding-block: .3rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; text-decoration: none; }
 
 /* Give the site name and navigation separate rows on phones and small tablets. */
 @media (max-width: 47.999rem) {
@@ -206,28 +207,32 @@ figure { margin: 0; }
 .section__heading, .section__body { min-width: 0; }
 .section__lead { color: var(--ink-2); font-size: 0.9375rem; }
 .section__footnote { margin: 1.25rem 0 0; color: var(--muted); font-size: 0.75rem; }
-.collection-grid { display: grid; gap: 2.5rem; }
-.collection-card { display: block; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--line); border-radius: 1rem; background: var(--paper-2); color: var(--ink); text-decoration: none; }
-.collection-card:hover { border-color: var(--accent); }
-.collection-card h2 { display: flex; justify-content: space-between; gap: 1rem; font-size: 2rem; }
-.collection-card__count { color: var(--accent); font-size: .875rem; }
-.collection-context { grid-column: 1 / -1; }
 .collection-context p { color: var(--ink-2); }
 .book-filters { display: grid; gap: 1rem; align-items: end; padding: 1.25rem; border: 1px solid var(--line); border-radius: .75rem; background: var(--paper-2); }
 .bookshelf [hidden] { display: none !important; }
 .book-filters label { display: grid; gap: .5rem; font-size: .875rem; color: var(--ink-2); }
 .book-filters input, .book-filters select, .book-reset { min-width: 0; width: 100%; min-height: 44px; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: .35rem; background: var(--paper); color: var(--ink); font: inherit; }
 .book-reset { cursor: pointer; font-size: .875rem; }
+/* Reading status as one-tap chips with counts. */
+.status-chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .4rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+.status-chips legend { float: left; width: 100%; margin-bottom: .5rem; padding: 0; color: var(--ink-2); font-size: .875rem; }
+.status-chips label { display: inline-flex; position: relative; }
+.status-chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.status-chips span { display: inline-flex; align-items: center; min-height: 40px; padding: .35rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink-2); font-size: .875rem; white-space: nowrap; }
+.status-chips label:hover span { border-color: var(--accent); color: var(--accent); }
+.status-chips input:checked + span { border-color: var(--ink); background: var(--ink); color: var(--paper); font-weight: 600; }
+.status-chips input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 3px; }
 .book-results { display: flex; justify-content: space-between; gap: 1rem; margin: 1.5rem 0 .5rem; font-size: .875rem; color: var(--muted); }
 .book-results p { margin: 0; }
-.book-entry { display: grid; gap: 1rem; padding: 1.6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 2rem; }
+/* One compact row per book: title and author, the subjects in small type, and a status only when it is not plain "Read". */
+.book-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'title status' 'author status' 'subjects status'; column-gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 2rem; }
 .book-entry:target { background: var(--accent-soft); outline: .75rem solid var(--accent-soft); border-radius: .25rem; }
-.book-entry h2 { margin: 0 0 .4rem; font-size: 1.25rem; line-height: 1.4; overflow-wrap: anywhere; }
-.book-entry h2 a { color: var(--ink); text-decoration: none; }
-.book-entry h2 a:hover { color: var(--accent); text-decoration: underline; }
-.book-author { margin: 0 0 .75rem; color: var(--ink-2); }
-.book-subjects { display: flex; flex-wrap: wrap; gap: .35rem .75rem; color: var(--muted); font-size: .75rem; }
-.book-status { margin: 0; align-self: start; justify-self: start; padding: .25rem .65rem; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; font-size: .75rem; }
+.book-entry h3 { grid-area: title; margin: 0; font-size: 1.0625rem; line-height: 1.4; overflow-wrap: anywhere; }
+.book-entry h3 a { color: var(--ink); text-decoration: none; }
+.book-entry h3 a:hover { color: var(--accent); text-decoration: underline; }
+.book-author { grid-area: author; margin: 0; color: var(--ink-2); font-size: .875rem; }
+.book-subjects { grid-area: subjects; display: flex; flex-wrap: wrap; gap: .1rem .75rem; margin-top: .15rem; color: var(--muted); font-size: .6875rem; }
+.book-status { grid-area: status; margin: 0; align-self: start; justify-self: end; padding: .2rem .6rem; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; font-size: .75rem; }
 .book-status[data-reading-status='reading'] { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
 .book-empty { padding: 3rem 0; }
 .collection-section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; margin-bottom: 1.5rem; }
@@ -243,19 +248,61 @@ figure { margin: 0; }
 .watched-card__details { display: flex; flex-wrap: wrap; gap: .4rem .75rem; margin: 0 0 .25rem; font-size: .8125rem; color: var(--ink-2); }
 .watched-card__details span { color: var(--accent); }
 .watched-card time, .watched-card__rewatch { display: block; font-size: .75rem; color: var(--muted); }
-.movie-entry { display: grid; gap: 1rem; padding: 1.6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 2rem; }
+/* One row per film: a small poster, the title (it opens the diary entry), and the rating as stars. */
+.movie-entry { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 2rem; }
+.movie-entry__poster { display: block; position: relative; width: 2.5rem; aspect-ratio: 2 / 3; overflow: hidden; border-radius: 3px; background: linear-gradient(160deg, var(--accent-soft), var(--paper-2)); }
+.movie-entry__poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.movie-stars { color: var(--accent); font-size: 1rem; letter-spacing: .05em; white-space: nowrap; }
+.movie-stars--none { color: var(--muted); font-size: .75rem; letter-spacing: 0; }
 .movie-entry:target { background: var(--accent-soft); outline: .75rem solid var(--accent-soft); border-radius: .25rem; }
-.movie-entry h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: .4rem; overflow-wrap: anywhere; }
+.movie-entry h3 { font-size: 1.0625rem; line-height: 1.4; margin: 0; overflow-wrap: anywhere; }
 .movie-entry h3 a { color: var(--ink); text-decoration: none; }
 .movie-entry h3 a:hover { color: var(--accent); text-decoration: underline; }
-.movie-entry p { margin: 0 0 .5rem; color: var(--ink-2); font-size: .875rem; }
-.movie-diary-link, .movie-rewatch, .movie-entry details { font-size: .8125rem; }
-.movie-rewatch { margin-left: 1rem; color: var(--muted); }
-.movie-entry details { margin-top: .75rem; }
+.movie-entry p { margin: 0; color: var(--ink-2); font-size: .8125rem; }
+.movie-entry details { font-size: .8125rem; }
+.movie-entry details { margin-top: .35rem; }
 .movie-entry summary { cursor: pointer; }
 @media (min-width: 40rem) { .watched-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 48rem) { .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; } .book-filters { grid-template-columns: minmax(10rem, 2fr) 1fr 1fr auto; } .book-entry, .movie-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; } }
+@media (min-width: 48rem) { .book-filters { grid-template-columns: minmax(10rem, 2fr) 1fr 1fr auto; } .book-filters--chips { grid-template-columns: minmax(10rem, 2fr) 1fr auto; }
+  .book-entry { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 6.5rem; grid-template-areas: 'title subjects status' 'author subjects status'; column-gap: 2rem; }
+  .book-subjects { align-self: center; margin: 0; } }
 @media (min-width: 64rem) { .watched-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+/* Collections: sideways tabs, the Reading now shelf, and art on the Now playing cards. */
+.collection-tabs { margin-top: 1.75rem; border-bottom: 1px solid var(--line); }
+.collection-tabs ul { display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none; }
+.collection-tabs a { display: inline-flex; align-items: center; min-height: 44px; padding: .25rem .9rem; border-radius: 999px 999px 0 0; color: var(--ink-2); font-size: .9375rem; text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.collection-tabs a:hover { color: var(--accent); }
+.collection-tabs a[aria-current='page'] { border-bottom-color: var(--accent); color: var(--ink); font-weight: 600; }
+.spines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+@media (min-width: 48rem) { .spines { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.spine { display: flex; flex-direction: column; justify-content: space-between; gap: .75rem; height: 100%; min-height: 8.5rem; padding: 1rem 1rem 1rem 1.15rem; border-radius: 4px 10px 10px 4px; border-left: 10px solid var(--spine); background: var(--paper-2); color: var(--ink); text-decoration: none; transition: transform .2s ease; }
+.spine:hover { transform: translateY(-3px); }
+.spine:hover .spine__title { color: var(--accent); }
+.spine__title { font: 650 1.0625rem/1.25 var(--font-display); letter-spacing: -.015em; overflow-wrap: anywhere; }
+.spine__author { color: var(--muted); font-size: .8125rem; }
+@media (prefers-reduced-motion: reduce) { .spine { transition: none; } .spine:hover { transform: none; } }
+.now-card__art { position: relative; display: grid; place-items: center; aspect-ratio: 460 / 215; margin: -1.25rem -1.25rem 1rem; overflow: hidden; border-radius: .75rem .75rem 0 0; background: linear-gradient(135deg, var(--accent-soft), var(--paper-2)); }
+.now-card__art > img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.now-card__fallback { color: var(--accent); font: 750 2.75rem/1 var(--font-display); letter-spacing: -.04em; opacity: .55; }
+/* The fallback shows only once there is no image: none was found, or onerror removed it. */
+.now-card__art:has(> img) .now-card__fallback, .watched-card__art:has(> img) .watched-card__fallback { display: none; }
+.now-card__art--stage > img { position: static; width: auto; max-width: 70%; height: auto; max-height: 64%; object-fit: contain; }
+.now-card__art--stage > .is-pixelated { image-rendering: pixelated; height: 70%; max-height: none; }
+.watched-card__art { position: relative; }
+.watched-card__art img { position: absolute; inset: 0; z-index: 1; }
+.watched-card__fallback { padding: .75rem; color: var(--muted); font: 600 .875rem/1.3 var(--font-display); text-align: center; }
+
+/* Home's Making row: the four tiles open each project on Projects. The art carries the look; the title sits under it. */
+.making { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.making__tile { display: block; color: var(--ink); text-decoration: none; }
+.making__tile .project-art { margin-bottom: .6rem; transition: transform .2s ease; }
+.making__tile:hover .project-art { transform: translateY(-3px); }
+.making__title { font: 650 1rem/1.3 var(--font-display); letter-spacing: -.015em; }
+.making__line { display: block; color: var(--accent); font: 500 .75rem/1.5 var(--font-mono); }
+.making__tile:hover .making__title, .making__tile:hover .making__line { color: var(--accent); text-decoration: underline; }
+@media (min-width: 64rem) { .making { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .making__tile .project-art { transition: none; } .making__tile:hover .project-art { transform: none; } }
 
 /* Every essay uses the same spacing and type scale. */
 .essay { display: block; padding: 1.35rem 0; color: var(--ink); text-decoration: none; }
@@ -266,17 +313,12 @@ figure { margin: 0; }
 .essay:hover .essay__title { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 .essays > li:first-child .essay { padding-top: 0; }
 
-/* Work and elsewhere use generous rows; books have lightweight CSS illustrations. */
+/* Elsewhere uses generous rows. The picture books' lightweight CSS illustrations live on Projects and Home's Making tiles. */
 .link-card { display: block; padding: 1.4rem 0; color: var(--ink); text-decoration: none; }
 .links > li:first-child .link-card { padding-top: 0; }
 .link-card__title { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; font: 650 1.125rem/1.4 var(--font-display); letter-spacing: -0.02em; }
 .note { display: block; margin-top: 0.6rem; color: var(--ink-2); font-size: 0.875rem; line-height: 1.75; }
 .link-card:hover .link-card__title { color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-.links--books { display: grid; gap: 1.5rem; }
-.links--books > li + li { border: 0; }
-.links--books .link-card, .links--books > li:first-child .link-card { height: 100%; padding: 0; }
-.links--books .link-card__body { display: block; padding-block: 1.1rem 0.25rem; }
-.book-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.75rem; font-weight: 600; }
 .book-art { position: relative; display: grid; place-items: center; height: 190px; overflow: hidden; border-radius: 10px; }
 .book-art--sky { background: #e2e9f6; color: #2456d8; }
 .book-art--line { background: #f0e4dd; color: #823d2c; }
@@ -304,17 +346,9 @@ figure { margin: 0; }
 .project-section-heading h2 { margin: 0; }
 .project-history-link { display: inline-flex; align-items: center; min-height: 44px; font-size: .8125rem; text-decoration: none; }
 .project-history-link:hover { text-decoration: underline; }
-.project-browse { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; margin-block: 1.25rem 1.5rem; }
-.project-filters { display: flex; flex-wrap: wrap; gap: .25rem; }
-.project-filters button { min-height: 44px; padding: .5rem .85rem; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font: inherit; font-size: .8125rem; cursor: pointer; }
-.project-filters button:hover { color: var(--accent); background: var(--accent-soft); }
-.project-filters button[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
-.project-browse > p { margin: 0; color: var(--muted); font: .6875rem/1.6 var(--font-mono); }
-.project-filters[hidden], .project[hidden] { display: none !important; }
 .project-category { display: grid; gap: 1.5rem; padding-block: 2.5rem; scroll-margin-top: 1.5rem; }
 .project-category__heading h2 { margin-bottom: .75rem; font-size: 1.5rem; }
 .project-category__heading p { max-width: 38ch; margin: 0; color: var(--muted); font-size: .875rem; }
-.projects { display: grid; gap: 1rem; }
 .project { display: flex; flex-direction: column; min-width: 0; padding: 1.5rem; background: var(--paper-2); border-radius: 10px; scroll-margin-top: 2rem; }
 .project:target { outline: 2px solid var(--accent); outline-offset: 5px; }
 .project h3 { margin-bottom: .75rem; font-size: 1.5rem; }
@@ -340,15 +374,39 @@ figure { margin: 0; }
 .ledger__parts li { color: var(--ink-2); font-size: 0.875rem; line-height: 1.75; }
 .ledger__parts strong { color: var(--ink); font-weight: 600; }
 .ledger__tag { display: inline-block; margin-left: 0.5rem; padding: 0 0.4rem; border-radius: 4px; background: var(--paper-2); color: var(--muted); font: 0.6875rem/1.6 var(--font-mono); vertical-align: 0.1em; }
-.project__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.25rem; margin-bottom: .75rem; }
-.project__head h3 { margin: 0; }
-.project__logo { display: inline-flex; flex: none; border-radius: 6px; transition: transform .2s ease, filter .2s ease; }
-.project__logo:hover { transform: translateY(-2px); filter: drop-shadow(0 6px 10px rgb(0 0 0 / .18)); }
-.project__logo img { display: block; max-width: 100%; height: auto; }
-.project__logo .is-pixelated { image-rendering: pixelated; }
-@media (prefers-reduced-motion: reduce) { .project__logo, .project__logo:hover { transition: none; transform: none; } }
 .project > p { margin: 0 0 1rem; color: var(--ink-2); font-size: .9375rem; }
-.project > .project__category { margin: 0 0 .5rem; color: var(--muted); font: .625rem/1.6 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+/* Featured tiles: the games and picture books lead with their art. A game's logo is its title. */
+.featured { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.project--featured { gap: 0; }
+.project-art { display: grid; place-items: center; overflow: hidden; border-radius: 8px; margin-bottom: 1.1rem; }
+.project-art.book-art { height: 200px; }
+.project-art--stage { height: 200px; padding: 1.5rem; }
+.project-art--stage img { width: auto; max-width: 78%; max-height: 120px; transition: transform .35s cubic-bezier(0.34, 1.7, 0.5, 1); }
+.project-art--stage .is-pixelated { image-rendering: pixelated; height: 132px; width: auto; }
+/* The games' stages stay dark in both themes, like the books keep their paper colors. */
+.project-art--lifesworn { background: radial-gradient(circle at 50% 42%, #3b2414 0, #1a120d 55%, #0f0b09 100%); }
+.project-art--uplift { background: radial-gradient(circle at 50% 100%, #233b2a 0, #121d16 55%, #0b100d 100%); }
+.project__art-title { margin: 0; }
+.project .project__art-title a { display: block; min-height: 0; }
+.project__art-title a:hover img { transform: translateY(-3px) scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .project-art--stage img { transition: none; } .project__art-title a:hover img { transform: none; } }
+.project .project__line { margin: 0 0 .75rem; color: var(--accent); font: 500 .75rem/1.6 var(--font-mono); letter-spacing: .02em; }
+.project-art.project-art--tile { height: 120px; margin-bottom: .75rem; }
+.project-art--tile.project-art--stage { padding: 1rem; }
+.project-art--tile.project-art--stage img { max-height: 64px; }
+.project-art--tile .is-pixelated { height: 76px; }
+.project-art--tile .book-art__shape { scale: .62; }
+
+/* Everything else I still run, as a compact two-column list. */
+.project-more-title { margin: 3rem 0 .5rem; font-size: 1.25rem; }
+.project-rows { display: grid; column-gap: 2.5rem; }
+.project-row { padding: 1.1rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.project-row h4 { margin: 0 0 .35rem; font: 650 1.125rem/1.3 var(--font-display); letter-spacing: -.02em; }
+.project-row h4 a { color: var(--ink); text-decoration: none; }
+.project-row h4 a:hover { color: var(--accent); text-decoration: underline; }
+.project-row > p { margin: 0 0 .25rem; color: var(--ink-2); font-size: .875rem; }
+.project-row .project__meta { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem; margin: 0; color: var(--muted); font: .6875rem/1.6 var(--font-mono); }
+@media (min-width: 48rem) { .project-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .project .project__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; margin: auto 0 0; min-height: 44px; color: var(--muted); font: 0.6875rem/1.6 var(--font-mono); }
 .project__meta a { display: inline-flex; align-items: center; min-height: 44px; }
 
@@ -365,14 +423,10 @@ figure { margin: 0; }
 .footer ul { padding-block: 0.25rem; }
 .motion-toggle { padding: 0; border: 0; background: none; color: var(--ink-2); font: inherit; min-height: 44px; text-decoration: underline; text-underline-offset: 0.22em; cursor: pointer; }
 
-@media (max-width: 29.999rem) {
-  .project-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
-  .project-filters button { text-align: left; }
-}
 @media (min-width: 30rem) {
   .nav { gap: 0.8rem; }
   .nav a { font-size: 0.875rem; }
-  .links--books, .principles, .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .principles, .featured { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer ul { gap: 0 2rem; }
 }
 @media (min-width: 48rem) {
@@ -485,12 +539,26 @@ figure { margin: 0; }
 .timeline-decade__more a { border-style: dashed; color: var(--muted); }
 
 .game-key { max-width: 62ch; margin: 0 0 1.25rem; color: var(--ink-2); font-size: .875rem; }
-.game-entry { display: grid; gap: .75rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 3.5rem; }
+/* The list folds by letter. Each game is one compact line; hours, progress and reviews add a second. */
+.games-folds { border-top: 1px solid var(--line); }
+.games-letter { border-bottom: 1px solid var(--line); scroll-margin-top: var(--games-nav-h); }
+.games-letter > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; padding: .35rem 0; cursor: pointer; list-style: none; }
+.games-letter > summary::-webkit-details-marker { display: none; }
+.games-letter > summary::after { content: '+'; color: var(--accent); font-size: 1.25rem; line-height: 1; }
+.games-letter[open] > summary::after { content: '−'; }
+.games-letter__name { font: 750 1.375rem/1 var(--font-display); letter-spacing: -.02em; }
+.games-letter__count { margin-left: auto; color: var(--muted); font: .75rem/1.2 var(--font-mono); }
+.games-letter > summary:hover .games-letter__name { color: var(--accent); }
+.games-letter .book-list { padding-bottom: .75rem; }
+.game-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1rem; padding: .6rem 0; border-top: 1px solid var(--line); scroll-margin-top: 3.5rem; }
+.game-entry__line { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .75rem; min-width: 0; }
+.game-entry .game-entry__facts { grid-column: 1; margin: .2rem 0 0; }
+.game-entry > .book-status { grid-column: 2; grid-row: 1; }
 .game-entry:target { background: var(--accent-soft); outline: .75rem solid var(--accent-soft); border-radius: .25rem; }
-.game-entry h3 { margin-bottom: .35rem; font-size: 1.25rem; line-height: 1.4; overflow-wrap: anywhere; }
+.game-entry h3 { margin: 0; font-size: 1.0625rem; line-height: 1.4; overflow-wrap: anywhere; }
 .game-entry h3 a { color: var(--ink); text-decoration: none; }
 .game-entry h3 a:hover { color: var(--accent); text-decoration: underline; }
-.game-entry p { margin: 0 0 .4rem; color: var(--ink-2); font-size: .875rem; }
+.game-entry p { margin: 0; color: var(--ink-2); font-size: .8125rem; }
 .game-entry__facts { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
 .game-entry__store { color: var(--ink-2); }
 .game-entry__store:hover { color: var(--accent); }
@@ -505,7 +573,7 @@ figure { margin: 0; }
 .games-nav { position: sticky; top: 0; z-index: 5; margin-top: 1.5rem; border-block: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .games-nav__scroll { position: relative; display: flex; align-items: center; justify-content: space-between; gap: .25rem 1.5rem; min-height: calc(var(--games-nav-h) - 2px); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -ms-overflow-style: none; }
 .games-nav__scroll::-webkit-scrollbar { display: none; }
-.games-nav__links, .games-nav__tools, .games-letters ul { display: flex; margin: 0; padding: 0; list-style: none; }
+.games-nav__links, .games-nav__tools { display: flex; margin: 0; padding: 0; list-style: none; }
 .games-nav__links { flex: none; gap: .25rem; }
 .games-nav__tools { flex: none; align-items: center; gap: .5rem; }
 .games-nav__tools[hidden] { display: none; }
@@ -517,12 +585,6 @@ figure { margin: 0; }
 .games-nav__filters { border: 1px solid var(--line); border-radius: 999px; }
 .games-nav__filters:hover { border-color: var(--accent); }
 
-/* A–Z jump above the list. Letters with no row under the current filters are dimmed and cannot be followed. */
-.games-letters { margin: 0 0 .75rem; }
-.games-letters ul { flex-wrap: wrap; gap: .15rem; }
-.games-letters a { display: inline-grid; place-items: center; min-width: 2.5rem; min-height: 2.5rem; border-radius: .35rem; color: var(--accent); font: 600 .875rem/1 var(--font-mono); text-decoration: none; }
-.games-letters a:hover { background: var(--accent-soft); }
-.games-letters a[aria-disabled='true'] { color: var(--muted); opacity: .45; cursor: default; background: transparent; }
 
 @media (min-width: 30rem) {
   .book-filters.game-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -535,9 +597,16 @@ figure { margin: 0; }
   .book-filters.game-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .game-filters__search { grid-column: span 2; }
   .game-filters .book-reset { grid-column: auto; }
-  .game-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; }
   .timeline-decade { grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 2rem; }
 }
 @media (min-width: 64rem) {
   .now-playing { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Small links in lists stay at least 24px tall to tap (WCAG 2.2 target size) without moving the text. */
+.book-entry h3 a, .movie-entry h3 a, .game-entry h3 a, .project-row h4 a, .collection-section-heading > a, .page-intro__label a,
+.game-entry__store, .game-entry__review, .hours-bar__review, .game-entry__facts a, .movie-entry summary, .movie-entry details a {
+  display: inline-block;
+  padding-block: .25rem;
+  margin-block: -.25rem;
 }

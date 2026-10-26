@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
+import CollectionTabs from '../../components/CollectionTabs.astro';
 import LatestWatched from '../../components/LatestWatched.astro';
 import { getMovieCollection, movieLinks } from '../../data/movies';
 import { watchDate } from '../../utils/movies';
@@ -12,6 +13,8 @@ const { snapshot, source } = await getMovieCollection();
 const movies = snapshot.movies;
 const decades = [...new Set(movies.flatMap(movie => movie.year ? [Math.floor(movie.year / 10) * 10] : []))].sort((first, second) => second - first);
 const listId = `${SITE.url}/collections/movies#catalogue`;
+// Letterboxd's half stars, drawn as text: 3.5 is ★★★½.
+const stars = (rating: number) => '★'.repeat(Math.floor(rating)) + (rating % 1 ? '½' : '');
 const sameAs = (id: string) => [`https://letterboxd.com/film/${id}/`, movieLinks[id]?.wikipedia, movieLinks[id]?.imdb, movieLinks[id]?.wikidata && `https://www.wikidata.org/wiki/${movieLinks[id].wikidata}`].filter((url): url is string => Boolean(url));
 const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': listId, name: "Antonio's movie collection", numberOfItems: movies.length, itemListElement: movies.map((movie, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Movie', '@id': `${SITE.url}/collections/movies#${movie.id}`, name: movie.title, url: `${SITE.url}/collections/movies#${movie.id}`, sameAs: sameAs(movie.id) } })) };
 ---
@@ -19,6 +22,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
   <PageIntro label="Movies" title="Things I've watched" parent={parent}>
     Films, first watches, and returns. A growing list from my Letterboxd diary, not a complete history of everything I've seen.
   </PageIntro>
+  <CollectionTabs current="movies" />
   <LatestWatched movies={movies} diaryUrl={`${snapshot.profileUrl}diary/`} />
   <section class="section bookshelf" aria-labelledby="movie-catalogue-title">
     <div class="collection-section-heading"><div><h2 id="movie-catalogue-title">The movie list</h2><p>A small catalogue. No reviews or private notes are copied here.</p></div></div>
@@ -33,12 +37,15 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
       {movies.map(movie => {
         const latest = movie.watches[0];
         return <li class="movie-entry" id={movie.id} data-movie data-title={movie.title} data-year={movie.year ?? ''} data-rating={latest?.rating ?? ''}>
-          <div><h3><a href={`#${movie.id}`}>{movie.title}</a></h3><p>{movie.year}{latest && <> · Last recorded <time datetime={latest.watchedOn}>{watchDate(latest.watchedOn)}</time></>}</p>
-            {latest && <a class="movie-diary-link" href={latest.href}>Diary entry</a>}
-            {latest?.rewatch && <span class="movie-rewatch">Rewatch</span>}
+          <span class="movie-entry__poster" aria-hidden="true">{movie.posterUrl && <img src={movie.posterUrl} alt="" width="40" height="60" loading="lazy" decoding="async" onerror="this.remove()" />}</span>
+          <div class="movie-entry__text">
+            <h3><a href={latest?.href ?? `#${movie.id}`}>{movie.title}</a></h3>
+            <p>{movie.year}{latest && <> · Last watched <time datetime={latest.watchedOn}>{watchDate(latest.watchedOn)}</time></>}{latest?.rewatch && <> · Rewatch</>}</p>
             {movie.watches.length > 1 && <details><summary>{movie.watches.length} recorded watches</summary><ul>{movie.watches.map(watch => <li><a href={watch.href}>{watchDate(watch.watchedOn)}</a>{watch.rating !== null && ` · ${watch.rating}/5`}{watch.rewatch && ' · Rewatch'}</li>)}</ul></details>}
           </div>
-          <span class="book-status">{latest?.rating !== null && latest?.rating !== undefined ? `My rating: ${latest.rating}/5` : 'Not rated'}</span>
+          {latest?.rating !== null && latest?.rating !== undefined
+            ? <span class="movie-stars" role="img" aria-label={`My rating: ${latest.rating} out of 5`}>{stars(latest.rating)}</span>
+            : <span class="movie-stars movie-stars--none">Not rated</span>}
         </li>;
       })}
     </ul>
