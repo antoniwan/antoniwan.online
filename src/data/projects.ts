@@ -26,6 +26,14 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    title: 'The Object',
+    category: 'games-and-books',
+    href: 'https://the-object-five.vercel.app',
+    repo: 'https://github.com/antoniwan/the-object',
+    body: "An art piece about first contact: a liquid object in your browser that you can touch. It never says what it is. The longer you stay, the more it learns how you touch it, and one day it may reach back. Written in Rust and compiled to WebAssembly, with one shader for the liquid.",
+    stack: 'Rust, WebAssembly, WebGL2',
+  },
+  {
     title: 'Cookbook',
     category: 'apps-and-tools',
     href: 'https://cookbook.antoniwan.online',

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.38.0 — 2026-10-28
+
+- Add The Object to Projects, under Games & books: an art piece about first contact, a liquid object in the browser that learns how you touch it. It links the game and its public repository, and `/llms.txt` lists it with the other projects. Its own page names me as its author with the same Person id this site uses.
+
 ## 1.37.0 — 2026-10-26
 
 - Lead Projects with my games and picture books as big tiles: the games' logos stand in for their titles on a dark stage, and the books show their sun and moon and bent line. Everything else follows as a compact list, and the filter tabs go.
