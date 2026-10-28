@@ -46,6 +46,7 @@ const schema = {
         name: project.title,
         url: project.href.startsWith('/') ? SITE.url + project.href : project.href,
         description: project.body,
+        ...(project.alsoOn ? { sameAs: project.alsoOn.map(place => place.href) } : {}),
         author,
       },
     };
@@ -85,6 +86,7 @@ const schema = {
           <p class="project__meta">
             {project.stack}
             {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+            {project.alsoOn?.map(place => <>{' · '}<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></>)}
           </p>
         </li>
       ))}
@@ -99,6 +101,7 @@ const schema = {
           <p class="project__meta">
             {project.stack}
             {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+            {project.alsoOn?.map(place => <>{' · '}<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></>)}
           </p>
         </li>
       ))}
