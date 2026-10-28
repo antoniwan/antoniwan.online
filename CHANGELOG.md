@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.39.1 — 2026-10-28
+
+- Link The Object at its new home, the-object.antoniwan.online, on Projects, in the structured data, and in `/llms.txt`.
+
 ## 1.39.0 — 2026-10-28
 
 - Feature The Object on Projects and Home: its tile shows a still from the game, the moment it says "you", on its own white in both themes.
