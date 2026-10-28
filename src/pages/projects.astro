@@ -16,6 +16,7 @@ const others = projects.filter(project => !project.featured);
 // The schema.org type and the facts the card states beyond its title, link and text.
 const schemaByTitle: Record<string, Record<string, unknown>> = {
   'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
+  'The Object': { '@type': 'VideoGame', gamePlatform: 'Web browser', genre: 'Art game', isAccessibleForFree: true, image: `${SITE.url}/projects/the-object.webp` },
   'Lifesworn': { '@type': 'VideoGame' },
   'Uplift': { '@type': 'VideoGame', gamePlatform: 'Web browser', publisher: company },
   // The same @id as the WebSite node Base emits on Home, so both describe one site.

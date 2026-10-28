@@ -13,11 +13,13 @@ export interface Project {
   stack: string;
   /** A game's own logo. On a featured tile it stands in for the title. */
   logo?: { src: string; width: number; height: number; pixelated?: boolean };
+  /** A still from the work itself, for a featured tile with no logo. Decoration: the title sits under it. */
+  still?: { src: string; width: number; height: number };
   /**
    * The games and picture books lead Projects as big tiles, and Home shows the same four as small ones.
-   * `art` is the logo, or one of the books' CSS illustrations; `line` is one short fact under the text.
+   * `art` is the logo, a still from the work, or one of the books' CSS illustrations; `line` is one short fact under the text.
    */
-  featured?: { id: string; art: 'logo' | 'sky' | 'line'; line: string };
+  featured?: { id: string; art: 'logo' | 'still' | 'sky' | 'line'; line: string };
 }
 
 /**
@@ -32,6 +34,8 @@ export const projects: Project[] = [
     repo: 'https://github.com/antoniwan/the-object',
     body: "An art piece about first contact: a liquid object in your browser that you can touch. It never says what it is. The longer you stay, the more it learns how you touch it, and one day it may reach back. Written in Rust and compiled to WebAssembly, with one shader for the liquid.",
     stack: 'Rust, WebAssembly, WebGL2',
+    still: { src: '/projects/the-object.webp', width: 640, height: 420 },
+    featured: { id: 'the-object', art: 'still', line: 'Free in your browser' },
   },
   {
     title: 'Cookbook',

@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
 
 > ${SITE.tagline}
 
-${SITE.name} (${SITE.handle}) is a technical program manager at Stanley Black & Decker and a member of SBD Digital, the team behind its websites and apps and the services behind them. There he is the product owner for the AI innovation group and one of the technical people in the product design group. He is a former CTO who still writes code, is learning to make games (Uplift, a tower game in the browser, and Lifesworn, an action RPG in Godot), writes essays and devlogs at Notes, builds small web things, and makes music. Born in Puerto Rico, based in Florida, a father.
+${SITE.name} (${SITE.handle}) is a technical program manager at Stanley Black & Decker and a member of SBD Digital, the team behind its websites and apps and the services behind them. There he is the product owner for the AI innovation group and one of the technical people in the product design group. He is a former CTO who still writes code, is learning to make games (Uplift, a tower game in the browser, Lifesworn, an action RPG in Godot, and The Object, a browser art piece about first contact), writes essays and devlogs at Notes, builds small web things, and makes music. Born in Puerto Rico, based in Florida, a father.
 
 This is his personal site: who he is, how he works, what he builds, and where else he is. It has no contact form. For consulting or any business matter, go to ${SITE.company.name}, his company. His personal email is ${SITE.email}.
 
@@ -42,7 +42,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 ## Projects
 
-In his words. Uplift (https://uplifttowergame.com/llms.txt) and Lifesworn (https://lifesworn.com/llms.txt) have their own llms.txt.
+In his words. Uplift (https://uplifttowergame.com/llms.txt), Lifesworn (https://lifesworn.com/llms.txt), and The Object (https://the-object-five.vercel.app/llms.txt) have their own llms.txt.
 
 ${projectCategories
   .map(
