@@ -3,7 +3,7 @@
 ## 1.39.0 — 2026-10-28
 
 - Feature The Object on Projects and Home: its tile shows a still from the game, the moment it says "you", on its own white in both themes.
-- Describe it as a free browser game by me in the Projects structured data, and name it in About and in the opening of `/llms.txt`, beside Uplift and Lifesworn.
+- Describe it as a free browser game by me in the Projects structured data, and name it in About and in the opening of `/llms.txt`, beside Uplift and Lifesworn, with a pointer to the game's own llms.txt.
 - Show Home's Making tiles three to a row on wide screens, now that there are five.
 
 ## 1.38.0 — 2026-10-28

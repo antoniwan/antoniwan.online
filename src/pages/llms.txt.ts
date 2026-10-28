@@ -42,7 +42,7 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 
 ## Projects
 
-In his words. Uplift (https://uplifttowergame.com/llms.txt) and Lifesworn (https://lifesworn.com/llms.txt) have their own llms.txt.
+In his words. Uplift (https://uplifttowergame.com/llms.txt), Lifesworn (https://lifesworn.com/llms.txt), and The Object (https://the-object-five.vercel.app/llms.txt) have their own llms.txt.
 
 ${projectCategories
   .map(
