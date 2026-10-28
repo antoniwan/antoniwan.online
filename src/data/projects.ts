@@ -28,22 +28,22 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    title: 'The Object',
+    category: 'games-and-books',
+    href: 'https://the-object-five.vercel.app',
+    repo: 'https://github.com/antoniwan/the-object',
+    body: "An art piece about first contact: a liquid object in your browser that you can touch. It never says what it is. The longer you stay, the more it learns how you touch it, and one day it may reach back. Written in Rust and compiled to WebAssembly, with one shader for the liquid.",
+    stack: 'Rust, WebAssembly, WebGL2',
+    still: { src: '/projects/the-object.webp', width: 640, height: 420 },
+    featured: { id: 'the-object', art: 'still', line: 'Free in your browser' },
+  },
+  {
     title: 'Cookbook',
     category: 'apps-and-tools',
     href: 'https://cookbook.antoniwan.online',
     repo: 'https://github.com/antoniwan/cookbook',
     body: 'Our family recipes, in English and Spanish. A practical kitchen notebook with adjustable quantities, ingredient checklists, a kitchen mode, printing, and a garlic bulb and strawberry keeping watch.',
     stack: 'Astro, TypeScript',
-  },
-  {
-    title: 'The Object',
-    category: 'games-and-books',
-    href: 'https://the-object-five.vercel.app',
-    repo: 'https://github.com/antoniwan/the-object',
-    body: "An art piece about first contact. A liquid object sits on a white page, and you find out what it does by touching it: poke it, tear it, slice it, or hold still. It never says what it is. The longer you stay, the more it studies you back. Free in your browser, with no instructions.",
-    stack: 'Rust, WebAssembly, WebGL2',
-    still: { src: '/projects/the-object.webp', width: 640, height: 420 },
-    featured: { id: 'the-object', art: 'still', line: 'Free in your browser' },
   },
   {
     title: 'Lifesworn',

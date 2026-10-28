@@ -1,10 +1,14 @@
 # Changelog
 
+## 1.39.0 — 2026-10-28
+
+- Feature The Object on Projects and Home: its tile shows a still from the game, the moment it says "you", on its own white in both themes.
+- Describe it as a free browser game by me in the Projects structured data, and name it in About and in the opening of `/llms.txt`, beside Uplift and Lifesworn.
+- Show Home's Making tiles three to a row on wide screens, now that there are five.
+
 ## 1.38.0 — 2026-10-28
 
-- Add The Object to Projects and Home: my art piece about first contact, a liquid object in the browser that never says what it is and learns you back. Its tile shows a still from the game, the moment it says "you", on its own white.
-- Describe it as a free browser game by me in the Projects structured data, and name it in About and `/llms.txt`.
-- Show Home's Making tiles three to a row on wide screens, now that there are five.
+- Add The Object to Projects, under Games & books: an art piece about first contact, a liquid object in the browser that learns how you touch it. It links the game and its public repository, and `/llms.txt` lists it with the other projects. Its own page names me as its author with the same Person id this site uses.
 
 ## 1.37.0 — 2026-10-26
 
