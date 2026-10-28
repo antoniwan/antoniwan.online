@@ -7,8 +7,8 @@ interface Props {
   size?: 'card' | 'tile';
 }
 
-// A featured project's picture: the game's logo on its own stage, or the book's CSS illustration.
-// The logo carries the game's name, so it is the title's text alternative; the books' art is decoration.
+// A featured project's picture: the game's logo on its own stage, a still from the work, or the book's CSS illustration.
+// The logo carries the game's name, so it is the title's text alternative; stills and the books' art are decoration.
 const { project, size = 'card' } = Astro.props;
 const art = project.featured?.art;
 ---
@@ -24,6 +24,10 @@ const art = project.featured?.art;
       loading="lazy"
       decoding="async"
     />
+  </span>
+) : art === 'still' && project.still ? (
+  <span class:list={['project-art', 'project-art--still', `project-art--${project.featured?.id}`, `project-art--${size}`]} aria-hidden="true">
+    <img src={project.still.src} width={project.still.width} height={project.still.height} alt="" loading="lazy" decoding="async" />
   </span>
 ) : (
   <span class:list={['project-art', 'book-art', `book-art--${art}`, `project-art--${size}`]} aria-hidden="true">

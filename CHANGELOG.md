@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.38.0 — 2026-10-28
+
+- Add The Object to Projects and Home: my art piece about first contact, a liquid object in the browser that never says what it is and learns you back. Its tile shows a still from the game, the moment it says "you", on its own white.
+- Describe it as a free browser game by me in the Projects structured data, and name it in About and `/llms.txt`.
+- Show Home's Making tiles three to a row on wide screens, now that there are five.
+
 ## 1.37.0 — 2026-10-26
 
 - Lead Projects with my games and picture books as big tiles: the games' logos stand in for their titles on a dark stage, and the books show their sun and moon and bent line. Everything else follows as a compact list, and the filter tabs go.

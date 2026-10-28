@@ -13,11 +13,13 @@ export interface Project {
   stack: string;
   /** A game's own logo. On a featured tile it stands in for the title. */
   logo?: { src: string; width: number; height: number; pixelated?: boolean };
+  /** A still from the work itself, for a featured tile with no logo. Decoration: the title sits under it. */
+  still?: { src: string; width: number; height: number };
   /**
    * The games and picture books lead Projects as big tiles, and Home shows the same four as small ones.
-   * `art` is the logo, or one of the books' CSS illustrations; `line` is one short fact under the text.
+   * `art` is the logo, a still from the work, or one of the books' CSS illustrations; `line` is one short fact under the text.
    */
-  featured?: { id: string; art: 'logo' | 'sky' | 'line'; line: string };
+  featured?: { id: string; art: 'logo' | 'still' | 'sky' | 'line'; line: string };
 }
 
 /**
@@ -32,6 +34,16 @@ export const projects: Project[] = [
     repo: 'https://github.com/antoniwan/cookbook',
     body: 'Our family recipes, in English and Spanish. A practical kitchen notebook with adjustable quantities, ingredient checklists, a kitchen mode, printing, and a garlic bulb and strawberry keeping watch.',
     stack: 'Astro, TypeScript',
+  },
+  {
+    title: 'The Object',
+    category: 'games-and-books',
+    href: 'https://the-object-five.vercel.app',
+    repo: 'https://github.com/antoniwan/the-object',
+    body: "An art piece about first contact. A liquid object sits on a white page, and you find out what it does by touching it: poke it, tear it, slice it, or hold still. It never says what it is. The longer you stay, the more it studies you back. Free in your browser, with no instructions.",
+    stack: 'Rust, WebAssembly, WebGL2',
+    still: { src: '/projects/the-object.webp', width: 640, height: 420 },
+    featured: { id: 'the-object', art: 'still', line: 'Free in your browser' },
   },
   {
     title: 'Lifesworn',
