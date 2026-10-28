@@ -49,7 +49,7 @@ ${projectCategories
     (category) =>
       `### ${category.title}\n\n${projects
         .filter((project) => project.category === category.id)
-        .map((project) => `- [${project.title}](${url(project.href)}): ${project.body}`)
+        .map((project) => `- [${project.title}](${url(project.href)}): ${project.body}${project.repo ? ` Source: ${project.repo}.` : ''}${(project.alsoOn ?? []).map((place) => ` Also on ${place.name}: ${place.href}.`).join('')}`)
         .join('\n')}`,
   )
   .join('\n\n')}
