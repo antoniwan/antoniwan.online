@@ -413,6 +413,8 @@ figure { margin: 0; }
 @media (min-width: 48rem) { .project-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .project .project__meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; margin: auto 0 0; min-height: 44px; color: var(--muted); font: 0.6875rem/1.6 var(--font-mono); }
 .project__meta a { display: inline-flex; align-items: center; min-height: 44px; }
+/* Keeps the separator with the link it belongs to when the meta row wraps. */
+.project__also { display: inline-flex; align-items: center; gap: 0.3rem; }
 
 .footer { margin-top: 2rem; background: var(--paper); padding-block: 2.5rem; color: var(--ink-2); font-size: 0.8125rem; }
 .footer .wrap { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 1.5rem 3rem; }
