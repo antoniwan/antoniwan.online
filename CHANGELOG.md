@@ -2,8 +2,8 @@
 
 ## 1.40.0 — 2026-10-28
 
-- Link The Object on itch.io beside its source, on its Projects card and in the structured data, where the itch.io page is named as the same work. Its home stays the-object.antoniwan.online.
-- `/llms.txt` gives each project its other places: the itch.io page for The Object, and the source repository for every project that has a public one.
+- Link The Object on itch.io from its card, beside its source. Its own site stays its home; the structured data names the itch.io page as the same game.
+- Give each project in `/llms.txt` its source link and any other place it lives, such as The Object on itch.io.
 
 ## 1.39.1 — 2026-10-28
 

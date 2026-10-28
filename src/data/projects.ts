@@ -9,8 +9,8 @@ export interface Project {
   title: string;
   href: string;
   repo?: string;
-  /** Other places the same thing lives, such as a store page. The link above stays its home. */
-  also?: { label: string; href: string }[];
+  /** Other places the same work lives, such as a store page. The project's own `href` stays its canonical home. */
+  alsoOn?: { name: string; href: string }[];
   body: string;
   stack: string;
   /** A game's own logo. On a featured tile it stands in for the title. */
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     category: 'games-and-books',
     href: 'https://the-object.antoniwan.online',
     repo: 'https://github.com/antoniwan/the-object',
-    also: [{ label: 'itch.io', href: 'https://antoniwan.itch.io/the-object' }],
+    alsoOn: [{ name: 'itch.io', href: 'https://antoniwan.itch.io/the-object' }],
     body: "An art piece about first contact: a liquid object in your browser that you can touch. It never says what it is. The longer you stay, the more it learns how you touch it, and one day it may reach back. Written in Rust and compiled to WebAssembly, with one shader for the liquid.",
     stack: 'Rust, WebAssembly, WebGL2',
     still: { src: '/projects/the-object.webp', width: 640, height: 420 },
