@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.40.2 — 2026-10-28
+
+- Remove three Fraunces font files that nothing on the site used.
+
 ## 1.40.1 — 2026-10-28
 
 - Keep "· itch.io" together on The Object's card when its line wraps on a phone, instead of leaving the dot at the end of the line above.
