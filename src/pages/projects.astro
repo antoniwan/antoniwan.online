@@ -47,6 +47,8 @@ const schema = {
         url: project.href.startsWith('/') ? SITE.url + project.href : project.href,
         description: project.body,
         author,
+        // The same work in another place. A repository holds the code, not the work, so it stays out.
+        ...(project.also ? { sameAs: project.also.map(link => link.href) } : {}),
       },
     };
   }),
@@ -85,6 +87,7 @@ const schema = {
           <p class="project__meta">
             {project.stack}
             {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+            {project.also?.map(link => <span class="project__also">·<a href={link.href} aria-label={`${project.title} on ${link.label}`}>{link.label}</a></span>)}
           </p>
         </li>
       ))}
@@ -99,6 +102,7 @@ const schema = {
           <p class="project__meta">
             {project.stack}
             {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+            {project.also?.map(link => <span class="project__also">·<a href={link.href} aria-label={`${project.title} on ${link.label}`}>{link.label}</a></span>)}
           </p>
         </li>
       ))}

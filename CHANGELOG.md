@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.40.0 — 2026-10-28
+
+- Link The Object on itch.io beside its source, on its Projects card and in the structured data, where the itch.io page is named as the same work. Its home stays the-object.antoniwan.online.
+- `/llms.txt` gives each project its other places: the itch.io page for The Object, and the source repository for every project that has a public one.
+
 ## 1.39.1 — 2026-10-28
 
 - Link The Object at its new home, the-object.antoniwan.online, on Projects, in the structured data, and in `/llms.txt`.
