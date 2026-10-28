@@ -48,8 +48,6 @@ const schema = {
         description: project.body,
         ...(project.alsoOn ? { sameAs: project.alsoOn.map(place => place.href) } : {}),
         author,
-        // The same work in another place. A repository holds the code, not the work, so it stays out.
-        ...(project.also ? { sameAs: project.also.map(link => link.href) } : {}),
       },
     };
   }),
@@ -88,7 +86,7 @@ const schema = {
           <p class="project__meta">
             {project.stack}
             {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
-            {project.alsoOn?.map(place => <>{' · '}<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></>)}
+            {project.alsoOn?.map(place => <span class="project__also">·<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></span>)}
           </p>
         </li>
       ))}
@@ -103,7 +101,7 @@ const schema = {
           <p class="project__meta">
             {project.stack}
             {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
-            {project.alsoOn?.map(place => <>{' · '}<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></>)}
+            {project.alsoOn?.map(place => <span class="project__also">·<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></span>)}
           </p>
         </li>
       ))}

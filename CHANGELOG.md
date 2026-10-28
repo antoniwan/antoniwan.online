@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.40.1 — 2026-10-28
+
+- Keep "· itch.io" together on The Object's card when its line wraps on a phone, instead of leaving the dot at the end of the line above.
+
 ## 1.40.0 — 2026-10-28
 
 - Link The Object on itch.io from its card, beside its source. Its own site stays its home; the structured data names the itch.io page as the same game.
