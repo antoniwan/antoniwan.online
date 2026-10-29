@@ -1,0 +1,16 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+// A project's stack, its source, and any other place it lives, as one small line.
+const { project } = Astro.props;
+---
+
+<p class="project__meta">
+  {project.stack}
+  {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
+  {project.alsoOn?.map(place => <span class="project__also">·<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></span>)}
+</p>

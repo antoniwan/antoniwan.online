@@ -19,9 +19,10 @@ export interface Project {
   still?: { src: string; width: number; height: number };
   /**
    * The games, the desktop app, and the picture books lead Projects as big tiles, and Home shows the same four as small ones.
-   * `art` is the logo, a still from the work, or one of the books' CSS illustrations; `line` is one short fact under the text.
+   * `art` is the logo, a still from the work, or one of the books' CSS illustrations; `line` is one short fact under the text;
+   * `action` labels the tile's one button, which opens `href`. `lead` makes it the wide tile that opens Projects (one project only).
    */
-  featured?: { id: string; art: 'logo' | 'still' | 'sky' | 'line'; line: string };
+  featured?: { id: string; art: 'logo' | 'still' | 'sky' | 'line'; line: string; action: string; lead?: boolean };
 }
 
 /**
@@ -37,7 +38,7 @@ export const projects: Project[] = [
     body: 'A small magical eye that lives on your desktop. It finds your face through your webcam and watches: it locks on when you sit down, hunts when you leave, flinches at a bang, and whispers, in nine moods drawn from schools of magic. It runs entirely on your computer and never goes online. I rewrote it from Electron in Rust: one 27 MB exe, at under a third of the memory.',
     stack: 'Rust, wgpu, on-device face tracking',
     still: { src: '/projects/unblinking.webp', width: 320, height: 320 },
-    featured: { id: 'unblinking', art: 'still', line: 'Open source · Windows' },
+    featured: { id: 'unblinking', art: 'still', line: 'Open source · Windows', action: 'Get it on GitHub' },
   },
   {
     title: 'The Object',
@@ -48,7 +49,7 @@ export const projects: Project[] = [
     body: "An art piece about first contact: a liquid object in your browser that you can touch. It never says what it is. The longer you stay, the more it learns how you touch it, and one day it may reach back. Written in Rust and compiled to WebAssembly, with one shader for the liquid.",
     stack: 'Rust, WebAssembly, WebGL2',
     still: { src: '/projects/the-object.webp', width: 640, height: 420 },
-    featured: { id: 'the-object', art: 'still', line: 'Free in your browser' },
+    featured: { id: 'the-object', art: 'still', line: 'Free in your browser', action: 'Touch the Object' },
   },
   {
     title: 'Cookbook',
@@ -65,7 +66,7 @@ export const projects: Project[] = [
     body: "A 3D action RPG, and the game I've been dreaming about for years. You make your own champion and live their life. I make it alone, in Godot. The game and a demo for Windows, Mac, and Linux are coming to Steam when they are ready. Next up: the first region, built to play from start to finish.",
     stack: 'Godot, GDScript',
     logo: { src: '/projects/lifesworn-logo.svg', width: 170, height: 54 },
-    featured: { id: 'lifesworn', art: 'logo', line: 'Coming to Steam, demo too' },
+    featured: { id: 'lifesworn', art: 'logo', line: 'Coming to Steam, demo too', action: 'Visit lifesworn.com', lead: true },
   },
   {
     title: 'Uplift',
@@ -74,7 +75,7 @@ export const projects: Project[] = [
     body: 'My take on SimTower: build a tower floor by floor and keep the elevators moving. Live three days after it started, free, in your browser on a computer or a tablet. Still early, and every note from players shapes it. Published by Strong Hands, Soft Heart.',
     stack: 'TypeScript, PixiJS, SolidJS',
     logo: { src: '/projects/uplift-logo.png', width: 100, height: 88, pixelated: true },
-    featured: { id: 'uplift', art: 'logo', line: 'Free to play in your browser' },
+    featured: { id: 'uplift', art: 'logo', line: 'Free to play in your browser', action: 'Play Uplift' },
   },
   {
     title: 'antoniwan.online',
@@ -106,7 +107,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/Strong-Hands-Soft-Heart/the-bent-one',
     body: 'A bilingual picture book with animated spreads. Published by Strong Hands, Soft Heart.',
     stack: 'Vite',
-    featured: { id: 'the-bent-one', art: 'line', line: 'English and Spanish · Read it online' },
+    featured: { id: 'the-bent-one', art: 'line', line: 'English and Spanish · Read it online', action: 'Read it online' },
   },
   {
     title: 'Notes',
@@ -123,7 +124,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/Strong-Hands-Soft-Heart/book-sun-and-moon',
     body: 'A bilingual picture book as a web app, written for my daughter and my nephew. Published by Strong Hands, Soft Heart.',
     stack: 'React, Vite',
-    featured: { id: 'mia-the-sun-and-the-moon', art: 'sky', line: 'English and Spanish · Free to read' },
+    featured: { id: 'mia-the-sun-and-the-moon', art: 'sky', line: 'English and Spanish · Free to read', action: 'Read it free' },
   },
 ];
 

@@ -4,15 +4,20 @@ import PageIntro from '../components/PageIntro.astro';
 import { SITE } from '../config/site';
 import Ledger from '../components/Ledger.astro';
 import ProjectArt from '../components/ProjectArt.astro';
-import { projects, workForOthers } from '../data/projects';
+import ProjectMeta from '../components/ProjectMeta.astro';
+import { projects, workForOthers, type Project } from '../data/projects';
 
 // Structured data for "My own" only. Work for others belonged to employers and clients, so it is left out.
 // Every fact below comes from the card in src/data/projects.ts; nothing is added that the card does not say.
 const author = { '@id': SITE.personId };
 const company = { '@type': 'Organization', name: SITE.company.name, url: SITE.company.url };
-// The games, the desktop app, and the picture books lead as big tiles; the rest follow as a compact list.
 const featured = projects.filter(project => project.featured);
 const others = projects.filter(project => !project.featured);
+// One wide tile leads, the games and the app sit on a shelf of equals, and the picture books follow as small tiles.
+const isBook = (project: Project) => project.featured?.art === 'sky' || project.featured?.art === 'line';
+const lead = featured.find(project => project.featured?.lead);
+const shelf = featured.filter(project => project !== lead && !isBook(project));
+const books = featured.filter(isBook);
 // The schema.org type and the facts the card states beyond its title, link and text.
 const schemaByTitle: Record<string, Record<string, unknown>> = {
   'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
@@ -35,7 +40,7 @@ const schema = {
   '@id': listId,
   name: "Antonio's own projects",
   numberOfItems: projects.length,
-  itemListElement: [...featured, ...others].map((project, index) => {
+  itemListElement: [...(lead ? [lead] : []), ...shelf, ...books, ...others].map((project, index) => {
     const anchor = project.featured?.id;
     const facts = schemaByTitle[project.title] ?? { '@type': 'CreativeWork' };
     return {
@@ -71,39 +76,66 @@ const schema = {
       <h2 id="projects-title">My own</h2>
       <a class="project-history-link" href="#work-for-others">Work &amp; experiments ↓</a>
     </div>
-    <ul class="featured" id="featured" aria-label="Games, apps, and picture books">
-      {featured.map(project => (
-        <li class="project project--featured" id={project.featured?.id}>
-          {project.featured?.art === 'logo' ? (
-            <h3 class="project__art-title"><a href={project.href}><ProjectArt project={project} /></a></h3>
+
+    {lead && (
+      <article class="project project--lead" id={lead.featured?.id}>
+        {lead.featured?.art === 'logo' ? (
+            <h3 class="project__frame-title"><a class="project__frame" href={lead.href}><ProjectArt project={lead} /></a></h3>
           ) : (
-            <>
-              <ProjectArt project={project} />
-              <h3><a href={project.href}>{project.title}</a></h3>
-            </>
+            <a class="project__frame" href={lead.href} tabindex="-1" aria-hidden="true"><ProjectArt project={lead} /></a>
           )}
-          <p class="project__line">{project.featured?.line}</p>
-          <p>{project.body}</p>
-          <p class="project__meta">
-            {project.stack}
-            {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
-            {project.alsoOn?.map(place => <span class="project__also">·<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></span>)}
-          </p>
+        <div class="project__text">
+          <p class="project__label">The big one</p>
+          {lead.featured?.art !== 'logo' && <h3><a href={lead.href}>{lead.title}</a></h3>}
+          <p class="project__line">{lead.featured?.line}</p>
+          <p class="project__body">{lead.body}</p>
+          <p class="project__action"><a class="button" href={lead.href}>{lead.featured?.action}</a></p>
+          <ProjectMeta project={lead} />
+        </div>
+      </article>
+    )}
+
+    <ul class="project-shelf" aria-label="Games and apps">
+      {shelf.map(project => (
+        <li class="project project--shelf" id={project.featured?.id}>
+          {project.featured?.art === 'logo' ? (
+            <h3 class="project__frame-title"><a class="project__frame" href={project.href}><ProjectArt project={project} /></a></h3>
+          ) : (
+            <a class="project__frame" href={project.href} tabindex="-1" aria-hidden="true"><ProjectArt project={project} /></a>
+          )}
+          <div class="project__text">
+            {project.featured?.art !== 'logo' && <h3><a href={project.href}>{project.title}</a></h3>}
+            <p class="project__line">{project.featured?.line}</p>
+            <p class="project__body project__body--short">{project.body}</p>
+            <p class="project__action"><a class="button" href={project.href}>{project.featured?.action}</a></p>
+            <ProjectMeta project={project} />
+          </div>
         </li>
       ))}
     </ul>
 
-    <h3 class="project-more-title">Also made</h3>
+    <ul class="project-books" aria-label="Picture books">
+      {books.map(project => (
+        <li class="project project--book" id={project.featured?.id}>
+          <ProjectArt project={project} />
+          <div class="project__text">
+            <h3><a href={project.href}>{project.title}</a></h3>
+            <p class="project__line">{project.featured?.line}</p>
+            <p class="project__body">{project.body}</p>
+            <p class="project__action"><a class="button" href={project.href}>{project.featured?.action}</a></p>
+            <ProjectMeta project={project} />
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="project-more-title">Also made</h2>
     <ul class="project-rows">
       {others.map(project => (
         <li class="project-row">
-          <h4><a href={project.href}>{project.title}</a></h4>
+          <h3><a href={project.href}>{project.title}</a></h3>
           <p>{project.body}</p>
-          <p class="project__meta">
-            {project.stack}
-            {project.repo && <>{' · '}<a href={project.repo} aria-label={`Source for ${project.title}`}>Source</a></>}
-            {project.alsoOn?.map(place => <span class="project__also">·<a href={place.href} aria-label={`${project.title} on ${place.name}`}>{place.name}</a></span>)}
-          </p>
+          <ProjectMeta project={project} />
         </li>
       ))}
     </ul>
