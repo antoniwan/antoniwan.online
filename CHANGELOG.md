@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.44.1 — 2026-10-29
+
+- Add `favicon.ico` (16, 32, and 48 px, drawn from `favicon.svg`) for the services that can't read an SVG icon, such as the icon lookup Stats uses to show each site.
+
 ## 1.44.0 — 2026-10-29
 
 - Count visits with Umami, self-hosted, next to Vercel Web Analytics: no cookies, no stored IP addresses, Do Not Track respected, and history kept past 31 days. The script loads only when the build names the Umami server and the site's ID.
