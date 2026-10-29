@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.45.0 — 2026-10-29
+
+- Count each call to action as a `cta` click event with a label (Read my writing, About me, Every post, the email and company links, each project's button, Clear filters, Back to top, and the rest), so the ones nobody uses can go. A call to action that leaves the site still counts as a click out, once.
+
 ## 1.44.3 — 2026-10-29
 
 - Stop cutting off the Unblinking, The Object, and Uplift cards on Projects after three lines. Each now says what it is in a few plain sentences, and the whole text shows.

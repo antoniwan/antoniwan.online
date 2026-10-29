@@ -1,4 +1,5 @@
 ---
+import { cta } from '../../utils/cta';
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import CollectionTabs from '../../components/CollectionTabs.astro';
@@ -25,7 +26,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
     <form class="book-filters book-filters--chips" id="book-filters" role="search" aria-label="Find a book" hidden>
       <label class="book-search">Search books<input id="book-search" name="q" type="search" placeholder="Title, author, or subject" aria-controls="book-list" autocomplete="off" /></label>
       <label>Subject<select id="book-subject" name="subject" aria-controls="book-list"><option value="">All subjects</option>{subjects.map(subject => <option value={subject}>{subject}</option>)}</select></label>
-      <button type="reset" class="book-reset">Clear filters</button>
+      <button type="reset" class="book-reset" {...cta('clear-filters')}>Clear filters</button>
       <fieldset class="status-chips"><legend>Reading status</legend>
         <label><input type="radio" name="status" value="" checked aria-controls="book-list" /><span>All {books.length}</span></label>
         {statusCounts.map(status => <label><input type="radio" name="status" value={status.value} aria-controls="book-list" /><span>{status.label} {status.count}</span></label>)}

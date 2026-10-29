@@ -1,4 +1,5 @@
 ---
+import { cta } from '../utils/cta';
 import { SITE } from '../config/site';
 import ShaderBackdrop from './ShaderBackdrop.astro';
 
@@ -15,11 +16,11 @@ const year = new Date().getFullYear();
       <p class="footer__copyright">© {year} {SITE.name}</p>
     </div>
     <ul>
-      <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-      <li><a href={SITE.company.url}>{SITE.company.name}</a></li>
+      <li><a href={`mailto:${SITE.email}`} {...cta('email')}>{SITE.email}</a></li>
+      <li><a href={SITE.company.url} {...cta('company')}>{SITE.company.name}</a></li>
       <li><a href="/llms.txt">llms.txt</a></li>
-      <li><a href={SITE.repo}>Source</a></li>
-      <li hidden data-motion-control><button type="button" class="motion-toggle" aria-pressed="false">Pause animation</button></li>
+      <li><a href={SITE.repo} {...cta('source')}>Source</a></li>
+      <li hidden data-motion-control><button type="button" class="motion-toggle" aria-pressed="false" {...cta('pause-animation')}>Pause animation</button></li>
     </ul>
   </div>
 </footer>

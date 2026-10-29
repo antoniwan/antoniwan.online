@@ -1,4 +1,5 @@
 ---
+import { cta } from '../utils/cta';
 import { recentWatches, watchDate, type Movie } from '../utils/movies';
 interface Props {
   movies: Movie[];
@@ -13,7 +14,7 @@ const watches = recentWatches(movies);
 <section class="section" aria-labelledby="latest-watches-title" id="latest-watches">
   <div class="collection-section-heading">
     <div><h2 id="latest-watches-title">Latest watches</h2><p>The most recent watches recorded here. Ratings are mine, not a consensus.</p></div>
-    {seeAll ? <a href="/collections/movies">All {movies.length} films →</a> : <a href={diaryUrl}>Full diary on Letterboxd</a>}
+    {seeAll ? <a href="/collections/movies" {...cta('all-films')}>All {movies.length} films →</a> : <a href={diaryUrl} {...cta('letterboxd-diary')}>Full diary on Letterboxd</a>}
   </div>
   <ul class="watched-grid">
     {watches.map(({ movie, watch }) => <li>
