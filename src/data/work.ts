@@ -14,7 +14,7 @@ export const workAreas = [
   },
   {
     title: 'AI and automation',
-    body: 'I support a big team as the product owner for our AI innovation group, with ideas, user stories, and sometimes code. The work is automation: everyday workflows, and testing across the front end and the back end, end to end.',
+    body: 'I support a big team as the product owner for our AI innovation group, with ideas, user stories, and code that AI agents write while I direct them. The work is automation: everyday workflows, and testing across the front end and the back end, end to end.',
   },
   {
     title: 'Prototyping',

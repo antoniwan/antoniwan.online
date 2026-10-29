@@ -4,6 +4,13 @@
 
 - Count each call to action as a `cta` click event with a label (Read my writing, About me, Every post, the email and company links, each project's button, Clear filters, Back to top, and the rest), so the ones nobody uses can go. A call to action that leaves the site still counts as a click out, once.
 
+## 1.44.3 — 2026-10-29
+
+- Stop cutting off the Unblinking, The Object, and Uplift cards on Projects after three lines. Each now says what it is in a few plain sentences, and the whole text shows.
+- Say plainly how Lifesworn gets made: no studio, I make every call, and AI agents write the code. Panda and Wolf's skills are ones I design, not write by hand.
+- At work, too, AI agents write the code while I direct them; About and `/llms.txt` no longer say "sometimes code".
+- Describe me as a maker of games, a desktop app, and other web things, not "two small games".
+
 ## 1.44.2 — 2026-10-29
 
 - Tell the truth on About: I don't write the code anymore. AI agents do, and I make the calls. The intro links my Notes post "I Don't Write the Code", Making things says what I do on each project, and `/llms.txt` and the page description no longer say I still write code.
