@@ -138,6 +138,11 @@ const structuredData = {
     <meta name="twitter:image:alt" content={ogImageAlt} />
 
     {!noindex && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+    {
+      SITE.umami.host && SITE.umami.websiteId && (
+        <script is:inline defer src={`${SITE.umami.host}/p.js`} data-website-id={SITE.umami.websiteId} data-domains={SITE.domain} data-do-not-track="true" />
+      )
+    }
     <script is:inline>
       // The previous site on this domain registered a service worker. Remove it and its caches.
       if ('serviceWorker' in navigator) {

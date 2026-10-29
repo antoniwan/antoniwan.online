@@ -1,6 +1,7 @@
 import { defineMiddleware } from 'astro:middleware';
 import { SITE } from './config/site';
 import { withUtm } from './utils/utm';
+import { outboundEvent } from './utils/outbound';
 
 const ownHost = new URL(SITE.url).host;
 
@@ -11,6 +12,8 @@ const ownHost = new URL(SITE.url).host;
  * this site, mailto links, and links that set their own target stay as written.
  * Links to Antonio's other sites also get ?utm_source=antoniwan.online
  * (utils/utm.ts), except rel="me" links, which must match the profile exactly.
+ * Every outbound link also carries an Umami click event, "outbound", with the
+ * host it goes to and its address without the query (utils/outbound.ts).
  * NoteList's browser script does the same for the links it draws.
  */
 export const onRequest = defineMiddleware(async (_context, next) => {
@@ -24,6 +27,7 @@ export const onRequest = defineMiddleware(async (_context, next) => {
       const tagged = withUtm(href.replaceAll('&amp;', '&')).replaceAll('&', '&amp;');
       attrs = attrs.replace(/(\shref=")[^"]+"/, (_match, start: string) => `${start}${tagged}"`);
     }
+    if (!/\sdata-umami-event=/.test(attrs)) attrs += outboundEvent(href.replaceAll('&amp;', '&'));
     if (/\starget=/.test(attrs)) return `<a${attrs}>`;
     const withRel = /\srel="/.test(attrs)
       ? attrs.replace(/\srel="([^"]*)"/, ' rel="$1 noopener"')

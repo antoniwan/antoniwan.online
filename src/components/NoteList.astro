@@ -81,6 +81,11 @@ const { notes, count } = Astro.props;
           link.href = tag(item.url);
           link.target = '_blank';
           link.rel = 'noopener';
+          // The same Umami click event the middleware gives built links (utils/outbound.ts).
+          const target = new URL(item.url);
+          link.dataset.umamiEvent = 'outbound';
+          link.dataset.umamiEventTo = target.hostname;
+          link.dataset.umamiEventUrl = target.origin + target.pathname;
           const title = document.createElement('h3');
           title.className = 'essay__title';
           title.textContent = item.title;
