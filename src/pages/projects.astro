@@ -106,7 +106,7 @@ const schema = {
           <div class="project__text">
             {project.featured?.art !== 'logo' && <h3><a href={project.href}>{project.title}</a></h3>}
             <p class="project__line">{project.featured?.line}</p>
-            <p class="project__body project__body--short">{project.body}</p>
+            <p class="project__body">{project.body}</p>
             <p class="project__action"><a class="button" href={project.href}>{project.featured?.action}</a></p>
             <ProjectMeta project={project} />
           </div>
