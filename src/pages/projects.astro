@@ -10,12 +10,13 @@ import { projects, workForOthers } from '../data/projects';
 // Every fact below comes from the card in src/data/projects.ts; nothing is added that the card does not say.
 const author = { '@id': SITE.personId };
 const company = { '@type': 'Organization', name: SITE.company.name, url: SITE.company.url };
-// The games and picture books lead as big tiles; the rest follow as a compact list.
+// The games, the desktop app, and the picture books lead as big tiles; the rest follow as a compact list.
 const featured = projects.filter(project => project.featured);
 const others = projects.filter(project => !project.featured);
 // The schema.org type and the facts the card states beyond its title, link and text.
 const schemaByTitle: Record<string, Record<string, unknown>> = {
   'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
+  'Unblinking': { '@type': 'SoftwareApplication', applicationCategory: 'DesktopEnhancementApplication', operatingSystem: 'Windows', isAccessibleForFree: true, image: `${SITE.url}/projects/unblinking.webp` },
   'The Object': { '@type': 'VideoGame', gamePlatform: 'Web browser', genre: 'Art game', isAccessibleForFree: true, image: `${SITE.url}/projects/the-object.webp` },
   'Lifesworn': { '@type': 'VideoGame' },
   'Uplift': { '@type': 'VideoGame', gamePlatform: 'Web browser', publisher: company },
@@ -56,7 +57,7 @@ const schema = {
 
 <Base
   title="Projects"
-  description="Projects by Antonio Rodríguez Martínez: his games and picture books first, then apps, tools and websites, and work for others."
+  description="Projects by Antonio Rodríguez Martínez: his games, a desktop companion, and picture books first, then apps, tools and websites, and work for others."
   mainEntity={listId}
 >
   <PageIntro label="Projects" title="Things I've built">
@@ -70,7 +71,7 @@ const schema = {
       <h2 id="projects-title">My own</h2>
       <a class="project-history-link" href="#work-for-others">Work &amp; experiments ↓</a>
     </div>
-    <ul class="featured" id="featured" aria-label="Games and picture books">
+    <ul class="featured" id="featured" aria-label="Games, apps, and picture books">
       {featured.map(project => (
         <li class="project project--featured" id={project.featured?.id}>
           {project.featured?.art === 'logo' ? (

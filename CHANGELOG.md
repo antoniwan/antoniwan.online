@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.41.0 — 2026-10-28
+
+- Feature Unblinking on Projects and Home: a small magical eye that lives on your desktop, finds your face through the webcam, and watches. Its tile shows the eye whispering "I see you." from the app's own recording, on its own near-black. It links its public repository.
+- Describe it as free software for Windows by me in the Projects structured data, and name it in About, on Home's Making row, and in the opening of `/llms.txt`.
+
 ## 1.40.2 — 2026-10-28
 
 - Remove three Fraunces font files that nothing on the site used.

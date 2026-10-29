@@ -18,7 +18,7 @@ export interface Project {
   /** A still from the work itself, for a featured tile with no logo. Decoration: the title sits under it. */
   still?: { src: string; width: number; height: number };
   /**
-   * The games and picture books lead Projects as big tiles, and Home shows the same four as small ones.
+   * The games, the desktop app, and the picture books lead Projects as big tiles, and Home shows the same four as small ones.
    * `art` is the logo, a still from the work, or one of the books' CSS illustrations; `line` is one short fact under the text.
    */
   featured?: { id: string; art: 'logo' | 'still' | 'sky' | 'line'; line: string };
@@ -29,6 +29,16 @@ export interface Project {
  * Work I built and handed over to others is in workForOthers.
  */
 export const projects: Project[] = [
+  {
+    title: 'Unblinking',
+    category: 'apps-and-tools',
+    href: 'https://github.com/antoniwan/unblinking-desktop',
+    repo: 'https://github.com/antoniwan/unblinking-desktop',
+    body: 'A small magical eye that lives on your desktop. It finds your face through your webcam and watches: it locks on when you sit down, hunts when you leave, flinches at a bang, and whispers, in nine moods drawn from schools of magic. It runs entirely on your computer and never goes online. I rewrote it from Electron in Rust: one 27 MB exe, at under a third of the memory.',
+    stack: 'Rust, wgpu, on-device face tracking',
+    still: { src: '/projects/unblinking.webp', width: 320, height: 320 },
+    featured: { id: 'unblinking', art: 'still', line: 'Open source · Windows' },
+  },
   {
     title: 'The Object',
     category: 'games-and-books',
