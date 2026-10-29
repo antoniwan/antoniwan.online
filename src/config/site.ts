@@ -20,7 +20,7 @@ export const SITE = {
   domain: 'antoniwan.online',
   email: 'antonio@builds.software',
   description:
-    'Antonio Rodríguez Martínez (antoniwan): technical program manager, maker of two small games and other web things, essayist at Notes, and father. From Puerto Rico, in Florida.',
+    'Antonio Rodríguez Martínez (antoniwan): technical program manager, maker of games, a desktop app, and other web things, essayist at Notes, and father. From Puerto Rico, in Florida.',
   notesUrl: 'https://notes.antoniwan.online',
   /** The newest posts, small enough for the browser to fetch. See utils/notes.ts. */
   notesLatest: 'https://notes.antoniwan.online/latest.json',

@@ -405,8 +405,6 @@ figure { margin: 0; }
 .project__label { margin: 0 0 .5rem; color: var(--muted); font: 500 .6875rem/1.6 var(--font-mono); letter-spacing: .11em; text-transform: uppercase; }
 .project .project__line { margin: 0 0 .6rem; color: var(--accent); font: 500 .75rem/1.6 var(--font-mono); letter-spacing: .02em; }
 .project__body { margin: 0 0 1rem; color: var(--ink-2); font-size: .9375rem; }
-/* The shelf keeps its three cards level by showing the first three lines; the whole text stays in the page. */
-.project__body--short { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
 /* The button and the meta line sit at the foot of each tile, so they line up across a row. */
 .project__action { margin: auto 0 .5rem; }
 .project__action .button { min-height: 44px; }
