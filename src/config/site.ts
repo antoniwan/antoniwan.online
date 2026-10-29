@@ -26,6 +26,18 @@ export const SITE = {
   notesLatest: 'https://notes.antoniwan.online/latest.json',
   /** Antonio's other sites, subdomains included. Links to them carry ?utm_source= with this site's domain (see utils/utm.ts), so their Web Analytics can count the visits that came from here. */
   ownSites: ['antoniwan.online', 'lifesworn.com', 'uplifttowergame.com', 'stronghandssoftheart.com'],
+  /**
+   * Umami, self-hosted, counts visits next to Vercel Web Analytics and keeps them past 31 days.
+   * Both values come from the build's environment (PUBLIC_UMAMI_HOST, PUBLIC_UMAMI_WEBSITE_ID);
+   * without them the script is left out. The server serves its script as /p.js and takes hits at
+   * /api/k (TRACKER_SCRIPT_NAME and COLLECT_API_ENDPOINT on the Umami side), names the common
+   * blocklists don't know. Hits go straight to it, not through a rewrite here: Vercel replaces the
+   * visitor's IP on proxied requests, and Umami needs it to tell visitors apart and place them.
+   */
+  umami: {
+    host: import.meta.env.PUBLIC_UMAMI_HOST as string | undefined,
+    websiteId: import.meta.env.PUBLIC_UMAMI_WEBSITE_ID as string | undefined,
+  },
   repo: 'https://github.com/antoniwan/antoniwan.online',
   company: {
     name: 'Strong Hands, Soft Heart',

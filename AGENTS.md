@@ -9,7 +9,7 @@ This repository is public. Anything you commit is published.
 - `src/config/site.ts`: facts about the site and Antonio. `src/data/`: links, projects, principles, and the collection snapshots. Edit data, not pages.
 - `src/layouts/Base.astro`: every page's head, Open Graph tags, and the shared JSON-LD graph (WebSite, page node, BreadcrumbList, Person).
 - `src/pages/llms.txt.ts`: `/llms.txt`, built from the same data as the pages.
-- `docs/`: one guide per collection (`collections.md` for Books, `movies.md`, `games.md`).
+- `docs/`: one guide per collection (`collections.md` for Books, `movies.md`, `games.md`), and `analytics.md` for Vercel Web Analytics and Umami.
 - `scripts/`: data exports, the Wikidata link matchers (`link-books`, `link-movies`, `link-games`), share-card drawing, and the `/llms.txt` check. After a snapshot refresh adds entries, run the matching `link-*` script.
 
 ## When you change the site

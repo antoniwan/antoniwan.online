@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.44.0 — 2026-10-29
+
+- Count visits with Umami, self-hosted, next to Vercel Web Analytics: no cookies, no stored IP addresses, Do Not Track respected, and history kept past 31 days. The script loads only when the build names the Umami server and the site's ID.
+- Record a click on any link to another site as an `outbound` event with where it went, so I can see who goes on to Lifesworn, Unblinking, Uplift, or Notes. The essays list on Home tags the links it redraws the same way.
+- Add `docs/analytics.md`: what the site sends, how to set up the server, and how to keep my own visits out.
+
 ## 1.43.0 — 2026-10-29
 
 - Tag every link to my other sites (Notes, Lifesworn, Uplift, The Object, Cookbook, Strong Hands Soft Heart, and the two picture books) with `?utm_source=antoniwan.online`, so each site's analytics can show who came from here. The essays list on Home tags the links it redraws the same way. Profile links marked `rel="me"` and files such as `llms.txt` stay untagged.
