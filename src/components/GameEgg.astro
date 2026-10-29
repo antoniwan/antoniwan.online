@@ -1,4 +1,5 @@
 ---
+import { cta } from '../utils/cta';
 // A hidden game, Signal. Open it with the Konami code on a keyboard, or by tapping an element
 // marked data-egg-trigger five times quickly. The game's code loads only then.
 ---
@@ -17,7 +18,7 @@
     <h2 class="egg__title" data-title>Signal</h2>
     <p class="egg__lede" data-lede></p>
     <p class="egg__result" data-result hidden></p>
-    <button type="button" class="egg__start" data-primary>Start</button>
+    <button type="button" class="egg__start" data-primary {...cta('egg-start')}>Start</button>
     <p class="egg__keys egg__keys--fine">Arrow keys or WASD to move. Space starts. P pauses. Esc closes.</p>
     <p class="egg__keys egg__keys--coarse">Drag anywhere to move the neuron.</p>
   </div>

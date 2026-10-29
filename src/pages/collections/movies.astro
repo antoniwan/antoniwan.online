@@ -1,4 +1,5 @@
 ---
+import { cta } from '../../utils/cta';
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import CollectionTabs from '../../components/CollectionTabs.astro';
@@ -30,7 +31,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'ItemList', '@id': l
       <label>Search movies<input id="movie-search" name="q" type="search" placeholder="Title or release year" aria-controls="movie-list" autocomplete="off" /></label>
       <label>My rating<select id="movie-rating" name="rating" aria-controls="movie-list"><option value="">All ratings</option><option value="4">4 stars and above</option><option value="3">3 stars and above</option><option value="unrated">Not rated</option></select></label>
       <label>Release decade<select id="movie-decade" name="decade" aria-controls="movie-list"><option value="">All decades</option>{decades.map(decade => <option value={decade}>{decade}s</option>)}</select></label>
-      <button class="book-reset" type="reset">Clear filters</button>
+      <button class="book-reset" type="reset" {...cta('clear-filters')}>Clear filters</button>
     </form>
     <div class="book-results"><p id="movie-results" role="status" aria-live="polite" aria-atomic="true">{movies.length} films</p><span>Titles A–Z</span></div>
     <ul class="book-list" id="movie-list" aria-label="Movies">

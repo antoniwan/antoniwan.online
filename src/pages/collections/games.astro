@@ -1,4 +1,5 @@
 ---
+import { cta } from '../../utils/cta';
 import Base from '../../layouts/Base.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import CollectionTabs from '../../components/CollectionTabs.astro';
@@ -56,7 +57,7 @@ const schema = {
       <label>Status<select id="game-status" name="status" aria-controls="game-list"><option value="">All statuses</option>{statuses.map(status => <option value={status}>{gameStatusLabels[status]}</option>)}</select></label>
       <label>Platform<select id="game-platform" name="platform" aria-controls="game-list"><option value="">All platforms</option>{platforms.map(platform => <option value={platform}>{platform}</option>)}</select></label>
       <label>Release decade<select id="game-decade" name="decade" aria-controls="game-list"><option value="">All decades</option>{decades.map(decade => <option value={decade}>{decadeLabel(decade)}</option>)}{hasUndated && <option value="none">Year not recorded</option>}</select></label>
-      <button class="book-reset" type="reset">Clear filters</button>
+      <button class="book-reset" type="reset" {...cta('clear-filters')}>Clear filters</button>
     </form>
     <div class="book-results"><p id="game-results" role="status" aria-live="polite" aria-atomic="true">{games.length} games</p><span>Titles A–Z</span></div>
     <div class="games-folds" id="game-list">

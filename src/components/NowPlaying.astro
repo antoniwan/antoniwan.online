@@ -1,4 +1,5 @@
 ---
+import { cta } from '../utils/cta';
 import type { Game } from '../data/games';
 import { gameLinks, games as snapshot, hoursConfidenceLabels } from '../data/games';
 import { projects } from '../data/projects';
@@ -39,7 +40,7 @@ const headerUrl = (id: string) => `https://shared.akamai.steamstatic.com/store_i
         </p>
         <h3>{game.title}</h3>
         {game.hours && game.hours.value !== null && <p class="now-card__hours">{game.hours.display} <span class="game-conf" data-confidence={game.hours.confidence}>{hoursConfidenceLabels[game.hours.confidence]}</span></p>}
-        {game.builtByMe && game.href && <p class="now-card__links"><a href={game.href}>{game.linkLabel ?? `Visit ${game.title}`}</a><a href={`/projects#${game.id}`}>About the project</a></p>}
+        {game.builtByMe && game.href && <p class="now-card__links"><a href={game.href} {...cta('now-playing-visit')}>{game.linkLabel ?? `Visit ${game.title}`}</a><a href={`/projects#${game.id}`}>About the project</a></p>}
       </li>;
     })}
   </ul>

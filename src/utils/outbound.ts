@@ -5,7 +5,12 @@
  * attributes to append to an <a>.
  */
 export function outboundEvent(href: string): string {
+  return ` data-umami-event="outbound"${outboundTarget(href)}`;
+}
+
+/** The `to` and `url` attributes alone, for a link that already names its event (a call to action). */
+export function outboundTarget(href: string): string {
   const url = new URL(href);
   const escape = (value: string) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
-  return ` data-umami-event="outbound" data-umami-event-to="${escape(url.hostname)}" data-umami-event-url="${escape(url.origin + url.pathname)}"`;
+  return ` data-umami-event-to="${escape(url.hostname)}" data-umami-event-url="${escape(url.origin + url.pathname)}"`;
 }

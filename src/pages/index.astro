@@ -1,4 +1,5 @@
 ---
+import { cta } from '../utils/cta';
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import LinkList from '../components/LinkList.astro';
@@ -67,13 +68,13 @@ const [firstName, ...familyName] = SITE.name.split(' ');
         is where most of the writing comes from.
     </p>
     <div class="hero__actions">
-      <a class="button" href="#writing">Read my writing</a>
-      <a class="text-link" href="/about">About me</a>
+      <a class="button" href="#writing" {...cta('read-my-writing')}>Read my writing</a>
+      <a class="text-link" href="/about" {...cta('about-me')}>About me</a>
     </div>
   </section>
 
   <aside class="business-note" aria-label="Consulting">
-    <p>For consulting, visit my company, <a href={SITE.company.consultingUrl}>{SITE.company.name}</a>.</p>
+    <p>For consulting, visit my company, <a href={SITE.company.consultingUrl} {...cta('consulting')}>{SITE.company.name}</a>.</p>
   </aside>
 
   <Seam />
@@ -85,7 +86,7 @@ const [firstName, ...familyName] = SITE.name.split(' ');
         I write at <a href={SITE.notesUrl}>Notes</a>: essays on fatherhood, philosophy, culture and work,
         and the recipes we cook at home.
       </p>
-      <a class="text-link" href={`${SITE.notesUrl}/everything`}>Every post</a>
+      <a class="text-link" href={`${SITE.notesUrl}/everything`} {...cta('every-post')}>Every post</a>
     </div>
     <div class="section__body">
       <NoteList notes={notes} count={NOTE_COUNT} />
