@@ -37,18 +37,24 @@ const { notes, count } = Astro.props;
   }
 </div>
 
-<script is:inline define:vars={{ feedUrl: SITE.notesLatest, count }}>
+<script is:inline define:vars={{ feedUrl: SITE.notesLatest, count, source: SITE.domain }}>
   // The list above is from the last build. Fetch the newest posts and redraw it
   // only if Notes has published since, so the list never needs a rebuild.
   (() => {
     const box = document.querySelector('[data-notes]');
     if (!box || !window.fetch) return;
+    // Built links carry ?utm_source= (see middleware.ts); tag the fetched ones the same way.
+    const tag = (url) => {
+      const href = new URL(url);
+      href.searchParams.set('utm_source', source);
+      return href.toString();
+    };
     const shown = [...box.querySelectorAll('.essays a')].map((a) => a.href).join(' ');
     fetch(feedUrl)
       .then((response) => (response.ok ? response.json() : null))
       .then((feed) => {
         const items = (feed?.items ?? []).slice(0, count);
-        if (!items.length || items.map((item) => item.url).join(' ') === shown) return;
+        if (!items.length || items.map((item) => tag(item.url)).join(' ') === shown) return;
         const list = document.createElement('ul');
         list.className = 'essays';
         for (const item of items) {
@@ -72,7 +78,7 @@ const { notes, count } = Astro.props;
           });
           const link = document.createElement('a');
           link.className = 'essay';
-          link.href = item.url;
+          link.href = tag(item.url);
           link.target = '_blank';
           link.rel = 'noopener';
           const title = document.createElement('h3');
