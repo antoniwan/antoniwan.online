@@ -13,7 +13,7 @@ import tongue from '../portrait-tongue-2026-10.avif';
 <Base
   profile
   title="About"
-  description="Who Antonio Rodríguez Martínez is, what he makes, how he works, and the principles behind the work: a technical program manager and former CTO who still writes code and is learning to make games."
+  description="Who Antonio Rodríguez Martínez is, what he makes, how he works, and the principles behind the work: a technical program manager and former CTO who is learning to make games, directing the AI agents that write the code."
 >
   <PageIntro label="About" title="Who I am">
     <Fragment slot="portrait">
@@ -46,7 +46,8 @@ import tongue from '../portrait-tongue-2026-10.avif';
       />
     </Fragment>
       I'm Antonio Rodríguez Martínez. Technical program manager at Stanley Black &amp; Decker, and a
-      former CTO. I still <a href="/projects">write code</a>.
+      former CTO. I don't <a href={`${SITE.notesUrl}/p/i-dont-write-the-code`}>write the code</a> anymore:
+      AI agents do, and I make the calls.
   </PageIntro>
 
   <section class="section prose" id="work">
@@ -95,12 +96,17 @@ import tongue from '../portrait-tongue-2026-10.avif';
     <p>
       Outside work I'm learning to make games. <a href="/projects#uplift">Uplift</a> is my take on
       SimTower, free in your browser. <a href="/projects#lifesworn">Lifesworn</a> is the action RPG I've
-      been dreaming about for years, and I make it alone, in Godot. <a href="/projects#the-object">The Object</a> is
+      been dreaming about for years, made in Godot with no team. <a href="/projects#the-object">The Object</a> is
       an art piece about first contact: a liquid thing on a white page that learns you back. <a href="/projects#unblinking">Unblinking</a> is
       a small magical eye for your desktop, written in Rust, that finds your face and watches. I also wrote two bilingual picture
       books, <a href="/projects#mia-the-sun-and-the-moon">Mia, the Sun, and the Moon</a> and{' '}
       <a href="/projects#the-bent-one">The Bent One</a>. I write about all of it at{' '}
       <a href={SITE.notesUrl}>Notes</a>.
+    </p>
+    <p>
+      I don't type the code for any of them. AI agents do. I decide what each one is, how it should
+      feel, and what not to build yet; I test it, and I understand what it builds. When AI is in the work,
+      I say so.
     </p>
   </section>
 
