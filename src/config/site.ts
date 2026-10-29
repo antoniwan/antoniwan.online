@@ -24,6 +24,8 @@ export const SITE = {
   notesUrl: 'https://notes.antoniwan.online',
   /** The newest posts, small enough for the browser to fetch. See utils/notes.ts. */
   notesLatest: 'https://notes.antoniwan.online/latest.json',
+  /** Antonio's other sites, subdomains included. Links to them carry ?utm_source= with this site's domain (see utils/utm.ts), so their Web Analytics can count the visits that came from here. */
+  ownSites: ['antoniwan.online', 'lifesworn.com', 'uplifttowergame.com', 'stronghandssoftheart.com'],
   repo: 'https://github.com/antoniwan/antoniwan.online',
   company: {
     name: 'Strong Hands, Soft Heart',

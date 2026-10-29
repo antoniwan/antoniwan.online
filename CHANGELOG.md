@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.43.0 — 2026-10-29
+
+- Tag every link to my other sites (Notes, Lifesworn, Uplift, The Object, Cookbook, Strong Hands Soft Heart, and the two picture books) with `?utm_source=antoniwan.online`, so each site's analytics can show who came from here. The essays list on Home tags the links it redraws the same way. Profile links marked `rel="me"` and files such as `llms.txt` stay untagged.
+
 ## 1.42.0 — 2026-10-29
 
 - Give Projects an order: Lifesworn opens the page as one wide tile, Unblinking, The Object, and Uplift sit on a shelf of three level cards, and the two picture books follow as small tiles.

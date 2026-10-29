@@ -1,5 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { SITE } from './config/site';
+import { withUtm } from './utils/utm';
 
 const ownHost = new URL(SITE.url).host;
 
@@ -8,6 +9,8 @@ const ownHost = new URL(SITE.url).host;
  * (and in dev), so each <a> that points at another site gets target="_blank"
  * and rel="noopener", next to any rel it already has (such as "me"). Links on
  * this site, mailto links, and links that set their own target stay as written.
+ * Links to Antonio's other sites also get ?utm_source=antoniwan.online
+ * (utils/utm.ts), except rel="me" links, which must match the profile exactly.
  * NoteList's browser script does the same for the links it draws.
  */
 export const onRequest = defineMiddleware(async (_context, next) => {
@@ -16,7 +19,12 @@ export const onRequest = defineMiddleware(async (_context, next) => {
 
   const html = (await response.text()).replace(/<a\b([^>]*)>/g, (tag, attrs: string) => {
     const href = attrs.match(/\shref="(https?:\/\/[^"]+)"/)?.[1];
-    if (!href || new URL(href).host === ownHost || /\starget=/.test(attrs)) return tag;
+    if (!href || new URL(href).host === ownHost) return tag;
+    if (!/\srel="([^"]*\s)?me[\s"]/.test(attrs)) {
+      const tagged = withUtm(href.replaceAll('&amp;', '&')).replaceAll('&', '&amp;');
+      attrs = attrs.replace(/(\shref=")[^"]+"/, (_match, start: string) => `${start}${tagged}"`);
+    }
+    if (/\starget=/.test(attrs)) return `<a${attrs}>`;
     const withRel = /\srel="/.test(attrs)
       ? attrs.replace(/\srel="([^"]*)"/, ' rel="$1 noopener"')
       : `${attrs} rel="noopener"`;
