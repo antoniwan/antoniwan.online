@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.44.2 — 2026-10-29
+
+- Tell the truth on About: I don't write the code anymore. Claude Code does, and I make the calls. The intro links my Notes post "I Don't Write the Code", Making things says what I do on each project, and `/llms.txt` and the page description no longer say I still write code.
+
 ## 1.44.1 — 2026-10-29
 
 - Add `favicon.ico` (16, 32, and 48 px, drawn from `favicon.svg`) for the services that can't read an SVG icon, such as the icon lookup Stats uses to show each site.
