@@ -9,7 +9,7 @@ Neither sees bots that don't run JavaScript. Only server logs would.
 
 ## What the site sends
 
-`Base.astro` adds Umami's script only when the build has both `PUBLIC_UMAMI_HOST` (the Umami server, such as `https://umami-antoniwan.vercel.app`) and `PUBLIC_UMAMI_WEBSITE_ID`. Local builds and any build without them stay script-free.
+`Base.astro` adds Umami's script only when the build has both `PUBLIC_UMAMI_HOST` (the Umami server, such as `https://antoniwan-stats.vercel.app`) and `PUBLIC_UMAMI_WEBSITE_ID`. Local builds and any build without them stay script-free.
 
 - `data-domains="antoniwan.online"`: hits from previews, localhost, or a copy of the site are dropped.
 - `data-do-not-track="true"`: a browser that sends Do Not Track is not counted.
@@ -25,7 +25,7 @@ The script and its hits go straight to the Umami server, not through a rewrite o
 Do this once. The same server takes other sites later: add a website in Umami and set the two variables on that site's Vercel project.
 
 1. **Make the server.** Either:
-   - **Vercel + Neon (free).** In the SHSH team, New Project → Clone template → `https://github.com/umami-software/umami` (Vercel copies it into a repo of yours). Name it `umami-antoniwan`. Then Storage → Create Database → Neon, free plan, connect it to the project for all environments. That sets `DATABASE_URL`. In Settings → Git → Ignored Build Step, choose "Only build production", so pushes to other branches don't spend the 100-a-day deploy cap.
+   - **Vercel + Neon (free).** In the SHSH team, New Project → Clone template → `https://github.com/umami-software/umami` (Vercel copies it into a repo of yours). Name it `antoniwan-stats`: it serves every site, and a name without "umami" in it is one fewer thing for blocklists to match. Then Storage → Create Database → Neon, free plan, connect it to the project for all environments. That sets `DATABASE_URL`. In Settings → Git → Ignored Build Step, choose "Only build production", so pushes to other branches don't spend the 100-a-day deploy cap.
    - **Railway.** In the project that runs Remark42, New → Template → Umami (it brings its own Postgres). Settings → Networking → Generate Domain.
 2. **Set the server's variables**, then redeploy it:
    - `TRACKER_SCRIPT_NAME` = `p.js`
