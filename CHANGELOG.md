@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.42.0 — 2026-10-29
+
+- Give Projects an order: Lifesworn opens the page as one wide tile, Unblinking, The Object, and Uplift sit on a shelf of three level cards, and the two picture books follow as small tiles.
+- Give each of those projects one button that says what you can do: Visit lifesworn.com, Get it on GitHub, Touch the Object, Play Uplift, Read it online, Read it free.
+- Show Also made as a three-column index under its own heading, with no empty cell at the end.
+
 ## 1.41.0 — 2026-10-28
 
 - Feature Unblinking on Projects and Home: a small magical eye that lives on your desktop, finds your face through the webcam, and watches. Its tile shows the eye whispering "I see you." from the app's own recording, on its own near-black. It links its public repository.
