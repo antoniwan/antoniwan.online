@@ -25,7 +25,7 @@ The script and its hits go straight to the Umami server, not through a rewrite o
 Do this once. The same server takes other sites later: add a website in Umami and set the two variables on that site's Vercel project.
 
 1. **Make the server.** Either:
-   - **Vercel + Neon (free).** In the SHSH team, New Project → Clone template → `https://github.com/umami-software/umami` (Vercel copies it into a repo of yours). Name it `antoniwan-stats`: it serves every site, and a name without "umami" in it is one fewer thing for blocklists to match. Then Storage → Create Database → Neon, free plan, connect it to the project for all environments. That sets `DATABASE_URL`. In Settings → Git → Ignored Build Step, choose "Only build production", so pushes to other branches don't spend the 100-a-day deploy cap.
+   - **Vercel + Neon (free).** In the SHSH team, New Project → Clone template → `https://github.com/umami-software/umami` (Vercel copies it into a repo of yours). Name the repo `umami`, since it is Umami and stays easy to sync with upstream. Name the Vercel project `antoniwan-stats`: it serves every site, and it becomes the public address, where a name without "umami" is one fewer thing for blocklists to match. Then Storage → Create Database → Neon, free plan, connect it to the project for all environments. That sets `DATABASE_URL`. In Settings → Git → Ignored Build Step, choose "Only build production", so pushes to other branches don't spend the 100-a-day deploy cap.
    - **Railway.** In the project that runs Remark42, New → Template → Umami (it brings its own Postgres). Settings → Networking → Generate Domain.
 2. **Set the server's variables**, then redeploy it:
    - `TRACKER_SCRIPT_NAME` = `p.js`
