@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-10-26T16:50:31.964Z",
+  "refreshedAt": "2026-11-04T18:05:44.501Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -440,6 +440,21 @@
       ]
     },
     {
+      "id": "onslaught-2026",
+      "title": "Onslaught",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/1/6/7/3/2/8/1167328-onslaught-2026-0-600-0-900-crop.jpg?v=54130fd313",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1570059739",
+          "href": "https://letterboxd.com/antoniwan/film/onslaught-2026/",
+          "watchedOn": "2026-10-31",
+          "rating": 3,
+          "rewatch": false
+        }
+      ]
+    },
+    {
       "id": "passenger-2026",
       "title": "Passenger",
       "year": 2026,
@@ -565,6 +580,13 @@
       "year": 2026,
       "posterUrl": "https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc",
       "watches": [
+        {
+          "id": "letterboxd-watch-1570059943",
+          "href": "https://letterboxd.com/antoniwan/film/spider-man-brand-new-day/1/",
+          "watchedOn": "2026-11-02",
+          "rating": 4.5,
+          "rewatch": true
+        },
         {
           "id": "letterboxd-watch-1528265053",
           "href": "https://letterboxd.com/antoniwan/film/spider-man-brand-new-day/",
@@ -766,6 +788,21 @@
           "watchedOn": "2026-08-16",
           "rating": 3.5,
           "rewatch": true
+        }
+      ]
+    },
+    {
+      "id": "verity-2026",
+      "title": "Verity",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/1/6/7/1/5/1/1167151-verity-2026-0-600-0-900-crop.jpg?v=3169444893",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1570060102",
+          "href": "https://letterboxd.com/antoniwan/film/verity-2026/",
+          "watchedOn": "2026-11-02",
+          "rating": 3,
+          "rewatch": false
         }
       ]
     },

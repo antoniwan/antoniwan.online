@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26",
+  "generatedAt": "2026-11-04",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -136,6 +136,11 @@
       "wikipedia": null,
       "imdb": "https://www.imdb.com/title/tt24326458/"
     },
+    "onslaught-2026": {
+      "wikidata": "Q131451703",
+      "wikipedia": "https://en.wikipedia.org/wiki/Onslaught_(film)",
+      "imdb": "https://www.imdb.com/title/tt32268691/"
+    },
     "passenger-2026": {
       "wikidata": "Q137708152",
       "wikipedia": "https://en.wikipedia.org/wiki/Passenger_(2026_film)",
@@ -245,6 +250,11 @@
       "wikidata": "Q607363",
       "wikipedia": "https://en.wikipedia.org/wiki/This_Is_the_End",
       "imdb": "https://www.imdb.com/title/tt1245492/"
+    },
+    "verity-2026": {
+      "wikidata": "Q131523413",
+      "wikipedia": "https://en.wikipedia.org/wiki/Verity_(film)",
+      "imdb": "https://www.imdb.com/title/tt32261958/"
     },
     "voicemails-for-isabelle": {
       "wikidata": "Q139665886",
