@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-11-04T18:05:44.501Z",
+  "refreshedAt": "2026-11-06T17:34:44.057Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -95,6 +95,36 @@
       ]
     },
     {
+      "id": "batman-knightfall-part-1-knightfall",
+      "title": "Batman: Knightfall Part 1: Knightfall",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/4/3/3/3/2/9/1433329-batman-knightfall-part-1-knightfall-0-600-0-900-crop.jpg?v=9577ab1b3d",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1574342346",
+          "href": "https://letterboxd.com/antoniwan/film/batman-knightfall-part-1-knightfall/",
+          "watchedOn": "2026-10-20",
+          "rating": 4,
+          "rewatch": false
+        }
+      ]
+    },
+    {
+      "id": "bring-her-back",
+      "title": "Bring Her Back",
+      "year": 2025,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/0/3/7/6/2/7/1037627-bring-her-back-0-600-0-900-crop.jpg?v=defe1dae77",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1574341488",
+          "href": "https://letterboxd.com/antoniwan/film/bring-her-back/1/",
+          "watchedOn": "2026-11-05",
+          "rating": 4.5,
+          "rewatch": false
+        }
+      ]
+    },
+    {
       "id": "bugonia",
       "title": "Bugonia",
       "year": 2025,
@@ -120,6 +150,21 @@
           "href": "https://letterboxd.com/antoniwan/film/cleaner/",
           "watchedOn": "2026-08-10",
           "rating": 2.5,
+          "rewatch": false
+        }
+      ]
+    },
+    {
+      "id": "coyote-vs-acme",
+      "title": "Coyote vs. Acme",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/0/8/9/0/8/8/1089088-coyote-vs-acme-0-600-0-900-crop.jpg?v=735eb10cc7",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1574341572",
+          "href": "https://letterboxd.com/antoniwan/film/coyote-vs-acme/",
+          "watchedOn": "2026-11-06",
+          "rating": 3,
           "rewatch": false
         }
       ]
@@ -315,6 +360,21 @@
           "href": "https://letterboxd.com/antoniwan/film/hokum/",
           "watchedOn": "2026-08-14",
           "rating": 4,
+          "rewatch": false
+        }
+      ]
+    },
+    {
+      "id": "jackass-best-and-last",
+      "title": "Jackass: Best and Last",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/4/8/1/8/5/1/1481851-jackass-best-and-last-0-600-0-900-crop.jpg?v=42485392b4",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1574368125",
+          "href": "https://letterboxd.com/antoniwan/film/jackass-best-and-last/",
+          "watchedOn": "2026-11-06",
+          "rating": 3,
           "rewatch": false
         }
       ]

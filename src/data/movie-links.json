@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04",
+  "generatedAt": "2026-11-06",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -26,6 +26,16 @@
       "wikipedia": "https://en.wikipedia.org/wiki/Backrooms_(film)",
       "imdb": "https://www.imdb.com/title/tt26657236/"
     },
+    "batman-knightfall-part-1-knightfall": {
+      "wikidata": "Q141503933",
+      "wikipedia": null,
+      "imdb": "https://www.imdb.com/title/tt32333324/"
+    },
+    "bring-her-back": {
+      "wikidata": "Q127602379",
+      "wikipedia": "https://en.wikipedia.org/wiki/Bring_Her_Back",
+      "imdb": "https://www.imdb.com/title/tt32246771/"
+    },
     "bugonia": {
       "wikidata": "Q125971387",
       "wikipedia": "https://en.wikipedia.org/wiki/Bugonia_(film)",
@@ -35,6 +45,11 @@
       "wikidata": "Q1099448",
       "wikipedia": "https://en.wikipedia.org/wiki/Cleaner_(2007_film)",
       "imdb": "https://www.imdb.com/title/tt0896798/"
+    },
+    "coyote-vs-acme": {
+      "wikidata": "Q106392679",
+      "wikipedia": "https://en.wikipedia.org/wiki/Coyote_vs._Acme",
+      "imdb": "https://www.imdb.com/title/tt1756855/"
     },
     "cradle-2-the-grave": {
       "wikidata": "Q837536",
@@ -95,6 +110,11 @@
       "wikidata": "Q133397105",
       "wikipedia": "https://en.wikipedia.org/wiki/Hokum_(film)",
       "imdb": "https://www.imdb.com/title/tt35672862/"
+    },
+    "jackass-best-and-last": {
+      "wikidata": "Q138035676",
+      "wikipedia": "https://en.wikipedia.org/wiki/Jackass:_Best_and_Last",
+      "imdb": "https://www.imdb.com/title/tt39316472/"
     },
     "kraven-the-hunter": {
       "wikidata": "Q107390449",
