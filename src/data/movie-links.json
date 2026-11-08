@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06",
+  "generatedAt": "2026-11-08",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -116,6 +116,11 @@
       "wikipedia": "https://en.wikipedia.org/wiki/Jackass:_Best_and_Last",
       "imdb": "https://www.imdb.com/title/tt39316472/"
     },
+    "knock-at-the-cabin": {
+      "wikidata": "Q111684978",
+      "wikipedia": "https://en.wikipedia.org/wiki/Knock_at_the_Cabin",
+      "imdb": "https://www.imdb.com/title/tt8272064/"
+    },
     "kraven-the-hunter": {
       "wikidata": "Q107390449",
       "wikipedia": "https://en.wikipedia.org/wiki/Kraven_the_Hunter_(film)",
@@ -140,6 +145,11 @@
       "wikidata": "Q117830073",
       "wikipedia": "https://en.wikipedia.org/wiki/Mortal_Kombat_II_(film)",
       "imdb": "https://www.imdb.com/title/tt17490712/"
+    },
+    "musk-2026": {
+      "wikidata": "Q117253374",
+      "wikipedia": "https://en.wikipedia.org/wiki/Musk_(film)",
+      "imdb": "https://www.imdb.com/title/tt27041231/"
     },
     "nope": {
       "wikidata": "Q107176162",

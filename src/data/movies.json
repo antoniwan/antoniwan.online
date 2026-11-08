@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-11-06T17:34:44.057Z",
+  "refreshedAt": "2026-11-08T16:43:58.948Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -380,6 +380,21 @@
       ]
     },
     {
+      "id": "knock-at-the-cabin",
+      "title": "Knock at the Cabin",
+      "year": 2023,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/5/5/8/0/5/6/558056-knock-at-the-cabin-0-600-0-900-crop.jpg?v=a60bcc3c00",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1577067135",
+          "href": "https://letterboxd.com/antoniwan/film/knock-at-the-cabin/",
+          "watchedOn": "2026-11-07",
+          "rating": 4.5,
+          "rewatch": true
+        }
+      ]
+    },
+    {
       "id": "kraven-the-hunter",
       "title": "Kraven the Hunter",
       "year": 2024,
@@ -449,6 +464,21 @@
           "id": "letterboxd-watch-1328457876",
           "href": "https://letterboxd.com/antoniwan/film/mortal-kombat-ii/",
           "watchedOn": "2026-05-24",
+          "rating": 4,
+          "rewatch": false
+        }
+      ]
+    },
+    {
+      "id": "musk-2026",
+      "title": "Musk",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/9/8/8/3/5/5/988355-musk-2026-0-600-0-900-crop.jpg?v=88e21d42e2",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1577489777",
+          "href": "https://letterboxd.com/antoniwan/film/musk-2026/",
+          "watchedOn": "2026-11-08",
           "rating": 4,
           "rewatch": false
         }
