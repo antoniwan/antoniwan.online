@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.45.1 — 2026-11-11
+
+- Home and About carry my Person record inside the profile page's structured data instead of pointing to it by ID, so a reader that doesn't follow the pointer still sees my profiles elsewhere (`sameAs`) and job title. Nothing on the page changes.
+
 ## 1.45.0 — 2026-10-29
 
 - Count each call to action as a `cta` click event with a label (Read my writing, About me, Every post, the email and company links, each project's button, Clear filters, Back to top, and the rest), so the ones nobody uses can go. A call to action that leaves the site still counts as a click out, once.

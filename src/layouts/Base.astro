@@ -90,11 +90,12 @@ const structuredData = {
       isPartOf: { '@id': website['@id'] },
       ...(breadcrumbList ? { breadcrumb: { '@id': breadcrumbId } } : {}),
       about: { '@id': SITE.personId },
-      ...(profile ? { mainEntity: { '@id': SITE.personId } } : {}),
+      // A profile page carries the Person itself, so a reader that does not follow @id still sees sameAs and jobTitle.
+      ...(profile ? { mainEntity: person } : {}),
       ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
     },
     ...(breadcrumbList ? [breadcrumbList] : []),
-    person,
+    ...(profile ? [] : [person]),
   ],
 };
 ---
