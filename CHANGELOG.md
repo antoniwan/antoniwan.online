@@ -3,6 +3,7 @@
 ## 1.45.1 — 2026-11-11
 
 - Home and About carry my Person record inside the profile page's structured data instead of pointing to it by ID, so a reader that doesn't follow the pointer still sees my profiles elsewhere (`sameAs`) and job title. Nothing on the page changes.
+- Drop `worksFor` (my employer) from the structured data. The pages still say where I work; the machine-readable copy added nothing for readers.
 
 ## 1.45.0 — 2026-10-29
 
