@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.45.1 — 2026-11-11
+
+- The home page answers a request for Markdown (`Accept: text/markdown`) with the site's `llms.txt` as `text/markdown`, and both versions of the home page carry `Vary: Accept`. Browsers still get the HTML page.
+- Agents that ask for Markdown (`Accept: text/markdown`) at an address with no page now get a short Markdown 404 that links to `/llms.txt`, the sitemap, and the home page. The status stays 404, and browsers get the same HTML 404 page as before.
+
 ## 1.45.0 — 2026-10-29
 
 - Count each call to action as a `cta` click event with a label (Read my writing, About me, Every post, the email and company links, each project's button, Clear filters, Back to top, and the rest), so the ones nobody uses can go. A call to action that leaves the site still counts as a click out, once.
