@@ -50,7 +50,6 @@ const person = {
   email: SITE.email,
   image: { '@type': 'ImageObject', url: versioned(SITE.portraitImage), width: 800, height: 800, caption: SITE.portraitAlt },
   jobTitle: 'Technical Program Manager',
-  worksFor: { '@type': 'Organization', name: 'Stanley Black & Decker', url: 'https://www.stanleyblackanddecker.com' },
   homeLocation: { '@type': 'State', name: 'Florida', sameAs: 'https://www.wikidata.org/wiki/Q812' },
   birthPlace: { '@type': 'Place', name: 'Puerto Rico', sameAs: 'https://www.wikidata.org/wiki/Q1183' },
   knowsLanguage: SITE.languages,
@@ -90,11 +89,12 @@ const structuredData = {
       isPartOf: { '@id': website['@id'] },
       ...(breadcrumbList ? { breadcrumb: { '@id': breadcrumbId } } : {}),
       about: { '@id': SITE.personId },
-      ...(profile ? { mainEntity: { '@id': SITE.personId } } : {}),
+      // A profile page carries the Person itself, so a reader that does not follow @id still sees sameAs and jobTitle.
+      ...(profile ? { mainEntity: person } : {}),
       ...(mainEntity ? { mainEntity: { '@id': mainEntity } } : {}),
     },
     ...(breadcrumbList ? [breadcrumbList] : []),
-    person,
+    ...(profile ? [] : [person]),
   ],
 };
 ---

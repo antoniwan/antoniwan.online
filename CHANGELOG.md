@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.45.2 — 2026-11-11
+
+- Home and About carry my Person record inside the profile page's structured data instead of pointing to it by ID, so a reader that doesn't follow the pointer still sees my profiles elsewhere (`sameAs`) and job title. Nothing on the page changes.
+- Drop `worksFor` (my employer) from the structured data. The pages still say where I work; the machine-readable copy added nothing for readers.
+
 ## 1.45.1 — 2026-11-11
 
 - The home page answers a request for Markdown (`Accept: text/markdown`) with the site's `llms.txt` as `text/markdown`, and both versions of the home page carry `Vary: Accept`. Browsers still get the HTML page.
