@@ -2,5 +2,19 @@
   "framework": "astro",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [{ "source": "/code", "destination": "/projects", "permanent": true }]
+  "redirects": [
+    { "source": "/code", "destination": "/projects", "permanent": true }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/|_).*)",
+      "has": [
+        { "type": "header", "key": "accept", "value": ".*text/markdown.*" }
+      ],
+      "destination": "/api/agent-404"
+    }
+  ],
+  "headers": [
+    { "source": "/", "headers": [{ "key": "Vary", "value": "Accept" }] }
+  ]
 }
