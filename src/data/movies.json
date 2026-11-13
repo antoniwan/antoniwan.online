@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-11-08T16:43:58.948Z",
+  "refreshedAt": "2026-11-13T17:53:31.589Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -630,6 +630,21 @@
           "href": "https://letterboxd.com/antoniwan/film/ruthless-2023/",
           "watchedOn": "2026-07-18",
           "rating": 0.5,
+          "rewatch": false
+        }
+      ]
+    },
+    {
+      "id": "sacrifice-2025",
+      "title": "Sacrifice",
+      "year": 2025,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/1/6/7/3/3/1/1167331-sacrifice-2025-0-600-0-900-crop.jpg?v=01ff016a43",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1584210670",
+          "href": "https://letterboxd.com/antoniwan/film/sacrifice-2025/",
+          "watchedOn": "2026-11-12",
+          "rating": 3.5,
           "rewatch": false
         }
       ]
