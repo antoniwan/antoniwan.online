@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.46.1 — 2026-11-14
+
+- Point Keys Wizard at its new address, keys.antoniwan.online, on Projects and in the structured data.
+
 ## 1.46.0 — 2026-11-14
 
 - Add Keys Wizard to Projects, under Apps & tools: a page that teaches me songs on my MIDI keyboard. The structured data describes it as a web application.
