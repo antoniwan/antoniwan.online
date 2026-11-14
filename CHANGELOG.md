@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.47.0 — 2026-11-14
+
+- Give Keys Wizard a tile with a picture on Projects, like the games and Unblinking, and a small tile on Home. The picture is a still of its falling notes and keyboard.
+- Show the four shelf tiles on Projects two to a row, in place of three columns.
+- Name Keys Wizard's own llms.txt in `/llms.txt`.
+
 ## 1.46.1 — 2026-11-14
 
 - Point Keys Wizard at its new address, keys.antoniwan.online, on Projects and in the structured data.

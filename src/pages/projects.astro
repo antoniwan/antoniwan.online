@@ -14,15 +14,14 @@ const author = { '@id': SITE.personId };
 const company = { '@type': 'Organization', name: SITE.company.name, url: SITE.company.url };
 const featured = projects.filter(project => project.featured);
 const others = projects.filter(project => !project.featured);
-// One wide tile leads, the games and the app sit on a shelf of equals, and the picture books follow as small tiles.
+// One wide tile leads, the games and the apps sit on a shelf of equals, two to a row, and the picture books follow as small tiles.
 const isBook = (project: Project) => project.featured?.art === 'sky' || project.featured?.art === 'line';
 const lead = featured.find(project => project.featured?.lead);
 const shelf = featured.filter(project => project !== lead && !isBook(project));
 const books = featured.filter(isBook);
 // The schema.org type and the facts the card states beyond its title, link and text.
 const schemaByTitle: Record<string, Record<string, unknown>> = {
-  // The same @id as the WebApplication node on the Keys Wizard site, so both describe one app.
-  'Keys Wizard': { '@type': 'WebApplication', '@id': 'https://keys.antoniwan.online/#app' },
+  'Keys Wizard': { '@type': 'WebApplication', isAccessibleForFree: true, image: `${SITE.url}/projects/keys-wizard.webp` },
   'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
   'Unblinking': { '@type': 'SoftwareApplication', applicationCategory: 'DesktopEnhancementApplication', operatingSystem: 'Windows', isAccessibleForFree: true, image: `${SITE.url}/projects/unblinking.webp` },
   'The Object': { '@type': 'VideoGame', gamePlatform: 'Web browser', genre: 'Art game', isAccessibleForFree: true, image: `${SITE.url}/projects/the-object.webp` },
@@ -65,7 +64,7 @@ const schema = {
 
 <Base
   title="Projects"
-  description="Projects by Antonio Rodríguez Martínez: his games, a desktop companion, and picture books first, then apps, tools and websites, and work for others."
+  description="Projects by Antonio Rodríguez Martínez: his games, apps, and picture books first, then apps, tools and websites, and work for others."
   mainEntity={listId}
 >
   <PageIntro label="Projects" title="Things I've built">

@@ -38,11 +38,11 @@ Principles: ${principles.map((p) => p.title).join('; ')}.
 - [Movies](${url('/collections/movies')}): recent public Letterboxd watches and a growing saved list of ${count(movies.movies.length)} films, not a complete viewing history; public data at ${url('/collections/movies.json')}
 - [Games](${url('/collections/games')}): play log of ${count(games.games.length)} games, each playing, played, or up next, with platforms and hours marked by how far they can be trusted (tracked, estimate, or at least), not a complete record of time played; what he is playing now at the top; titles link to Wikipedia, to Steam where sold there, and to his Notes review where he wrote one; public data at ${url('/collections/games.json')}
 - [Cookbook](https://cookbook.antoniwan.online/): family recipes in English and Spanish, with its own public home
-- [Projects](${url('/projects')}): the things he makes and still runs, his games, desktop app, and picture books first (each is listed under Projects below), and the work he did for others: ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}
+- [Projects](${url('/projects')}): the things he makes and still runs, his games, apps, and picture books first (each is listed under Projects below), and the work he did for others: ${workForOthers.flatMap(group => group.entries).map(entry => entry.title).join('; ')}
 
 ## Projects
 
-In his words. Uplift (https://uplifttowergame.com/llms.txt), Lifesworn (https://lifesworn.com/llms.txt), and The Object (https://the-object.antoniwan.online/llms.txt) have their own llms.txt.
+In his words. Uplift (https://uplifttowergame.com/llms.txt), Lifesworn (https://lifesworn.com/llms.txt), The Object (https://the-object.antoniwan.online/llms.txt), and Keys Wizard (https://keys.antoniwan.online/llms.txt) have their own llms.txt.
 
 ${projectCategories
   .map(

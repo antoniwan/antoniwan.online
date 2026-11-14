@@ -18,7 +18,7 @@ export interface Project {
   /** A still from the work itself, for a featured tile with no logo. Decoration: the title sits under it. */
   still?: { src: string; width: number; height: number };
   /**
-   * The games, the desktop app, and the picture books lead Projects as big tiles, and Home shows the same four as small ones.
+   * The games, the apps, and the picture books lead Projects as big tiles, and Home shows the same ones as small tiles.
    * `art` is the logo, a still from the work, or one of the books' CSS illustrations; `line` is one short fact under the text;
    * `action` labels the tile's one button, which opens `href`. `lead` makes it the wide tile that opens Projects (one project only).
    */
@@ -37,6 +37,8 @@ export const projects: Project[] = [
     repo: 'https://github.com/antoniwan/keys-wizard',
     body: 'A page that teaches me songs on my MIDI keyboard. I open a MIDI, Guitar Pro, or tab file, the notes fall onto the keys, and the song waits until I play the right one. A staff above the notes helps me learn to read music.',
     stack: 'TypeScript, Vite, Web MIDI',
+    still: { src: '/projects/keys-wizard.webp', width: 960, height: 720 },
+    featured: { id: 'keys-wizard', art: 'still', line: 'Free in your browser', action: 'Open Keys Wizard' },
   },
   {
     title: 'Unblinking',

@@ -383,6 +383,7 @@ figure { margin: 0; }
 .project-art--still img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .project-art--the-object { background: #f0f0ef; }
 .project-art--unblinking { background: #0d0b10; }
+.project-art--keys-wizard { background: #0d0a19; }
 @media (prefers-reduced-motion: reduce) { .project-art--stage img { transition: none; } .project__frame:hover img { transform: none; } }
 .project-art.project-art--tile { height: 120px; margin-bottom: .75rem; }
 .project-art--tile.project-art--stage { padding: 1rem; }
@@ -390,7 +391,7 @@ figure { margin: 0; }
 .project-art--tile .is-pixelated { height: 76px; }
 .project-art--tile .book-art__shape { scale: .62; }
 
-/* Projects: Lifesworn leads as one wide tile, the games and the app sit on a shelf of equals, the picture books follow as small
+/* Projects: Lifesworn leads as one wide tile, the games and the apps sit on a shelf of equals, two to a row, the picture books follow as small
    tiles, and everything else is a three-column index. Each tile has one button that opens the project. */
 .project { display: grid; min-width: 0; background: var(--paper-2); border-radius: 12px; scroll-margin-top: 2rem; }
 .project:target { outline: 2px solid var(--accent); outline-offset: 5px; }
@@ -446,7 +447,7 @@ figure { margin: 0; }
 @media (min-width: 48rem) {
   .project--lead { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: center; gap: 2rem; padding: 1.25rem; }
   .project--lead .project__text { padding: .5rem 1rem .5rem 0; }
-  .project-shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .project-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-books { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project--book { grid-template-columns: 8rem minmax(0, 1fr); gap: 1.25rem; padding: 1rem; }
   .project--book .project-art { height: 8rem; }
