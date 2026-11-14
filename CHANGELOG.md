@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.46.0 — 2026-11-14
+
+- Add Keys Wizard to Projects, under Apps & tools: a page that teaches me songs on my MIDI keyboard. The structured data describes it as a web application.
+
 ## 1.45.2 — 2026-11-11
 
 - Home and About carry my Person record inside the profile page's structured data instead of pointing to it by ID, so a reader that doesn't follow the pointer still sees my profiles elsewhere (`sameAs`) and job title. Nothing on the page changes.

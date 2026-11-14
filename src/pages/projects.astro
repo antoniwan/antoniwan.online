@@ -21,6 +21,8 @@ const shelf = featured.filter(project => project !== lead && !isBook(project));
 const books = featured.filter(isBook);
 // The schema.org type and the facts the card states beyond its title, link and text.
 const schemaByTitle: Record<string, Record<string, unknown>> = {
+  // The same @id as the WebApplication node on the Keys Wizard site, so both describe one app.
+  'Keys Wizard': { '@type': 'WebApplication', '@id': 'https://keys-wizard.vercel.app/#app' },
   'Cookbook': { '@type': 'WebSite', inLanguage: ['en', 'es'] },
   'Unblinking': { '@type': 'SoftwareApplication', applicationCategory: 'DesktopEnhancementApplication', operatingSystem: 'Windows', isAccessibleForFree: true, image: `${SITE.url}/projects/unblinking.webp` },
   'The Object': { '@type': 'VideoGame', gamePlatform: 'Web browser', genre: 'Art game', isAccessibleForFree: true, image: `${SITE.url}/projects/the-object.webp` },
