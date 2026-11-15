@@ -13,6 +13,7 @@ Neither sees bots that don't run JavaScript. Only server logs would.
 
 - `data-domains="antoniwan.online"`: hits from previews, localhost, or a copy of the site are dropped.
 - `data-do-not-track="true"`: a browser that sends Do Not Track is not counted.
+- `data-errors="true"`: the page's uncaught script errors go to the Errors tab (Umami 3.5.0 and later). Umami strips emails, tokens, and query strings from each report and caps how many it takes a minute.
 - Every link to another site carries the click event `outbound`, with `to` (the host) and `url` (the address without its query). The middleware adds it at build time (`src/utils/outbound.ts`); NoteList adds it to the essays it redraws. In Umami, Events → `outbound` → the `to` property shows how many people left for Lifesworn, Unblinking's GitHub, Uplift, Notes, and the rest.
 - Every call to action carries the click event `cta`, with `label` naming it: `read-my-writing`, `about-me`, `every-post`, `consulting`, `email`, `company`, `source`, `pause-animation`, `back-to-top`, `now-playing-visit`, `all-films`, `letterboxd-diary`, `egg-start`, `clear-filters`, and `project-<id>` for each button on Projects. Add one with `{...cta('name')}` (`src/utils/cta.ts`). A call to action that leaves the site also gets `to` and `url` and skips `outbound`, so each click is counted once. Tasteless lists every label beside its page's views, to find the ones nobody uses.
 - Incoming `?utm_*` tags show under Umami's UTM report.

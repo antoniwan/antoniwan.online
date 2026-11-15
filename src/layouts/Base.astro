@@ -141,7 +141,7 @@ const structuredData = {
     {!noindex && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     {
       SITE.umami.host && SITE.umami.websiteId && (
-        <script is:inline defer src={`${SITE.umami.host}/p.js`} data-website-id={SITE.umami.websiteId} data-domains={SITE.domain} data-do-not-track="true" />
+        <script is:inline defer src={`${SITE.umami.host}/p.js`} data-website-id={SITE.umami.websiteId} data-domains={SITE.domain} data-do-not-track="true" data-errors="true" />
       )
     }
     <script is:inline>
