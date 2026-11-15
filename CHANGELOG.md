@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.47.1 — 2026-11-15
+
+- Report the page's script errors to Stats, which now has an Errors tab (Umami 3.5.0). Umami strips emails, tokens, and query strings from each report.
+
 ## 1.47.0 — 2026-11-14
 
 - Give Keys Wizard a tile with a picture on Projects, like the games and Unblinking, and a small tile on Home. The picture is a still of its falling notes and keyboard.
