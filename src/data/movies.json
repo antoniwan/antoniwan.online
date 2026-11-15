@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-11-13T17:53:31.589Z",
+  "refreshedAt": "2026-11-15T17:16:34.234Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -316,6 +316,21 @@
           "watchedOn": "2026-06-14",
           "rating": 3.5,
           "rewatch": true
+        }
+      ]
+    },
+    {
+      "id": "godzilla-minus-zero",
+      "title": "Godzilla Minus Zero",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/2/6/6/6/8/4/1266684-godzilla-minus-zero-0-600-0-900-crop.jpg?v=38989be61d",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1586963266",
+          "href": "https://letterboxd.com/antoniwan/film/godzilla-minus-zero/",
+          "watchedOn": "2026-11-14",
+          "rating": 4.5,
+          "rewatch": false
         }
       ]
     },

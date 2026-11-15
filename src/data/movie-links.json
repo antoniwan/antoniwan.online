@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13",
+  "generatedAt": "2026-11-15",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -95,6 +95,11 @@
       "wikidata": "Q820009",
       "wikipedia": "https://en.wikipedia.org/wiki/Final_Destination_2",
       "imdb": "https://www.imdb.com/title/tt0309593/"
+    },
+    "godzilla-minus-zero": {
+      "wikidata": "Q136700760",
+      "wikipedia": "https://en.wikipedia.org/wiki/Godzilla_Minus_Zero",
+      "imdb": "https://www.imdb.com/title/tt34384661/"
     },
     "good-fortune-2025": {
       "wikidata": "Q124364757",
