@@ -1,8 +1,12 @@
 # Changelog
 
-## 1.47.1 — 2026-11-15
+## 1.47.2 — 2026-11-15
 
 - Report the page's script errors to Stats, which now has an Errors tab (Umami 3.5.0). Umami strips emails, tokens, and query strings from each report.
+
+## 1.47.1 — 2026-11-15
+
+- Let Lifesworn's art on Projects run to the edges of its tile, like the shelf tiles below it, in place of a framed picture inside the tile.
 
 ## 1.47.0 — 2026-11-14
 
