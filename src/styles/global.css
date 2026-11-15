@@ -415,11 +415,12 @@ figure { margin: 0; }
 /* Keeps the separator with the link it belongs to when the meta row wraps. */
 .project__also { display: inline-flex; align-items: center; gap: 0.3rem; }
 
-.project--lead { gap: 1.25rem; margin-top: 1.5rem; padding: 1rem; }
-.project--lead .project__frame { aspect-ratio: 16 / 9; border-radius: 8px; }
+/* The lead's art runs to the tile's edges, like the shelf below it: no inset frame. */
+.project--lead { margin-top: 1.5rem; overflow: hidden; }
+.project--lead .project__frame { aspect-ratio: 16 / 9; }
 .project--lead .project__frame-title .project__frame { height: 100%; }
 .project--lead .project-art--stage img { max-width: 70%; max-height: 60%; }
-.project--lead .project__text { padding: 0 .5rem; }
+.project--lead .project__text { padding: 1.25rem 1.25rem .25rem; }
 
 .project-shelf { display: grid; gap: 1rem; margin-top: 1rem; }
 .project--shelf { grid-template-rows: auto 1fr; overflow: hidden; }
@@ -445,8 +446,10 @@ figure { margin: 0; }
 .project-row .project__meta { display: flex; align-items: center; flex-wrap: wrap; gap: .3rem; margin: 0; min-height: 44px; color: var(--muted); font: .6875rem/1.6 var(--font-mono); }
 
 @media (min-width: 48rem) {
-  .project--lead { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: center; gap: 2rem; padding: 1.25rem; }
-  .project--lead .project__text { padding: .5rem 1rem .5rem 0; }
+  .project--lead { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 2rem; }
+  .project--lead .project__frame-title { height: 100%; }
+  .project--lead .project__frame { aspect-ratio: auto; height: 100%; min-height: 20rem; }
+  .project--lead .project__text { align-self: center; padding: 1.5rem 1.5rem 1rem 0; }
   .project-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-books { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project--book { grid-template-columns: 8rem minmax(0, 1fr); gap: 1.25rem; padding: 1rem; }

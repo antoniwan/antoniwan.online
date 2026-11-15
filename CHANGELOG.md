@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.47.1 — 2026-11-15
+
+- Let Lifesworn's art on Projects run to the edges of its tile, like the shelf tiles below it, in place of a framed picture inside the tile.
+
 ## 1.47.0 — 2026-11-14
 
 - Give Keys Wizard a tile with a picture on Projects, like the games and Unblinking, and a small tile on Home. The picture is a still of its falling notes and keyboard.
