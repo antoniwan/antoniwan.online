@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-11-15T17:16:34.234Z",
+  "refreshedAt": "2026-11-16T20:34:20.052Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -877,6 +877,21 @@
           "href": "https://letterboxd.com/antoniwan/film/the-mechanic/",
           "watchedOn": "2026-08-10",
           "rating": 2,
+          "rewatch": false
+        }
+      ]
+    },
+    {
+      "id": "the-odyssey-2026",
+      "title": "The Odyssey",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1589028806",
+          "href": "https://letterboxd.com/antoniwan/film/the-odyssey-2026/",
+          "watchedOn": "2026-11-15",
+          "rating": 5,
           "rewatch": false
         }
       ]

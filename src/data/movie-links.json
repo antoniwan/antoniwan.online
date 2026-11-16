@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15",
+  "generatedAt": "2026-11-16",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -275,6 +275,11 @@
       "wikidata": "Q598558",
       "wikipedia": "https://en.wikipedia.org/wiki/The_Mechanic_(1972_film)",
       "imdb": "https://www.imdb.com/title/tt0068931/"
+    },
+    "the-odyssey-2026": {
+      "wikidata": "Q131547207",
+      "wikipedia": "https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)",
+      "imdb": "https://www.imdb.com/title/tt33764258/"
     },
     "the-whisper-man": {
       "wikidata": "Q133852597",
