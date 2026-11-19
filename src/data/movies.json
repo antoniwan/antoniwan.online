@@ -2,7 +2,7 @@
   "version": 1,
   "profileUrl": "https://letterboxd.com/antoniwan/",
   "rssUrl": "https://letterboxd.com/antoniwan/rss/",
-  "refreshedAt": "2026-11-16T20:34:20.052Z",
+  "refreshedAt": "2026-11-19T19:03:39.456Z",
   "movies": [
     {
       "id": "72-hours-2026",
@@ -316,6 +316,21 @@
           "watchedOn": "2026-06-14",
           "rating": 3.5,
           "rewatch": true
+        }
+      ]
+    },
+    {
+      "id": "funny-money-the-dane-cook-story",
+      "title": "Funny Money: The Dane Cook Story",
+      "year": 2026,
+      "posterUrl": "https://a.ltrbxd.com/resized/film-poster/1/6/2/2/7/9/0/1622790-funny-money-the-dane-cook-story-0-600-0-900-crop.jpg?v=13e7eb88c6",
+      "watches": [
+        {
+          "id": "letterboxd-watch-1593523800",
+          "href": "https://letterboxd.com/antoniwan/film/funny-money-the-dane-cook-story/",
+          "watchedOn": "2026-11-19",
+          "rating": 2.5,
+          "rewatch": false
         }
       ]
     },
