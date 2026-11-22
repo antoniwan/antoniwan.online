@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19",
+  "generatedAt": "2026-11-22",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -190,6 +190,11 @@
       "wikidata": "Q148429",
       "wikipedia": "https://en.wikipedia.org/wiki/Practical_Magic",
       "imdb": "https://www.imdb.com/title/tt0120791/"
+    },
+    "primetime-2026": {
+      "wikidata": "Q133273688",
+      "wikipedia": "https://en.wikipedia.org/wiki/Primetime_(film)",
+      "imdb": "https://www.imdb.com/title/tt34206385/"
     },
     "ready-or-not-2019": {
       "wikidata": "Q58815115",
