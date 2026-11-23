@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22",
+  "generatedAt": "2026-11-23",
   "links": {
     "72-hours-2026": {
       "wikidata": "Q136339220",
@@ -95,6 +95,11 @@
       "wikidata": "Q820009",
       "wikipedia": "https://en.wikipedia.org/wiki/Final_Destination_2",
       "imdb": "https://www.imdb.com/title/tt0309593/"
+    },
+    "flatliners-2017": {
+      "wikidata": "Q26252643",
+      "wikipedia": "https://en.wikipedia.org/wiki/Flatliners_(2017_film)",
+      "imdb": "https://www.imdb.com/title/tt2039338/"
     },
     "godzilla-minus-zero": {
       "wikidata": "Q136700760",
@@ -295,6 +300,11 @@
       "wikidata": "Q607363",
       "wikipedia": "https://en.wikipedia.org/wiki/This_Is_the_End",
       "imdb": "https://www.imdb.com/title/tt1245492/"
+    },
+    "trap-2024": {
+      "wikidata": "Q124077893",
+      "wikipedia": "https://en.wikipedia.org/wiki/Trap_(2024_film)",
+      "imdb": "https://www.imdb.com/title/tt26753003/"
     },
     "verity-2026": {
       "wikidata": "Q131523413",
